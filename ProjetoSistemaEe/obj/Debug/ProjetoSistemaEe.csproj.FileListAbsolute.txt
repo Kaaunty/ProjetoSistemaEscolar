@@ -1,0 +1,13 @@
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\bin\Debug\ProjetoSistemaEe.exe.config
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\bin\Debug\ProjetoSistemaEe.exe
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\bin\Debug\ProjetoSistemaEe.pdb
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.csproj.AssemblyReference.cache
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.csproj.SuggestedBindingRedirects.cache
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.Form1.resources
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.Properties.Resources.resources
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.csproj.GenerateResource.cache
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.exe
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.pdb
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.csproj.CopyComplete
