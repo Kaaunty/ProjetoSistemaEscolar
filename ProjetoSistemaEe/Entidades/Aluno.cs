@@ -2,13 +2,14 @@
 {
     internal class Aluno : Pessoa
     {
-        int RA;
-        string curso;
-        string periodo;
-        string turno;
-        string email;
+        private int ra;
+        private string curso;
 
-        public int RA1 { get => RA; set => RA = value; }
+        private string periodo;
+        private string turno;
+        private string email;
+
+        public int RA { get => ra; set => ra = value; }
         public string Curso { get => curso; set => curso = value; }
         public string Periodo { get => periodo; set => periodo = value; }
         public string Turno { get => turno; set => turno = value; }

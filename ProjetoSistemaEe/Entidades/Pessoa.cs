@@ -1,34 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetoSistemaEe.Entidades
 {
     internal class Pessoa
     {
-        string nome;
-        string estadocivil;
-        string telefone;
-        string cep;
-        string estado;
-        string cidade;
-        string bairro;
-        string rua;
-        DateTime datanascimento;
-        string genero;
+        private string nome;
+        private string estadocivil;
+        private string telefone;
+        private string cep;
+        private string cidade;
+        private string bairro;
+        private string rua;
+        private DateTime datanascimento;
+        private string genero;
+        private string materia;
+        private string uf;
+        private string numerorua;
+        private string estadoCivil;
 
         public string Nome { get => nome; set => nome = value; }
         public string Estadocivil { get => estadocivil; set => estadocivil = value; }
         public string Telefone { get => telefone; set => telefone = value; }
         public string Cep { get => cep; set => cep = value; }
-        public string Estado { get => estado; set => estado = value; }
+
         public string Cidade { get => cidade; set => cidade = value; }
         public string Bairro { get => bairro; set => bairro = value; }
         public string Rua { get => rua; set => rua = value; }
         public DateTime Datanascimento { get => datanascimento; set => datanascimento = value; }
         public string Genero { get => genero; set => genero = value; }
+        public string Materia { get => materia; set => materia = value; }
+        public string Uf { get => uf; set => uf = value; }
+        public string Numerorua { get => numerorua; set => numerorua = value; }
+        public string EstadoCivil { get => estadoCivil; set => estadoCivil = value; }
     }
-
 }

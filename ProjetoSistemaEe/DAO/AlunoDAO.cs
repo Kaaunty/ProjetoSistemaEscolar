@@ -1,0 +1,98 @@
+﻿using MySql.Data.MySqlClient;
+using ProjetoSistemaEe.Entidades;
+using System;
+using System.Data;
+
+namespace ProjetoSistemaEe.DAO
+{
+    internal class AlunoDAO
+    {
+        private MySqlCommand sql;
+        private Conexao con = new Conexao();
+
+        public DataTable ListarAluno()
+        {
+            try
+            {
+                con.AbrirConexao();
+                sql = new MySqlCommand("SELECT * FROM aluno", con.con);
+                MySqlDataAdapter da = new MySqlDataAdapter(sql);
+                da.SelectCommand = sql;
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch (MySqlException ex)
+            {
+                throw new System.Exception(ex.Message);
+            }
+            finally
+            {
+                con.FecharConexao();
+            }
+        }
+
+        public void InserirAluno(Aluno aluno)
+        {
+            try
+            {
+                con.AbrirConexao();
+                sql = new MySqlCommand("INSERT INTO aluno(ra, nome, curso, periodo, materia, estadocivil, genero, datanascimento, email, cep, uf, turno, cidade, bairro, rua, numerorua, telefone) VALUES (@ra, @nome, @curso, @periodo, @materia, @estadocivil, @genero, @datanascimento, @email, @cep, @uf, @turno, @cidade, @bairro, @rua, @numerorua, @telefone)", con.con);
+                sql.Parameters.AddWithValue("@ra", aluno.RA);
+                sql.Parameters.AddWithValue("@nome", aluno.Nome);
+                sql.Parameters.AddWithValue("@curso", aluno.Curso);
+                sql.Parameters.AddWithValue("@periodo", aluno.Periodo);
+                sql.Parameters.AddWithValue("@materia", aluno.Materia);
+                sql.Parameters.AddWithValue("@estadocivil", aluno.EstadoCivil);
+                sql.Parameters.AddWithValue("@genero", aluno.Genero);
+                sql.Parameters.AddWithValue("@datanascimento", aluno.Datanascimento.ToString("yyyy-MM-dd"));
+                sql.Parameters.AddWithValue("@email", aluno.Email);
+                sql.Parameters.AddWithValue("@cep", aluno.Cep);
+                sql.Parameters.AddWithValue("@uf", aluno.Uf);
+                sql.Parameters.AddWithValue("@turno", aluno.Turno);
+                sql.Parameters.AddWithValue("@cidade", aluno.Cidade);
+                sql.Parameters.AddWithValue("@bairro", aluno.Bairro);
+                sql.Parameters.AddWithValue("@rua", aluno.Rua);
+                sql.Parameters.AddWithValue("@numerorua", aluno.Numerorua);
+                sql.Parameters.AddWithValue("@telefone", aluno.Telefone);
+                sql.ExecuteNonQuery();
+                sql.Dispose();
+            }
+            catch (MySqlException ex)
+            {
+                throw new System.Exception(ex.Message);
+            }
+            finally
+            {
+                con.FecharConexao();
+            }
+        }
+
+        internal bool VerificarRA(int ra)
+        {
+            try
+            {
+                con.AbrirConexao();
+                sql = new MySqlCommand("SELECT * FROM aluno WHERE ra = @ra", con.con);
+                sql.Parameters.AddWithValue("@ra", ra);
+                var result = sql.ExecuteScalar();
+                if (result != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw new System.Exception(ex.Message);
+            }
+            finally
+            {
+                con.FecharConexao();
+            }
+        }
+    }
+}

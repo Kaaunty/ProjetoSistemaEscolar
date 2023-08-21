@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.Utils
@@ -11,6 +12,11 @@ namespace ProjetoSistemaEe.Utils
             dateTimePicker.CustomFormat = "dd/MM/yyyy";
             dateTimePicker.MaxDate = maxDate;
             dateTimePicker.MinDate = minDate;
+        }
+
+        public static bool ValidaNumeroOuCaracterEspecial(string nome)
+        {
+            return Regex.IsMatch(nome, @"[\d\W]");
         }
     }
 }
