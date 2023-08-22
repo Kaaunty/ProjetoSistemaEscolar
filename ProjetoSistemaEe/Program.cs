@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI_V_2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace ProjetoSistemaEe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CadastroAluno());
+            Application.Run(new MenuPrincipal());
         }
     }
 }

@@ -2,7 +2,6 @@ C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\bin\Debug\Pro
 C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\bin\Debug\ProjetoSistemaEe.exe
 C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\bin\Debug\ProjetoSistemaEe.pdb
 C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.csproj.AssemblyReference.cache
-C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.csproj.SuggestedBindingRedirects.cache
 C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.csproj.GenerateResource.cache
 C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.csproj.CoreCompileInputs.cache
 C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.exe
@@ -42,3 +41,7 @@ C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\bin\Debug\Sys
 C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.CadastroAluno.resources
 C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.RecursosVisuais.resources
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.View.VisualizarAluno.resources
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.View.CadastroProfessor.resources
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.View.VisualizarProfessor.resources
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.View.MenuPrincipal.resources

@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroAluno));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.cbMateria = new System.Windows.Forms.ComboBox();
             this.CbPeriodo = new System.Windows.Forms.ComboBox();
             this.cbCurso = new System.Windows.Forms.ComboBox();
@@ -65,6 +67,7 @@
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +76,9 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.BackgroundAluno;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.iconButton2);
+            this.panel1.Controls.Add(this.iconButton1);
             this.panel1.Controls.Add(this.cbMateria);
             this.panel1.Controls.Add(this.CbPeriodo);
             this.panel1.Controls.Add(this.cbCurso);
@@ -110,10 +115,32 @@
             this.panel1.Controls.Add(this.txtCidade);
             this.panel1.Controls.Add(this.txtEstado);
             this.panel1.Controls.Add(this.txtNome);
-            this.panel1.Location = new System.Drawing.Point(-1, 1);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1250, 700);
             this.panel1.TabIndex = 0;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
+            this.iconButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.UsersViewfinder;
+            this.iconButton1.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 30;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(783, 633);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(130, 35);
+            this.iconButton1.TabIndex = 46;
+            this.iconButton1.Text = "      Visualizar";
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // cbMateria
             // 
@@ -167,13 +194,14 @@
             // btnNovo
             // 
             this.btnNovo.BackColor = System.Drawing.Color.Transparent;
-            this.btnNovo.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.button;
+            this.btnNovo.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
             this.btnNovo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnNovo.FlatAppearance.BorderSize = 0;
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovo.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnNovo.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.btnNovo.IconColor = System.Drawing.Color.Black;
+            this.btnNovo.IconColor = System.Drawing.Color.WhiteSmoke;
             this.btnNovo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNovo.IconSize = 30;
             this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -191,14 +219,15 @@
             // btnSalvar
             // 
             this.btnSalvar.BackColor = System.Drawing.Color.Transparent;
-            this.btnSalvar.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.button;
+            this.btnSalvar.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
             this.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSalvar.Enabled = false;
             this.btnSalvar.FlatAppearance.BorderSize = 0;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvar.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnSalvar.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.btnSalvar.IconColor = System.Drawing.Color.Black;
+            this.btnSalvar.IconColor = System.Drawing.Color.WhiteSmoke;
             this.btnSalvar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSalvar.IconSize = 35;
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -557,6 +586,28 @@
             this.txtNome.Text = "Nome";
             this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
+            // iconButton2
+            // 
+            this.iconButton2.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton2.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
+            this.iconButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.UsersViewfinder;
+            this.iconButton2.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 30;
+            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.Location = new System.Drawing.Point(359, 633);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(130, 35);
+            this.iconButton2.TabIndex = 47;
+            this.iconButton2.Text = "      Professor";
+            this.iconButton2.UseVisualStyleBackColor = false;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
+            // 
             // CadastroAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -605,14 +656,16 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox cbTurno;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtEmail;
-        private FontAwesome.Sharp.IconButton btnNovo;
+        private System.Windows.Forms.Label label15;
         private FontAwesome.Sharp.IconButton btnSalvar;
-        private System.Windows.Forms.ComboBox cbMateria;
-        private System.Windows.Forms.ComboBox CbPeriodo;
+        private FontAwesome.Sharp.IconButton btnNovo;
         private System.Windows.Forms.ComboBox cbCurso;
+        private System.Windows.Forms.ComboBox CbPeriodo;
+        private System.Windows.Forms.ComboBox cbMateria;
+        private System.Windows.Forms.Panel panel1;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton iconButton2;
     }
 }
 

@@ -2,6 +2,10 @@
 using ProjetoSistemaEe.Entidades;
 using System;
 using System.Data;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Runtime.ConstrainedExecution;
+using System.Windows.Controls.Primitives;
+using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.DAO
 {
@@ -15,7 +19,9 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.AbrirConexao();
-                sql = new MySqlCommand("SELECT * FROM aluno", con.con);
+                sql = new MySqlCommand(@"SELECT ra, nome, curso, periodo, materia, estadocivil, genero, datanascimento,
+                                    email, turno, telefone, cep,CONCAT
+                                    (cidade, '-', uf, ', ', bairro, ', ', rua, ', ', numerorua) AS endereco_completo FROM aluno", con.con);
                 MySqlDataAdapter da = new MySqlDataAdapter(sql);
                 da.SelectCommand = sql;
                 DataTable dt = new DataTable();
@@ -37,7 +43,7 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.AbrirConexao();
-                sql = new MySqlCommand("INSERT INTO aluno(ra, nome, curso, periodo, materia, estadocivil, genero, datanascimento, email, cep, uf, turno, cidade, bairro, rua, numerorua, telefone) VALUES (@ra, @nome, @curso, @periodo, @materia, @estadocivil, @genero, @datanascimento, @email, @cep, @uf, @turno, @cidade, @bairro, @rua, @numerorua, @telefone)", con.con);
+                sql = new MySqlCommand("INSERT INTO aluno(ra, nome, curso, periodo, materia, estadocivil, genero, datanascimento, email, turno, telefone, cep, cidade, uf, bairro, rua, numerorua) VALUES (@ra, @nome, @curso, @periodo, @materia, @estadocivil, @genero, @datanascimento, @email, @turno, @telefone, @cep, @cidade, @uf, @bairro, @rua, @numerorua)", con.con);
                 sql.Parameters.AddWithValue("@ra", aluno.RA);
                 sql.Parameters.AddWithValue("@nome", aluno.Nome);
                 sql.Parameters.AddWithValue("@curso", aluno.Curso);
@@ -47,14 +53,14 @@ namespace ProjetoSistemaEe.DAO
                 sql.Parameters.AddWithValue("@genero", aluno.Genero);
                 sql.Parameters.AddWithValue("@datanascimento", aluno.Datanascimento.ToString("yyyy-MM-dd"));
                 sql.Parameters.AddWithValue("@email", aluno.Email);
-                sql.Parameters.AddWithValue("@cep", aluno.Cep);
-                sql.Parameters.AddWithValue("@uf", aluno.Uf);
                 sql.Parameters.AddWithValue("@turno", aluno.Turno);
+                sql.Parameters.AddWithValue("@telefone", aluno.Telefone);
+                sql.Parameters.AddWithValue("@cep", aluno.Cep);
                 sql.Parameters.AddWithValue("@cidade", aluno.Cidade);
+                sql.Parameters.AddWithValue("@uf", aluno.Uf);
                 sql.Parameters.AddWithValue("@bairro", aluno.Bairro);
                 sql.Parameters.AddWithValue("@rua", aluno.Rua);
                 sql.Parameters.AddWithValue("@numerorua", aluno.Numerorua);
-                sql.Parameters.AddWithValue("@telefone", aluno.Telefone);
                 sql.ExecuteNonQuery();
                 sql.Dispose();
             }

@@ -2,6 +2,7 @@
 using ProjetoSistemaEe.Entidades;
 using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
+using ProjetoSistemaEe.View;
 using System;
 using System.Data;
 using System.Management;
@@ -20,10 +21,6 @@ namespace ProjetoSistemaEe
         public CadastroAluno()
         {
             InitializeComponent();
-            btnNovo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            btnNovo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            btnSalvar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            btnSalvar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -117,7 +114,6 @@ namespace ProjetoSistemaEe
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            //btnNovo.BackgroundImage = RecursosVisuais.button_clicked;
             LimparCampos();
             btnSalvar.Enabled = true;
 
@@ -128,14 +124,13 @@ namespace ProjetoSistemaEe
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            //            btnSalvar.BackgroundImage = RecursosVisuais.button_clicked;
             Aluno alunos = new Aluno();
             Salvar(alunos);
         }
 
         private void Salvar(Aluno aluno)
         {
-            if (VerificarEspaços())
+            if (VerificarEspacos())
             {
                 try
                 {
@@ -147,14 +142,14 @@ namespace ProjetoSistemaEe
                     aluno.EstadoCivil = cbEstadoCivil.Text;
                     aluno.Genero = cbGenero.Text;
                     aluno.Email = txtEmail.Text;
-                    aluno.Cep = txtCEP.Text;
-                    aluno.Uf = txtEstado.Text;
                     aluno.Turno = cbTurno.Text;
+                    aluno.Telefone = txtTelefone.Text;
+                    aluno.Cep = txtCEP.Text;
                     aluno.Cidade = txtCidade.Text;
+                    aluno.Uf = txtEstado.Text;
                     aluno.Bairro = txtBairro.Text;
                     aluno.Rua = txtRua.Text;
                     aluno.Numerorua = txtNum.Text;
-                    aluno.Telefone = txtTelefone.Text;
                     aluno.Datanascimento = Convert.ToDateTime(dtAluno.Text);
                     alunoM.Salvar(aluno);
                     MessageBox.Show("Aluno cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -192,7 +187,7 @@ namespace ProjetoSistemaEe
             cbMateria.ValueMember = "id";
         }
 
-        private bool VerificarEspaços()
+        private bool VerificarEspacos()
         {
             if (txtNome.Text == "")
             {
@@ -432,6 +427,18 @@ namespace ProjetoSistemaEe
         private void BtnHover(object sender, EventArgs e)
         {
             ButtonHelper.ChangeButtonBackgroundImageOnHover((Button)sender);
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            VisualizarAluno visualizarAluno = new VisualizarAluno();
+            visualizarAluno.ShowDialog();
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            CadastroProfessor cadastroProfessor = new CadastroProfessor();
+            cadastroProfessor.ShowDialog();
         }
     }
 }

@@ -73,9 +73,9 @@ namespace ProjetoSistemaEe {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap button {
+        internal static System.Drawing.Bitmap botaoroxo {
             get {
-                object obj = ResourceManager.GetObject("button", resourceCulture);
+                object obj = ResourceManager.GetObject("botaoroxo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace ProjetoSistemaEe {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap button_clicked {
+        internal static System.Drawing.Bitmap botaoroxo_clicked {
             get {
-                object obj = ResourceManager.GetObject("button_clicked", resourceCulture);
+                object obj = ResourceManager.GetObject("botaoroxo_clicked", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace ProjetoSistemaEe {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap button_hover {
+        internal static System.Drawing.Bitmap botaoroxo_hover {
             get {
-                object obj = ResourceManager.GetObject("button_hover", resourceCulture);
+                object obj = ResourceManager.GetObject("botaoroxo_hover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
