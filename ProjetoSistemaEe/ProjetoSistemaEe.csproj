@@ -114,12 +114,15 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="DAO\AlunoDAO.cs" />
+    <Compile Include="DAO\BoletimDAO.cs" />
     <Compile Include="DAO\CursoDAO.cs" />
     <Compile Include="DAO\ProfessorDAO.cs" />
     <Compile Include="Entidades\Aluno.cs" />
+    <Compile Include="Entidades\Boletim.cs" />
     <Compile Include="Entidades\Pessoa.cs" />
     <Compile Include="Entidades\Professor.cs" />
     <Compile Include="Model\AlunoModel.cs" />
+    <Compile Include="Model\BoletimModel.cs" />
     <Compile Include="Model\CursoModel.cs" />
     <Compile Include="Model\ProfessorModel.cs" />
     <Compile Include="RecursosVisuais.Designer.cs">
@@ -130,6 +133,12 @@
     <Compile Include="Utils\ButtonHelper.cs" />
     <Compile Include="Utils\ComboBox.cs" />
     <Compile Include="Utils\Validar.cs" />
+    <Compile Include="View\CadastrarNotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CadastrarNotas.Designer.cs">
+      <DependentUpon>CadastrarNotas.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\CadastroAluno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,7 +156,9 @@
     <Compile Include="View\MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\MenuPrincipal.Designer.cs" />
+    <Compile Include="View\MenuPrincipal.Designer.cs">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\VisualizarAluno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,13 +175,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>RecursosVisuais.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\CadastrarNotas.resx">
+      <DependentUpon>CadastrarNotas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\CadastroAluno.resx">
       <DependentUpon>CadastroAluno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\CadastroProfessor.resx">
       <DependentUpon>CadastroProfessor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\MenuPrincipal.resx" />
+    <EmbeddedResource Include="View\MenuPrincipal.resx">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\VisualizarAluno.resx">
       <DependentUpon>VisualizarAluno.cs</DependentUpon>
     </EmbeddedResource>
@@ -394,6 +410,8 @@
   <ItemGroup>
     <Content Include="Resources\1.png" />
     <Content Include="Resources\2.png" />
+    <None Include="Resources\background_professor.png" />
+    <None Include="Resources\background_aluno.png" />
     <Content Include="Resources\Blue and White Black Simple Registration Form.png" />
     <Content Include="Resources\Boletim Escolar UI.png" />
     <Content Include="Resources\boletim.png" />

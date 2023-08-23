@@ -45,3 +45,4 @@ C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\Pro
 C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.View.CadastroProfessor.resources
 C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.View.VisualizarProfessor.resources
 C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.View.MenuPrincipal.resources
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.View.CadastrarNotas.resources

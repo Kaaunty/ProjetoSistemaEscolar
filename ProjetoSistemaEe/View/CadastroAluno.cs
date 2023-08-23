@@ -429,16 +429,5 @@ namespace ProjetoSistemaEe
             ButtonHelper.ChangeButtonBackgroundImageOnHover((Button)sender);
         }
 
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-            VisualizarAluno visualizarAluno = new VisualizarAluno();
-            visualizarAluno.ShowDialog();
-        }
-
-        private void iconButton2_Click(object sender, EventArgs e)
-        {
-            CadastroProfessor cadastroProfessor = new CadastroProfessor();
-            cadastroProfessor.ShowDialog();
         }
     }
-}
