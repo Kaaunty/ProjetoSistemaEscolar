@@ -36,27 +36,6 @@ namespace ProjetoSistemaEe.View
         private void ListarAluno()
         {
             gridAluno.DataSource = alunoModel.ListarAluno();
-            gridAluno.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
-            gridAluno.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-
-            gridAluno.BorderStyle = BorderStyle.None;
-            gridAluno.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            gridAluno.CellBorderStyle = DataGridViewCellBorderStyle.Single;
-            gridAluno.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
-            gridAluno.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            gridAluno.BackgroundColor = Color.White;
-            gridAluno.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            gridAluno.EnableHeadersVisualStyles = false;
-            gridAluno.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Raised;
-            gridAluno.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 58, 64);
-            gridAluno.Font = new Font("Segoe UI", 9);
-            gridAluno.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9);
-            gridAluno.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 58, 64);
-            gridAluno.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            gridAluno.EnableHeadersVisualStyles = false;
-            gridAluno.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            gridAluno.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             gridAluno.Columns[0].HeaderText = "Código RA";
             gridAluno.Columns[1].HeaderText = "Nome";
             gridAluno.Columns[2].HeaderText = "Curso";

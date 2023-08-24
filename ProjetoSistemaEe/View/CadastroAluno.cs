@@ -2,11 +2,8 @@
 using ProjetoSistemaEe.Entidades;
 using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
-using ProjetoSistemaEe.View;
 using System;
 using System.Data;
-using System.Management;
-using System.Security.Claims;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -428,6 +425,5 @@ namespace ProjetoSistemaEe
         {
             ButtonHelper.ChangeButtonBackgroundImageOnHover((Button)sender);
         }
-
-        }
     }
+}

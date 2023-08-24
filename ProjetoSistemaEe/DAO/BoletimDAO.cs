@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using ProjetoSistemaEe.Entidades;
+using System;
+using System.Data;
 
 namespace ProjetoSistemaEe.DAO
 {

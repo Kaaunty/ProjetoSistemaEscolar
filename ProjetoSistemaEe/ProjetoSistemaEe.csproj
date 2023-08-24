@@ -165,6 +165,12 @@
     <Compile Include="View\VisualizarAluno.Designer.cs">
       <DependentUpon>VisualizarAluno.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\VisualizarBoletim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\VisualizarBoletim.Designer.cs">
+      <DependentUpon>VisualizarBoletim.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\VisualizarProfessor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\VisualizarAluno.resx">
       <DependentUpon>VisualizarAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VisualizarBoletim.resx">
+      <DependentUpon>VisualizarBoletim.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\VisualizarProfessor.resx">
       <DependentUpon>VisualizarProfessor.cs</DependentUpon>
@@ -412,6 +421,7 @@
     <Content Include="Resources\2.png" />
     <None Include="Resources\background_professor.png" />
     <None Include="Resources\background_aluno.png" />
+    <None Include="Resources\Background_Menu.png" />
     <Content Include="Resources\Blue and White Black Simple Registration Form.png" />
     <Content Include="Resources\Boletim Escolar UI.png" />
     <Content Include="Resources\boletim.png" />

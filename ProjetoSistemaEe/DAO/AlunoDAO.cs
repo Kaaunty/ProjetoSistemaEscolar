@@ -1,11 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using ProjetoSistemaEe.Entidades;
-using System;
 using System.Data;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using System.Runtime.ConstrainedExecution;
-using System.Windows.Controls.Primitives;
-using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.DAO
 {

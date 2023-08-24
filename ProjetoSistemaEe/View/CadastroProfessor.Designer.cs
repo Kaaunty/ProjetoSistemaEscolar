@@ -30,7 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtSalario = new System.Windows.Forms.TextBox();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.cbMateria = new System.Windows.Forms.ComboBox();
             this.cbCurso = new System.Windows.Forms.ComboBox();
             this.btnNovo = new FontAwesome.Sharp.IconButton();
@@ -73,7 +72,6 @@
             this.panel1.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.background_professor;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel1.Controls.Add(this.txtSalario);
-            this.panel1.Controls.Add(this.iconButton1);
             this.panel1.Controls.Add(this.cbMateria);
             this.panel1.Controls.Add(this.cbCurso);
             this.panel1.Controls.Add(this.btnNovo);
@@ -119,28 +117,6 @@
             this.txtSalario.TabIndex = 47;
             this.txtSalario.Text = "Salario";
             // 
-            // iconButton1
-            // 
-            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton1.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
-            this.iconButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.UsersViewfinder;
-            this.iconButton1.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 30;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(599, 633);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(130, 35);
-            this.iconButton1.TabIndex = 46;
-            this.iconButton1.Text = "      Visualizar";
-            this.iconButton1.UseVisualStyleBackColor = false;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
-            // 
             // cbMateria
             // 
             this.cbMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -183,7 +159,7 @@
             this.btnNovo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNovo.IconSize = 30;
             this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovo.Location = new System.Drawing.Point(311, 633);
+            this.btnNovo.Location = new System.Drawing.Point(387, 633);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(130, 35);
             this.btnNovo.TabIndex = 42;
@@ -206,7 +182,7 @@
             this.btnSalvar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSalvar.IconSize = 35;
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalvar.Location = new System.Drawing.Point(447, 633);
+            this.btnSalvar.Location = new System.Drawing.Point(523, 633);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(130, 35);
             this.btnSalvar.TabIndex = 41;
@@ -528,8 +504,6 @@
         }
 
         #endregion
-
-        private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.ComboBox cbMateria;
         private System.Windows.Forms.ComboBox cbCurso;
         private FontAwesome.Sharp.IconButton btnNovo;

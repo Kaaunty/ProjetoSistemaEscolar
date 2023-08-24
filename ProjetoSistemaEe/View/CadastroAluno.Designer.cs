@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtCEP = new System.Windows.Forms.MaskedTextBox();
             this.cbMateria = new System.Windows.Forms.ComboBox();
             this.CbPeriodo = new System.Windows.Forms.ComboBox();
             this.cbCurso = new System.Windows.Forms.ComboBox();
@@ -64,7 +65,6 @@
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtCEP = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,6 +115,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1040, 700);
             this.panel1.TabIndex = 0;
+            // 
+            // txtCEP
+            // 
+            this.txtCEP.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCEP.Location = new System.Drawing.Point(614, 202);
+            this.txtCEP.Mask = "00000-000";
+            this.txtCEP.Name = "txtCEP";
+            this.txtCEP.Size = new System.Drawing.Size(206, 29);
+            this.txtCEP.TabIndex = 46;
+            this.txtCEP.Leave += new System.EventHandler(this.txtCEP_Leave);
             // 
             // cbMateria
             // 
@@ -179,7 +189,7 @@
             this.btnNovo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNovo.IconSize = 30;
             this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovo.Location = new System.Drawing.Point(379, 633);
+            this.btnNovo.Location = new System.Drawing.Point(387, 633);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(130, 35);
             this.btnNovo.TabIndex = 42;
@@ -205,7 +215,7 @@
             this.btnSalvar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSalvar.IconSize = 35;
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalvar.Location = new System.Drawing.Point(515, 633);
+            this.btnSalvar.Location = new System.Drawing.Point(523, 633);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(130, 35);
             this.btnSalvar.TabIndex = 41;
@@ -549,16 +559,6 @@
             this.txtNome.TabIndex = 0;
             this.txtNome.Text = "Nome";
             this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
-            // 
-            // txtCEP
-            // 
-            this.txtCEP.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCEP.Location = new System.Drawing.Point(614, 202);
-            this.txtCEP.Mask = "00000-000";
-            this.txtCEP.Name = "txtCEP";
-            this.txtCEP.Size = new System.Drawing.Size(206, 29);
-            this.txtCEP.TabIndex = 46;
-            this.txtCEP.Leave += new System.EventHandler(this.txtCEP_Leave);
             // 
             // CadastroAluno
             // 

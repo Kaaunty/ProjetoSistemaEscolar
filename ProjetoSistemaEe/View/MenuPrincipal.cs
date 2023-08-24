@@ -22,14 +22,24 @@ namespace ProjetoSistemaEe.View
             fh.Show();
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e)
+        private void btnCadastrarAluno_Click(object sender, EventArgs e)
         {
             AbrirFormNoPainel(new CadastroAluno());
+        }
+
+        private void btnVisualizarAluno_Click(object sender, EventArgs e)
+        {
+            AbrirFormNoPainel(new VisualizarAluno());
         }
 
         private void btnCadastrarProf_Click(object sender, EventArgs e)
         {
             AbrirFormNoPainel(new CadastroProfessor());
+        }
+
+        private void btnVisualizarProf_Click(object sender, EventArgs e)
+        {
+            AbrirFormNoPainel(new VisualizarProfessor());
         }
 
         private void btnCadastrarNotas_Click(object sender, EventArgs e)

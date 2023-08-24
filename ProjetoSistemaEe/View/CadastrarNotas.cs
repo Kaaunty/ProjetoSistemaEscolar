@@ -1,6 +1,7 @@
 ﻿using ProjetoSistemaEe.Entidades;
 using ProjetoSistemaEe.Model;
 using System;
+using System.Drawing.Design;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
@@ -17,14 +18,13 @@ namespace ProjetoSistemaEe.View
         private void CadastrarNotas_Load(object sender, EventArgs e)
         {
             LimparCampos();
-            ListarAlunoPorMateria();
+            CarregarGrid();
         }
 
         #region Habilitar,Limpar Campos
 
         private void HabilitarCampos()
         {
-            btnAdicionar.Enabled = true;
             txtN1.Enabled = true;
             txtN2.Enabled = true;
             txtN3.Enabled = true;
@@ -50,42 +50,47 @@ namespace ProjetoSistemaEe.View
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
+            Calcular();
             Boletim boletim = new Boletim();
             Adicionar(boletim);
         }
 
         private void Adicionar(Boletim boletim)
         {
-            try
+            if (VerificarCampos())
             {
-                boletim.IdDisciplina = gridAlunoProfessor.CurrentRow.Cells[2].Value.ToString();
-                boletim.IdAluno = Convert.ToInt32(gridAlunoProfessor.CurrentRow.Cells[0].Value.ToString());
-                boletim.Idprofessor = Convert.ToInt32(gridAlunoProfessor.CurrentRow.Cells[3].Value.ToString());
-                boletim.Nota1 = Convert.ToDouble(txtN1.Text);
-                boletim.Nota2 = Convert.ToDouble(txtN2.Text);
-                boletim.Nota3 = Convert.ToDouble(txtN3.Text);
-                boletim.Nota4 = Convert.ToDouble(txtN4.Text);
-                boletim.Media = Convert.ToDouble(txtMedia.Text);
-                if (boletim.Media >= 7)
+                try
                 {
-                    boletim.Situacao = "Aprovado";
-                }
-                else
-                {
-                    boletim.Situacao = "Reprovado";
-                }
-                model.CadastrarBoletim(boletim);
+                    boletim.IdDisciplina = gridAlunoProfessor.CurrentRow.Cells[2].Value.ToString();
+                    boletim.IdAluno = Convert.ToInt32(gridAlunoProfessor.CurrentRow.Cells[0].Value.ToString());
+                    boletim.Idprofessor = Convert.ToInt32(gridAlunoProfessor.CurrentRow.Cells[3].Value.ToString());
+                    boletim.Nota1 = Convert.ToDouble(txtN1.Text);
+                    boletim.Nota2 = Convert.ToDouble(txtN2.Text);
+                    boletim.Nota3 = Convert.ToDouble(txtN3.Text);
+                    boletim.Nota4 = Convert.ToDouble(txtN4.Text);
+                    boletim.Media = Convert.ToDouble(txtMedia.Text);
 
-                MessageBox.Show("Boletim cadastrado com sucesso!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro: " + ex.Message);
-            }
-            finally
-            {
-                LimparCampos();
-                ListarAlunoPorMateria();
+                    if (boletim.Media >= 7)
+                    {
+                        boletim.Situacao = "Aprovado";
+                    }
+                    else
+                    {
+                        boletim.Situacao = "Reprovado";
+                    }
+                    model.CadastrarBoletim(boletim);
+
+                    MessageBox.Show("Boletim cadastrado com sucesso!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+                finally
+                {
+                    LimparCampos();
+                    CarregarGrid();
+                }
             }
         }
 
@@ -94,7 +99,6 @@ namespace ProjetoSistemaEe.View
         public void Calcular()
         {
             {
-                if (VerificarCampos())
                 {
                     try
                     {
@@ -103,6 +107,7 @@ namespace ProjetoSistemaEe.View
                         if (txtN1.Text == "" || txtN2.Text == "" || txtN3.Text == "" || txtN4.Text == "")
                         {
                             MessageBox.Show("Digite todas as notas");
+                            return;
                         }
                         else
                         {
@@ -115,7 +120,7 @@ namespace ProjetoSistemaEe.View
                                 txtN1.Clear();
                                 return;
                             }
-                            else if (!double.TryParse(txtN2.Text, out nota2) || nota2 < 0 || nota2 > 10)
+                            if (!double.TryParse(txtN2.Text, out nota2) || nota2 < 0 || nota2 > 10)
                             {
                                 MessageBox.Show(
                                     "Digite um número de 0 a 10 para a nota 2",
@@ -124,7 +129,7 @@ namespace ProjetoSistemaEe.View
                                 txtN2.Clear();
                                 return;
                             }
-                            else if (!double.TryParse(txtN3.Text, out nota3) || nota3 < 0 || nota3 > 10)
+                            if (!double.TryParse(txtN3.Text, out nota3) || nota3 < 0 || nota3 > 10)
                             {
                                 MessageBox.Show(
                                     "Digite um número de 0 a 10 para a nota 3",
@@ -133,7 +138,7 @@ namespace ProjetoSistemaEe.View
                                 txtN3.Clear();
                                 return;
                             }
-                            else if (!double.TryParse(txtN4.Text, out nota4) || nota4 < 0 || nota4 > 10)
+                            if (!double.TryParse(txtN4.Text, out nota4) || nota4 < 0 || nota4 > 10)
                             {
                                 MessageBox.Show(
                                     "Digite um número de 0 a 10 para a nota 4",
@@ -155,31 +160,23 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        public bool VerificarCampos()
-        {
-            if (txtN1.Text != string.Empty || txtN2.Text != string.Empty || txtN3.Text != string.Empty || txtN4.Text != string.Empty)
-            {
-                MessageBox.Show("Preencha todos os campos!", "Mensagem do Sistema");
-                return true;
-            }
-            return false;
-        }
-
         private void txtN_TextChanged(object sender, EventArgs e)
         {
-            if (txtN1.Text != string.Empty && txtN2.Text != string.Empty && txtN3.Text != string.Empty && txtN4.Text != string.Empty)
+            if (txtN1.Text != "" && txtN2.Text != "" && txtN3.Text != "" && txtN4.Text != "")
             {
                 Calcular();
+                btnAdicionar.Enabled = true;
             }
-            if (txtN1.Text == string.Empty || txtN2.Text == string.Empty || txtN3.Text == string.Empty || txtN4.Text == string.Empty)
+            else
             {
                 txtMedia.Clear();
+                btnAdicionar.Enabled = false;
             }
         }
 
         #region Grid
 
-        private void ListarAlunoPorMateria()
+        private void CarregarGrid()
         {
             gridAlunoProfessor.DataSource = model.ListarAlunoPorMateria();
             gridAlunoProfessor.Columns[0].HeaderText = "RA Aluno";
@@ -200,5 +197,34 @@ namespace ProjetoSistemaEe.View
         }
 
         #endregion Grid
+
+        private bool VerificarCampos()
+        {
+            if (txtN1.Text == "")
+            {
+                MessageBox.Show("Preencha o campo Nota 1");
+                txtN1.Focus();
+                return false;
+            }
+            if (txtN2.Text == "")
+            {
+                MessageBox.Show("Preencha o campo Nota 2");
+                txtN2.Focus();
+                return false;
+            }
+            if (txtN3.Text == "")
+            {
+                MessageBox.Show("Preencha o campo Nota 3");
+                txtN3.Focus();
+                return false;
+            }
+            if (txtN4.Text == "")
+            {
+                MessageBox.Show("Preencha o campo Nota 4");
+                txtN4.Focus();
+                return false;
+            }
+            return true;
+        }
     }
 }

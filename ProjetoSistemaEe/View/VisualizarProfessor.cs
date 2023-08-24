@@ -27,38 +27,38 @@ namespace ProjetoSistemaEe.View
 
         private void ListarProfessor()
         {
-            gridAluno.DataSource = professorModel.ListarProfessor();
-            gridAluno.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            gridAluno.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-            gridAluno.BorderStyle = BorderStyle.None;
-            gridAluno.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            gridAluno.CellBorderStyle = DataGridViewCellBorderStyle.Single;
-            gridAluno.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
-            gridAluno.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            gridAluno.BackgroundColor = Color.White;
-            gridAluno.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            gridAluno.EnableHeadersVisualStyles = false;
-            gridAluno.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Raised;
-            gridAluno.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 58, 64);
-            gridAluno.Font = new Font("Segoe UI", 9);
-            gridAluno.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9);
-            gridAluno.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 58, 64);
-            gridAluno.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            gridAluno.EnableHeadersVisualStyles = false;
-            gridAluno.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            gridAluno.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            gridAluno.Columns[0].HeaderText = "Código";
-            gridAluno.Columns[1].HeaderText = "Nome";
-            gridAluno.Columns[2].HeaderText = "Curso";
-            gridAluno.Columns[3].HeaderText = "Salario";
-            gridAluno.Columns[4].HeaderText = "Materia";
-            gridAluno.Columns[5].HeaderText = "Estado Civil";
-            gridAluno.Columns[6].HeaderText = "Gênero";
-            gridAluno.Columns[7].HeaderText = "Data de Nascimento";
-            gridAluno.Columns[8].HeaderText = "Email";
-            gridAluno.Columns[9].HeaderText = "Telefone";
-            gridAluno.Columns[10].HeaderText = "CEP";
-            gridAluno.Columns[11].HeaderText = "Endereço";
+            gridProfessor.DataSource = professorModel.ListarProfessor();
+            gridProfessor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            gridProfessor.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            gridProfessor.BorderStyle = BorderStyle.None;
+            gridProfessor.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            gridProfessor.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            gridProfessor.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            gridProfessor.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            gridProfessor.BackgroundColor = Color.White;
+            gridProfessor.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            gridProfessor.EnableHeadersVisualStyles = false;
+            gridProfessor.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Raised;
+            gridProfessor.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 58, 64);
+            gridProfessor.Font = new Font("Segoe UI", 9);
+            gridProfessor.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9);
+            gridProfessor.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 58, 64);
+            gridProfessor.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            gridProfessor.EnableHeadersVisualStyles = false;
+            gridProfessor.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            gridProfessor.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            gridProfessor.Columns[0].HeaderText = "Código";
+            gridProfessor.Columns[1].HeaderText = "Nome";
+            gridProfessor.Columns[2].HeaderText = "Curso";
+            gridProfessor.Columns[3].HeaderText = "Salario";
+            gridProfessor.Columns[4].HeaderText = "Materia";
+            gridProfessor.Columns[5].HeaderText = "Estado Civil";
+            gridProfessor.Columns[6].HeaderText = "Gênero";
+            gridProfessor.Columns[7].HeaderText = "Data de Nascimento";
+            gridProfessor.Columns[8].HeaderText = "Email";
+            gridProfessor.Columns[9].HeaderText = "Telefone";
+            gridProfessor.Columns[10].HeaderText = "CEP";
+            gridProfessor.Columns[11].HeaderText = "Endereço";
         }
     }
 }

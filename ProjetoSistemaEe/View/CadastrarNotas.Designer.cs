@@ -101,7 +101,6 @@
             this.txtNomeProfessor.ReadOnly = true;
             this.txtNomeProfessor.Size = new System.Drawing.Size(217, 29);
             this.txtNomeProfessor.TabIndex = 7;
-            this.txtNomeProfessor.Text = "10,99";
             this.txtNomeProfessor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtMateria
@@ -114,7 +113,6 @@
             this.txtMateria.ReadOnly = true;
             this.txtMateria.Size = new System.Drawing.Size(217, 29);
             this.txtMateria.TabIndex = 6;
-            this.txtMateria.Text = "10,99";
             this.txtMateria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNome
@@ -127,7 +125,6 @@
             this.txtNome.ReadOnly = true;
             this.txtNome.Size = new System.Drawing.Size(217, 29);
             this.txtNome.TabIndex = 5;
-            this.txtNome.Text = "10,99";
             this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
@@ -153,7 +150,6 @@
             this.txtRA.ReadOnly = true;
             this.txtRA.Size = new System.Drawing.Size(217, 29);
             this.txtRA.TabIndex = 4;
-            this.txtRA.Text = "10,99";
             this.txtRA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label8
@@ -285,11 +281,10 @@
             this.txtN4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtN4.Enabled = false;
             this.txtN4.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN4.Location = new System.Drawing.Point(124, 187);
+            this.txtN4.Location = new System.Drawing.Point(124, 183);
             this.txtN4.Name = "txtN4";
             this.txtN4.Size = new System.Drawing.Size(67, 33);
             this.txtN4.TabIndex = 7;
-            this.txtN4.Text = "10,99";
             this.txtN4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtN4.TextChanged += new System.EventHandler(this.txtN_TextChanged);
             // 
@@ -310,11 +305,10 @@
             this.txtN3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtN3.Enabled = false;
             this.txtN3.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN3.Location = new System.Drawing.Point(124, 138);
+            this.txtN3.Location = new System.Drawing.Point(124, 134);
             this.txtN3.Name = "txtN3";
             this.txtN3.Size = new System.Drawing.Size(67, 33);
             this.txtN3.TabIndex = 6;
-            this.txtN3.Text = "10,99";
             this.txtN3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtN3.TextChanged += new System.EventHandler(this.txtN_TextChanged);
             // 
@@ -336,11 +330,10 @@
             this.txtN2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtN2.Enabled = false;
             this.txtN2.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN2.Location = new System.Drawing.Point(124, 89);
+            this.txtN2.Location = new System.Drawing.Point(124, 85);
             this.txtN2.Name = "txtN2";
             this.txtN2.Size = new System.Drawing.Size(67, 33);
             this.txtN2.TabIndex = 5;
-            this.txtN2.Text = "10,99";
             this.txtN2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtN2.TextChanged += new System.EventHandler(this.txtN_TextChanged);
             // 
@@ -362,11 +355,10 @@
             this.txtN1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtN1.Enabled = false;
             this.txtN1.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN1.Location = new System.Drawing.Point(124, 40);
+            this.txtN1.Location = new System.Drawing.Point(124, 36);
             this.txtN1.Name = "txtN1";
             this.txtN1.Size = new System.Drawing.Size(67, 33);
             this.txtN1.TabIndex = 4;
-            this.txtN1.Text = "10,99";
             this.txtN1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtN1.TextChanged += new System.EventHandler(this.txtN_TextChanged);
             // 
