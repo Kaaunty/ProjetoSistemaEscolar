@@ -27,7 +27,7 @@ namespace ProjetoSistemaEe.View
 
         private void ListarProfessor()
         {
-            gridProfessor.DataSource = professorModel.ListarProfessor();
+            gridProfessor.DataSource = professorModel.Listar();
             gridProfessor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             gridProfessor.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             gridProfessor.BorderStyle = BorderStyle.None;

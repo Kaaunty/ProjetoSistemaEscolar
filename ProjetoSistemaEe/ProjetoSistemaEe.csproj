@@ -107,7 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Conexao.cs" />
+    <Compile Include="Utils\Conexao.cs" />
     <Compile Include="Connected Services\WSCorreios\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -124,6 +124,7 @@
     <Compile Include="Model\AlunoModel.cs" />
     <Compile Include="Model\BoletimModel.cs" />
     <Compile Include="Model\CursoModel.cs" />
+    <Compile Include="Model\IPessoaModel.cs" />
     <Compile Include="Model\ProfessorModel.cs" />
     <Compile Include="RecursosVisuais.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -131,7 +132,6 @@
       <DependentUpon>RecursosVisuais.resx</DependentUpon>
     </Compile>
     <Compile Include="Utils\ButtonHelper.cs" />
-    <Compile Include="Utils\ComboBox.cs" />
     <Compile Include="Utils\Validar.cs" />
     <Compile Include="View\CadastrarNotas.cs">
       <SubType>Form</SubType>
@@ -152,6 +152,12 @@
     </Compile>
     <Compile Include="View\CadastroProfessor.Designer.cs">
       <DependentUpon>CadastroProfessor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditarAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EditarAluno.Designer.cs">
+      <DependentUpon>EditarAluno.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -189,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\CadastroProfessor.resx">
       <DependentUpon>CadastroProfessor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\EditarAluno.resx">
+      <DependentUpon>EditarAluno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>

@@ -19,7 +19,6 @@ namespace ProjetoSistemaEe.View
         public VisualizarAluno()
         {
             InitializeComponent();
-            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
         }
 
         public void VisualizarAluno_Load(object sender, EventArgs e)
@@ -27,15 +26,9 @@ namespace ProjetoSistemaEe.View
             ListarAluno();
         }
 
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-            CadastroAluno cadastroAluno = new CadastroAluno();
-            cadastroAluno.ShowDialog();
-        }
-
         private void ListarAluno()
         {
-            gridAluno.DataSource = alunoModel.ListarAluno();
+            gridAluno.DataSource = alunoModel.Listar();
             gridAluno.Columns[0].HeaderText = "Código RA";
             gridAluno.Columns[1].HeaderText = "Nome";
             gridAluno.Columns[2].HeaderText = "Curso";
@@ -53,9 +46,9 @@ namespace ProjetoSistemaEe.View
 
         private void gridAluno_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //int id = Convert.ToInt32(gridAluno.Rows[e.RowIndex].Cells[0].Value.ToString());
-            //EditarAluno cadastroAluno = new EditarAluno(id);
-            //cadastroAluno.ShowDialog();
+            EditarAluno formB = new EditarAluno(this);
+            formB.ShowDialog();
+            ListarAluno();
         }
     }
 }

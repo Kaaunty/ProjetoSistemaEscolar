@@ -80,8 +80,10 @@
             this.gridAluno.Name = "gridAluno";
             this.gridAluno.ReadOnly = true;
             this.gridAluno.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridAluno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridAluno.Size = new System.Drawing.Size(1016, 420);
             this.gridAluno.TabIndex = 0;
+            this.gridAluno.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAluno_CellDoubleClick);
             // 
             // VisualizarAluno
             // 
@@ -103,6 +105,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView gridAluno;
+        public System.Windows.Forms.DataGridView gridAluno;
     }
 }

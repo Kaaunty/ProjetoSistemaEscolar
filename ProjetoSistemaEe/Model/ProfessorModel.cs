@@ -5,11 +5,11 @@ using System.Data;
 
 namespace ProjetoSistemaEe.Model
 {
-    internal class ProfessorModel
+    internal class ProfessorModel : IPessoaModel<Professor>
     {
         private ProfessorDAO dao = new ProfessorDAO();
 
-        public DataTable ListarProfessor()
+        public DataTable Listar()
         {
             try
             {
@@ -21,7 +21,7 @@ namespace ProjetoSistemaEe.Model
             }
         }
 
-        public void CadastrarProfessor(Professor professor)
+        public void Salvar(Professor professor)
         {
             try
             {
@@ -31,6 +31,11 @@ namespace ProjetoSistemaEe.Model
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public void Editar(Professor pessoa)
+        {
+            throw new NotImplementedException();
         }
     }
 }

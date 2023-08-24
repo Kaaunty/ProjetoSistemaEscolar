@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using ProjetoSistemaEe.Entidades;
+using System;
 using System.Data;
 
 namespace ProjetoSistemaEe.DAO
@@ -89,6 +90,45 @@ namespace ProjetoSistemaEe.DAO
             catch (MySqlException ex)
             {
                 throw new System.Exception(ex.Message);
+            }
+            finally
+            {
+                con.FecharConexao();
+            }
+        }
+
+        public void EditarAluno(Aluno aluno)
+        {
+            try
+            {
+                con.AbrirConexao();
+                sql = new MySqlCommand("UPDATE aluno SET ra = @ra, nome = @nome, curso = @curso, periodo = @periodo" +
+                    ", materia = @materia, estadocivil = @estadocivil, genero = @genero, datanascimento = @datanascimento" +
+                    ", email = @email, turno = @turno, telefone = @telefone, cep = @cep, cidade = @cidade, uf = @uf" +
+                    ", bairro = @bairro, rua = @rua, numerorua = @numerorua where ra = @ra ;", con.con);
+                sql.Parameters.AddWithValue("@ra", aluno.RA);
+                sql.Parameters.AddWithValue("@nome", aluno.Nome);
+                sql.Parameters.AddWithValue("@curso", aluno.Curso);
+                sql.Parameters.AddWithValue("@periodo", aluno.Periodo);
+                sql.Parameters.AddWithValue("@materia", aluno.Materia);
+                sql.Parameters.AddWithValue("@estadocivil", aluno.EstadoCivil);
+                sql.Parameters.AddWithValue("@genero", aluno.Genero);
+                sql.Parameters.AddWithValue("@datanascimento", aluno.Datanascimento.ToString("yyyy-MM-dd"));
+                sql.Parameters.AddWithValue("@email", aluno.Email);
+                sql.Parameters.AddWithValue("@turno", aluno.Turno);
+                sql.Parameters.AddWithValue("@telefone", aluno.Telefone);
+                sql.Parameters.AddWithValue("@cep", aluno.Cep);
+                sql.Parameters.AddWithValue("@cidade", aluno.Cidade);
+                sql.Parameters.AddWithValue("@uf", aluno.Uf);
+                sql.Parameters.AddWithValue("@bairro", aluno.Bairro);
+                sql.Parameters.AddWithValue("@rua", aluno.Rua);
+                sql.Parameters.AddWithValue("@numerorua", aluno.Numerorua);
+                sql.ExecuteNonQuery();
+                sql.Dispose();
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception(ex.Message);
             }
             finally
             {

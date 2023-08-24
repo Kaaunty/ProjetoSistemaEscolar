@@ -134,7 +134,7 @@ namespace ProjetoSistemaEe.View
                     professor.Numerorua = txtNum.Text;
                     professor.Telefone = txtTelefone.Text;
                     professor.Datanascimento = dtProfessor.Value;
-                    professorM.CadastrarProfessor(professor);
+                    professorM.Salvar(professor);
                     MessageBox.Show("Professor cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)

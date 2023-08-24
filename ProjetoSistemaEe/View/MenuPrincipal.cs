@@ -10,7 +10,7 @@ namespace ProjetoSistemaEe.View
             InitializeComponent();
         }
 
-        private void AbrirFormNoPainel(object FormSeg)
+        public void AbrirFormNoPainel(object FormSeg)
         {
             if (this.panelPrincipal.Controls.Count > 0)
                 this.panelPrincipal.Controls.RemoveAt(0);

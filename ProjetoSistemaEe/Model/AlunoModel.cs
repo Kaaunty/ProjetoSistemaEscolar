@@ -6,11 +6,11 @@ using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.Model
 {
-    internal class AlunoModel
+    internal class AlunoModel : IPessoaModel<Aluno>
     {
         private AlunoDAO dao = new AlunoDAO();
 
-        public DataTable ListarAluno()
+        public DataTable Listar()
         {
             try
             {
@@ -33,6 +33,18 @@ namespace ProjetoSistemaEe.Model
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao salvar aluno: " + ex.Message);
+            }
+        }
+
+        public void Editar(Aluno aluno)
+        {
+            try
+            {
+                dao.EditarAluno(aluno);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao editar aluno: " + ex.Message);
             }
         }
     }
