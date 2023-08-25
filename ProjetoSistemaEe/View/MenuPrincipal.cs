@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
@@ -9,6 +10,12 @@ namespace ProjetoSistemaEe.View
         {
             InitializeComponent();
         }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private static extern void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
         public void AbrirFormNoPainel(object FormSeg)
         {
@@ -45,6 +52,39 @@ namespace ProjetoSistemaEe.View
         private void btnCadastrarNotas_Click(object sender, EventArgs e)
         {
             AbrirFormNoPainel(new CadastrarNotas());
+        }
+
+        private void btnVisualizaBoletim_Click(object sender, EventArgs e)
+        {
+            AbrirFormNoPainel(new VisualizarBoletim());
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            if (panelLateral.Width == 212)
+            {
+                panelLateral.Width = 60;
+            }
+            else
+            {
+                panelLateral.Width = 212;
+            }
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void MenuPrincipal_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

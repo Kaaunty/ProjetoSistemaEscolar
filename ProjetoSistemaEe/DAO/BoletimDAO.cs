@@ -69,5 +69,43 @@ namespace ProjetoSistemaEe.DAO
                 con.FecharConexao();
             }
         }
+
+        public DataTable ListarBoletim()
+        {
+            try
+            {
+                con.AbrirConexao();
+                sql = new MySqlCommand(
+                                   @"SELECT b.id AS ID_Boletim,
+                a.ra AS ID_Aluno,
+                a.nome AS Nome_Aluno,
+                a.materia AS Disciplina_Aluno,
+                p.id AS ID_Professor,
+                p.nome AS Nome_Professor,
+                p.materia AS Materia_Professor,
+                b.nota1 AS Nota1,
+                b.nota2 AS Nota2,
+                b.nota3 AS Nota3,
+                b.nota4 AS Nota4,
+                b.media AS Media,
+                b.situacao AS Situacao
+                FROM aluno a
+                JOIN professor p ON a.materia = p.materia
+                JOIN boletim b ON a.ra = b.id_aluno;", con.con);
+                MySqlDataAdapter da = new MySqlDataAdapter(sql);
+                da.SelectCommand = sql;
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch (MySqlException ex)
+            {
+                throw new System.Exception(ex.Message);
+            }
+            finally
+            {
+                con.FecharConexao();
+            }
+        }
     }
 }

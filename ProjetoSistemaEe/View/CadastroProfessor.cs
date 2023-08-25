@@ -10,6 +10,7 @@ namespace ProjetoSistemaEe.View
     public partial class CadastroProfessor : Form
     {
         private ProfessorModel professorM = new ProfessorModel();
+        private Validar validar = new Validar();
         private CursoModel cursoM = new CursoModel();
 
         public CadastroProfessor()
@@ -115,7 +116,7 @@ namespace ProjetoSistemaEe.View
 
         private void Salvar(Professor professor)
         {
-            if (VerificarEspacos())
+            if (validar.ValidateControls(this))
             {
                 try
                 {
@@ -191,139 +192,6 @@ namespace ProjetoSistemaEe.View
             cbMateria.DataSource = materia_curso;
             cbMateria.DisplayMember = "Nome";
             cbMateria.ValueMember = "id";
-        }
-
-        private bool VerificarEspacos()
-        {
-            if (txtNome.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Nome");
-                txtNome.Focus();
-                return false;
-            }
-            if (cbCurso.SelectedIndex == -1)
-            {
-                MessageBox.Show("Preencha o campo Curso");
-                cbCurso.Focus();
-                return false;
-            }
-            if (cbCurso.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Curso");
-                cbCurso.Focus();
-                return false;
-            }
-            if (cbMateria.SelectedIndex == -1)
-            {
-                MessageBox.Show("Preencha o campo Materia");
-                cbMateria.Focus();
-                return false;
-            }
-            if (cbMateria.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Materia");
-                cbMateria.Focus();
-                return false;
-            }
-            if (cbGenero.SelectedIndex == -1)
-            {
-                MessageBox.Show("Preencha o campo Genero");
-                cbGenero.Focus();
-                return false;
-            }
-            if (cbGenero.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Genero");
-                cbGenero.Focus();
-                return false;
-            }
-            if (cbEstadoCivil.SelectedIndex == -1)
-            {
-                MessageBox.Show("Preencha o campo Estado Civil");
-                cbEstadoCivil.Focus();
-                return false;
-            }
-            if (cbEstadoCivil.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Estado Civil");
-                cbEstadoCivil.Focus();
-                return false;
-            }
-            if (txtNome.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Nome");
-                txtNome.Focus();
-                return false;
-            }
-            if (txtSalario.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Periodo");
-                txtSalario.Focus();
-                return false;
-            }
-            if (txtTelefone.Text == "(  )     -")
-            {
-                MessageBox.Show("Preencha o campo Telefone");
-                txtTelefone.Focus();
-                return false;
-            }
-            if (txtEmail.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Email");
-                txtEmail.Focus();
-                return false;
-            }
-            if (txtTelefone.TextLength < 14)
-            {
-                MessageBox.Show("Preencha o campo Telefone");
-                txtTelefone.Focus();
-                return false;
-            }
-            if (txtTelefone.Text == "(  )      -")
-            {
-                MessageBox.Show("Preencha o campo Telefone");
-                txtTelefone.Focus();
-                return false;
-            }
-            if (txtCEP.TextLength < 9)
-            {
-                MessageBox.Show("Preencha o campo CEP");
-                txtCEP.Focus();
-                return false;
-            }
-            if (txtCEP.Text == "     -")
-            {
-                MessageBox.Show("Preencha o campo CEP");
-                txtCEP.Focus();
-                return false;
-            }
-            if (txtEstado.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Estado");
-                txtEstado.Focus();
-                return false;
-            }
-
-            if (txtCidade.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Cidade");
-                txtCidade.Focus();
-                return false;
-            }
-
-            if (txtRua.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Endereço");
-                txtRua.Focus();
-                return false;
-            }
-            if (txtNum.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Número");
-                txtNum.Focus();
-                return false;
-            }
-            return true;
         }
 
         #endregion Carregar ComboBox e Verificar Espaços

@@ -29,30 +29,36 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
-            this.panelLaterar = new System.Windows.Forms.Panel();
+            this.panelLateral = new System.Windows.Forms.Panel();
             this.btnCadastrarNotas = new System.Windows.Forms.Button();
-            this.btnVisualizarNotas = new FontAwesome.Sharp.IconButton();
+            this.btnVisualizaBoletim = new FontAwesome.Sharp.IconButton();
             this.btnVisualizarProf = new FontAwesome.Sharp.IconButton();
             this.btnCadastrarProf = new FontAwesome.Sharp.IconButton();
             this.btnVisualizarAluno = new FontAwesome.Sharp.IconButton();
             this.btnCadastrarAluno = new FontAwesome.Sharp.IconButton();
             this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.panelLaterar.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMenu = new FontAwesome.Sharp.IconButton();
+            this.btnMinimizar = new FontAwesome.Sharp.IconButton();
+            this.btnFechar = new FontAwesome.Sharp.IconButton();
+            this.panelLateral.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelLaterar
+            // panelLateral
             // 
-            this.panelLaterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
-            this.panelLaterar.Controls.Add(this.btnCadastrarNotas);
-            this.panelLaterar.Controls.Add(this.btnVisualizarNotas);
-            this.panelLaterar.Controls.Add(this.btnVisualizarProf);
-            this.panelLaterar.Controls.Add(this.btnCadastrarProf);
-            this.panelLaterar.Controls.Add(this.btnVisualizarAluno);
-            this.panelLaterar.Controls.Add(this.btnCadastrarAluno);
-            this.panelLaterar.Location = new System.Drawing.Point(-1, 0);
-            this.panelLaterar.Name = "panelLaterar";
-            this.panelLaterar.Size = new System.Drawing.Size(212, 701);
-            this.panelLaterar.TabIndex = 0;
+            this.panelLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
+            this.panelLateral.Controls.Add(this.btnCadastrarNotas);
+            this.panelLateral.Controls.Add(this.btnVisualizaBoletim);
+            this.panelLateral.Controls.Add(this.btnVisualizarProf);
+            this.panelLateral.Controls.Add(this.btnCadastrarProf);
+            this.panelLateral.Controls.Add(this.btnVisualizarAluno);
+            this.panelLateral.Controls.Add(this.btnCadastrarAluno);
+            this.panelLateral.Location = new System.Drawing.Point(-1, 0);
+            this.panelLateral.Name = "panelLateral";
+            this.panelLateral.Size = new System.Drawing.Size(212, 701);
+            this.panelLateral.TabIndex = 0;
+            this.panelLateral.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MenuPrincipal_MouseDown);
             // 
             // btnCadastrarNotas
             // 
@@ -69,21 +75,22 @@
             this.btnCadastrarNotas.UseVisualStyleBackColor = true;
             this.btnCadastrarNotas.Click += new System.EventHandler(this.btnCadastrarNotas_Click);
             // 
-            // btnVisualizarNotas
+            // btnVisualizaBoletim
             // 
-            this.btnVisualizarNotas.FlatAppearance.BorderSize = 0;
-            this.btnVisualizarNotas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVisualizarNotas.ForeColor = System.Drawing.Color.White;
-            this.btnVisualizarNotas.IconChar = FontAwesome.Sharp.IconChar.List;
-            this.btnVisualizarNotas.IconColor = System.Drawing.Color.White;
-            this.btnVisualizarNotas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnVisualizarNotas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVisualizarNotas.Location = new System.Drawing.Point(6, 499);
-            this.btnVisualizarNotas.Name = "btnVisualizarNotas";
-            this.btnVisualizarNotas.Size = new System.Drawing.Size(205, 54);
-            this.btnVisualizarNotas.TabIndex = 10;
-            this.btnVisualizarNotas.Text = "Adicionar Notas";
-            this.btnVisualizarNotas.UseVisualStyleBackColor = true;
+            this.btnVisualizaBoletim.FlatAppearance.BorderSize = 0;
+            this.btnVisualizaBoletim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVisualizaBoletim.ForeColor = System.Drawing.Color.White;
+            this.btnVisualizaBoletim.IconChar = FontAwesome.Sharp.IconChar.List;
+            this.btnVisualizaBoletim.IconColor = System.Drawing.Color.White;
+            this.btnVisualizaBoletim.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnVisualizaBoletim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVisualizaBoletim.Location = new System.Drawing.Point(6, 499);
+            this.btnVisualizaBoletim.Name = "btnVisualizaBoletim";
+            this.btnVisualizaBoletim.Size = new System.Drawing.Size(205, 54);
+            this.btnVisualizaBoletim.TabIndex = 10;
+            this.btnVisualizaBoletim.Text = "Visualizar Boletim";
+            this.btnVisualizaBoletim.UseVisualStyleBackColor = true;
+            this.btnVisualizaBoletim.Click += new System.EventHandler(this.btnVisualizaBoletim_Click);
             // 
             // btnVisualizarProf
             // 
@@ -155,37 +162,103 @@
             // 
             // panelPrincipal
             // 
-            this.panelPrincipal.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.Background_Menu;
-            this.panelPrincipal.Location = new System.Drawing.Point(210, 0);
+            this.panelPrincipal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelPrincipal.BackgroundImage")));
+            this.panelPrincipal.Location = new System.Drawing.Point(211, 32);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(1040, 700);
+            this.panelPrincipal.Size = new System.Drawing.Size(1039, 669);
             this.panelPrincipal.TabIndex = 1;
+            this.panelPrincipal.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MenuPrincipal_MouseDown);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.btnMenu);
+            this.panel1.Controls.Add(this.btnMinimizar);
+            this.panel1.Controls.Add(this.btnFechar);
+            this.panel1.Location = new System.Drawing.Point(211, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1039, 33);
+            this.panel1.TabIndex = 2;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MenuPrincipal_MouseDown);
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.FlatAppearance.BorderSize = 0;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenu.IconChar = FontAwesome.Sharp.IconChar.Navicon;
+            this.btnMenu.IconColor = System.Drawing.Color.Black;
+            this.btnMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMenu.IconSize = 37;
+            this.btnMenu.Location = new System.Drawing.Point(6, 3);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(28, 28);
+            this.btnMenu.TabIndex = 2;
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.FlatAppearance.BorderSize = 0;
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.btnMinimizar.IconColor = System.Drawing.Color.Black;
+            this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMinimizar.IconSize = 40;
+            this.btnMinimizar.Location = new System.Drawing.Point(975, 3);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(28, 28);
+            this.btnMinimizar.TabIndex = 1;
+            this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnFechar
+            // 
+            this.btnFechar.FlatAppearance.BorderSize = 0;
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechar.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.btnFechar.IconColor = System.Drawing.Color.Black;
+            this.btnFechar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnFechar.IconSize = 40;
+            this.btnFechar.Location = new System.Drawing.Point(1009, 3);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(28, 28);
+            this.btnFechar.TabIndex = 0;
+            this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1250, 700);
+            this.Controls.Add(this.panelLateral);
             this.Controls.Add(this.panelPrincipal);
-            this.Controls.Add(this.panelLaterar);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuPrincipal";
-            this.panelLaterar.ResumeLayout(false);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MenuPrincipal_MouseDown);
+            this.panelLateral.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelLaterar;
+        private System.Windows.Forms.Panel panelLateral;
         private System.Windows.Forms.Panel panelPrincipal;
         private FontAwesome.Sharp.IconButton btnCadastrarAluno;
         private FontAwesome.Sharp.IconButton btnCadastrarProf;
         private FontAwesome.Sharp.IconButton btnVisualizarAluno;
         private FontAwesome.Sharp.IconButton btnVisualizarProf;
-        private FontAwesome.Sharp.IconButton btnVisualizarNotas;
+        private FontAwesome.Sharp.IconButton btnVisualizaBoletim;
         private System.Windows.Forms.Button btnCadastrarNotas;
+        private System.Windows.Forms.Panel panel1;
+        private FontAwesome.Sharp.IconButton btnMinimizar;
+        private FontAwesome.Sharp.IconButton btnFechar;
+        private FontAwesome.Sharp.IconButton btnMenu;
     }
 }

@@ -18,5 +18,36 @@ namespace ProjetoSistemaEe.Utils
         {
             return Regex.IsMatch(nome, @"[\d\W]");
         }
+
+        public bool ValidateControls(Control parentControl)
+        {
+            foreach (Control control in parentControl.Controls)
+            {
+                if (control is TextBox textBox && string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    MessageBox.Show($"Por favor, preencha o campo", "Campo Vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                else if (control is MaskedTextBox maskedTextBox && string.IsNullOrWhiteSpace(maskedTextBox.Text))
+                {
+                    MessageBox.Show($"Por favor, preencha o campo", "Campo Vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                else if (control is ComboBox comboBox && comboBox.SelectedIndex == -1)
+                {
+                    MessageBox.Show($"Por favor, selecione um valor.", "Seleção Necessária", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+
+                if (control.HasChildren)
+                {
+                    if (!ValidateControls(control))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
     }
 }

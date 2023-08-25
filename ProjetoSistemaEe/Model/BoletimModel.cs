@@ -34,5 +34,19 @@ namespace ProjetoSistemaEe.Model
                 throw ex;
             }
         }
+
+        public DataTable ListarNotas()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                dt = dao.ListarBoletim();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

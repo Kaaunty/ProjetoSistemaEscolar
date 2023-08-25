@@ -139,7 +139,7 @@
             this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEditar.IconSize = 35;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(455, 633);
+            this.btnEditar.Location = new System.Drawing.Point(455, 618);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(130, 35);
             this.btnEditar.TabIndex = 41;
@@ -280,6 +280,7 @@
             // 
             this.txtNum.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNum.Location = new System.Drawing.Point(864, 291);
+            this.txtNum.MaxLength = 3;
             this.txtNum.Name = "txtNum";
             this.txtNum.Size = new System.Drawing.Size(47, 29);
             this.txtNum.TabIndex = 27;
@@ -326,12 +327,13 @@
             this.dtAluno.CalendarTitleForeColor = System.Drawing.Color.AliceBlue;
             this.dtAluno.CalendarTrailingForeColor = System.Drawing.Color.Green;
             this.dtAluno.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dtAluno.CustomFormat = "dd/MM/yyyy";
+            this.dtAluno.CustomFormat = "dd-MM-yyyy";
             this.dtAluno.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtAluno.Location = new System.Drawing.Point(300, 489);
             this.dtAluno.Name = "dtAluno";
             this.dtAluno.Size = new System.Drawing.Size(206, 29);
             this.dtAluno.TabIndex = 23;
+            this.dtAluno.Value = new System.DateTime(2023, 8, 25, 0, 0, 0, 0);
             // 
             // txtTelefone
             // 
@@ -524,14 +526,14 @@
             this.panel1.Controls.Add(this.txtNome);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1040, 700);
+            this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 1;
             // 
             // EditarAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 700);
+            this.ClientSize = new System.Drawing.Size(1039, 669);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditarAluno";

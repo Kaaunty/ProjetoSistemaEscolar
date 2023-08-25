@@ -1,5 +1,6 @@
 ﻿using ProjetoSistemaEe.Entidades;
 using ProjetoSistemaEe.Model;
+using ProjetoSistemaEe.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace ProjetoSistemaEe.View
     {
         private CursoModel cursoModel = new CursoModel();
         private AlunoModel alunoModel = new AlunoModel();
+        private Validar validar = new Validar();
         private VisualizarAluno instanciaDoForm1; //crio um objeto do tipo FORM 1, que será usado dentro da classe
         private char[] delimitarchars = { '-', ',' };
 
@@ -55,17 +57,16 @@ namespace ProjetoSistemaEe.View
             cbCurso.ValueMember = "id";
             DataTable materia_curso = cursoModel.BuscarMateria(Convert.ToInt32(cbCurso.SelectedValue));
             cbMateria.DataSource = materia_curso;
+            Validar.FormatarData(dtAluno, new DateTime(2004, 12, 31), new DateTime(1953, 01, 01));
         }
 
         private void CarregarComboBox()
         {
-            //
             cbCurso.DataSource = cursoModel.ListarCursos();
             cbCurso.DisplayMember = "Nome";
             cbCurso.ValueMember = "id";
             cbCurso.DropDownHeight = cbCurso.ItemHeight * 5;
             cbCurso.SelectedIndex = -1;
-            //
             int cursoid = Convert.ToInt32(cbCurso.SelectedValue);
             DataTable materia_curso = cursoModel.BuscarMateria(cursoid);
             cbMateria.DataSource = materia_curso;
@@ -89,7 +90,7 @@ namespace ProjetoSistemaEe.View
 
         private void Editar(Aluno aluno)
         {
-            if (VerificarEspacos())
+            if (validar.ValidateControls(this))
             {
                 try
                 {
@@ -111,7 +112,7 @@ namespace ProjetoSistemaEe.View
                     aluno.Numerorua = txtNum.Text;
                     aluno.Datanascimento = Convert.ToDateTime(dtAluno.Text);
                     alunoModel.Editar(aluno);
-                    MessageBox.Show("Aluno cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Aluno editado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception)
                 {
@@ -119,154 +120,9 @@ namespace ProjetoSistemaEe.View
                 }
                 finally
                 {
-                    this.Close();
+                    FormAbrir();
                 }
             }
-        }
-
-        private bool VerificarEspacos()
-        {
-            if (txtNome.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Nome");
-                txtNome.Focus();
-                return false;
-            }
-            if (cbCurso.SelectedIndex == -1)
-            {
-                MessageBox.Show("Preencha o campo Curso");
-                cbCurso.Focus();
-                return false;
-            }
-            if (cbCurso.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Curso");
-                cbCurso.Focus();
-                return false;
-            }
-            if (cbMateria.SelectedIndex == -1)
-            {
-                MessageBox.Show("Preencha o campo Materia");
-                cbMateria.Focus();
-                return false;
-            }
-            if (cbMateria.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Materia");
-                cbMateria.Focus();
-                return false;
-            }
-            if (cbGenero.SelectedIndex == -1)
-            {
-                MessageBox.Show("Preencha o campo Genero");
-                cbGenero.Focus();
-                return false;
-            }
-            if (cbGenero.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Genero");
-                cbGenero.Focus();
-                return false;
-            }
-            if (cbEstadoCivil.SelectedIndex == -1)
-            {
-                MessageBox.Show("Preencha o campo Estado Civil");
-                cbEstadoCivil.Focus();
-                return false;
-            }
-            if (cbEstadoCivil.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Estado Civil");
-                cbEstadoCivil.Focus();
-                return false;
-            }
-            if (txtNome.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Nome");
-                txtNome.Focus();
-                return false;
-            }
-            if (cbPeriodo.SelectedIndex == -1)
-            {
-                MessageBox.Show("Preencha o campo Periodo");
-                cbPeriodo.Focus();
-                return false;
-            }
-            if (cbTurno.SelectedIndex == -1)
-            {
-                MessageBox.Show("Preencha o campo Turno");
-                cbTurno.Focus();
-                return false;
-            }
-            if (txtTelefone.Text == "(  )     -")
-            {
-                MessageBox.Show("Preencha o campo Telefone");
-                txtTelefone.Focus();
-                return false;
-            }
-            if (txtEmail.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Email");
-                txtEmail.Focus();
-                return false;
-            }
-            if (txtTelefone.TextLength < 14)
-            {
-                MessageBox.Show("Preencha o campo Telefone");
-                txtTelefone.Focus();
-                return false;
-            }
-            if (txtTelefone.Text == "(  )      -")
-            {
-                MessageBox.Show("Preencha o campo Telefone");
-                txtTelefone.Focus();
-                return false;
-            }
-            if (txtCEP.TextLength < 9)
-            {
-                MessageBox.Show("Preencha o campo CEP");
-                txtCEP.Focus();
-                return false;
-            }
-            if (txtCEP.Text == "     -")
-            {
-                MessageBox.Show("Preencha o campo CEP");
-                txtCEP.Focus();
-                return false;
-            }
-            if (txtEstado.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Estado");
-                txtEstado.Focus();
-                return false;
-            }
-
-            if (txtCidade.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Cidade");
-                txtCidade.Focus();
-                return false;
-            }
-
-            if (txtRua.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Endereço");
-                txtRua.Focus();
-                return false;
-            }
-            if (txtNum.Text == "")
-            {
-                MessageBox.Show("Preencha o campo Número");
-                txtNum.Focus();
-                return false;
-            }
-            if (txtRA.Text == "")
-            {
-                MessageBox.Show("Selecione na tabela um registro para editar!");
-                txtRA.Focus();
-                return false;
-            }
-            return true;
         }
 
         private void txtCEP_Leave(object sender, EventArgs e)
@@ -292,6 +148,13 @@ namespace ProjetoSistemaEe.View
                 }
             }
             txtNum.Clear();
+        }
+
+        private void FormAbrir()
+        {
+            VisualizarAluno formB = new VisualizarAluno();
+            var principal = this.ParentForm as MenuPrincipal; // Pega o formulário pai
+            principal.AbrirFormNoPainel(formB); // Chama o método para abrir o formulário B
         }
     }
 }

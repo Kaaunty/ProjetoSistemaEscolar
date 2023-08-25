@@ -17,7 +17,7 @@ namespace ProjetoSistemaEe.DAO
                 con.AbrirConexao();
                 sql = new MySqlCommand(@"SELECT ra, nome, curso, periodo, materia, estadocivil, genero, datanascimento,
                                     email, turno, telefone, cep,CONCAT
-                                    (cidade, '-', uf, ', ', bairro, ', ', rua, ', ', numerorua) AS endereco_completo FROM aluno", con.con);
+                                    (cidade,'-', uf, ',', bairro, ',', rua, ',', numerorua) AS endereco_completo FROM aluno", con.con);
                 MySqlDataAdapter da = new MySqlDataAdapter(sql);
                 da.SelectCommand = sql;
                 DataTable dt = new DataTable();

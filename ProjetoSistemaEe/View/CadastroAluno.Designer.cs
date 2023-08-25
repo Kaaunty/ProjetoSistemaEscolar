@@ -113,7 +113,7 @@
             this.panel1.Controls.Add(this.txtNome);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1040, 700);
+            this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 0;
             // 
             // txtCEP
@@ -189,7 +189,7 @@
             this.btnNovo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNovo.IconSize = 30;
             this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovo.Location = new System.Drawing.Point(387, 633);
+            this.btnNovo.Location = new System.Drawing.Point(387, 617);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(130, 35);
             this.btnNovo.TabIndex = 42;
@@ -215,7 +215,7 @@
             this.btnSalvar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSalvar.IconSize = 35;
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalvar.Location = new System.Drawing.Point(523, 633);
+            this.btnSalvar.Location = new System.Drawing.Point(523, 617);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(130, 35);
             this.btnSalvar.TabIndex = 41;
@@ -564,7 +564,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 700);
+            this.ClientSize = new System.Drawing.Size(1039, 669);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CadastroAluno";

@@ -44,7 +44,7 @@
             this.panel1.Controls.Add(this.gridAluno);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1040, 700);
+            this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 0;
             // 
             // gridAluno
@@ -62,7 +62,7 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridAluno.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -76,20 +76,20 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.gridAluno.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridAluno.EnableHeadersVisualStyles = false;
-            this.gridAluno.Location = new System.Drawing.Point(12, 268);
+            this.gridAluno.Location = new System.Drawing.Point(12, 240);
             this.gridAluno.Name = "gridAluno";
             this.gridAluno.ReadOnly = true;
             this.gridAluno.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridAluno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridAluno.Size = new System.Drawing.Size(1016, 420);
             this.gridAluno.TabIndex = 0;
-            this.gridAluno.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAluno_CellDoubleClick);
+            this.gridAluno.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAluno_CellDoubleClick);
             // 
             // VisualizarAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 700);
+            this.ClientSize = new System.Drawing.Size(1039, 669);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VisualizarAluno";

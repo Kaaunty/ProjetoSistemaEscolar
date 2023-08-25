@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroProfessor));
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtSalario = new System.Windows.Forms.TextBox();
             this.cbMateria = new System.Windows.Forms.ComboBox();
@@ -69,7 +70,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.background_professor;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel1.Controls.Add(this.txtSalario);
             this.panel1.Controls.Add(this.cbMateria);
@@ -105,7 +106,7 @@
             this.panel1.Controls.Add(this.txtNome);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1040, 700);
+            this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 1;
             // 
             // txtSalario
@@ -159,7 +160,7 @@
             this.btnNovo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNovo.IconSize = 30;
             this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovo.Location = new System.Drawing.Point(387, 633);
+            this.btnNovo.Location = new System.Drawing.Point(386, 612);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(130, 35);
             this.btnNovo.TabIndex = 42;
@@ -182,7 +183,7 @@
             this.btnSalvar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSalvar.IconSize = 35;
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalvar.Location = new System.Drawing.Point(523, 633);
+            this.btnSalvar.Location = new System.Drawing.Point(522, 612);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(130, 35);
             this.btnSalvar.TabIndex = 41;
@@ -491,7 +492,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 700);
+            this.ClientSize = new System.Drawing.Size(1039, 669);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CadastroProfessor";
