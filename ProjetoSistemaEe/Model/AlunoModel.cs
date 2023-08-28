@@ -47,5 +47,17 @@ namespace ProjetoSistemaEe.Model
                 MessageBox.Show("Erro ao editar aluno: " + ex.Message);
             }
         }
+
+        public void Excluir(Aluno aluno)
+        {
+            try
+            {
+                dao.ExcluirAluno(aluno);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao excluir aluno: " + ex.Message);
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using ProjetoSistemaEe.Entidades;
+using System;
 using System.Data;
 using System.Windows;
 
@@ -62,6 +63,64 @@ namespace ProjetoSistemaEe.DAO
             catch (MySqlException ex)
             {
                 MessageBox.Show("Erro ao inserir professor: " + ex.Message);
+            }
+            finally
+            {
+                con.FecharConexao();
+            }
+        }
+
+        internal void EditarProfessor(Professor professor)
+        {
+            try
+            {
+                con.AbrirConexao();
+                sql = new MySqlCommand("UPDATE professor SET id = @id, nome = @nome, curso = @curso, salario = @salario" +
+                    ",materia = @materia, estadocivil = @estadocivil, genero = @genero, datanascimento = @datanascimento" +
+                    ", email = @email, telefone = @telefone, cep = @cep, cidade = @cidade, uf = @uf" +
+                    ", bairro = @bairro, rua = @rua, numerorua = @numerorua where id = @id ;", con.con);
+                sql.Parameters.AddWithValue("@id", professor.Id);
+                sql.Parameters.AddWithValue("@nome", professor.Nome);
+                sql.Parameters.AddWithValue("@curso", professor.Curso);
+                sql.Parameters.AddWithValue("@salario", professor.Salario);
+                sql.Parameters.AddWithValue("@estadocivil", professor.EstadoCivil);
+                sql.Parameters.AddWithValue("@genero", professor.Genero);
+                sql.Parameters.AddWithValue("@datanascimento", professor.Datanascimento.ToString("yyyy-MM-dd"));
+                sql.Parameters.AddWithValue("@email", professor.Email);
+                sql.Parameters.AddWithValue("@materia", professor.Materia);
+                sql.Parameters.AddWithValue("@telefone", professor.Telefone);
+                sql.Parameters.AddWithValue("@cep", professor.Cep);
+                sql.Parameters.AddWithValue("@cidade", professor.Cidade);
+                sql.Parameters.AddWithValue("@uf", professor.Uf);
+                sql.Parameters.AddWithValue("@bairro", professor.Bairro);
+                sql.Parameters.AddWithValue("@rua", professor.Rua);
+                sql.Parameters.AddWithValue("@numerorua", professor.Numerorua);
+                sql.ExecuteNonQuery();
+                sql.Dispose();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro ao editar professor: " + ex.Message);
+            }
+            finally
+            {
+                con.FecharConexao();
+            }
+        }
+
+        public void ExcluirProfessor(Professor professor)
+        {
+            try
+            {
+                con.AbrirConexao();
+                sql = new MySqlCommand("DELETE FROM professor WHERE id = @id", con.con);
+                sql.Parameters.AddWithValue("@id", professor.Id);
+                sql.ExecuteNonQuery();
+                sql.Dispose();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro ao excluir professor: " + ex.Message);
             }
             finally
             {

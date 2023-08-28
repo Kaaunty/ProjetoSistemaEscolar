@@ -46,12 +46,13 @@ namespace ProjetoSistemaEe.DAO
                 sql = new MySqlCommand(
                 @"SELECT a.ra AS ID_Aluno,
                 a.nome AS Nome_Aluno,
-                a.materia AS Disciplina_Aluno,
+                a.curso AS Curso_Aluno,
                 p.id AS ID_Professor,
                 p.nome AS Nome_Professor,
+                p.curso AS Curso_Professor,
                 p.materia AS Materia_Professor
                 FROM aluno a
-                JOIN professor p ON a.materia = p.materia
+                JOIN professor p ON a.curso = p.curso
                 LEFT JOIN boletim b ON a.ra = b.id_aluno
                 WHERE b.id IS NULL;", con.con);
                 MySqlDataAdapter da = new MySqlDataAdapter(sql);
@@ -76,12 +77,13 @@ namespace ProjetoSistemaEe.DAO
             {
                 con.AbrirConexao();
                 sql = new MySqlCommand(
-                                   @"SELECT b.id AS ID_Boletim,
+                @"SELECT b.id AS ID_Boletim,
                 a.ra AS ID_Aluno,
                 a.nome AS Nome_Aluno,
-                a.materia AS Disciplina_Aluno,
+                a.curso AS Curso_Aluno,
                 p.id AS ID_Professor,
                 p.nome AS Nome_Professor,
+                p.curso AS Curso_Professor,
                 p.materia AS Materia_Professor,
                 b.nota1 AS Nota1,
                 b.nota2 AS Nota2,
@@ -90,7 +92,7 @@ namespace ProjetoSistemaEe.DAO
                 b.media AS Media,
                 b.situacao AS Situacao
                 FROM aluno a
-                JOIN professor p ON a.materia = p.materia
+                JOIN professor p ON a.curso = p.curso
                 JOIN boletim b ON a.ra = b.id_aluno;", con.con);
                 MySqlDataAdapter da = new MySqlDataAdapter(sql);
                 da.SelectCommand = sql;

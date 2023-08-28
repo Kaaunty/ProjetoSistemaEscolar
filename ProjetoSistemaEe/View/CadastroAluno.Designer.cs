@@ -30,7 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtCEP = new System.Windows.Forms.MaskedTextBox();
-            this.cbMateria = new System.Windows.Forms.ComboBox();
             this.CbPeriodo = new System.Windows.Forms.ComboBox();
             this.cbCurso = new System.Windows.Forms.ComboBox();
             this.btnNovo = new FontAwesome.Sharp.IconButton();
@@ -54,7 +53,6 @@
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -76,7 +74,6 @@
             this.panel1.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.background_aluno;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel1.Controls.Add(this.txtCEP);
-            this.panel1.Controls.Add(this.cbMateria);
             this.panel1.Controls.Add(this.CbPeriodo);
             this.panel1.Controls.Add(this.cbCurso);
             this.panel1.Controls.Add(this.btnNovo);
@@ -100,7 +97,6 @@
             this.panel1.Controls.Add(this.txtTelefone);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
@@ -119,25 +115,12 @@
             // txtCEP
             // 
             this.txtCEP.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCEP.Location = new System.Drawing.Point(614, 202);
+            this.txtCEP.Location = new System.Drawing.Point(629, 195);
             this.txtCEP.Mask = "00000-000";
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(206, 29);
             this.txtCEP.TabIndex = 46;
             this.txtCEP.Leave += new System.EventHandler(this.txtCEP_Leave);
-            // 
-            // cbMateria
-            // 
-            this.cbMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMateria.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMateria.FormattingEnabled = true;
-            this.cbMateria.Items.AddRange(new object[] {
-            "Calculo Integral",
-            "Literatura Antiga"});
-            this.cbMateria.Location = new System.Drawing.Point(300, 344);
-            this.cbMateria.Name = "cbMateria";
-            this.cbMateria.Size = new System.Drawing.Size(206, 30);
-            this.cbMateria.TabIndex = 45;
             // 
             // CbPeriodo
             // 
@@ -155,7 +138,7 @@
             "8°",
             "9°",
             "10°"});
-            this.CbPeriodo.Location = new System.Drawing.Point(300, 291);
+            this.CbPeriodo.Location = new System.Drawing.Point(315, 284);
             this.CbPeriodo.Name = "CbPeriodo";
             this.CbPeriodo.Size = new System.Drawing.Size(52, 30);
             this.CbPeriodo.TabIndex = 44;
@@ -169,7 +152,7 @@
             this.cbCurso.Items.AddRange(new object[] {
             "Matematica",
             "Literatura"});
-            this.cbCurso.Location = new System.Drawing.Point(300, 248);
+            this.cbCurso.Location = new System.Drawing.Point(315, 241);
             this.cbCurso.Name = "cbCurso";
             this.cbCurso.Size = new System.Drawing.Size(206, 30);
             this.cbCurso.TabIndex = 43;
@@ -189,7 +172,7 @@
             this.btnNovo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNovo.IconSize = 30;
             this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovo.Location = new System.Drawing.Point(387, 617);
+            this.btnNovo.Location = new System.Drawing.Point(391, 610);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(130, 35);
             this.btnNovo.TabIndex = 42;
@@ -215,7 +198,7 @@
             this.btnSalvar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSalvar.IconSize = 35;
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalvar.Location = new System.Drawing.Point(523, 617);
+            this.btnSalvar.Location = new System.Drawing.Point(527, 610);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(130, 35);
             this.btnSalvar.TabIndex = 41;
@@ -231,7 +214,7 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(230, 547);
+            this.label15.Location = new System.Drawing.Point(245, 489);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(64, 26);
             this.label15.TabIndex = 40;
@@ -240,7 +223,7 @@
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(300, 544);
+            this.txtEmail.Location = new System.Drawing.Point(315, 486);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(206, 29);
             this.txtEmail.TabIndex = 39;
@@ -254,7 +237,7 @@
             this.cbTurno.Items.AddRange(new object[] {
             "Diurno",
             "Noturno"});
-            this.cbTurno.Location = new System.Drawing.Point(614, 437);
+            this.cbTurno.Location = new System.Drawing.Point(629, 430);
             this.cbTurno.Name = "cbTurno";
             this.cbTurno.Size = new System.Drawing.Size(206, 30);
             this.cbTurno.TabIndex = 38;
@@ -264,7 +247,7 @@
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(540, 443);
+            this.label17.Location = new System.Drawing.Point(555, 436);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(68, 26);
             this.label17.TabIndex = 37;
@@ -275,7 +258,7 @@
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(210, 294);
+            this.label16.Location = new System.Drawing.Point(225, 287);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(84, 26);
             this.label16.TabIndex = 35;
@@ -286,7 +269,7 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(566, 547);
+            this.label14.Location = new System.Drawing.Point(407, 540);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(42, 26);
             this.label14.TabIndex = 33;
@@ -295,7 +278,7 @@
             // txtRA
             // 
             this.txtRA.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRA.Location = new System.Drawing.Point(614, 544);
+            this.txtRA.Location = new System.Drawing.Point(455, 537);
             this.txtRA.Name = "txtRA";
             this.txtRA.ReadOnly = true;
             this.txtRA.Size = new System.Drawing.Size(206, 29);
@@ -312,7 +295,7 @@
             "Masculino",
             "Feminino",
             "Outro"});
-            this.cbGenero.Location = new System.Drawing.Point(300, 437);
+            this.cbGenero.Location = new System.Drawing.Point(315, 379);
             this.cbGenero.Name = "cbGenero";
             this.cbGenero.Size = new System.Drawing.Size(206, 30);
             this.cbGenero.TabIndex = 31;
@@ -322,7 +305,7 @@
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(212, 443);
+            this.label13.Location = new System.Drawing.Point(227, 385);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(82, 26);
             this.label13.TabIndex = 30;
@@ -339,7 +322,7 @@
             "Separado",
             "Divorciado",
             "Viúvo"});
-            this.cbEstadoCivil.Location = new System.Drawing.Point(300, 390);
+            this.cbEstadoCivil.Location = new System.Drawing.Point(315, 332);
             this.cbEstadoCivil.Name = "cbEstadoCivil";
             this.cbEstadoCivil.Size = new System.Drawing.Size(206, 30);
             this.cbEstadoCivil.TabIndex = 29;
@@ -349,7 +332,7 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(822, 294);
+            this.label12.Location = new System.Drawing.Point(837, 287);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(40, 26);
             this.label12.TabIndex = 28;
@@ -358,7 +341,7 @@
             // txtNum
             // 
             this.txtNum.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNum.Location = new System.Drawing.Point(864, 291);
+            this.txtNum.Location = new System.Drawing.Point(879, 284);
             this.txtNum.Name = "txtNum";
             this.txtNum.Size = new System.Drawing.Size(47, 29);
             this.txtNum.TabIndex = 27;
@@ -367,7 +350,7 @@
             // txtRua
             // 
             this.txtRua.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRua.Location = new System.Drawing.Point(611, 291);
+            this.txtRua.Location = new System.Drawing.Point(626, 284);
             this.txtRua.Name = "txtRua";
             this.txtRua.ReadOnly = true;
             this.txtRua.Size = new System.Drawing.Size(206, 29);
@@ -379,7 +362,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(538, 393);
+            this.label11.Location = new System.Drawing.Point(553, 386);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(70, 26);
             this.label11.TabIndex = 25;
@@ -390,7 +373,7 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(553, 294);
+            this.label10.Location = new System.Drawing.Point(568, 287);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 26);
             this.label10.TabIndex = 24;
@@ -407,7 +390,7 @@
             this.dtAluno.Cursor = System.Windows.Forms.Cursors.Default;
             this.dtAluno.CustomFormat = "dd/MM/yyyy";
             this.dtAluno.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtAluno.Location = new System.Drawing.Point(300, 489);
+            this.dtAluno.Location = new System.Drawing.Point(315, 431);
             this.dtAluno.Name = "dtAluno";
             this.dtAluno.Size = new System.Drawing.Size(206, 29);
             this.dtAluno.TabIndex = 23;
@@ -415,7 +398,7 @@
             // txtTelefone
             // 
             this.txtTelefone.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefone.Location = new System.Drawing.Point(614, 491);
+            this.txtTelefone.Location = new System.Drawing.Point(629, 484);
             this.txtTelefone.Mask = "(00)00000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(206, 29);
@@ -426,7 +409,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(515, 494);
+            this.label5.Location = new System.Drawing.Point(530, 487);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 26);
             this.label5.TabIndex = 21;
@@ -437,29 +420,18 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(174, 393);
+            this.label3.Location = new System.Drawing.Point(189, 335);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 26);
             this.label3.TabIndex = 20;
             this.label3.Text = "Estado Civil:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(208, 347);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(86, 26);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Materia:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(554, 205);
+            this.label8.Location = new System.Drawing.Point(569, 198);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(54, 26);
             this.label8.TabIndex = 18;
@@ -470,7 +442,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(528, 347);
+            this.label7.Location = new System.Drawing.Point(543, 340);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 26);
             this.label7.TabIndex = 17;
@@ -481,7 +453,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(528, 251);
+            this.label6.Location = new System.Drawing.Point(543, 244);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 26);
             this.label6.TabIndex = 16;
@@ -492,7 +464,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(223, 251);
+            this.label4.Location = new System.Drawing.Point(238, 244);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 26);
             this.label4.TabIndex = 14;
@@ -503,7 +475,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(225, 205);
+            this.label2.Location = new System.Drawing.Point(240, 198);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 26);
             this.label2.TabIndex = 12;
@@ -514,7 +486,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(97, 494);
+            this.label1.Location = new System.Drawing.Point(112, 436);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(197, 26);
             this.label1.TabIndex = 11;
@@ -523,7 +495,7 @@
             // txtBairro
             // 
             this.txtBairro.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBairro.Location = new System.Drawing.Point(614, 390);
+            this.txtBairro.Location = new System.Drawing.Point(629, 383);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.ReadOnly = true;
             this.txtBairro.Size = new System.Drawing.Size(206, 29);
@@ -533,7 +505,7 @@
             // txtCidade
             // 
             this.txtCidade.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCidade.Location = new System.Drawing.Point(614, 344);
+            this.txtCidade.Location = new System.Drawing.Point(629, 337);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.ReadOnly = true;
             this.txtCidade.Size = new System.Drawing.Size(206, 29);
@@ -543,7 +515,7 @@
             // txtEstado
             // 
             this.txtEstado.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstado.Location = new System.Drawing.Point(614, 248);
+            this.txtEstado.Location = new System.Drawing.Point(629, 241);
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.ReadOnly = true;
             this.txtEstado.Size = new System.Drawing.Size(206, 29);
@@ -553,7 +525,7 @@
             // txtNome
             // 
             this.txtNome.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(300, 202);
+            this.txtNome.Location = new System.Drawing.Point(315, 195);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(206, 29);
             this.txtNome.TabIndex = 0;
@@ -589,7 +561,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MaskedTextBox txtTelefone;
@@ -613,7 +584,6 @@
         private FontAwesome.Sharp.IconButton btnNovo;
         private System.Windows.Forms.ComboBox cbCurso;
         private System.Windows.Forms.ComboBox CbPeriodo;
-        private System.Windows.Forms.ComboBox cbMateria;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MaskedTextBox txtCEP;
     }

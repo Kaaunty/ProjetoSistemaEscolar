@@ -181,8 +181,9 @@ namespace ProjetoSistemaEe.View
             gridAlunoProfessor.DataSource = model.ListarAlunoPorMateria();
             gridAlunoProfessor.Columns[0].HeaderText = "RA Aluno";
             gridAlunoProfessor.Columns[1].HeaderText = "Nome do Aluno";
-            gridAlunoProfessor.Columns[2].HeaderText = "Matéria do Aluno";
+            gridAlunoProfessor.Columns[2].HeaderText = "Curso do Aluno";
             gridAlunoProfessor.Columns[4].HeaderText = "Nome do Professor";
+            gridAlunoProfessor.Columns[6].HeaderText = "Materia";
             gridAlunoProfessor.Columns[3].Visible = false;
             gridAlunoProfessor.Columns[5].Visible = false;
         }
@@ -191,8 +192,9 @@ namespace ProjetoSistemaEe.View
         {
             txtRA.Text = gridAlunoProfessor.CurrentRow.Cells[0].Value.ToString();
             txtNome.Text = gridAlunoProfessor.CurrentRow.Cells[1].Value.ToString();
-            txtMateria.Text = gridAlunoProfessor.CurrentRow.Cells[2].Value.ToString();
+            txtCurso.Text = gridAlunoProfessor.CurrentRow.Cells[2].Value.ToString();
             txtNomeProfessor.Text = gridAlunoProfessor.CurrentRow.Cells[4].Value.ToString();
+            txtMateria.Text = gridAlunoProfessor.CurrentRow.Cells[6].Value.ToString();
             HabilitarCampos();
         }
 

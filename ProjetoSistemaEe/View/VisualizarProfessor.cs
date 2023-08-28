@@ -28,26 +28,8 @@ namespace ProjetoSistemaEe.View
         private void ListarProfessor()
         {
             gridProfessor.DataSource = professorModel.Listar();
-            gridProfessor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            gridProfessor.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-            gridProfessor.BorderStyle = BorderStyle.None;
-            gridProfessor.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            gridProfessor.CellBorderStyle = DataGridViewCellBorderStyle.Single;
-            gridProfessor.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
-            gridProfessor.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            gridProfessor.BackgroundColor = Color.White;
-            gridProfessor.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            gridProfessor.EnableHeadersVisualStyles = false;
-            gridProfessor.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Raised;
-            gridProfessor.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 58, 64);
-            gridProfessor.Font = new Font("Segoe UI", 9);
-            gridProfessor.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9);
-            gridProfessor.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 58, 64);
-            gridProfessor.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            gridProfessor.EnableHeadersVisualStyles = false;
-            gridProfessor.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            gridProfessor.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             gridProfessor.Columns[0].HeaderText = "Código";
+            gridProfessor.Columns[0].Visible = false;
             gridProfessor.Columns[1].HeaderText = "Nome";
             gridProfessor.Columns[2].HeaderText = "Curso";
             gridProfessor.Columns[3].HeaderText = "Salario";
@@ -59,6 +41,13 @@ namespace ProjetoSistemaEe.View
             gridProfessor.Columns[9].HeaderText = "Telefone";
             gridProfessor.Columns[10].HeaderText = "CEP";
             gridProfessor.Columns[11].HeaderText = "Endereço";
+        }
+
+        private void gridProfessor_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditarProfessor formB = new EditarProfessor(this);
+            var principal = this.ParentForm as MenuPrincipal; // Pega o formulário pai
+            principal.AbrirFormNoPainel(formB); // Chama o método para abrir o formulário B
         }
     }
 }

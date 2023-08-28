@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -30,15 +31,14 @@ namespace ProjetoSistemaEe.View
             txtNome.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[1].Value.ToString();
             cbCurso.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[2].Value.ToString();
             cbPeriodo.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[3].Value.ToString();
-            cbMateria.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[4].Value.ToString();
-            cbEstadoCivil.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[5].Value.ToString();
-            cbGenero.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[6].Value.ToString();
-            dtAluno.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[7].Value.ToString();
-            txtEmail.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[8].Value.ToString();
-            cbTurno.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[9].Value.ToString();
-            txtTelefone.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[10].Value.ToString();
-            txtCEP.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[11].Value.ToString();
-            string endereco = instanciaDoForm1.gridAluno.CurrentRow.Cells[12].Value.ToString();
+            cbEstadoCivil.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[4].Value.ToString();
+            cbGenero.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[5].Value.ToString();
+            dtAluno.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[6].Value.ToString();
+            txtEmail.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[7].Value.ToString();
+            cbTurno.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[8].Value.ToString();
+            txtTelefone.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[9].Value.ToString();
+            txtCEP.Text = instanciaDoForm1.gridAluno.CurrentRow.Cells[10].Value.ToString();
+            string endereco = instanciaDoForm1.gridAluno.CurrentRow.Cells[11].Value.ToString();
             string[] enderecoSeparado = endereco.Split(delimitarchars);
             txtCidade.Text = enderecoSeparado[0];
             txtEstado.Text = enderecoSeparado[1];
@@ -56,7 +56,7 @@ namespace ProjetoSistemaEe.View
             cbCurso.DisplayMember = "Nome";
             cbCurso.ValueMember = "id";
             DataTable materia_curso = cursoModel.BuscarMateria(Convert.ToInt32(cbCurso.SelectedValue));
-            cbMateria.DataSource = materia_curso;
+            //cbMateria.DataSource = materia_curso;
             Validar.FormatarData(dtAluno, new DateTime(2004, 12, 31), new DateTime(1953, 01, 01));
         }
 
@@ -69,9 +69,6 @@ namespace ProjetoSistemaEe.View
             cbCurso.SelectedIndex = -1;
             int cursoid = Convert.ToInt32(cbCurso.SelectedValue);
             DataTable materia_curso = cursoModel.BuscarMateria(cursoid);
-            cbMateria.DataSource = materia_curso;
-            cbMateria.DisplayMember = "Nome";
-            cbMateria.ValueMember = "id";
         }
 
         private void cbCurso_TextChanged(object sender, EventArgs e)
@@ -79,7 +76,6 @@ namespace ProjetoSistemaEe.View
             cbCurso.DisplayMember = "Nome";
             cbCurso.ValueMember = "id";
             DataTable materia_curso = cursoModel.BuscarMateria(Convert.ToInt32(cbCurso.SelectedValue));
-            cbMateria.DataSource = materia_curso;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -98,7 +94,7 @@ namespace ProjetoSistemaEe.View
                     aluno.Nome = txtNome.Text;
                     aluno.Curso = cbCurso.Text;
                     aluno.Periodo = cbPeriodo.Text;
-                    aluno.Materia = cbMateria.Text;
+
                     aluno.EstadoCivil = cbEstadoCivil.Text;
                     aluno.Genero = cbGenero.Text;
                     aluno.Email = txtEmail.Text;
@@ -153,8 +149,53 @@ namespace ProjetoSistemaEe.View
         private void FormAbrir()
         {
             VisualizarAluno formB = new VisualizarAluno();
-            var principal = this.ParentForm as MenuPrincipal; // Pega o formulário pai
-            principal.AbrirFormNoPainel(formB); // Chama o método para abrir o formulário B
+            var principal = this.ParentForm as MenuPrincipal;
+            principal.AbrirFormNoPainel(formB);
+        }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            Aluno alunos = new Aluno();
+            ExcluirAluno(alunos);
+        }
+
+        private void ExcluirAluno(Aluno aluno)
+        {
+            try
+            {
+                aluno.RA = Convert.ToInt32(txtRA.Text);
+                alunoModel.Excluir(aluno);
+                MessageBox.Show("Aluno excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao excluir os dados: " + ex.Message);
+            }
+            finally
+            {
+                FormAbrir();
+            }
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+            string nomeOriginal = txtNome.Text;
+            string nomeModificado = nomeOriginal;
+
+            while (Validar.ValidaNumeroOuCaracterEspecial(nomeModificado))
+            {
+                nomeModificado = Regex.Replace(nomeModificado, @"\d", "");
+                nomeModificado = Regex.Replace(nomeModificado, @"[^\w\s]", "");
+                nomeModificado = nomeModificado.Replace("_", "");
+
+                if (nomeModificado == nomeOriginal)
+                    break;
+
+                nomeOriginal = nomeModificado;
+            }
+
+            txtNome.Text = nomeModificado;
+            txtNome.SelectionStart = nomeModificado.Length;
         }
     }
 }

@@ -2,6 +2,7 @@
 using ProjetoSistemaEe.Entidades;
 using System;
 using System.Data;
+using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.Model
 {
@@ -33,9 +34,28 @@ namespace ProjetoSistemaEe.Model
             }
         }
 
-        public void Editar(Professor pessoa)
+        public void Editar(Professor professor)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dao.EditarProfessor(professor);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao editar aluno: " + ex.Message);
+            }
+        }
+
+        public void Excluir(Professor professor)
+        {
+            try
+            {
+                dao.ExcluirProfessor(professor);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao excluir aluno: " + ex.Message);
+            }
         }
     }
 }

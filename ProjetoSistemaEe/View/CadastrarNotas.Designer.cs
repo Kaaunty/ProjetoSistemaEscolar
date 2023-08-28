@@ -34,6 +34,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtCurso = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtNomeProfessor = new System.Windows.Forms.TextBox();
             this.txtMateria = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -78,6 +80,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
+            this.panel3.Controls.Add(this.txtCurso);
+            this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.txtNomeProfessor);
             this.panel3.Controls.Add(this.txtMateria);
             this.panel3.Controls.Add(this.txtNome);
@@ -91,16 +95,43 @@
             this.panel3.Size = new System.Drawing.Size(386, 364);
             this.panel3.TabIndex = 12;
             // 
+            // txtCurso
+            // 
+            this.txtCurso.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCurso.Enabled = false;
+            this.txtCurso.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCurso.Location = new System.Drawing.Point(159, 134);
+            this.txtCurso.Name = "txtCurso";
+            this.txtCurso.ReadOnly = true;
+            this.txtCurso.Size = new System.Drawing.Size(217, 29);
+            this.txtCurso.TabIndex = 9;
+            this.txtCurso.TabStop = false;
+            this.txtCurso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
+            this.label6.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label6.Location = new System.Drawing.Point(77, 132);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 28);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Curso:";
+            // 
             // txtNomeProfessor
             // 
             this.txtNomeProfessor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNomeProfessor.Enabled = false;
             this.txtNomeProfessor.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeProfessor.Location = new System.Drawing.Point(159, 187);
+            this.txtNomeProfessor.Location = new System.Drawing.Point(159, 228);
             this.txtNomeProfessor.Name = "txtNomeProfessor";
             this.txtNomeProfessor.ReadOnly = true;
             this.txtNomeProfessor.Size = new System.Drawing.Size(217, 29);
             this.txtNomeProfessor.TabIndex = 7;
+            this.txtNomeProfessor.TabStop = false;
             this.txtNomeProfessor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtMateria
@@ -108,11 +139,12 @@
             this.txtMateria.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMateria.Enabled = false;
             this.txtMateria.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMateria.Location = new System.Drawing.Point(159, 138);
+            this.txtMateria.Location = new System.Drawing.Point(159, 181);
             this.txtMateria.Name = "txtMateria";
             this.txtMateria.ReadOnly = true;
             this.txtMateria.Size = new System.Drawing.Size(217, 29);
             this.txtMateria.TabIndex = 6;
+            this.txtMateria.TabStop = false;
             this.txtMateria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNome
@@ -120,11 +152,12 @@
             this.txtNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNome.Enabled = false;
             this.txtNome.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(159, 89);
+            this.txtNome.Location = new System.Drawing.Point(159, 87);
             this.txtNome.Name = "txtNome";
             this.txtNome.ReadOnly = true;
             this.txtNome.Size = new System.Drawing.Size(217, 29);
             this.txtNome.TabIndex = 5;
+            this.txtNome.TabStop = false;
             this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
@@ -149,7 +182,8 @@
             this.txtRA.Name = "txtRA";
             this.txtRA.ReadOnly = true;
             this.txtRA.Size = new System.Drawing.Size(217, 29);
-            this.txtRA.TabIndex = 4;
+            this.txtRA.TabIndex = 0;
+            this.txtRA.TabStop = false;
             this.txtRA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label8
@@ -159,7 +193,7 @@
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
             this.label8.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label8.Location = new System.Drawing.Point(11, 188);
+            this.label8.Location = new System.Drawing.Point(11, 226);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(142, 28);
             this.label8.TabIndex = 1;
@@ -172,7 +206,7 @@
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
             this.label9.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label9.Location = new System.Drawing.Point(79, 90);
+            this.label9.Location = new System.Drawing.Point(79, 85);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 28);
             this.label9.TabIndex = 3;
@@ -185,7 +219,7 @@
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
             this.label10.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label10.Location = new System.Drawing.Point(60, 139);
+            this.label10.Location = new System.Drawing.Point(60, 179);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(93, 28);
             this.label10.TabIndex = 2;
@@ -211,7 +245,7 @@
             this.btnAdicionar.Location = new System.Drawing.Point(466, 584);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(130, 35);
-            this.btnAdicionar.TabIndex = 43;
+            this.btnAdicionar.TabIndex = 6;
             this.btnAdicionar.Text = "    Adicinar";
             this.btnAdicionar.UseVisualStyleBackColor = false;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
@@ -256,6 +290,7 @@
             this.gridAlunoProfessor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridAlunoProfessor.Size = new System.Drawing.Size(387, 364);
             this.gridAlunoProfessor.TabIndex = 9;
+            this.gridAlunoProfessor.TabStop = false;
             this.gridAlunoProfessor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAlunoProfessor_CellClick);
             // 
             // panel2
@@ -284,7 +319,7 @@
             this.txtN4.Location = new System.Drawing.Point(124, 183);
             this.txtN4.Name = "txtN4";
             this.txtN4.Size = new System.Drawing.Size(67, 33);
-            this.txtN4.TabIndex = 7;
+            this.txtN4.TabIndex = 4;
             this.txtN4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtN4.TextChanged += new System.EventHandler(this.txtN_TextChanged);
             // 
@@ -297,7 +332,7 @@
             this.txtMedia.Name = "txtMedia";
             this.txtMedia.ReadOnly = true;
             this.txtMedia.Size = new System.Drawing.Size(67, 33);
-            this.txtMedia.TabIndex = 11;
+            this.txtMedia.TabIndex = 5;
             this.txtMedia.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtN3
@@ -308,7 +343,7 @@
             this.txtN3.Location = new System.Drawing.Point(124, 134);
             this.txtN3.Name = "txtN3";
             this.txtN3.Size = new System.Drawing.Size(67, 33);
-            this.txtN3.TabIndex = 6;
+            this.txtN3.TabIndex = 3;
             this.txtN3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtN3.TextChanged += new System.EventHandler(this.txtN_TextChanged);
             // 
@@ -333,7 +368,7 @@
             this.txtN2.Location = new System.Drawing.Point(124, 85);
             this.txtN2.Name = "txtN2";
             this.txtN2.Size = new System.Drawing.Size(67, 33);
-            this.txtN2.TabIndex = 5;
+            this.txtN2.TabIndex = 2;
             this.txtN2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtN2.TextChanged += new System.EventHandler(this.txtN_TextChanged);
             // 
@@ -358,7 +393,7 @@
             this.txtN1.Location = new System.Drawing.Point(124, 36);
             this.txtN1.Name = "txtN1";
             this.txtN1.Size = new System.Drawing.Size(67, 33);
-            this.txtN1.TabIndex = 4;
+            this.txtN1.TabIndex = 1;
             this.txtN1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtN1.TextChanged += new System.EventHandler(this.txtN_TextChanged);
             // 
@@ -446,5 +481,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtCurso;
+        private System.Windows.Forms.Label label6;
     }
 }

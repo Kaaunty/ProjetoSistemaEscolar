@@ -14,5 +14,7 @@ namespace ProjetoSistemaEe.Model
         void Salvar(tipo pessoa);
 
         void Editar(tipo pessoa);
+
+        void Excluir(tipo pessoa);
     }
 }

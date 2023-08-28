@@ -28,7 +28,7 @@ namespace ProjetoSistemaEe.Utils
                     MessageBox.Show($"Por favor, preencha o campo", "Campo Vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
-                else if (control is MaskedTextBox maskedTextBox && string.IsNullOrWhiteSpace(maskedTextBox.Text))
+                else if (control is MaskedTextBox maskedTextBox && (string.IsNullOrWhiteSpace(maskedTextBox.Text) || maskedTextBox.Text == "(  )     -" || !maskedTextBox.MaskCompleted))
                 {
                     MessageBox.Show($"Por favor, preencha o campo", "Campo Vazio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;

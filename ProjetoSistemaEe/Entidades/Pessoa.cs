@@ -13,7 +13,7 @@ namespace ProjetoSistemaEe.Entidades
         private string rua;
         private DateTime datanascimento;
         private string genero;
-        private string materia;
+
         private string uf;
         private string numerorua;
         private string estadoCivil;
@@ -30,7 +30,7 @@ namespace ProjetoSistemaEe.Entidades
         public string Rua { get => rua; set => rua = value; }
         public DateTime Datanascimento { get => datanascimento; set => datanascimento = value; }
         public string Genero { get => genero; set => genero = value; }
-        public string Materia { get => materia; set => materia = value; }
+
         public string Uf { get => uf; set => uf = value; }
         public string Numerorua { get => numerorua; set => numerorua = value; }
         public string EstadoCivil { get => estadoCivil; set => estadoCivil = value; }

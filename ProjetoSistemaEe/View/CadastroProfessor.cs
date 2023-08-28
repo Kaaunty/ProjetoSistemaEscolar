@@ -3,6 +3,7 @@ using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
 using System;
 using System.Data;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
@@ -124,6 +125,7 @@ namespace ProjetoSistemaEe.View
                     professor.Curso = cbCurso.Text;
                     professor.Materia = cbMateria.Text;
                     professor.EstadoCivil = cbEstadoCivil.Text;
+
                     professor.Genero = cbGenero.Text;
                     professor.Email = txtEmail.Text;
                     professor.Cep = txtCEP.Text;
@@ -180,7 +182,6 @@ namespace ProjetoSistemaEe.View
 
         private void CarregarComboBox()
         {
-            //
             cbCurso.DataSource = cursoM.ListarCursos();
             cbCurso.DisplayMember = "Nome";
             cbCurso.ValueMember = "id";
@@ -202,12 +203,73 @@ namespace ProjetoSistemaEe.View
             cbCurso.ValueMember = "id";
             DataTable materia_curso = cursoM.BuscarMateria(Convert.ToInt32(cbCurso.SelectedValue));
             cbMateria.DataSource = materia_curso;
+            cbMateria.DisplayMember = "Nome";
+            cbMateria.ValueMember = "id";
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
             VisualizarProfessor visualizarProfessor = new VisualizarProfessor();
             visualizarProfessor.ShowDialog();
+        }
+
+        private void cbCurso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void txtSalario_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void txtSalario_Leave(object sender, EventArgs e)
+        {
+            double salario;
+            if (Double.TryParse(txtSalario.Text, out salario))
+            {
+                txtSalario.Text = String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:C2}", salario);
+
+                if (salario <= 2000)
+                {
+                    MessageBox.Show("Salário Inválido (Menor que R$ 2.000)");
+                    txtSalario.Text = "";
+                    txtSalario.Focus();
+                    return;
+                }
+                if (salario >= 10001)
+                {
+                    MessageBox.Show("Salário Inválido (Maior que R$ 10.000)");
+                    txtSalario.Text = "";
+                    txtSalario.Focus();
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Digite um valor numérico válido.");
+                txtSalario.Text = "";
+                txtSalario.Focus();
+            }
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+            string nomeOriginal = txtNome.Text;
+            string nomeModificado = nomeOriginal;
+
+            while (Validar.ValidaNumeroOuCaracterEspecial(nomeModificado))
+            {
+                nomeModificado = Regex.Replace(nomeModificado, @"\d", "");
+                nomeModificado = Regex.Replace(nomeModificado, @"[^\w\s]", "");
+                nomeModificado = nomeModificado.Replace("_", "");
+
+                if (nomeModificado == nomeOriginal)
+                    break;
+
+                nomeOriginal = nomeModificado;
+            }
+
+            txtNome.Text = nomeModificado;
+            txtNome.SelectionStart = nomeModificado.Length;
         }
     }
 }

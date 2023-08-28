@@ -39,7 +39,6 @@ namespace ProjetoSistemaEe
                 txtNome.Enabled = true;
                 cbCurso.Enabled = true;
                 CbPeriodo.Enabled = true;
-                cbMateria.Enabled = true;
                 cbEstadoCivil.Enabled = true;
                 cbGenero.Enabled = true;
                 txtEmail.Enabled = true;
@@ -64,7 +63,6 @@ namespace ProjetoSistemaEe
             txtNome.Clear();
             cbCurso.SelectedValue = 0;
             CbPeriodo.SelectedValue = 0;
-            cbMateria.SelectedValue = 0;
             cbEstadoCivil.SelectedValue = 0;
             cbGenero.SelectedValue = 0;
             txtEmail.Clear();
@@ -86,7 +84,6 @@ namespace ProjetoSistemaEe
                 txtNome.Enabled = false;
                 cbCurso.Enabled = false;
                 CbPeriodo.Enabled = false;
-                cbMateria.Enabled = false;
                 cbEstadoCivil.Enabled = false;
                 cbGenero.Enabled = false;
                 txtEmail.Enabled = false;
@@ -136,7 +133,7 @@ namespace ProjetoSistemaEe
                     aluno.Nome = txtNome.Text;
                     aluno.Curso = cbCurso.Text;
                     aluno.Periodo = CbPeriodo.Text;
-                    aluno.Materia = cbMateria.Text;
+
                     aluno.EstadoCivil = cbEstadoCivil.Text;
                     aluno.Genero = cbGenero.Text;
                     aluno.Email = txtEmail.Text;
@@ -171,18 +168,11 @@ namespace ProjetoSistemaEe
 
         private void CarregarComboBox()
         {
-            //
             cbCurso.DataSource = cursoM.ListarCursos();
             cbCurso.DisplayMember = "Nome";
             cbCurso.ValueMember = "id";
             cbCurso.DropDownHeight = cbCurso.ItemHeight * 5;
             cbCurso.SelectedIndex = -1;
-            //
-            int cursoid = Convert.ToInt32(cbCurso.SelectedValue);
-            DataTable materia_curso = cursoM.BuscarMateria(cursoid);
-            cbMateria.DataSource = materia_curso;
-            cbMateria.DisplayMember = "Nome";
-            cbMateria.ValueMember = "id";
         }
 
         #endregion Carregar ComboBox e Verificar Espaços
@@ -241,7 +231,7 @@ namespace ProjetoSistemaEe
             cbCurso.DisplayMember = "Nome";
             cbCurso.ValueMember = "id";
             DataTable materia_curso = cursoM.BuscarMateria(Convert.ToInt32(cbCurso.SelectedValue));
-            cbMateria.DataSource = materia_curso;
+            //cbMateria.DataSource = materia_curso;
         }
 
         private void txtNome_TextChanged(object sender, EventArgs e)

@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.txtCEP = new System.Windows.Forms.MaskedTextBox();
-            this.cbMateria = new System.Windows.Forms.ComboBox();
             this.cbPeriodo = new System.Windows.Forms.ComboBox();
             this.cbCurso = new System.Windows.Forms.ComboBox();
-            this.btnEditar = new FontAwesome.Sharp.IconButton();
             this.label15 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.cbTurno = new System.Windows.Forms.ComboBox();
@@ -52,7 +50,6 @@
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -64,6 +61,8 @@
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDeletar = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,19 +75,6 @@
             this.txtCEP.Size = new System.Drawing.Size(206, 29);
             this.txtCEP.TabIndex = 46;
             this.txtCEP.Leave += new System.EventHandler(this.txtCEP_Leave);
-            // 
-            // cbMateria
-            // 
-            this.cbMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMateria.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMateria.FormattingEnabled = true;
-            this.cbMateria.Items.AddRange(new object[] {
-            "Calculo Integral",
-            "Literatura Antiga"});
-            this.cbMateria.Location = new System.Drawing.Point(300, 344);
-            this.cbMateria.Name = "cbMateria";
-            this.cbMateria.Size = new System.Drawing.Size(206, 30);
-            this.cbMateria.TabIndex = 45;
             // 
             // cbPeriodo
             // 
@@ -125,34 +111,12 @@
             this.cbCurso.TabIndex = 43;
             this.cbCurso.TextChanged += new System.EventHandler(this.cbCurso_TextChanged);
             // 
-            // btnEditar
-            // 
-            this.btnEditar.BackColor = System.Drawing.Color.Transparent;
-            this.btnEditar.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
-            this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnEditar.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.btnEditar.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEditar.IconSize = 35;
-            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(455, 618);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(130, 35);
-            this.btnEditar.TabIndex = 41;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = false;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(230, 547);
+            this.label15.Location = new System.Drawing.Point(230, 501);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(64, 26);
             this.label15.TabIndex = 40;
@@ -161,7 +125,7 @@
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(300, 544);
+            this.txtEmail.Location = new System.Drawing.Point(300, 498);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(206, 29);
             this.txtEmail.TabIndex = 39;
@@ -207,7 +171,7 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(566, 547);
+            this.label14.Location = new System.Drawing.Point(392, 546);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(42, 26);
             this.label14.TabIndex = 33;
@@ -216,7 +180,7 @@
             // txtRA
             // 
             this.txtRA.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRA.Location = new System.Drawing.Point(614, 544);
+            this.txtRA.Location = new System.Drawing.Point(440, 543);
             this.txtRA.Name = "txtRA";
             this.txtRA.ReadOnly = true;
             this.txtRA.Size = new System.Drawing.Size(206, 29);
@@ -233,7 +197,7 @@
             "Masculino",
             "Feminino",
             "Outro"});
-            this.cbGenero.Location = new System.Drawing.Point(300, 437);
+            this.cbGenero.Location = new System.Drawing.Point(300, 391);
             this.cbGenero.Name = "cbGenero";
             this.cbGenero.Size = new System.Drawing.Size(206, 30);
             this.cbGenero.TabIndex = 31;
@@ -243,7 +207,7 @@
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(212, 443);
+            this.label13.Location = new System.Drawing.Point(212, 397);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(82, 26);
             this.label13.TabIndex = 30;
@@ -260,7 +224,7 @@
             "Separado",
             "Divorciado",
             "Viúvo"});
-            this.cbEstadoCivil.Location = new System.Drawing.Point(300, 390);
+            this.cbEstadoCivil.Location = new System.Drawing.Point(300, 344);
             this.cbEstadoCivil.Name = "cbEstadoCivil";
             this.cbEstadoCivil.Size = new System.Drawing.Size(206, 30);
             this.cbEstadoCivil.TabIndex = 29;
@@ -329,7 +293,7 @@
             this.dtAluno.Cursor = System.Windows.Forms.Cursors.Default;
             this.dtAluno.CustomFormat = "dd-MM-yyyy";
             this.dtAluno.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtAluno.Location = new System.Drawing.Point(300, 489);
+            this.dtAluno.Location = new System.Drawing.Point(300, 443);
             this.dtAluno.Name = "dtAluno";
             this.dtAluno.Size = new System.Drawing.Size(206, 29);
             this.dtAluno.TabIndex = 23;
@@ -360,22 +324,11 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(174, 393);
+            this.label3.Location = new System.Drawing.Point(174, 347);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 26);
             this.label3.TabIndex = 20;
             this.label3.Text = "Estado Civil:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(208, 347);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(86, 26);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Materia:";
             // 
             // label8
             // 
@@ -437,7 +390,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(97, 494);
+            this.label1.Location = new System.Drawing.Point(97, 448);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(197, 26);
             this.label1.TabIndex = 11;
@@ -481,6 +434,7 @@
             this.txtNome.Size = new System.Drawing.Size(206, 29);
             this.txtNome.TabIndex = 0;
             this.txtNome.Text = "Nome";
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // panel1
             // 
@@ -489,11 +443,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.background_aluno;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.iconButton1);
             this.panel1.Controls.Add(this.txtCEP);
-            this.panel1.Controls.Add(this.cbMateria);
             this.panel1.Controls.Add(this.cbPeriodo);
             this.panel1.Controls.Add(this.cbCurso);
-            this.panel1.Controls.Add(this.btnEditar);
+            this.panel1.Controls.Add(this.btnDeletar);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.txtEmail);
             this.panel1.Controls.Add(this.cbTurno);
@@ -513,7 +467,6 @@
             this.panel1.Controls.Add(this.txtTelefone);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
@@ -528,6 +481,50 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 1;
+            // 
+            // btnDeletar
+            // 
+            this.btnDeletar.BackColor = System.Drawing.Color.Transparent;
+            this.btnDeletar.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
+            this.btnDeletar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDeletar.FlatAppearance.BorderSize = 0;
+            this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeletar.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDeletar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnDeletar.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDeletar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDeletar.IconSize = 35;
+            this.btnDeletar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeletar.Location = new System.Drawing.Point(522, 618);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Size = new System.Drawing.Size(130, 35);
+            this.btnDeletar.TabIndex = 41;
+            this.btnDeletar.Text = "     Deletar";
+            this.btnDeletar.UseVisualStyleBackColor = false;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
+            this.iconButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.iconButton1.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 35;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(386, 618);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(130, 35);
+            this.iconButton1.TabIndex = 47;
+            this.iconButton1.Text = "Editar";
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // EditarAluno
             // 
@@ -548,10 +545,8 @@
         #endregion
 
         private System.Windows.Forms.MaskedTextBox txtCEP;
-        private System.Windows.Forms.ComboBox cbMateria;
         private System.Windows.Forms.ComboBox cbPeriodo;
         private System.Windows.Forms.ComboBox cbCurso;
-        private FontAwesome.Sharp.IconButton btnEditar;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.ComboBox cbTurno;
@@ -571,7 +566,6 @@
         private System.Windows.Forms.MaskedTextBox txtTelefone;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -583,5 +577,7 @@
         private System.Windows.Forms.TextBox txtEstado;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Panel panel1;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnDeletar;
     }
 }

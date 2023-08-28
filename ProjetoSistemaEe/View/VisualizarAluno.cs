@@ -1,13 +1,5 @@
 ﻿using ProjetoSistemaEe.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
@@ -33,15 +25,14 @@ namespace ProjetoSistemaEe.View
             gridAluno.Columns[1].HeaderText = "Nome";
             gridAluno.Columns[2].HeaderText = "Curso";
             gridAluno.Columns[3].HeaderText = "Periodo";
-            gridAluno.Columns[4].HeaderText = "Materia";
-            gridAluno.Columns[5].HeaderText = "Estado Civil";
-            gridAluno.Columns[6].HeaderText = "Gênero";
-            gridAluno.Columns[7].HeaderText = "Data de Nascimento";
-            gridAluno.Columns[8].HeaderText = "Email";
-            gridAluno.Columns[9].HeaderText = "Turno";
-            gridAluno.Columns[10].HeaderText = "Telefone";
-            gridAluno.Columns[11].HeaderText = "CEP";
-            gridAluno.Columns[12].HeaderText = "Endereço";
+            gridAluno.Columns[4].HeaderText = "Estado Civil";
+            gridAluno.Columns[5].HeaderText = "Gênero";
+            gridAluno.Columns[6].HeaderText = "Data de Nascimento";
+            gridAluno.Columns[7].HeaderText = "Email";
+            gridAluno.Columns[8].HeaderText = "Turno";
+            gridAluno.Columns[9].HeaderText = "Telefone";
+            gridAluno.Columns[10].HeaderText = "CEP";
+            gridAluno.Columns[11].HeaderText = "Endereço";
         }
 
         private void gridAluno_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
