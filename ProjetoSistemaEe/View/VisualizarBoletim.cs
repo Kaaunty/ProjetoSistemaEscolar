@@ -50,5 +50,12 @@ namespace ProjetoSistemaEe.View
                 }
             }
         }
+
+        private void gridBoletim_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditarNotas formB = new EditarNotas(this);
+            var principal = this.ParentForm as MenuPrincipal; // Pega o formulário pai
+            principal.AbrirFormNoPainel(formB); // Chama o método para abrir o formulário B
+        }
     }
 }

@@ -2,14 +2,7 @@
 using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
@@ -82,72 +75,80 @@ namespace ProjetoSistemaEe.View
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Professor professores = new Professor();
-            Editar(professores);
+            if (validar.ValidateControls(this))
+            {
+                try
+                {
+                    DialogResult result = MessageBox.Show("Deseja editar o professor?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        Professor professores = new Professor();
+                        Editar(professores);
+                        MessageBox.Show("Professor editado com sucesso!");
+                        FormAbrir();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao editar professor: " + ex.Message);
+                }
+            }
         }
 
         private void Editar(Professor professor)
+        {
+            try
+            {
+                professor.Id = Convert.ToInt32(txtID.Text);
+                professor.Nome = txtNome.Text;
+                professor.Curso = cbCurso.Text;
+                professor.Materia = cbMateria.Text;
+                professor.EstadoCivil = cbEstadoCivil.Text;
+                professor.Genero = cbGenero.Text;
+                professor.Salario = txtSalario.Text;
+                professor.Datanascimento = Convert.ToDateTime(dtProfessor.Text);
+                professor.Email = txtEmail.Text;
+                professor.Telefone = txtTelefone.Text;
+                professor.Cep = txtCEP.Text;
+                professor.Cidade = txtCidade.Text;
+                professor.Uf = txtEstado.Text;
+                professor.Bairro = txtBairro.Text;
+                professor.Rua = txtRua.Text;
+                professor.Numerorua = txtNum.Text;
+                professormodel.Editar(professor);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Deseja excluir o professor?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Professor professores = new Professor();
+                Excluir(professores);
+                MessageBox.Show("Professor excluido com sucesso!");
+                FormAbrir();
+            }
+        }
+
+        private void Excluir(Professor professor)
         {
             if (validar.ValidateControls(this))
             {
                 try
                 {
                     professor.Id = Convert.ToInt32(txtID.Text);
-                    professor.Nome = txtNome.Text;
-                    professor.Curso = cbCurso.Text;
-                    professor.Materia = cbMateria.Text;
-                    professor.EstadoCivil = cbEstadoCivil.Text;
-                    professor.Genero = cbGenero.Text;
-                    professor.Salario = txtSalario.Text;
-                    professor.Datanascimento = Convert.ToDateTime(dtProfessor.Text);
-                    professor.Email = txtEmail.Text;
-                    professor.Telefone = txtTelefone.Text;
-                    professor.Cep = txtCEP.Text;
-                    professor.Cidade = txtCidade.Text;
-                    professor.Uf = txtEstado.Text;
-                    professor.Bairro = txtBairro.Text;
-                    professor.Rua = txtRua.Text;
-                    professor.Numerorua = txtNum.Text;
-                    professormodel.Editar(professor);
-                    MessageBox.Show("Professor editado com sucesso!");
+                    professormodel.Excluir(professor);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    MessageBox.Show("Erro ao editar professor: " + ex.Message);
-                }
-                finally
-                {
-                    FormAbrir();
+                    throw;
                 }
             }
-        }
-
-        private void FormAbrir()
-        {
-            VisualizarProfessor formB = new VisualizarProfessor();
-            var principal = this.ParentForm as MenuPrincipal;
-            principal.AbrirFormNoPainel(formB);
-        }
-
-        private void txtNome_TextChanged(object sender, EventArgs e)
-        {
-            string nomeOriginal = txtNome.Text;
-            string nomeModificado = nomeOriginal;
-
-            while (Validar.ValidaNumeroOuCaracterEspecial(nomeModificado))
-            {
-                nomeModificado = Regex.Replace(nomeModificado, @"\d", "");
-                nomeModificado = Regex.Replace(nomeModificado, @"[^\w\s]", "");
-                nomeModificado = nomeModificado.Replace("_", "");
-
-                if (nomeModificado == nomeOriginal)
-                    break;
-
-                nomeOriginal = nomeModificado;
-            }
-
-            txtNome.Text = nomeModificado;
-            txtNome.SelectionStart = nomeModificado.Length;
         }
 
         private void txtSalario_Leave(object sender, EventArgs e)
@@ -157,16 +158,9 @@ namespace ProjetoSistemaEe.View
             {
                 txtSalario.Text = String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:C2}", salario);
 
-                if (salario <= 2000)
+                if (salario < 2000)
                 {
                     MessageBox.Show("Salário Inválido (Menor que R$ 2.000)");
-                    txtSalario.Text = "";
-                    txtSalario.Focus();
-                    return;
-                }
-                if (salario >= 10001)
-                {
-                    MessageBox.Show("Salário Inválido (Maior que R$ 10.000)");
                     txtSalario.Text = "";
                     txtSalario.Focus();
                     return;
@@ -178,6 +172,48 @@ namespace ProjetoSistemaEe.View
                 txtSalario.Text = "";
                 txtSalario.Focus();
             }
+        }
+
+        private void FormAbrir()
+        {
+            VisualizarProfessor formB = new VisualizarProfessor();
+            var principal = this.ParentForm as MenuPrincipal;
+            principal.AbrirFormNoPainel(formB);
+        }
+
+        private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.VerificaNumero(e);
+        }
+
+        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.VerificaLetra(e);
+        }
+
+        private void txtCEP_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCEP.Text) && txtCEP.MaskCompleted)
+            {
+                using (var ws = new WSCorreios.AtendeClienteClient())
+                {
+                    try
+                    {
+                        var endereco = ws.consultaCEP(txtCEP.Text.Trim());
+                        txtEstado.Text = endereco.uf;
+                        txtCidade.Text = endereco.cidade;
+                        txtBairro.Text = endereco.bairro;
+                        txtRua.Text = endereco.end;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("CEP não encontrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtCEP.Clear();
+                        txtCEP.Focus();
+                    }
+                }
+            }
+            txtNum.Clear();
         }
     }
 }

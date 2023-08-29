@@ -6,65 +6,39 @@ using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
 {
-    public partial class CadastrarNotas : Form
+    public partial class EditarNotas : Form
     {
-        private BoletimModel model = new BoletimModel();
         private Validar validar = new Validar();
+        private BoletimModel model = new BoletimModel();
+        private VisualizarBoletim instanciaDoForm1; //crio um objeto do tipo FORM 1, que será usado dentro da classe
 
-        public CadastrarNotas()
+        public EditarNotas(VisualizarBoletim InstanciaVisualizar)
         {
             InitializeComponent();
+            instanciaDoForm1 = InstanciaVisualizar; //passo o valor do form1 para o objeto criado
+            txtRA.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[1].Value.ToString();
+            txtNome.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[2].Value.ToString();
+            txtCurso.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[6].Value.ToString();
+            txtMateria.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[7].Value.ToString();
+            txtNomeProfessor.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[5].Value.ToString();
+            txtN1.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[8].Value.ToString();
+            txtN2.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[9].Value.ToString();
+            txtN3.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[10].Value.ToString();
+            txtN4.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[11].Value.ToString();
+            txtMedia.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[12].Value.ToString();
         }
 
-        private void CadastrarNotas_Load(object sender, EventArgs e)
-        {
-            LimparCampos();
-            CarregarGrid();
-        }
-
-        private void HabilitarCampos()
-        {
-            txtN1.Enabled = true;
-            txtN2.Enabled = true;
-            txtN3.Enabled = true;
-            txtN4.Enabled = true;
-        }
-
-        private void LimparCampos()
-        {
-            txtN1.Clear();
-            txtN2.Clear();
-            txtN3.Clear();
-            txtN4.Clear();
-            txtMedia.Clear();
-            txtNome.Clear();
-            txtMateria.Clear();
-            txtCurso.Clear();
-            txtRA.Clear();
-            txtNomeProfessor.Clear();
-        }
-
-        private void DesabilitarCampos()
-        {
-            txtN1.Enabled = false;
-            txtN2.Enabled = false;
-            txtN3.Enabled = false;
-            txtN4.Enabled = false;
-        }
-
-        private void btnAdicionar_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
             try
             {
-                DialogResult result = MessageBox.Show("Deseja adicionar a nota ao aluno?", "Adicionar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Deseja editar a nota do aluno?", "Adicionar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     Boletim boletim = new Boletim();
-                    Adicionar(boletim);
-                    MessageBox.Show("Boletim cadastrado com sucesso!");
-                    LimparCampos();
-                    DesabilitarCampos();
-                    CarregarGrid();
+                    Editar(boletim);
+                    MessageBox.Show("Boletim editado com sucesso!");
+                    FormAbrir();
                 }
             }
             catch (Exception ex)
@@ -73,13 +47,11 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        private void Adicionar(Boletim boletim)
+        private void Editar(Boletim boletim)
         {
             try
             {
-                boletim.IdDisciplina = gridAlunoProfessor.CurrentRow.Cells[2].Value.ToString();
-                boletim.IdAluno = Convert.ToInt32(gridAlunoProfessor.CurrentRow.Cells[0].Value.ToString());
-                boletim.Idprofessor = Convert.ToInt32(gridAlunoProfessor.CurrentRow.Cells[3].Value.ToString());
+                boletim.Id = Convert.ToInt32(instanciaDoForm1.gridBoletim.CurrentRow.Cells[0].Value.ToString());
                 boletim.Nota1 = Convert.ToDouble(txtN1.Text);
                 boletim.Nota2 = Convert.ToDouble(txtN2.Text);
                 boletim.Nota3 = Convert.ToDouble(txtN3.Text);
@@ -93,7 +65,7 @@ namespace ProjetoSistemaEe.View
                 {
                     boletim.Situacao = "Reprovado";
                 }
-                model.CadastrarBoletim(boletim);
+                model.EditarBoletim(boletim);
             }
             catch (Exception)
             {
@@ -145,7 +117,7 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        private void txtN_TextChanged(object sender, EventArgs e)
+        private void TxtN_TextChanged(object sender, EventArgs e)
         {
             TextBox txt = (TextBox)sender;
             if (!string.IsNullOrEmpty(txt.Text))
@@ -163,43 +135,23 @@ namespace ProjetoSistemaEe.View
             if (txtN1.Text != "" && txtN2.Text != "" && txtN3.Text != "" && txtN4.Text != "")
             {
                 Calcular();
-                btnAdicionar.Enabled = true;
+                btnEditar.Enabled = true;
             }
             else
             {
                 txtMedia.Clear();
-                btnAdicionar.Enabled = false;
+                btnEditar.Enabled = false;
             }
         }
 
-        #region Grid
-
-        private void CarregarGrid()
+        private void FormAbrir()
         {
-            gridAlunoProfessor.DataSource = model.ListarAlunoPorMateria();
-            gridAlunoProfessor.Columns[0].HeaderText = "RA Aluno";
-            gridAlunoProfessor.Columns[1].HeaderText = "Nome do Aluno";
-            gridAlunoProfessor.Columns[2].HeaderText = "Curso do Aluno";
-            gridAlunoProfessor.Columns[4].HeaderText = "Nome do Professor";
-            gridAlunoProfessor.Columns[6].HeaderText = "Materia";
-            gridAlunoProfessor.Columns[3].Visible = false;
-            gridAlunoProfessor.Columns[5].Visible = false;
+            VisualizarBoletim formB = new VisualizarBoletim();
+            var principal = this.ParentForm as MenuPrincipal;
+            principal.AbrirFormNoPainel(formB);
         }
 
-        private void gridAlunoProfessor_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtRA.Text = gridAlunoProfessor.CurrentRow.Cells[0].Value.ToString();
-            txtNome.Text = gridAlunoProfessor.CurrentRow.Cells[1].Value.ToString();
-            txtCurso.Text = gridAlunoProfessor.CurrentRow.Cells[2].Value.ToString();
-            txtNomeProfessor.Text = gridAlunoProfessor.CurrentRow.Cells[4].Value.ToString();
-            txtMateria.Text = gridAlunoProfessor.CurrentRow.Cells[6].Value.ToString();
-            HabilitarCampos();
-            txtN1.Focus();
-        }
-
-        #endregion Grid
-
-        private void txt_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.VerificaNumero(e);
         }

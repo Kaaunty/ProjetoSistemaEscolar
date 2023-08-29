@@ -2,6 +2,7 @@
 {
     internal class Boletim
     {
+        private int id;
         private int idAluno;
         private string idDisciplina;
         private double nota1;
@@ -21,5 +22,6 @@
         public double Media { get => media; set => media = value; }
         public int Idprofessor { get => idprofessor; set => idprofessor = value; }
         public string Situacao { get => situacao; set => situacao = value; }
+        public int Id { get => id; set => id = value; }
     }
 }

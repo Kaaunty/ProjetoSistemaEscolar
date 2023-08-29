@@ -18,9 +18,9 @@ namespace ProjetoSistemaEe.Model
                 dt = dao.ListarAluno();
                 return dt;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -30,9 +30,9 @@ namespace ProjetoSistemaEe.Model
             {
                 dao.InserirAluno(aluno);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Erro ao salvar aluno: " + ex.Message);
+                throw;
             }
         }
 
@@ -42,9 +42,9 @@ namespace ProjetoSistemaEe.Model
             {
                 dao.EditarAluno(aluno);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Erro ao editar aluno: " + ex.Message);
+                throw;
             }
         }
 
@@ -54,9 +54,9 @@ namespace ProjetoSistemaEe.Model
             {
                 dao.ExcluirAluno(aluno);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Erro ao excluir aluno: " + ex.Message);
+                throw;
             }
         }
     }

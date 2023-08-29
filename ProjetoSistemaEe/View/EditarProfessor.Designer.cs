@@ -191,10 +191,12 @@
             // 
             this.txtNum.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNum.Location = new System.Drawing.Point(865, 296);
+            this.txtNum.MaxLength = 4;
             this.txtNum.Name = "txtNum";
             this.txtNum.Size = new System.Drawing.Size(47, 29);
             this.txtNum.TabIndex = 9;
-            this.txtNum.Text = "000";
+            this.txtNum.Text = "0000";
+            this.txtNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
             // 
             // txtRua
             // 
@@ -361,6 +363,7 @@
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(206, 29);
             this.txtCEP.TabIndex = 8;
+            this.txtCEP.TextChanged += new System.EventHandler(this.txtCEP_TextChanged);
             // 
             // txtBairro
             // 
@@ -399,11 +402,12 @@
             // 
             this.txtNome.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.Location = new System.Drawing.Point(272, 206);
+            this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(206, 29);
             this.txtNome.TabIndex = 1;
             this.txtNome.Text = "Nome";
-            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
             // panel1
             // 
@@ -516,6 +520,7 @@
             this.btnDeletar.TabIndex = 13;
             this.btnDeletar.Text = "     Deletar";
             this.btnDeletar.UseVisualStyleBackColor = false;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
             // EditarProfessor
             // 

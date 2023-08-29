@@ -25,7 +25,7 @@ namespace ProjetoSistemaEe.DAO
                 da.Fill(dt);
                 return dt;
             }
-            catch (MySqlException)
+            catch (Exception)
             {
                 throw;
             }
@@ -60,9 +60,9 @@ namespace ProjetoSistemaEe.DAO
                 sql.ExecuteNonQuery();
                 sql.Dispose();
             }
-            catch (MySqlException ex)
+            catch (Exception)
             {
-                MessageBox.Show("Erro ao inserir professor: " + ex.Message);
+                throw;
             }
             finally
             {
@@ -98,9 +98,9 @@ namespace ProjetoSistemaEe.DAO
                 sql.ExecuteNonQuery();
                 sql.Dispose();
             }
-            catch (MySqlException ex)
+            catch (Exception)
             {
-                MessageBox.Show("Erro ao editar professor: " + ex.Message);
+                throw;
             }
             finally
             {
@@ -118,9 +118,9 @@ namespace ProjetoSistemaEe.DAO
                 sql.ExecuteNonQuery();
                 sql.Dispose();
             }
-            catch (MySqlException ex)
+            catch (Exception)
             {
-                MessageBox.Show("Erro ao excluir professor: " + ex.Message);
+                throw;
             }
             finally
             {

@@ -24,9 +24,9 @@ namespace ProjetoSistemaEe.DAO
                 da.Fill(dt);
                 return dt;
             }
-            catch (MySqlException ex)
+            catch (Exception)
             {
-                throw new System.Exception(ex.Message);
+                throw;
             }
             finally
             {
@@ -46,7 +46,7 @@ namespace ProjetoSistemaEe.DAO
                 sql.Parameters.AddWithValue("@periodo", aluno.Periodo);
                 sql.Parameters.AddWithValue("@estadocivil", aluno.EstadoCivil);
                 sql.Parameters.AddWithValue("@genero", aluno.Genero);
-                sql.Parameters.AddWithValue("@datanascimento", aluno.Datanascimento.ToString("yyyy-MM-dd"));
+                sql.Parameters.AddWithValue("@datanascimento", aluno.Datanascimento);
                 sql.Parameters.AddWithValue("@email", aluno.Email);
                 sql.Parameters.AddWithValue("@turno", aluno.Turno);
                 sql.Parameters.AddWithValue("@telefone", aluno.Telefone);
@@ -59,9 +59,13 @@ namespace ProjetoSistemaEe.DAO
                 sql.ExecuteNonQuery();
                 sql.Dispose();
             }
-            catch (MySqlException ex)
+            catch (MySqlException)
             {
-                throw new System.Exception(ex.Message);
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
             }
             finally
             {
@@ -76,7 +80,7 @@ namespace ProjetoSistemaEe.DAO
                 con.AbrirConexao();
                 sql = new MySqlCommand("SELECT * FROM aluno WHERE ra = @ra", con.con);
                 sql.Parameters.AddWithValue("@ra", ra);
-                var result = sql.ExecuteScalar();
+                var result = sql.ExecuteScalar(); // retorna o primeiro valor da primeira coluna da primeira linha
                 if (result != null)
                 {
                     return true;
@@ -86,9 +90,9 @@ namespace ProjetoSistemaEe.DAO
                     return false;
                 }
             }
-            catch (MySqlException ex)
+            catch (Exception)
             {
-                throw new System.Exception(ex.Message);
+                throw;
             }
             finally
             {
@@ -124,9 +128,9 @@ namespace ProjetoSistemaEe.DAO
                 sql.ExecuteNonQuery();
                 sql.Dispose();
             }
-            catch (MySqlException ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
             finally
             {
@@ -144,9 +148,9 @@ namespace ProjetoSistemaEe.DAO
                 sql.ExecuteNonQuery();
                 sql.Dispose();
             }
-            catch (MySqlException ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
             finally
             {

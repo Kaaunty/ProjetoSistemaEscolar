@@ -3,7 +3,6 @@ using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
 using System;
 using System.Data;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
@@ -21,38 +20,9 @@ namespace ProjetoSistemaEe.View
 
         private void CadastroProfessor_Load(object sender, EventArgs e)
         {
-            DesabilitarCampos();
             LimparCampos();
             Validar.FormatarData(dtProfessor, new DateTime(2000, 12, 31), new DateTime(1953, 01, 01));
             CarregarComboBox();
-        }
-
-        #region Habilitar, Limpar, Desabilitar Campos
-
-        public void HabilitarCampos()
-        {
-            try
-            {
-                txtNome.Enabled = true;
-                cbCurso.Enabled = true;
-                cbMateria.Enabled = true;
-                cbEstadoCivil.Enabled = true;
-                cbGenero.Enabled = true;
-                txtEmail.Enabled = true;
-                txtCEP.Enabled = true;
-                txtEstado.Enabled = true;
-                txtSalario.Enabled = true;
-                txtCidade.Enabled = true;
-                txtBairro.Enabled = true;
-                txtRua.Enabled = true;
-                txtNum.Enabled = true;
-                txtTelefone.Enabled = true;
-                dtProfessor.Enabled = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         public void LimparCampos()
@@ -73,89 +43,115 @@ namespace ProjetoSistemaEe.View
             txtTelefone.Clear();
         }
 
-        public void DesabilitarCampos()
-        {
-            try
-            {
-                txtNome.Enabled = false;
-                cbCurso.Enabled = false;
-                cbMateria.Enabled = false;
-                cbEstadoCivil.Enabled = false;
-                cbGenero.Enabled = false;
-                txtEmail.Enabled = false;
-                txtCEP.Enabled = false;
-                txtEstado.Enabled = false;
-                txtSalario.Enabled = false;
-                txtCidade.Enabled = false;
-                txtBairro.Enabled = false;
-                txtRua.Enabled = false;
-                txtNum.Enabled = false;
-                txtTelefone.Enabled = false;
-                dtProfessor.Enabled = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        #endregion Habilitar, Limpar, Desabilitar Campos
-
-        private void btnNovo_Click(object sender, EventArgs e)
-        {
-            LimparCampos();
-            btnSalvar.Enabled = true;
-            HabilitarCampos();
-            txtNome.Focus();
-        }
-
         private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            Professor professores = new Professor();
-            Salvar(professores);
-        }
-
-        private void Salvar(Professor professor)
         {
             if (validar.ValidateControls(this))
             {
                 try
                 {
-                    professor.Nome = txtNome.Text;
-                    professor.Curso = cbCurso.Text;
-                    professor.Materia = cbMateria.Text;
-                    professor.EstadoCivil = cbEstadoCivil.Text;
-
-                    professor.Genero = cbGenero.Text;
-                    professor.Email = txtEmail.Text;
-                    professor.Cep = txtCEP.Text;
-                    professor.Uf = txtEstado.Text;
-                    professor.Salario = txtSalario.Text;
-                    professor.Cidade = txtCidade.Text;
-                    professor.Bairro = txtBairro.Text;
-                    professor.Rua = txtRua.Text;
-                    professor.Numerorua = txtNum.Text;
-                    professor.Telefone = txtTelefone.Text;
-                    professor.Datanascimento = dtProfessor.Value;
-                    professorM.Salvar(professor);
-                    MessageBox.Show("Professor cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult result = MessageBox.Show("Deseja cadastrar o professor?", "Cadastrar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        Professor professores = new Professor();
+                        Salvar(professores);
+                        MessageBox.Show("Professor cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimparCampos();
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    LimparCampos();
-                    DesabilitarCampos();
-                    btnSalvar.Enabled = false;
+                    MessageBox.Show("Erro ao cadastrar o profesor:" + ex.Message);
                 }
             }
         }
 
-        private void txtCEP_Leave(object sender, EventArgs e)
+        private void Salvar(Professor professor)
         {
-            if (!string.IsNullOrEmpty(txtCEP.Text))
+            try
+            {
+                professor.Nome = txtNome.Text;
+                professor.Curso = cbCurso.Text;
+                professor.Materia = cbMateria.Text;
+                professor.EstadoCivil = cbEstadoCivil.Text;
+                professor.Genero = cbGenero.Text;
+                professor.Email = txtEmail.Text;
+                professor.Cep = txtCEP.Text;
+                professor.Uf = txtEstado.Text;
+                professor.Salario = txtSalario.Text;
+                professor.Cidade = txtCidade.Text;
+                professor.Bairro = txtBairro.Text;
+                professor.Rua = txtRua.Text;
+                professor.Numerorua = txtNum.Text;
+                professor.Telefone = txtTelefone.Text;
+                professor.Datanascimento = dtProfessor.Value;
+                professorM.Salvar(professor);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void CarregarComboBox()
+        {
+            cbCurso.DataSource = cursoM.ListarCursos();
+            cbCurso.DisplayMember = "Nome";
+            cbCurso.ValueMember = "id";
+            cbCurso.DropDownHeight = cbCurso.ItemHeight * 5;
+            cbCurso.SelectedIndex = -1;
+            int cursoid = Convert.ToInt32(cbCurso.SelectedValue);
+            DataTable materia_curso = cursoM.BuscarMateria(cursoid);
+            cbMateria.DataSource = materia_curso;
+            cbMateria.DisplayMember = "Nome";
+            cbMateria.ValueMember = "id";
+        }
+
+        private void cbCurso_TextChanged(object sender, EventArgs e)
+        {
+            cbCurso.DisplayMember = "Nome";
+            cbCurso.ValueMember = "id";
+            DataTable materia_curso = cursoM.BuscarMateria(Convert.ToInt32(cbCurso.SelectedValue));
+            cbMateria.DataSource = materia_curso;
+            cbMateria.DisplayMember = "Nome";
+            cbMateria.ValueMember = "id";
+        }
+
+        private void txtSalario_Leave(object sender, EventArgs e)
+        {
+            double salario;
+            if (Double.TryParse(txtSalario.Text, out salario))
+            {
+                txtSalario.Text = String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:C2}", salario);
+
+                if (salario < 2000)
+                {
+                    MessageBox.Show("Salário Inválido (Menor que R$ 2.000)");
+                    txtSalario.Text = "";
+                    txtSalario.Focus();
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Digite um valor numérico válido.");
+                txtSalario.Text = "";
+                txtSalario.Focus();
+            }
+        }
+
+        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.VerificaLetra(e);
+        }
+
+        private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.VerificaNumero(e);
+        }
+
+        private void txtCEP_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCEP.Text) && txtCEP.MaskCompleted)
             {
                 using (var ws = new WSCorreios.AtendeClienteClient())
                 {
@@ -176,100 +172,6 @@ namespace ProjetoSistemaEe.View
                 }
             }
             txtNum.Clear();
-        }
-
-        #region Carregar ComboBox e Verificar Espaços
-
-        private void CarregarComboBox()
-        {
-            cbCurso.DataSource = cursoM.ListarCursos();
-            cbCurso.DisplayMember = "Nome";
-            cbCurso.ValueMember = "id";
-            cbCurso.DropDownHeight = cbCurso.ItemHeight * 5;
-            cbCurso.SelectedIndex = -1;
-            //
-            int cursoid = Convert.ToInt32(cbCurso.SelectedValue);
-            DataTable materia_curso = cursoM.BuscarMateria(cursoid);
-            cbMateria.DataSource = materia_curso;
-            cbMateria.DisplayMember = "Nome";
-            cbMateria.ValueMember = "id";
-        }
-
-        #endregion Carregar ComboBox e Verificar Espaços
-
-        private void cbCurso_TextChanged(object sender, EventArgs e)
-        {
-            cbCurso.DisplayMember = "Nome";
-            cbCurso.ValueMember = "id";
-            DataTable materia_curso = cursoM.BuscarMateria(Convert.ToInt32(cbCurso.SelectedValue));
-            cbMateria.DataSource = materia_curso;
-            cbMateria.DisplayMember = "Nome";
-            cbMateria.ValueMember = "id";
-        }
-
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-            VisualizarProfessor visualizarProfessor = new VisualizarProfessor();
-            visualizarProfessor.ShowDialog();
-        }
-
-        private void cbCurso_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void txtSalario_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void txtSalario_Leave(object sender, EventArgs e)
-        {
-            double salario;
-            if (Double.TryParse(txtSalario.Text, out salario))
-            {
-                txtSalario.Text = String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:C2}", salario);
-
-                if (salario <= 2000)
-                {
-                    MessageBox.Show("Salário Inválido (Menor que R$ 2.000)");
-                    txtSalario.Text = "";
-                    txtSalario.Focus();
-                    return;
-                }
-                if (salario >= 10001)
-                {
-                    MessageBox.Show("Salário Inválido (Maior que R$ 10.000)");
-                    txtSalario.Text = "";
-                    txtSalario.Focus();
-                    return;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Digite um valor numérico válido.");
-                txtSalario.Text = "";
-                txtSalario.Focus();
-            }
-        }
-
-        private void txtNome_TextChanged(object sender, EventArgs e)
-        {
-            string nomeOriginal = txtNome.Text;
-            string nomeModificado = nomeOriginal;
-
-            while (Validar.ValidaNumeroOuCaracterEspecial(nomeModificado))
-            {
-                nomeModificado = Regex.Replace(nomeModificado, @"\d", "");
-                nomeModificado = Regex.Replace(nomeModificado, @"[^\w\s]", "");
-                nomeModificado = nomeModificado.Replace("_", "");
-
-                if (nomeModificado == nomeOriginal)
-                    break;
-
-                nomeOriginal = nomeModificado;
-            }
-
-            txtNome.Text = nomeModificado;
-            txtNome.SelectionStart = nomeModificado.Length;
         }
     }
 }

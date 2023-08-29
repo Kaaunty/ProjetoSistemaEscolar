@@ -16,9 +16,9 @@ namespace ProjetoSistemaEe.Model
             {
                 return dao.ListarProfessor();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
 
@@ -28,9 +28,9 @@ namespace ProjetoSistemaEe.Model
             {
                 dao.CadastrarProfessor(professor);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
 
@@ -40,9 +40,9 @@ namespace ProjetoSistemaEe.Model
             {
                 dao.EditarProfessor(professor);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Erro ao editar aluno: " + ex.Message);
+                throw;
             }
         }
 
@@ -52,9 +52,9 @@ namespace ProjetoSistemaEe.Model
             {
                 dao.ExcluirProfessor(professor);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Erro ao excluir aluno: " + ex.Message);
+                throw;
             }
         }
     }

@@ -17,9 +17,9 @@ namespace ProjetoSistemaEe.Model
                 dt = dao.ListarAlunoPorMateria();
                 return dt;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -29,9 +29,9 @@ namespace ProjetoSistemaEe.Model
             {
                 dao.CadastrarBoletim(boletim);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -43,9 +43,21 @@ namespace ProjetoSistemaEe.Model
                 dt = dao.ListarBoletim();
                 return dt;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
+            }
+        }
+
+        public void EditarBoletim(Boletim boletim)
+        {
+            try
+            {
+                dao.EditarBoletim(boletim);
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }

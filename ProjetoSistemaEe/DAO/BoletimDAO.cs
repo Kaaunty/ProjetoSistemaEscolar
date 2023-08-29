@@ -28,9 +28,9 @@ namespace ProjetoSistemaEe.DAO
                 sql.Parameters.AddWithValue("@situacao", boletim.Situacao);
                 sql.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
             finally
             {
@@ -61,9 +61,9 @@ namespace ProjetoSistemaEe.DAO
                 da.Fill(dt);
                 return dt;
             }
-            catch (MySqlException ex)
+            catch (Exception)
             {
-                throw new System.Exception(ex.Message);
+                throw;
             }
             finally
             {
@@ -100,9 +100,35 @@ namespace ProjetoSistemaEe.DAO
                 da.Fill(dt);
                 return dt;
             }
-            catch (MySqlException ex)
+            catch (Exception)
             {
-                throw new System.Exception(ex.Message);
+                throw;
+            }
+            finally
+            {
+                con.FecharConexao();
+            }
+        }
+
+        public void EditarBoletim(Boletim boletim)
+        {
+            try
+            {
+                con.AbrirConexao();
+                sql = new MySqlCommand("UPDATE boletim SET nota1 = @nota1, nota2 = @nota2, nota3 = @nota3, nota4 = @nota4, media = @media, situacao = @situacao WHERE id = @id", con.con);
+                sql.Parameters.AddWithValue("@id", boletim.Id);
+                sql.Parameters.AddWithValue("@nota1", boletim.Nota1);
+                sql.Parameters.AddWithValue("@nota2", boletim.Nota2);
+                sql.Parameters.AddWithValue("@nota3", boletim.Nota3);
+                sql.Parameters.AddWithValue("@nota4", boletim.Nota4);
+                sql.Parameters.AddWithValue("@media", boletim.Media);
+                sql.Parameters.AddWithValue("@situacao", boletim.Situacao);
+                sql.ExecuteNonQuery();
+                sql.Dispose();
+            }
+            catch (Exception)
+            {
+                throw;
             }
             finally
             {

@@ -3,8 +3,6 @@ using ProjetoSistemaEe.Entidades;
 using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
 using System;
-using System.Data;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe
@@ -23,39 +21,10 @@ namespace ProjetoSistemaEe
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            DesabilitarCampos();
             LimparCampos();
             Validar.FormatarData(dtAluno, new DateTime(2004, 12, 31), new DateTime(1953, 01, 01));
             CarregarComboBox();
             GerarRA();
-        }
-
-        #region Habilitar, Limpar, Desabilitar Campos
-
-        public void HabilitarCampos()
-        {
-            try
-            {
-                txtNome.Enabled = true;
-                cbCurso.Enabled = true;
-                CbPeriodo.Enabled = true;
-                cbEstadoCivil.Enabled = true;
-                cbGenero.Enabled = true;
-                txtEmail.Enabled = true;
-                txtCEP.Enabled = true;
-                txtEstado.Enabled = true;
-                cbTurno.Enabled = true;
-                txtCidade.Enabled = true;
-                txtBairro.Enabled = true;
-                txtRua.Enabled = true;
-                txtNum.Enabled = true;
-                txtTelefone.Enabled = true;
-                dtAluno.Enabled = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         public void LimparCampos()
@@ -77,94 +46,55 @@ namespace ProjetoSistemaEe
             txtRA.Clear();
         }
 
-        public void DesabilitarCampos()
-        {
-            try
-            {
-                txtNome.Enabled = false;
-                cbCurso.Enabled = false;
-                CbPeriodo.Enabled = false;
-                cbEstadoCivil.Enabled = false;
-                cbGenero.Enabled = false;
-                txtEmail.Enabled = false;
-                txtCEP.Enabled = false;
-                txtEstado.Enabled = false;
-                cbTurno.Enabled = false;
-                txtCidade.Enabled = false;
-                txtBairro.Enabled = false;
-                txtRua.Enabled = false;
-                txtNum.Enabled = false;
-                txtTelefone.Enabled = false;
-                dtAluno.Enabled = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        #endregion Habilitar, Limpar, Desabilitar Campos
-
-        #region Botões
-
-        private void btnNovo_Click(object sender, EventArgs e)
-        {
-            LimparCampos();
-            btnSalvar.Enabled = true;
-
-            HabilitarCampos();
-            txtNome.Focus();
-            GerarRA();
-        }
-
         private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            Aluno alunos = new Aluno();
-            Salvar(alunos);
-        }
-
-        private void Salvar(Aluno aluno)
         {
             if (validar.ValidateControls(this))
             {
                 try
                 {
-                    aluno.RA = Convert.ToInt32(txtRA.Text);
-                    aluno.Nome = txtNome.Text;
-                    aluno.Curso = cbCurso.Text;
-                    aluno.Periodo = CbPeriodo.Text;
-
-                    aluno.EstadoCivil = cbEstadoCivil.Text;
-                    aluno.Genero = cbGenero.Text;
-                    aluno.Email = txtEmail.Text;
-                    aluno.Turno = cbTurno.Text;
-                    aluno.Telefone = txtTelefone.Text;
-                    aluno.Cep = txtCEP.Text;
-                    aluno.Cidade = txtCidade.Text;
-                    aluno.Uf = txtEstado.Text;
-                    aluno.Bairro = txtBairro.Text;
-                    aluno.Rua = txtRua.Text;
-                    aluno.Numerorua = txtNum.Text;
-                    aluno.Datanascimento = Convert.ToDateTime(dtAluno.Text);
-                    alunoM.Salvar(aluno);
-                    MessageBox.Show("Aluno cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult resultado = MessageBox.Show("Deseja cadastrar o aluno?", "Salvar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        Aluno alunos = new Aluno();
+                        Salvar(alunos);
+                        MessageBox.Show("Aluno cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimparCampos();
+                    }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    throw;
-                }
-                finally
-                {
-                    LimparCampos();
-                    DesabilitarCampos();
-                    btnSalvar.Enabled = false;
+                    MessageBox.Show("Erro ao cadastrar o aluno:" + ex.Message);
                 }
             }
         }
 
-        #endregion Botões
-
-        #region Carregar ComboBox e Verificar Espaços
+        private void Salvar(Aluno aluno)
+        {
+            try
+            {
+                aluno.RA = Convert.ToInt32(txtRA.Text);
+                aluno.Nome = txtNome.Text;
+                aluno.Curso = cbCurso.Text;
+                aluno.Periodo = CbPeriodo.Text;
+                aluno.EstadoCivil = cbEstadoCivil.Text;
+                aluno.Genero = cbGenero.Text;
+                aluno.Email = txtEmail.Text;
+                aluno.Turno = cbTurno.Text;
+                aluno.Telefone = txtTelefone.Text;
+                aluno.Cep = txtCEP.Text;
+                aluno.Cidade = txtCidade.Text;
+                aluno.Uf = txtEstado.Text;
+                aluno.Bairro = txtBairro.Text;
+                aluno.Rua = txtRua.Text;
+                aluno.Numerorua = txtNum.Text;
+                aluno.Datanascimento = Convert.ToDateTime(dtAluno.Text);
+                alunoM.Salvar(aluno);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
         private void CarregarComboBox()
         {
@@ -173,33 +103,6 @@ namespace ProjetoSistemaEe
             cbCurso.ValueMember = "id";
             cbCurso.DropDownHeight = cbCurso.ItemHeight * 5;
             cbCurso.SelectedIndex = -1;
-        }
-
-        #endregion Carregar ComboBox e Verificar Espaços
-
-        private void txtCEP_Leave(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtCEP.Text))
-            {
-                using (var ws = new WSCorreios.AtendeClienteClient())
-                {
-                    try
-                    {
-                        var endereco = ws.consultaCEP(txtCEP.Text.Trim());
-                        txtEstado.Text = endereco.uf;
-                        txtCidade.Text = endereco.cidade;
-                        txtBairro.Text = endereco.bairro;
-                        txtRua.Text = endereco.end;
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("CEP não encontrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtCEP.Clear();
-                        txtCEP.Focus();
-                    }
-                }
-            }
-            txtNum.Clear();
         }
 
         private int GerarRA()
@@ -224,39 +127,6 @@ namespace ProjetoSistemaEe
             }
         }
 
-        #region TextChanged
-
-        private void cbCurso_TextChanged(object sender, EventArgs e)
-        {
-            cbCurso.DisplayMember = "Nome";
-            cbCurso.ValueMember = "id";
-            DataTable materia_curso = cursoM.BuscarMateria(Convert.ToInt32(cbCurso.SelectedValue));
-            //cbMateria.DataSource = materia_curso;
-        }
-
-        private void txtNome_TextChanged(object sender, EventArgs e)
-        {
-            string nomeOriginal = txtNome.Text;
-            string nomeModificado = nomeOriginal;
-
-            while (Validar.ValidaNumeroOuCaracterEspecial(nomeModificado))
-            {
-                nomeModificado = Regex.Replace(nomeModificado, @"\d", "");
-                nomeModificado = Regex.Replace(nomeModificado, @"[^\w\s]", "");
-                nomeModificado = nomeModificado.Replace("_", "");
-
-                if (nomeModificado == nomeOriginal)
-                    break;
-
-                nomeOriginal = nomeModificado;
-            }
-
-            txtNome.Text = nomeModificado;
-            txtNome.SelectionStart = nomeModificado.Length;
-        }
-
-        #endregion TextChanged
-
         private void BtnMouseDown(object sender, MouseEventArgs e)
         {
             ButtonHelper.ChangeButtonBackgroundImageOnMouseDown((Button)sender);
@@ -270,6 +140,42 @@ namespace ProjetoSistemaEe
         private void BtnHover(object sender, EventArgs e)
         {
             ButtonHelper.ChangeButtonBackgroundImageOnHover((Button)sender);
+        }
+
+        private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.VerificaNumero(e);
+        }
+
+        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.VerificaLetra(e);
+        }
+
+        private void txtCEP_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCEP.Text) && txtCEP.MaskCompleted)
+            {
+                using (var ws = new WSCorreios.AtendeClienteClient())
+                {
+                    try
+                    {
+                        var endereco = ws.consultaCEP(txtCEP.Text.Trim());
+                        txtEstado.Text = endereco.uf;
+                        txtCidade.Text = endereco.cidade;
+                        txtBairro.Text = endereco.bairro;
+                        txtRua.Text = endereco.end;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("CEP não encontrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtCEP.Clear();
+                        txtCEP.Focus();
+                    }
+                }
+            }
+
+            txtNum.Clear();
         }
     }
 }

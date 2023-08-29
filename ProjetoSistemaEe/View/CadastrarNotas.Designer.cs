@@ -33,6 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtCurso = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -68,6 +70,8 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.btnAdicionar);
             this.panel1.Controls.Add(this.gridAlunoProfessor);
@@ -76,6 +80,30 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 0;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
+            this.label12.Location = new System.Drawing.Point(86, 184);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(238, 26);
+            this.label12.TabIndex = 15;
+            this.label12.Text = " no mesmo curso do aluno";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
+            this.label11.Location = new System.Drawing.Point(48, 158);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(315, 26);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Selecione um professor que esteja";
             // 
             // panel3
             // 
@@ -322,6 +350,7 @@
             this.txtN4.TabIndex = 4;
             this.txtN4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtN4.TextChanged += new System.EventHandler(this.txtN_TextChanged);
+            this.txtN4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // txtMedia
             // 
@@ -346,6 +375,7 @@
             this.txtN3.TabIndex = 3;
             this.txtN3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtN3.TextChanged += new System.EventHandler(this.txtN_TextChanged);
+            this.txtN3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // label5
             // 
@@ -371,6 +401,7 @@
             this.txtN2.TabIndex = 2;
             this.txtN2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtN2.TextChanged += new System.EventHandler(this.txtN_TextChanged);
+            this.txtN2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // label1
             // 
@@ -396,6 +427,7 @@
             this.txtN1.TabIndex = 1;
             this.txtN1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtN1.TextChanged += new System.EventHandler(this.txtN_TextChanged);
+            this.txtN1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // label2
             // 
@@ -447,6 +479,7 @@
             this.Text = "CadastrarNotas";
             this.Load += new System.EventHandler(this.CadastrarNotas_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridAlunoProfessor)).EndInit();
@@ -483,5 +516,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtCurso;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }

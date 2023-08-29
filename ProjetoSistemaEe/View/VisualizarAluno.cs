@@ -20,19 +20,19 @@ namespace ProjetoSistemaEe.View
 
         private void ListarAluno()
         {
-            gridAluno.DataSource = alunoModel.Listar();
-            gridAluno.Columns[0].HeaderText = "Código RA";
-            gridAluno.Columns[1].HeaderText = "Nome";
-            gridAluno.Columns[2].HeaderText = "Curso";
-            gridAluno.Columns[3].HeaderText = "Periodo";
-            gridAluno.Columns[4].HeaderText = "Estado Civil";
-            gridAluno.Columns[5].HeaderText = "Gênero";
-            gridAluno.Columns[6].HeaderText = "Data de Nascimento";
-            gridAluno.Columns[7].HeaderText = "Email";
-            gridAluno.Columns[8].HeaderText = "Turno";
-            gridAluno.Columns[9].HeaderText = "Telefone";
-            gridAluno.Columns[10].HeaderText = "CEP";
-            gridAluno.Columns[11].HeaderText = "Endereço";
+            gridBoletim.DataSource = alunoModel.Listar();
+            gridBoletim.Columns[0].HeaderText = "Código RA";
+            gridBoletim.Columns[1].HeaderText = "Nome";
+            gridBoletim.Columns[2].HeaderText = "Curso";
+            gridBoletim.Columns[3].HeaderText = "Periodo";
+            gridBoletim.Columns[4].HeaderText = "Estado Civil";
+            gridBoletim.Columns[5].HeaderText = "Gênero";
+            gridBoletim.Columns[6].HeaderText = "Data de Nascimento";
+            gridBoletim.Columns[7].HeaderText = "Email";
+            gridBoletim.Columns[8].HeaderText = "Turno";
+            gridBoletim.Columns[9].HeaderText = "Telefone";
+            gridBoletim.Columns[10].HeaderText = "CEP";
+            gridBoletim.Columns[11].HeaderText = "Endereço";
         }
 
         private void gridAluno_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

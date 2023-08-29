@@ -49,3 +49,4 @@ C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\Pro
 C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.View.VisualizarBoletim.resources
 C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.View.EditarAluno.resources
 C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.View.EditarProfessor.resources
+C:\Users\Dell\Documents\Projetos\ProjetoSistemaEe\ProjetoSistemaEe\obj\Debug\ProjetoSistemaEe.View.EditarNotas.resources

@@ -32,7 +32,6 @@
             this.txtCEP = new System.Windows.Forms.MaskedTextBox();
             this.CbPeriodo = new System.Windows.Forms.ComboBox();
             this.cbCurso = new System.Windows.Forms.ComboBox();
-            this.btnNovo = new FontAwesome.Sharp.IconButton();
             this.btnSalvar = new FontAwesome.Sharp.IconButton();
             this.label15 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -68,15 +67,14 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.background_aluno;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel1.Controls.Add(this.txtCEP);
             this.panel1.Controls.Add(this.CbPeriodo);
             this.panel1.Controls.Add(this.cbCurso);
-            this.panel1.Controls.Add(this.btnNovo);
             this.panel1.Controls.Add(this.btnSalvar);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.txtEmail);
@@ -120,7 +118,7 @@
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(206, 29);
             this.txtCEP.TabIndex = 46;
-            this.txtCEP.Leave += new System.EventHandler(this.txtCEP_Leave);
+            this.txtCEP.TextChanged += new System.EventHandler(this.txtCEP_TextChanged);
             // 
             // CbPeriodo
             // 
@@ -146,7 +144,6 @@
             // cbCurso
             // 
             this.cbCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCurso.Enabled = false;
             this.cbCurso.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCurso.FormattingEnabled = true;
             this.cbCurso.Items.AddRange(new object[] {
@@ -156,39 +153,12 @@
             this.cbCurso.Name = "cbCurso";
             this.cbCurso.Size = new System.Drawing.Size(206, 30);
             this.cbCurso.TabIndex = 43;
-            this.cbCurso.TextChanged += new System.EventHandler(this.cbCurso_TextChanged);
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.BackColor = System.Drawing.Color.Transparent;
-            this.btnNovo.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
-            this.btnNovo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnNovo.FlatAppearance.BorderSize = 0;
-            this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovo.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovo.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNovo.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.btnNovo.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNovo.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNovo.IconSize = 30;
-            this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovo.Location = new System.Drawing.Point(391, 610);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(130, 35);
-            this.btnNovo.TabIndex = 42;
-            this.btnNovo.Text = "Novo";
-            this.btnNovo.UseVisualStyleBackColor = false;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            this.btnNovo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnMouseDown);
-            this.btnNovo.MouseLeave += new System.EventHandler(this.BtnLeave);
-            this.btnNovo.MouseHover += new System.EventHandler(this.BtnHover);
             // 
             // btnSalvar
             // 
             this.btnSalvar.BackColor = System.Drawing.Color.Transparent;
             this.btnSalvar.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
             this.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSalvar.Enabled = false;
             this.btnSalvar.FlatAppearance.BorderSize = 0;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -198,7 +168,7 @@
             this.btnSalvar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSalvar.IconSize = 35;
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalvar.Location = new System.Drawing.Point(527, 610);
+            this.btnSalvar.Location = new System.Drawing.Point(454, 609);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(130, 35);
             this.btnSalvar.TabIndex = 41;
@@ -224,6 +194,7 @@
             // 
             this.txtEmail.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(315, 486);
+            this.txtEmail.MaxLength = 30;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(206, 29);
             this.txtEmail.TabIndex = 39;
@@ -342,15 +313,17 @@
             // 
             this.txtNum.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNum.Location = new System.Drawing.Point(879, 284);
+            this.txtNum.MaxLength = 4;
             this.txtNum.Name = "txtNum";
             this.txtNum.Size = new System.Drawing.Size(47, 29);
             this.txtNum.TabIndex = 27;
-            this.txtNum.Text = "000";
+            this.txtNum.Text = "0000";
+            this.txtNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
             // 
             // txtRua
             // 
             this.txtRua.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRua.Location = new System.Drawing.Point(626, 284);
+            this.txtRua.Location = new System.Drawing.Point(629, 284);
             this.txtRua.Name = "txtRua";
             this.txtRua.ReadOnly = true;
             this.txtRua.Size = new System.Drawing.Size(206, 29);
@@ -526,11 +499,12 @@
             // 
             this.txtNome.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.Location = new System.Drawing.Point(315, 195);
+            this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(206, 29);
             this.txtNome.TabIndex = 0;
             this.txtNome.Text = "Nome";
-            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
             // CadastroAluno
             // 
@@ -581,7 +555,6 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label15;
         private FontAwesome.Sharp.IconButton btnSalvar;
-        private FontAwesome.Sharp.IconButton btnNovo;
         private System.Windows.Forms.ComboBox cbCurso;
         private System.Windows.Forms.ComboBox CbPeriodo;
         private System.Windows.Forms.Panel panel1;

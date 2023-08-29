@@ -61,8 +61,8 @@
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDeletar = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnDeletar = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,7 +74,7 @@
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(206, 29);
             this.txtCEP.TabIndex = 46;
-            this.txtCEP.Leave += new System.EventHandler(this.txtCEP_Leave);
+            this.txtCEP.TextChanged += new System.EventHandler(this.txtCEP_TextChanged);
             // 
             // cbPeriodo
             // 
@@ -109,7 +109,6 @@
             this.cbCurso.Name = "cbCurso";
             this.cbCurso.Size = new System.Drawing.Size(206, 30);
             this.cbCurso.TabIndex = 43;
-            this.cbCurso.TextChanged += new System.EventHandler(this.cbCurso_TextChanged);
             // 
             // label15
             // 
@@ -244,11 +243,12 @@
             // 
             this.txtNum.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNum.Location = new System.Drawing.Point(864, 291);
-            this.txtNum.MaxLength = 3;
+            this.txtNum.MaxLength = 4;
             this.txtNum.Name = "txtNum";
             this.txtNum.Size = new System.Drawing.Size(47, 29);
             this.txtNum.TabIndex = 27;
-            this.txtNum.Text = "000";
+            this.txtNum.Text = "0000";
+            this.txtNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
             // 
             // txtRua
             // 
@@ -430,11 +430,12 @@
             // 
             this.txtNome.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.Location = new System.Drawing.Point(300, 202);
+            this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(206, 29);
             this.txtNome.TabIndex = 0;
             this.txtNome.Text = "Nome";
-            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
             // panel1
             // 
@@ -482,28 +483,6 @@
             this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 1;
             // 
-            // btnDeletar
-            // 
-            this.btnDeletar.BackColor = System.Drawing.Color.Transparent;
-            this.btnDeletar.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
-            this.btnDeletar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDeletar.FlatAppearance.BorderSize = 0;
-            this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeletar.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeletar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDeletar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.btnDeletar.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDeletar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDeletar.IconSize = 35;
-            this.btnDeletar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeletar.Location = new System.Drawing.Point(522, 618);
-            this.btnDeletar.Name = "btnDeletar";
-            this.btnDeletar.Size = new System.Drawing.Size(130, 35);
-            this.btnDeletar.TabIndex = 41;
-            this.btnDeletar.Text = "     Deletar";
-            this.btnDeletar.UseVisualStyleBackColor = false;
-            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
-            // 
             // iconButton1
             // 
             this.iconButton1.BackColor = System.Drawing.Color.Transparent;
@@ -526,6 +505,28 @@
             this.iconButton1.UseVisualStyleBackColor = false;
             this.iconButton1.Click += new System.EventHandler(this.btnEditar_Click);
             // 
+            // btnDeletar
+            // 
+            this.btnDeletar.BackColor = System.Drawing.Color.Transparent;
+            this.btnDeletar.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
+            this.btnDeletar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDeletar.FlatAppearance.BorderSize = 0;
+            this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeletar.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDeletar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnDeletar.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDeletar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDeletar.IconSize = 35;
+            this.btnDeletar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeletar.Location = new System.Drawing.Point(522, 618);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Size = new System.Drawing.Size(130, 35);
+            this.btnDeletar.TabIndex = 41;
+            this.btnDeletar.Text = "     Deletar";
+            this.btnDeletar.UseVisualStyleBackColor = false;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
+            // 
             // EditarAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -535,7 +536,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditarAluno";
             this.Text = "EditarAluno";
-            this.Load += new System.EventHandler(this.EditarAluno_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
