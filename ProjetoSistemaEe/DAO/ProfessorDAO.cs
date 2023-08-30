@@ -3,6 +3,7 @@ using ProjetoSistemaEe.Entidades;
 using System;
 using System.Data;
 using System.Windows;
+using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.DAO
 {
@@ -16,9 +17,11 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.AbrirConexao();
-                sql = new MySqlCommand(@"SELECT id, nome, curso, salario, materia, estadocivil, genero, datanascimento,
-                                    email, telefone, cep,CONCAT
-                                    (cidade, '-', uf, ', ', bairro, ', ', rua, ', ', numerorua) AS endereco_completo FROM xd_university.professor", con.con);
+                sql = new MySqlCommand(@"SELECT p.id, p.nome, p.curso, p.salario, p.materia, p.estadocivil, p.genero, p.datanascimento,
+                                    p.email, p.telefone, p.cep,c.nome as nome_curso,m.nome as nome_materia,CONCAT
+                                    (cidade, '-', uf, ', ', bairro, ', ', rua, ', ', numerorua) AS endereco_completo FROM xd_university.professor p
+                                    LEFT JOIN cursos c on p.curso = c.id
+                                    LEFT JOIN materia m on p.materia = m.id", con.con);
                 MySqlDataAdapter da = new MySqlDataAdapter();
                 da.SelectCommand = sql;
                 DataTable dt = new DataTable();
@@ -126,6 +129,16 @@ namespace ProjetoSistemaEe.DAO
             {
                 con.FecharConexao();
             }
+        }
+
+        public void Testar()
+        {
+            string teste = @" SELECT p.id, p.nome, p.curso, p.materia, c.nome as nome_curso,m.nome as nome_materia
+                FROM xd_university.professor p
+                                    LEFT JOIN cursos c on p.curso = c.id
+                                    LEFT JOIN materia m on p.materia = m.id
+                                    JOIN aluno a on p.curso = a.curso
+                                    WHERE p.curso = a.curso;";
         }
     }
 }

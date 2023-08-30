@@ -4,9 +4,9 @@
     {
         private string salario;
         private int id;
-        private string materia;
+        private int materia;
         public int Id { get => id; set => id = value; }
         public string Salario { get => salario; set => salario = value; }
-        public string Materia { get => materia; set => materia = value; }
+        public int Materia { get => materia; set => materia = value; }
     }
 }

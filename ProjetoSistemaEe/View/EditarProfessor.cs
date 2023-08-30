@@ -31,7 +31,7 @@ namespace ProjetoSistemaEe.View
             txtEmail.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[8].Value.ToString();
             txtTelefone.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[9].Value.ToString();
             txtCEP.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[10].Value.ToString();
-            string endereco = instanciaDoForm2.gridProfessor.CurrentRow.Cells[11].Value.ToString();
+            string endereco = instanciaDoForm2.gridProfessor.CurrentRow.Cells[13].Value.ToString();
             string[] enderecoSeparado = endereco.Split(delimitarchars);
             txtCidade.Text = enderecoSeparado[0];
             txtEstado.Text = enderecoSeparado[1];
@@ -85,7 +85,7 @@ namespace ProjetoSistemaEe.View
                         Professor professores = new Professor();
                         Editar(professores);
                         MessageBox.Show("Professor editado com sucesso!");
-                        FormAbrir();
+                        this.Close();
                     }
                 }
                 catch (Exception ex)
@@ -101,8 +101,8 @@ namespace ProjetoSistemaEe.View
             {
                 professor.Id = Convert.ToInt32(txtID.Text);
                 professor.Nome = txtNome.Text;
-                professor.Curso = cbCurso.Text;
-                professor.Materia = cbMateria.Text;
+                professor.Curso = Convert.ToInt32(cbCurso.SelectedValue);
+                professor.Materia = Convert.ToInt32(cbMateria.SelectedValue);
                 professor.EstadoCivil = cbEstadoCivil.Text;
                 professor.Genero = cbGenero.Text;
                 professor.Salario = txtSalario.Text;
@@ -131,7 +131,7 @@ namespace ProjetoSistemaEe.View
                 Professor professores = new Professor();
                 Excluir(professores);
                 MessageBox.Show("Professor excluido com sucesso!");
-                FormAbrir();
+                this.Close();
             }
         }
 
@@ -174,12 +174,12 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        private void FormAbrir()
-        {
-            VisualizarProfessor formB = new VisualizarProfessor();
-            var principal = this.ParentForm as MenuPrincipal;
-            principal.AbrirFormNoPainel(formB);
-        }
+        //private void FormAbrir()
+        //{
+        //    VisualizarProfessor formB = new VisualizarProfessor();
+        //    var principal = this.ParentForm as MenuPrincipal;
+        //    principal.AbrirFormNoPainel(formB);
+        //}
 
         private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
         {

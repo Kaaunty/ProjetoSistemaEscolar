@@ -170,16 +170,16 @@ namespace ProjetoSistemaEe.View
             this.WindowState = FormWindowState.Minimized;
         }
 
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private static extern void ReleaseCapture();
+        //[DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        //private static extern void ReleaseCapture();
 
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private static extern void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+        //[DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        //private static extern void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
-        private void MenuPrincipal_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
+        //private void MenuPrincipal_MouseDown(object sender, MouseEventArgs e)
+        //{
+        //    ReleaseCapture();
+        //    SendMessage(this.Handle, 0x112, 0xf012, 0);
+        //}
     }
 }

@@ -14,11 +14,6 @@ namespace ProjetoSistemaEe.Utils
             dateTimePicker.MinDate = minDate;
         }
 
-        public static bool ValidaNumeroOuCaracterEspecial(string nome)
-        {
-            return Regex.IsMatch(nome, @"[\d\W]");
-        }
-
         public bool ValidateControls(Control parentControl)
         {
             foreach (Control control in parentControl.Controls)

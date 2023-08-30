@@ -2,6 +2,7 @@
 using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
@@ -9,6 +10,11 @@ namespace ProjetoSistemaEe.View
     public partial class CadastrarNotas : Form
     {
         private BoletimModel model = new BoletimModel();
+        private ProfessorModel modelprofessor = new ProfessorModel();
+
+        private CursoModel modelcurso = new CursoModel();
+        private AlunoModel modelaluno = new AlunoModel();
+
         private Validar validar = new Validar();
 
         public CadastrarNotas()
@@ -19,7 +25,8 @@ namespace ProjetoSistemaEe.View
         private void CadastrarNotas_Load(object sender, EventArgs e)
         {
             LimparCampos();
-            CarregarGrid();
+            //CarregarGrid();
+            CarregarComboBox();
         }
 
         private void HabilitarCampos()
@@ -37,11 +44,6 @@ namespace ProjetoSistemaEe.View
             txtN3.Clear();
             txtN4.Clear();
             txtMedia.Clear();
-            txtNome.Clear();
-            txtMateria.Clear();
-            txtCurso.Clear();
-            txtRA.Clear();
-            txtNomeProfessor.Clear();
         }
 
         private void DesabilitarCampos()
@@ -64,7 +66,7 @@ namespace ProjetoSistemaEe.View
                     MessageBox.Show("Boletim cadastrado com sucesso!");
                     LimparCampos();
                     DesabilitarCampos();
-                    CarregarGrid();
+                    //CarregarGrid();
                 }
             }
             catch (Exception ex)
@@ -77,9 +79,10 @@ namespace ProjetoSistemaEe.View
         {
             try
             {
-                boletim.IdDisciplina = gridAlunoProfessor.CurrentRow.Cells[2].Value.ToString();
-                boletim.IdAluno = Convert.ToInt32(gridAlunoProfessor.CurrentRow.Cells[0].Value.ToString());
-                boletim.Idprofessor = Convert.ToInt32(gridAlunoProfessor.CurrentRow.Cells[3].Value.ToString());
+                boletim.IdCurso = cbCurso.SelectedValue.ToString();
+                boletim.IdDisciplina = cbMateria.SelectedValue.ToString();
+                boletim.IdAluno = Convert.ToInt32(cbAluno.SelectedValue.ToString());
+                boletim.Idprofessor = Convert.ToInt32(cbProfessor.SelectedValue.ToString());
                 boletim.Nota1 = Convert.ToDouble(txtN1.Text);
                 boletim.Nota2 = Convert.ToDouble(txtN2.Text);
                 boletim.Nota3 = Convert.ToDouble(txtN3.Text);
@@ -172,36 +175,34 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        #region Grid
-
-        private void CarregarGrid()
-        {
-            gridAlunoProfessor.DataSource = model.ListarAlunoPorMateria();
-            gridAlunoProfessor.Columns[0].HeaderText = "RA Aluno";
-            gridAlunoProfessor.Columns[1].HeaderText = "Nome do Aluno";
-            gridAlunoProfessor.Columns[2].HeaderText = "Curso do Aluno";
-            gridAlunoProfessor.Columns[4].HeaderText = "Nome do Professor";
-            gridAlunoProfessor.Columns[6].HeaderText = "Materia";
-            gridAlunoProfessor.Columns[3].Visible = false;
-            gridAlunoProfessor.Columns[5].Visible = false;
-        }
-
-        private void gridAlunoProfessor_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtRA.Text = gridAlunoProfessor.CurrentRow.Cells[0].Value.ToString();
-            txtNome.Text = gridAlunoProfessor.CurrentRow.Cells[1].Value.ToString();
-            txtCurso.Text = gridAlunoProfessor.CurrentRow.Cells[2].Value.ToString();
-            txtNomeProfessor.Text = gridAlunoProfessor.CurrentRow.Cells[4].Value.ToString();
-            txtMateria.Text = gridAlunoProfessor.CurrentRow.Cells[6].Value.ToString();
-            HabilitarCampos();
-            txtN1.Focus();
-        }
-
-        #endregion Grid
-
         private void txt_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.VerificaNumero(e);
+        }
+
+        private void cbAluno_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void CarregarComboBox()
+        {
+            DataTable AlunoInfo = modelaluno.Listar();
+            DataTable ProfessorInfo = modelprofessor.Listar();
+            cbAluno.DisplayMember = "Nome";
+            cbAluno.ValueMember = "RA";
+            cbAluno.DataSource = AlunoInfo;
+            //
+            cbCurso.DisplayMember = "cursonome";
+            cbCurso.ValueMember = "curso";
+            cbCurso.DataSource = AlunoInfo;
+            //
+            cbProfessor.DisplayMember = "Nome";
+            cbProfessor.ValueMember = "id";
+            cbProfessor.DataSource = ProfessorInfo;
+            //
+            cbMateria.DisplayMember = "nome_curso";
+            cbMateria.ValueMember = "curso";
+            cbMateria.DataSource = ProfessorInfo;
         }
     }
 }

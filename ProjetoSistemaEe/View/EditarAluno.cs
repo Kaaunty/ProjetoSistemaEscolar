@@ -61,7 +61,7 @@ namespace ProjetoSistemaEe.View
                         Aluno alunos = new Aluno();
                         Editar(alunos);
                         MessageBox.Show("Aluno editado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        FormAbrir();
+                        this.Close();
                     }
                 }
                 catch (Exception ex)
@@ -77,7 +77,7 @@ namespace ProjetoSistemaEe.View
             {
                 aluno.RA = Convert.ToInt32(txtRA.Text);
                 aluno.Nome = txtNome.Text;
-                aluno.Curso = cbCurso.Text;
+                aluno.Curso = Convert.ToInt32(cbCurso.SelectedValue);
                 aluno.Periodo = cbPeriodo.Text;
                 aluno.EstadoCivil = cbEstadoCivil.Text;
                 aluno.Genero = cbGenero.Text;
@@ -109,7 +109,7 @@ namespace ProjetoSistemaEe.View
                     Aluno alunos = new Aluno();
                     ExcluirAluno(alunos);
                     MessageBox.Show("Aluno excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FormAbrir();
+                    this.Close();
                 }
             }
             catch (Exception ex)

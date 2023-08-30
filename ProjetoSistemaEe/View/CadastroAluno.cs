@@ -74,7 +74,7 @@ namespace ProjetoSistemaEe
             {
                 aluno.RA = Convert.ToInt32(txtRA.Text);
                 aluno.Nome = txtNome.Text;
-                aluno.Curso = cbCurso.Text;
+                aluno.Curso = Convert.ToInt32(cbCurso.SelectedValue);
                 aluno.Periodo = CbPeriodo.Text;
                 aluno.EstadoCivil = cbEstadoCivil.Text;
                 aluno.Genero = cbGenero.Text;
@@ -121,7 +121,7 @@ namespace ProjetoSistemaEe
                 txtRA.Text = raStr;
                 return ra;
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 throw;
             }

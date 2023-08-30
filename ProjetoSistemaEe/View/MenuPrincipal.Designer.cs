@@ -57,7 +57,6 @@
             this.panelLateral.Name = "panelLateral";
             this.panelLateral.Size = new System.Drawing.Size(212, 701);
             this.panelLateral.TabIndex = 0;
-            this.panelLateral.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MenuPrincipal_MouseDown);
             // 
             // btnCadastrarNotas
             // 
@@ -166,7 +165,6 @@
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(1039, 669);
             this.panelPrincipal.TabIndex = 1;
-            this.panelPrincipal.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MenuPrincipal_MouseDown);
             // 
             // panel1
             // 
@@ -178,7 +176,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1039, 33);
             this.panel1.TabIndex = 2;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MenuPrincipal_MouseDown);
             // 
             // btnMinimizar
             // 
@@ -223,7 +220,6 @@
             this.Name = "MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuPrincipal";
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MenuPrincipal_MouseDown);
             this.panelLateral.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

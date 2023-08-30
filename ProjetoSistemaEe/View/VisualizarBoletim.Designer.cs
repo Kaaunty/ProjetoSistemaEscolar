@@ -86,6 +86,7 @@
             this.gridBoletim.Size = new System.Drawing.Size(1016, 411);
             this.gridBoletim.TabIndex = 1;
             this.gridBoletim.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridBoletim_CellContentDoubleClick);
+            this.gridBoletim.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.GridBoletim_CellFormatting);
             // 
             // VisualizarBoletim
             // 

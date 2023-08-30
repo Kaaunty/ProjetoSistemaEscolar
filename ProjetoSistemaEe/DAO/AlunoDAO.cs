@@ -15,9 +15,10 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.AbrirConexao();
-                sql = new MySqlCommand(@"SELECT ra, nome, curso, periodo, estadocivil, genero, datanascimento,
-                                    email, turno, telefone, cep,CONCAT
-                                    (cidade,'-', uf, ',', bairro, ',', rua, ',', numerorua) AS endereco_completo FROM aluno", con.con);
+                sql = new MySqlCommand(@"SELECT a.ra, a.nome, a.curso, a.periodo, a.estadocivil, a.genero, a.datanascimento,
+                                    a.email,a.turno,a.telefone,a.cep,c.nome as cursonome,CONCAT
+                                    (cidade,'-', uf, ',', bairro, ',', rua, ',', numerorua) AS endereco_completo FROM aluno a
+                                    LEFT JOIN cursos c ON a.curso = c.id", con.con);
                 MySqlDataAdapter da = new MySqlDataAdapter(sql);
                 da.SelectCommand = sql;
                 DataTable dt = new DataTable();

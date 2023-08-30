@@ -17,21 +17,6 @@ namespace ProjetoSistemaEe.View
         public void ListarNotas()
         {
             gridBoletim.DataSource = model.ListarNotas();
-            gridBoletim.Columns[0].Visible = false;
-            gridBoletim.Columns[1].HeaderText = "RA";
-            gridBoletim.Columns[2].HeaderText = "Nome";
-            gridBoletim.Columns[3].Visible = false;
-            gridBoletim.Columns[4].Visible = false;
-            gridBoletim.Columns[5].HeaderText = "Professor";
-            gridBoletim.Columns[6].HeaderText = "Curso";
-            gridBoletim.Columns[7].HeaderText = "Materia";
-            gridBoletim.Columns[8].HeaderText = "Nota 1";
-            gridBoletim.Columns[9].HeaderText = "Nota 2";
-            gridBoletim.Columns[10].HeaderText = "Nota 3";
-            gridBoletim.Columns[11].HeaderText = "Nota 4";
-            gridBoletim.Columns[12].HeaderText = "Nota Final";
-            gridBoletim.Columns[13].HeaderText = "Situação";
-            gridBoletim.CellFormatting += GridBoletim_CellFormatting;
         }
 
         private void GridBoletim_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -54,8 +39,8 @@ namespace ProjetoSistemaEe.View
         private void gridBoletim_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             EditarNotas formB = new EditarNotas(this);
-            var principal = this.ParentForm as MenuPrincipal; // Pega o formulário pai
-            principal.AbrirFormNoPainel(formB); // Chama o método para abrir o formulário B
+            formB.ShowDialog();
+            this.Hide();
         }
     }
 }

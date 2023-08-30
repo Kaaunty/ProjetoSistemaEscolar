@@ -4,6 +4,7 @@
     {
         private int id;
         private int idAluno;
+        private string idCurso;
         private string idDisciplina;
         private double nota1;
         private double nota2;
@@ -23,5 +24,6 @@
         public int Idprofessor { get => idprofessor; set => idprofessor = value; }
         public string Situacao { get => situacao; set => situacao = value; }
         public int Id { get => id; set => id = value; }
+        public string IdCurso { get => idCurso; set => idCurso = value; }
     }
 }

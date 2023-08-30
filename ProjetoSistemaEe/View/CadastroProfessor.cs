@@ -70,8 +70,8 @@ namespace ProjetoSistemaEe.View
             try
             {
                 professor.Nome = txtNome.Text;
-                professor.Curso = cbCurso.Text;
-                professor.Materia = cbMateria.Text;
+                professor.Curso = Convert.ToInt32(cbCurso.SelectedValue);
+                professor.Materia = Convert.ToInt32(cbMateria.SelectedValue);
                 professor.EstadoCivil = cbEstadoCivil.Text;
                 professor.Genero = cbGenero.Text;
                 professor.Email = txtEmail.Text;

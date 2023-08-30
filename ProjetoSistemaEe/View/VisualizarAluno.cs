@@ -21,9 +21,11 @@ namespace ProjetoSistemaEe.View
         private void ListarAluno()
         {
             gridBoletim.DataSource = alunoModel.Listar();
+            gridBoletim.Columns[11].DisplayIndex = 2;
             gridBoletim.Columns[0].HeaderText = "Código RA";
             gridBoletim.Columns[1].HeaderText = "Nome";
             gridBoletim.Columns[2].HeaderText = "Curso";
+            gridBoletim.Columns[2].Visible = false;
             gridBoletim.Columns[3].HeaderText = "Periodo";
             gridBoletim.Columns[4].HeaderText = "Estado Civil";
             gridBoletim.Columns[5].HeaderText = "Gênero";
@@ -32,14 +34,15 @@ namespace ProjetoSistemaEe.View
             gridBoletim.Columns[8].HeaderText = "Turno";
             gridBoletim.Columns[9].HeaderText = "Telefone";
             gridBoletim.Columns[10].HeaderText = "CEP";
-            gridBoletim.Columns[11].HeaderText = "Endereço";
+            gridBoletim.Columns[11].HeaderText = "Curso";
+            gridBoletim.Columns[12].HeaderText = "Endereço";
         }
 
         private void gridAluno_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            EditarAluno formB = new EditarAluno(this);
-            var principal = this.ParentForm as MenuPrincipal; // Pega o formulário pai
-            principal.AbrirFormNoPainel(formB); // Chama o método para abrir o formulário B
+            EditarAluno editarAluno = new EditarAluno(this);
+            editarAluno.ShowDialog();
+            this.Hide();
         }
     }
 }
