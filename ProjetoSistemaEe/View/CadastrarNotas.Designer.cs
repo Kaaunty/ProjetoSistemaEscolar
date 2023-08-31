@@ -32,6 +32,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAdicionar = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cbMateria = new System.Windows.Forms.ComboBox();
+            this.cbProfessor = new System.Windows.Forms.ComboBox();
+            this.cbCurso = new System.Windows.Forms.ComboBox();
+            this.cbAluno = new System.Windows.Forms.ComboBox();
             this.txtN4 = new System.Windows.Forms.TextBox();
             this.txtMedia = new System.Windows.Forms.TextBox();
             this.txtN3 = new System.Windows.Forms.TextBox();
@@ -42,14 +50,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbAluno = new System.Windows.Forms.ComboBox();
-            this.cbCurso = new System.Windows.Forms.ComboBox();
-            this.cbProfessor = new System.Windows.Forms.ComboBox();
-            this.cbMateria = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -115,6 +115,115 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1015, 364);
             this.panel2.TabIndex = 8;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
+            this.label14.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label14.Location = new System.Drawing.Point(38, 189);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(93, 28);
+            this.label14.TabIndex = 51;
+            this.label14.Text = "Materia:";
+            // 
+            // label13
+            // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
+            this.label13.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label13.Location = new System.Drawing.Point(19, 138);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(112, 28);
+            this.label13.TabIndex = 50;
+            this.label13.Text = "Professor:";
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
+            this.label12.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label12.Location = new System.Drawing.Point(59, 41);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(76, 28);
+            this.label12.TabIndex = 49;
+            this.label12.Text = "Curso:";
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
+            this.label11.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label11.Location = new System.Drawing.Point(59, 91);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(72, 28);
+            this.label11.TabIndex = 48;
+            this.label11.Text = "Aluno:";
+            // 
+            // cbMateria
+            // 
+            this.cbMateria.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMateria.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMateria.FormattingEnabled = true;
+            this.cbMateria.Items.AddRange(new object[] {
+            "Matematica",
+            "Literatura"});
+            this.cbMateria.Location = new System.Drawing.Point(141, 188);
+            this.cbMateria.Name = "cbMateria";
+            this.cbMateria.Size = new System.Drawing.Size(292, 30);
+            this.cbMateria.TabIndex = 47;
+            // 
+            // cbProfessor
+            // 
+            this.cbProfessor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbProfessor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbProfessor.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProfessor.FormattingEnabled = true;
+            this.cbProfessor.Items.AddRange(new object[] {
+            "Matematica",
+            "Literatura"});
+            this.cbProfessor.Location = new System.Drawing.Point(141, 137);
+            this.cbProfessor.Name = "cbProfessor";
+            this.cbProfessor.Size = new System.Drawing.Size(292, 30);
+            this.cbProfessor.TabIndex = 46;
+            // 
+            // cbCurso
+            // 
+            this.cbCurso.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCurso.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCurso.FormattingEnabled = true;
+            this.cbCurso.Items.AddRange(new object[] {
+            "Matematica",
+            "Literatura"});
+            this.cbCurso.Location = new System.Drawing.Point(141, 40);
+            this.cbCurso.Name = "cbCurso";
+            this.cbCurso.Size = new System.Drawing.Size(292, 30);
+            this.cbCurso.TabIndex = 45;
+            this.cbCurso.TextChanged += new System.EventHandler(this.cbCurso_TextChanged);
+            // 
+            // cbAluno
+            // 
+            this.cbAluno.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbAluno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAluno.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAluno.FormattingEnabled = true;
+            this.cbAluno.Items.AddRange(new object[] {
+            "Matematica",
+            "Literatura"});
+            this.cbAluno.Location = new System.Drawing.Point(141, 90);
+            this.cbAluno.Name = "cbAluno";
+            this.cbAluno.Size = new System.Drawing.Size(292, 30);
+            this.cbAluno.TabIndex = 44;
             // 
             // txtN4
             // 
@@ -240,115 +349,6 @@
             this.label3.Size = new System.Drawing.Size(84, 28);
             this.label3.TabIndex = 2;
             this.label3.Text = "Nota 3 :";
-            // 
-            // cbAluno
-            // 
-            this.cbAluno.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbAluno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbAluno.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAluno.FormattingEnabled = true;
-            this.cbAluno.Items.AddRange(new object[] {
-            "Matematica",
-            "Literatura"});
-            this.cbAluno.Location = new System.Drawing.Point(137, 36);
-            this.cbAluno.Name = "cbAluno";
-            this.cbAluno.Size = new System.Drawing.Size(292, 30);
-            this.cbAluno.TabIndex = 44;
-            // 
-            // cbCurso
-            // 
-            this.cbCurso.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCurso.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCurso.FormattingEnabled = true;
-            this.cbCurso.Items.AddRange(new object[] {
-            "Matematica",
-            "Literatura"});
-            this.cbCurso.Location = new System.Drawing.Point(137, 90);
-            this.cbCurso.Name = "cbCurso";
-            this.cbCurso.Size = new System.Drawing.Size(292, 30);
-            this.cbCurso.TabIndex = 45;
-            this.cbCurso.SelectedValueChanged += new System.EventHandler(this.cbAluno_SelectedIndexChanged);
-            // 
-            // cbProfessor
-            // 
-            this.cbProfessor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbProfessor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbProfessor.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbProfessor.FormattingEnabled = true;
-            this.cbProfessor.Items.AddRange(new object[] {
-            "Matematica",
-            "Literatura"});
-            this.cbProfessor.Location = new System.Drawing.Point(137, 137);
-            this.cbProfessor.Name = "cbProfessor";
-            this.cbProfessor.Size = new System.Drawing.Size(292, 30);
-            this.cbProfessor.TabIndex = 46;
-            // 
-            // cbMateria
-            // 
-            this.cbMateria.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMateria.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMateria.FormattingEnabled = true;
-            this.cbMateria.Items.AddRange(new object[] {
-            "Matematica",
-            "Literatura"});
-            this.cbMateria.Location = new System.Drawing.Point(137, 188);
-            this.cbMateria.Name = "cbMateria";
-            this.cbMateria.Size = new System.Drawing.Size(292, 30);
-            this.cbMateria.TabIndex = 47;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
-            this.label11.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label11.Location = new System.Drawing.Point(59, 34);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 28);
-            this.label11.TabIndex = 48;
-            this.label11.Text = "Aluno:";
-            // 
-            // label12
-            // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
-            this.label12.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label12.Location = new System.Drawing.Point(55, 84);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(76, 28);
-            this.label12.TabIndex = 49;
-            this.label12.Text = "Curso:";
-            // 
-            // label13
-            // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
-            this.label13.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label13.Location = new System.Drawing.Point(19, 138);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(112, 28);
-            this.label13.TabIndex = 50;
-            this.label13.Text = "Professor:";
-            // 
-            // label14
-            // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
-            this.label14.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label14.Location = new System.Drawing.Point(38, 185);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(93, 28);
-            this.label14.TabIndex = 51;
-            this.label14.Text = "Materia:";
             // 
             // CadastrarNotas
             // 

@@ -130,15 +130,5 @@ namespace ProjetoSistemaEe.DAO
                 con.FecharConexao();
             }
         }
-
-        public void Testar()
-        {
-            string teste = @" SELECT p.id, p.nome, p.curso, p.materia, c.nome as nome_curso,m.nome as nome_materia
-                FROM xd_university.professor p
-                                    LEFT JOIN cursos c on p.curso = c.id
-                                    LEFT JOIN materia m on p.materia = m.id
-                                    JOIN aluno a on p.curso = a.curso
-                                    WHERE p.curso = a.curso;";
-        }
     }
 }

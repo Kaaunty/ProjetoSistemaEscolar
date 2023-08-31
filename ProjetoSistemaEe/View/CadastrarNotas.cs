@@ -10,6 +10,7 @@ namespace ProjetoSistemaEe.View
     public partial class CadastrarNotas : Form
     {
         private BoletimModel model = new BoletimModel();
+
         private ProfessorModel modelprofessor = new ProfessorModel();
 
         private CursoModel modelcurso = new CursoModel();
@@ -186,23 +187,48 @@ namespace ProjetoSistemaEe.View
 
         private void CarregarComboBox()
         {
-            DataTable AlunoInfo = modelaluno.Listar();
-            DataTable ProfessorInfo = modelprofessor.Listar();
-            cbAluno.DisplayMember = "Nome";
-            cbAluno.ValueMember = "RA";
-            cbAluno.DataSource = AlunoInfo;
+            cbCurso.DisplayMember = "nome";
+            cbCurso.ValueMember = "id";
+            cbCurso.DropDownHeight = cbCurso.ItemHeight * 5;
+            cbCurso.SelectedIndex = -1;
+            cbCurso.DataSource = modelcurso.ListarCursos();
             //
-            cbCurso.DisplayMember = "cursonome";
-            cbCurso.ValueMember = "curso";
-            cbCurso.DataSource = AlunoInfo;
+            int id_curso = Convert.ToInt32(cbCurso.SelectedValue);
+            DataTable materia_curso = model.ListarAlunoPorCurso(id_curso);
+            cbAluno.DisplayMember = "Nome_Aluno";
+            cbAluno.ValueMember = "ID_Aluno";
+            cbAluno.DataSource = materia_curso;
             //
-            cbProfessor.DisplayMember = "Nome";
-            cbProfessor.ValueMember = "id";
-            cbProfessor.DataSource = ProfessorInfo;
+            int id_curso_P = Convert.ToInt32(cbCurso.SelectedValue);
+            DataTable materia_curso_P = model.ListarProfessorPorCurso(id_curso_P);
+            cbProfessor.DisplayMember = "Nome_Professor";
+            cbProfessor.ValueMember = "ID_Professor";
+            cbProfessor.DataSource = materia_curso_P;
             //
-            cbMateria.DisplayMember = "nome_curso";
-            cbMateria.ValueMember = "curso";
-            cbMateria.DataSource = ProfessorInfo;
+            cbMateria.DisplayMember = "Nome_Materia";
+            cbMateria.ValueMember = "ID_Materia";
+            cbMateria.DataSource = model.ListarProfessorPorCurso(id_curso_P);
+        }
+
+        private void cbCurso_TextChanged(object sender, EventArgs e)
+        {
+            cbCurso.DisplayMember = "nome";
+            cbCurso.ValueMember = "id";
+            //
+            cbAluno.DisplayMember = "Nome_Aluno";
+            cbAluno.ValueMember = "ID_Aluno";
+            DataTable AlunoCurso = model.ListarAlunoPorCurso(Convert.ToInt32(cbCurso.SelectedValue));
+            cbAluno.DataSource = AlunoCurso;
+            //
+            cbProfessor.DisplayMember = "Nome_Professor";
+            cbProfessor.ValueMember = "ID_Professor";
+            DataTable ProfessorCurso = model.ListarProfessorPorCurso(Convert.ToInt32(cbCurso.SelectedValue));
+            cbProfessor.DataSource = ProfessorCurso;
+            //
+            cbMateria.DisplayMember = "Nome_Materia";
+            cbMateria.ValueMember = "ID_Materia";
+            DataTable MateriaCurso = model.ListarProfessorPorCurso(Convert.ToInt32(cbCurso.SelectedValue));
+            cbMateria.DataSource = MateriaCurso;
         }
     }
 }

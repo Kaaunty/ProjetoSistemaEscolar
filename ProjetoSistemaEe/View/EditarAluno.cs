@@ -31,7 +31,7 @@ namespace ProjetoSistemaEe.View
             cbTurno.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[8].Value.ToString();
             txtTelefone.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[9].Value.ToString();
             txtCEP.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[10].Value.ToString();
-            string endereco = instanciaDoForm1.gridBoletim.CurrentRow.Cells[11].Value.ToString();
+            string endereco = instanciaDoForm1.gridBoletim.CurrentRow.Cells[12].Value.ToString();
             string[] enderecoSeparado = endereco.Split(delimitarchars);
             txtCidade.Text = enderecoSeparado[0];
             txtEstado.Text = enderecoSeparado[1];

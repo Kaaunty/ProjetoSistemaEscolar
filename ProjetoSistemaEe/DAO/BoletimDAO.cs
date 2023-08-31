@@ -134,5 +134,103 @@ namespace ProjetoSistemaEe.DAO
                 con.FecharConexao();
             }
         }
+
+        public DataTable AlunoMateria(int id_aluno)
+        {
+            try
+            {
+                con.AbrirConexao();
+                sql = new MySqlCommand(@"SELECT p.id, p.nome, p.curso, p.materia, c.nome as nome_curso,m.nome as nome_materia
+                                    FROM xd_university.professor p
+                                    LEFT JOIN cursos c on p.curso = c.id
+                                    LEFT JOIN materia m on p.materia = m.id
+                                    JOIN aluno a on p.curso = a.curso
+                                    WHERE p.curso = @id_aluno;", con.con);
+                sql.Parameters.AddWithValue("@id_aluno", id_aluno);
+                MySqlDataAdapter da = new MySqlDataAdapter();
+
+                da.SelectCommand = sql;
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.FecharConexao();
+            }
+        }
+
+        public DataTable ListarAlunoPorCurso(int curso_id)
+        {
+            try
+            {
+                con.AbrirConexao();
+
+                sql = new MySqlCommand(
+                    @"SELECT a.ra AS ID_Aluno,
+                    a.nome AS Nome_Aluno,
+                    a.curso as curso_aluno,
+                    c.nome as Nome_Curso,
+                    c.id as Id_curso
+                    FROM aluno a
+                    JOIN cursos c ON a.curso = c.id
+                    JOIN boletim b on a.ra = b.id_aluno
+                    WHERE a.curso = @id_curso", con.con);
+                sql.Parameters.AddWithValue("@id_curso", curso_id);
+                MySqlDataAdapter da = new MySqlDataAdapter(sql);
+                da.SelectCommand = sql;
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.FecharConexao();
+            }
+        }
+
+        public DataTable ListarProfessorPorCurso(int id_Curso)
+        {
+            try
+            {
+                con.AbrirConexao();
+
+                sql = new MySqlCommand(
+                    @"SELECT p.id AS ID_Professor,
+                    p.nome AS Nome_Professor,
+                    p.curso as curso_Professor,
+                    p.materia as ID_Materia,
+                    c.nome as Nome_Curso,
+                    c.id as Id_curso,
+                    m.nome as Nome_Materia
+                    FROM professor p
+                    JOIN cursos c ON p.curso = c.id
+                    JOIN materia m ON p.materia = m.id
+                    WHERE p.curso = @id_curso
+                    AND p.materia = m.id;", con.con);
+                sql.Parameters.AddWithValue("@id_curso", id_Curso);
+                MySqlDataAdapter da = new MySqlDataAdapter(sql);
+                da.SelectCommand = sql;
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.FecharConexao();
+            }
+        }
     }
 }
