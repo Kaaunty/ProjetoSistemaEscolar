@@ -34,6 +34,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gridBoletim = new System.Windows.Forms.DataGridView();
+            this.ra_aluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome_aluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.professor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.media = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridBoletim)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +66,7 @@
             this.gridBoletim.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
             this.gridBoletim.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.gridBoletim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.gridBoletim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gridBoletim.BackgroundColor = System.Drawing.Color.White;
             this.gridBoletim.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -67,6 +78,18 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridBoletim.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridBoletim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridBoletim.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ra_aluno,
+            this.nome_aluno,
+            this.curso,
+            this.materia,
+            this.professor,
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.media,
+            this.situacao});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -76,7 +99,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.gridBoletim.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridBoletim.EnableHeadersVisualStyles = false;
-            this.gridBoletim.Location = new System.Drawing.Point(12, 249);
+            this.gridBoletim.Location = new System.Drawing.Point(11, 246);
             this.gridBoletim.MultiSelect = false;
             this.gridBoletim.Name = "gridBoletim";
             this.gridBoletim.ReadOnly = true;
@@ -85,8 +108,96 @@
             this.gridBoletim.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridBoletim.Size = new System.Drawing.Size(1016, 411);
             this.gridBoletim.TabIndex = 1;
-            this.gridBoletim.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridBoletim_CellContentDoubleClick);
-            this.gridBoletim.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.GridBoletim_CellFormatting);
+            this.gridBoletim.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridBoletim_CellContentDoubleClick);
+            this.gridBoletim.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gridBoletim_CellFormatting);
+            // 
+            // ra_aluno
+            // 
+            this.ra_aluno.DataPropertyName = "RA_aluno";
+            this.ra_aluno.HeaderText = "RA";
+            this.ra_aluno.Name = "ra_aluno";
+            this.ra_aluno.ReadOnly = true;
+            this.ra_aluno.Width = 47;
+            // 
+            // nome_aluno
+            // 
+            this.nome_aluno.DataPropertyName = "nome_aluno";
+            this.nome_aluno.HeaderText = "Aluno";
+            this.nome_aluno.Name = "nome_aluno";
+            this.nome_aluno.ReadOnly = true;
+            this.nome_aluno.Width = 64;
+            // 
+            // curso
+            // 
+            this.curso.DataPropertyName = "nome_Curso";
+            this.curso.HeaderText = "Curso";
+            this.curso.Name = "curso";
+            this.curso.ReadOnly = true;
+            this.curso.Width = 63;
+            // 
+            // materia
+            // 
+            this.materia.DataPropertyName = "nome_Materia";
+            this.materia.HeaderText = "Materia";
+            this.materia.Name = "materia";
+            this.materia.ReadOnly = true;
+            this.materia.Width = 72;
+            // 
+            // professor
+            // 
+            this.professor.DataPropertyName = "nome_Professor";
+            this.professor.HeaderText = "Professor";
+            this.professor.Name = "professor";
+            this.professor.ReadOnly = true;
+            this.professor.Width = 81;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "nota1";
+            this.Column1.HeaderText = "Nota 1";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 67;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "nota2";
+            this.Column2.HeaderText = "Nota 2";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 67;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "nota3";
+            this.Column3.HeaderText = "Nota 3";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 67;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "nota4";
+            this.Column4.HeaderText = "Nota 4";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 67;
+            // 
+            // media
+            // 
+            this.media.DataPropertyName = "media";
+            this.media.HeaderText = "Media";
+            this.media.Name = "media";
+            this.media.ReadOnly = true;
+            this.media.Width = 65;
+            // 
+            // situacao
+            // 
+            this.situacao.DataPropertyName = "situacao";
+            this.situacao.HeaderText = "Situação";
+            this.situacao.Name = "situacao";
+            this.situacao.ReadOnly = true;
+            this.situacao.Width = 77;
             // 
             // VisualizarBoletim
             // 
@@ -106,5 +217,16 @@
         #endregion
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.DataGridView gridBoletim;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ra_aluno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome_aluno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn curso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn professor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn media;
+        private System.Windows.Forms.DataGridViewTextBoxColumn situacao;
     }
 }

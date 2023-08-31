@@ -195,6 +195,7 @@
             this.cbProfessor.Name = "cbProfessor";
             this.cbProfessor.Size = new System.Drawing.Size(292, 30);
             this.cbProfessor.TabIndex = 46;
+            this.cbProfessor.TextChanged += new System.EventHandler(this.cbProfessor_TextChanged);
             // 
             // cbCurso
             // 

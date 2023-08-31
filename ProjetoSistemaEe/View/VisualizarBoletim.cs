@@ -19,9 +19,9 @@ namespace ProjetoSistemaEe.View
             gridBoletim.DataSource = model.ListarNotas();
         }
 
-        private void GridBoletim_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void gridBoletim_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == 13) // Verifica se é uma célula válida na coluna "Situação"
+            if (e.RowIndex >= 0 && e.ColumnIndex == 10) // Verifica se é uma célula válida na coluna "Situação"
             {
                 string cellValue = e.Value.ToString();
 
@@ -38,9 +38,9 @@ namespace ProjetoSistemaEe.View
 
         private void gridBoletim_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            EditarNotas formB = new EditarNotas(this);
-            formB.ShowDialog();
-            this.Hide();
+            EditarNotas EditarNotas = new EditarNotas(this);
+            var principal = this.ParentForm as MenuPrincipal;
+            principal.AbrirFormNoPainel(EditarNotas);
         }
     }
 }

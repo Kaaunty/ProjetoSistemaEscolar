@@ -102,5 +102,19 @@ namespace ProjetoSistemaEe.Model
                 throw;
             }
         }
+
+        public DataTable ListarMateriaPorProfessor(int id_professor)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                dt = dao.ListarMateriaPorProfessor(id_professor);
+                return dt;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

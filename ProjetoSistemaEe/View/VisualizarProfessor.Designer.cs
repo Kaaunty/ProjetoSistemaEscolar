@@ -33,8 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.gridProfessor = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProfessor)).BeginInit();
             this.SuspendLayout();
@@ -48,18 +48,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
-            this.label2.Location = new System.Drawing.Point(217, 175);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(605, 26);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Clique duas vezes em um professor na tabela para editar ou deletar:";
             // 
             // gridProfessor
             // 
@@ -94,11 +82,24 @@
             this.gridProfessor.MultiSelect = false;
             this.gridProfessor.Name = "gridProfessor";
             this.gridProfessor.ReadOnly = true;
+            this.gridProfessor.RowHeadersVisible = false;
             this.gridProfessor.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridProfessor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridProfessor.Size = new System.Drawing.Size(1016, 420);
-            this.gridProfessor.TabIndex = 15;
-            this.gridProfessor.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProfessor_CellContentDoubleClick);
+            this.gridProfessor.TabIndex = 1;
+            this.gridProfessor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProfessor_CellContentDoubleClick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
+            this.label2.Location = new System.Drawing.Point(217, 175);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(605, 26);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Clique duas vezes em um professor na tabela para editar ou deletar:";
             // 
             // VisualizarProfessor
             // 

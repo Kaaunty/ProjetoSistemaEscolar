@@ -144,7 +144,9 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.AbrirConexao();
-                sql = new MySqlCommand("DELETE FROM aluno WHERE ra = @ra", con.con);
+                sql = new MySqlCommand(@"
+                DELETE FROM boletim WHERE id_aluno = @ra;
+                DELETE FROM aluno WHERE ra = @ra", con.con);
                 sql.Parameters.AddWithValue("@ra", aluno.RA);
                 sql.ExecuteNonQuery();
                 sql.Dispose();

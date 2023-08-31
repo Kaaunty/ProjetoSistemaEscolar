@@ -64,6 +64,7 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.btnEditar = new FontAwesome.Sharp.IconButton();
             this.btnDeletar = new FontAwesome.Sharp.IconButton();
+            this.btnVoltar = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -416,6 +417,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.btnVoltar);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.txtID);
             this.panel1.Controls.Add(this.btnEditar);
@@ -522,6 +524,30 @@
             this.btnDeletar.UseVisualStyleBackColor = false;
             this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
+            // btnVoltar
+            // 
+            this.btnVoltar.BackColor = System.Drawing.Color.Transparent;
+            this.btnVoltar.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
+            this.btnVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnVoltar.FlatAppearance.BorderSize = 0;
+            this.btnVoltar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnVoltar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoltar.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnVoltar.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
+            this.btnVoltar.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.btnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnVoltar.IconSize = 30;
+            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVoltar.Location = new System.Drawing.Point(12, 12);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(130, 35);
+            this.btnVoltar.TabIndex = 53;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
             // EditarProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -530,6 +556,9 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditarProfessor";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditarProfessor";
             this.Load += new System.EventHandler(this.EditarProfessor_Load);
             this.panel1.ResumeLayout(false);
@@ -575,5 +604,6 @@
         private FontAwesome.Sharp.IconButton btnDeletar;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtID;
+        private FontAwesome.Sharp.IconButton btnVoltar;
     }
 }

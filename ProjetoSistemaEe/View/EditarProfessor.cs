@@ -22,9 +22,9 @@ namespace ProjetoSistemaEe.View
             instanciaDoForm2 = InstanciaVisualizar; //passo o valor do form1 para o objeto criado
             txtID.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[0].Value.ToString();
             txtNome.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[1].Value.ToString();
-            cbCurso.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[2].Value.ToString();
+            cbCurso.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[11].Value.ToString();
             txtSalario.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[3].Value.ToString();
-            cbMateria.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[4].Value.ToString();
+            cbMateria.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[12].Value.ToString();
             cbEstadoCivil.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[5].Value.ToString();
             cbGenero.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[6].Value.ToString();
             dtProfessor.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[7].Value.ToString();
@@ -85,7 +85,7 @@ namespace ProjetoSistemaEe.View
                         Professor professores = new Professor();
                         Editar(professores);
                         MessageBox.Show("Professor editado com sucesso!");
-                        this.Close();
+                        FormAbrir();
                     }
                 }
                 catch (Exception ex)
@@ -131,7 +131,7 @@ namespace ProjetoSistemaEe.View
                 Professor professores = new Professor();
                 Excluir(professores);
                 MessageBox.Show("Professor excluido com sucesso!");
-                this.Close();
+                FormAbrir();
             }
         }
 
@@ -174,12 +174,12 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        //private void FormAbrir()
-        //{
-        //    VisualizarProfessor formB = new VisualizarProfessor();
-        //    var principal = this.ParentForm as MenuPrincipal;
-        //    principal.AbrirFormNoPainel(formB);
-        //}
+        private void FormAbrir()
+        {
+            VisualizarProfessor formB = new VisualizarProfessor();
+            var principal = this.ParentForm as MenuPrincipal;
+            principal.AbrirFormNoPainel(formB);
+        }
 
         private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -214,6 +214,11 @@ namespace ProjetoSistemaEe.View
                 }
             }
             txtNum.Clear();
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            FormAbrir();
         }
     }
 }

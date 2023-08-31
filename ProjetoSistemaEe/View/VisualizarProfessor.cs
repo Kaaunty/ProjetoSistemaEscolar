@@ -44,9 +44,9 @@ namespace ProjetoSistemaEe.View
 
         private void gridProfessor_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            EditarProfessor formB = new EditarProfessor(this);
-            formB.ShowDialog();
-            this.Hide();
+            EditarProfessor editarProfessor = new EditarProfessor(this);
+            var principal = this.ParentForm as MenuPrincipal;
+            principal.AbrirFormNoPainel(editarProfessor);
         }
     }
 }

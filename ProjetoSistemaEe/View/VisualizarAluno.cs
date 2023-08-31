@@ -41,8 +41,8 @@ namespace ProjetoSistemaEe.View
         private void gridAluno_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             EditarAluno editarAluno = new EditarAluno(this);
-            editarAluno.ShowDialog();
-            this.Hide();
+            var principal = this.ParentForm as MenuPrincipal;
+            principal.AbrirFormNoPainel(editarAluno);
         }
     }
 }

@@ -30,14 +30,6 @@ namespace ProjetoSistemaEe.View
             CarregarComboBox();
         }
 
-        private void HabilitarCampos()
-        {
-            txtN1.Enabled = true;
-            txtN2.Enabled = true;
-            txtN3.Enabled = true;
-            txtN4.Enabled = true;
-        }
-
         private void LimparCampos()
         {
             txtN1.Clear();
@@ -45,6 +37,11 @@ namespace ProjetoSistemaEe.View
             txtN3.Clear();
             txtN4.Clear();
             txtMedia.Clear();
+            cbCurso.SelectedValue = 0;
+            cbMateria.SelectedValue = 0;
+            cbAluno.SelectedValue = 0;
+            cbProfessor.SelectedValue = 0;
+
         }
 
         private void DesabilitarCampos()
@@ -57,22 +54,24 @@ namespace ProjetoSistemaEe.View
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            try
+            if (validar.ValidateControls(this))
             {
-                DialogResult result = MessageBox.Show("Deseja adicionar a nota ao aluno?", "Adicionar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                try
                 {
-                    Boletim boletim = new Boletim();
-                    Adicionar(boletim);
-                    MessageBox.Show("Boletim cadastrado com sucesso!");
-                    LimparCampos();
-                    DesabilitarCampos();
-                    //CarregarGrid();
+                    DialogResult result = MessageBox.Show("Deseja adicionar a nota ao aluno?", "Adicionar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        Boletim boletim = new Boletim();
+                        Adicionar(boletim);
+                        MessageBox.Show("Boletim cadastrado com sucesso!");
+                        LimparCampos();
+                        DesabilitarCampos();
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao adicionar: " + ex.Message);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao adicionar: " + ex.Message);
+                }
             }
         }
 
@@ -181,10 +180,6 @@ namespace ProjetoSistemaEe.View
             validar.VerificaNumero(e);
         }
 
-        private void cbAluno_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
         private void CarregarComboBox()
         {
             cbCurso.DisplayMember = "nome";
@@ -205,9 +200,11 @@ namespace ProjetoSistemaEe.View
             cbProfessor.ValueMember = "ID_Professor";
             cbProfessor.DataSource = materia_curso_P;
             //
-            cbMateria.DisplayMember = "Nome_Materia";
-            cbMateria.ValueMember = "ID_Materia";
-            cbMateria.DataSource = model.ListarProfessorPorCurso(id_curso_P);
+            cbMateria.DisplayMember = "materia_nome";
+            cbMateria.ValueMember = "materia_id";
+            int id_materia_professor = Convert.ToInt32(cbProfessor.SelectedValue);
+            DataTable materia_professor = model.ListarMateriaPorProfessor(id_materia_professor);
+            cbMateria.DataSource = materia_professor;
         }
 
         private void cbCurso_TextChanged(object sender, EventArgs e)
@@ -225,9 +222,22 @@ namespace ProjetoSistemaEe.View
             DataTable ProfessorCurso = model.ListarProfessorPorCurso(Convert.ToInt32(cbCurso.SelectedValue));
             cbProfessor.DataSource = ProfessorCurso;
             //
-            cbMateria.DisplayMember = "Nome_Materia";
-            cbMateria.ValueMember = "ID_Materia";
-            DataTable MateriaCurso = model.ListarProfessorPorCurso(Convert.ToInt32(cbCurso.SelectedValue));
+            cbMateria.DisplayMember = "materia_nome";
+            cbMateria.ValueMember = "materia_id";
+            DataTable MateriaCurso = model.ListarMateriaPorProfessor(Convert.ToInt32(cbProfessor.SelectedValue));
+            cbMateria.DataSource = MateriaCurso;
+
+            //
+        }
+
+        private void cbProfessor_TextChanged(object sender, EventArgs e)
+        {
+            cbProfessor.DisplayMember = "Nome_Professor";
+            cbProfessor.ValueMember = "ID_Professor";
+            //
+            cbMateria.DisplayMember = "materia_nome";
+            cbMateria.ValueMember = "materia_id";
+            DataTable MateriaCurso = model.ListarMateriaPorProfessor(Convert.ToInt32(cbProfessor.SelectedValue));
             cbMateria.DataSource = MateriaCurso;
         }
     }

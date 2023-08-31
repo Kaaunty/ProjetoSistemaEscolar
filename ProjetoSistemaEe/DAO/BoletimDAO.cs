@@ -78,21 +78,22 @@ namespace ProjetoSistemaEe.DAO
             {
                 con.AbrirConexao();
                 sql = new MySqlCommand(
-                @"SELECT
-                b.id_aluno,
-                b.id_professor,
-                b.id_curso,
-                b.nota1,
-                b.nota2,
-                b.nota3,
-                b.nota4,
-                b.situacao,
-                p.nome,
-                p.materia,
-                a.nome
+                @"SELECT id_aluno AS RA_aluno,
+                a.nome AS nome_aluno,
+                c.nome AS nome_Curso,
+                m.nome AS nome_Materia,
+                p.nome AS nome_Professor,
+                nota1,
+                nota2,
+                nota3,
+                nota4,
+                media,
+                situacao
                 FROM boletim b
-                JOIN professor p ON b.id_professor = p.id
-                JOIN aluno a ON b.id_aluno = a.ra", con.con);
+                JOIN professor p ON p.id = b.id_professor
+                JOIN aluno a ON a.RA = b.id_aluno
+                JOIN cursos c on c.id = b.id_curso
+                JOIN materia m on  m.id = b.disciplina;", con.con);
                 MySqlDataAdapter da = new MySqlDataAdapter(sql);
                 da.SelectCommand = sql;
                 DataTable dt = new DataTable();
@@ -178,8 +179,10 @@ namespace ProjetoSistemaEe.DAO
                     c.id as Id_curso
                     FROM aluno a
                     JOIN cursos c ON a.curso = c.id
-                    JOIN boletim b on a.ra = b.id_aluno
-                    WHERE a.curso = @id_curso", con.con);
+                    LEFT JOIN boletim b ON a.ra = b.id_aluno
+                    WHERE a.curso = @id_curso
+                    AND b.id IS NULL;
+                    ", con.con);
                 sql.Parameters.AddWithValue("@id_curso", curso_id);
                 MySqlDataAdapter da = new MySqlDataAdapter(sql);
                 da.SelectCommand = sql;
@@ -217,6 +220,34 @@ namespace ProjetoSistemaEe.DAO
                     WHERE p.curso = @id_curso
                     AND p.materia = m.id;", con.con);
                 sql.Parameters.AddWithValue("@id_curso", id_Curso);
+                MySqlDataAdapter da = new MySqlDataAdapter(sql);
+                da.SelectCommand = sql;
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.FecharConexao();
+            }
+        }
+
+        public DataTable ListarMateriaPorProfessor(int id_professor)
+        {
+            try
+            {
+                con.AbrirConexao();
+                sql = new MySqlCommand(
+                    @"SELECT m.id AS materia_id,
+						   m.nome AS materia_nome
+                           FROM materia m
+                           JOIN  professor p on m.id = p.materia
+                           WHERE p.id = @id_professor;", con.con);
+                sql.Parameters.AddWithValue("@id_professor", id_professor);
                 MySqlDataAdapter da = new MySqlDataAdapter(sql);
                 da.SelectCommand = sql;
                 DataTable dt = new DataTable();

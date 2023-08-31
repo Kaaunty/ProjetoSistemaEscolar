@@ -98,7 +98,7 @@
             this.gridBoletim.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridBoletim.Size = new System.Drawing.Size(1016, 420);
             this.gridBoletim.TabIndex = 0;
-            this.gridBoletim.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAluno_CellDoubleClick);
+            this.gridBoletim.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAluno_CellDoubleClick);
             // 
             // VisualizarAluno
             // 

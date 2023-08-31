@@ -22,7 +22,7 @@ namespace ProjetoSistemaEe.View
             instanciaDoForm1 = InstanciaVisualizar; //passo o valor do form1 para o objeto criado
             txtRA.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[0].Value.ToString();
             txtNome.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[1].Value.ToString();
-            cbCurso.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[2].Value.ToString();
+            cbCurso.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[11].Value.ToString();
             cbPeriodo.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[3].Value.ToString();
             cbEstadoCivil.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[4].Value.ToString();
             cbGenero.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[5].Value.ToString();
@@ -61,7 +61,7 @@ namespace ProjetoSistemaEe.View
                         Aluno alunos = new Aluno();
                         Editar(alunos);
                         MessageBox.Show("Aluno editado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
+                        FormAbrir();
                     }
                 }
                 catch (Exception ex)
@@ -109,7 +109,7 @@ namespace ProjetoSistemaEe.View
                     Aluno alunos = new Aluno();
                     ExcluirAluno(alunos);
                     MessageBox.Show("Aluno excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    FormAbrir();
                 }
             }
             catch (Exception ex)
@@ -171,6 +171,11 @@ namespace ProjetoSistemaEe.View
             VisualizarAluno formB = new VisualizarAluno();
             var principal = this.ParentForm as MenuPrincipal;
             principal.AbrirFormNoPainel(formB);
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            FormAbrir();
         }
     }
 }

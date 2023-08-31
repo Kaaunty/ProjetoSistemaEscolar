@@ -16,16 +16,16 @@ namespace ProjetoSistemaEe.View
         {
             InitializeComponent();
             instanciaDoForm1 = InstanciaVisualizar; //passo o valor do form1 para o objeto criado
-            txtRA.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[1].Value.ToString();
-            txtNome.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[2].Value.ToString();
-            txtCurso.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[6].Value.ToString();
-            txtMateria.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[7].Value.ToString();
-            txtNomeProfessor.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[5].Value.ToString();
-            txtN1.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[8].Value.ToString();
-            txtN2.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[9].Value.ToString();
-            txtN3.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[10].Value.ToString();
-            txtN4.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[11].Value.ToString();
-            txtMedia.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[12].Value.ToString();
+            txtRA.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[0].Value.ToString();
+            txtNome.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[1].Value.ToString();
+            txtCurso.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[2].Value.ToString();
+            txtMateria.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[3].Value.ToString();
+            txtNomeProfessor.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[4].Value.ToString();
+            txtN1.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[5].Value.ToString();
+            txtN2.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[6].Value.ToString();
+            txtN3.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[7].Value.ToString();
+            txtN4.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[8].Value.ToString();
+            txtMedia.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[9].Value.ToString();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -154,6 +154,11 @@ namespace ProjetoSistemaEe.View
         private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.VerificaNumero(e);
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            FormAbrir();
         }
     }
 }
