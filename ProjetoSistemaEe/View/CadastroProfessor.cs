@@ -1,7 +1,9 @@
-﻿using ProjetoSistemaEe.Entidades;
+﻿using ProjetoSistemaEe.DAO;
+using ProjetoSistemaEe.Entidades;
 using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -11,7 +13,7 @@ namespace ProjetoSistemaEe.View
     {
         private ProfessorModel professorM = new ProfessorModel();
         private Validar validar = new Validar();
-        private CursoModel cursoM = new CursoModel();
+        private MateriaModel materiaM = new MateriaModel();
 
         public CadastroProfessor()
         {
@@ -22,14 +24,13 @@ namespace ProjetoSistemaEe.View
         {
             LimparCampos();
             Validar.FormatarData(dtProfessor, new DateTime(2000, 12, 31), new DateTime(1953, 01, 01));
-            CarregarComboBox();
+            LoadGrid();
         }
 
         public void LimparCampos()
         {
             txtNome.Clear();
-            cbCurso.SelectedValue = 0;
-            cbMateria.SelectedValue = 0;
+            txtBusca.Clear();
             cbEstadoCivil.SelectedValue = 0;
             cbGenero.SelectedValue = 0;
             txtEmail.Clear();
@@ -70,8 +71,14 @@ namespace ProjetoSistemaEe.View
             try
             {
                 professor.Nome = txtNome.Text;
-                professor.Curso = Convert.ToInt32(cbCurso.SelectedValue);
-                professor.Materia = Convert.ToInt32(cbMateria.SelectedValue);
+
+                for (int i = 0; i < gridMaterias.Rows.Count; i++)
+                {
+                    if (Convert.ToBoolean(gridMaterias.Rows[i].Cells[0].Value) == true)
+                    {
+                        professor.ListaDemateria.Add(Convert.ToInt32(gridMaterias.Rows[i].Cells[1].Value));
+                    }
+                }
                 professor.EstadoCivil = cbEstadoCivil.Text;
                 professor.Genero = cbGenero.Text;
                 professor.Email = txtEmail.Text;
@@ -84,36 +91,13 @@ namespace ProjetoSistemaEe.View
                 professor.Numerorua = txtNum.Text;
                 professor.Telefone = txtTelefone.Text;
                 professor.Datanascimento = dtProfessor.Value;
+
                 professorM.Salvar(professor);
             }
             catch (Exception)
             {
                 throw;
             }
-        }
-
-        private void CarregarComboBox()
-        {
-            cbCurso.DataSource = cursoM.ListarCursos();
-            cbCurso.DisplayMember = "Nome";
-            cbCurso.ValueMember = "id";
-            cbCurso.DropDownHeight = cbCurso.ItemHeight * 5;
-            cbCurso.SelectedIndex = -1;
-            int cursoid = Convert.ToInt32(cbCurso.SelectedValue);
-            DataTable materia_curso = cursoM.BuscarMateria(cursoid);
-            cbMateria.DataSource = materia_curso;
-            cbMateria.DisplayMember = "Nome";
-            cbMateria.ValueMember = "id";
-        }
-
-        private void cbCurso_TextChanged(object sender, EventArgs e)
-        {
-            cbCurso.DisplayMember = "Nome";
-            cbCurso.ValueMember = "id";
-            DataTable materia_curso = cursoM.BuscarMateria(Convert.ToInt32(cbCurso.SelectedValue));
-            cbMateria.DataSource = materia_curso;
-            cbMateria.DisplayMember = "Nome";
-            cbMateria.ValueMember = "id";
         }
 
         private void txtSalario_Leave(object sender, EventArgs e)
@@ -172,6 +156,37 @@ namespace ProjetoSistemaEe.View
                 }
             }
             txtNum.Clear();
+        }
+
+        public void LoadGrid()
+        {
+            gridMaterias.DataSource = materiaM.ListarMateria();
+            gridMaterias.Columns[0].HeaderText = "Escolher";
+            gridMaterias.Columns[0].Width = 30;
+            gridMaterias.Columns[1].Visible = false;
+        }
+
+        private void Buscar(Materia materiaProfessor)
+        {
+            try
+            {
+                materiaProfessor.Nome = txtBusca.Text;
+                gridMaterias.DataSource = materiaM.BuscarMateria(materiaProfessor);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void txtBusca_TextChanged(object sender, EventArgs e)
+        {
+            Materia materiaProfessor = new Materia();
+            Buscar(materiaProfessor);
+            if (txtBusca.Text == "")
+            {
+                LoadGrid();
+            }
         }
     }
 }

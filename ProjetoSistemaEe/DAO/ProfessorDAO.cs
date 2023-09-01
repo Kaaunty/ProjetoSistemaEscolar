@@ -1,6 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using ProjetoSistemaEe.Entidades;
+using ProjetoSistemaEe.View;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows;
 using System.Windows.Forms;
@@ -17,11 +19,11 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.AbrirConexao();
-                sql = new MySqlCommand(@"SELECT p.id, p.nome, p.curso, p.salario, p.materia, p.estadocivil, p.genero, p.datanascimento,
-                                    p.email, p.telefone, p.cep,c.nome as nome_curso,m.nome as nome_materia,CONCAT
-                                    (cidade, '-', uf, ', ', bairro, ', ', rua, ', ', numerorua) AS endereco_completo FROM xd_university.professor p
-                                    LEFT JOIN cursos c on p.curso = c.id
-                                    LEFT JOIN materia m on p.materia = m.id", con.con);
+                sql = new MySqlCommand(@"SELECT p.nome,m.nome as nome_materia, p.salario, p.estadocivil, p.genero, p.datanascimento,
+                                    p.email, p.telefone, p.cep,
+                                    CONCAT(cidade, '-', uf, ', ', bairro, ', ', rua, ', ', numerorua) AS endereco_completo FROM xd_university.professor p
+                                    LEFT JOIN professor_materia pm on p.id = pm.id_professor
+                                    INNER JOIN materia m on pm.id_materia = m.id;", con.con);
                 MySqlDataAdapter da = new MySqlDataAdapter();
                 da.SelectCommand = sql;
                 DataTable dt = new DataTable();
@@ -43,12 +45,11 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.AbrirConexao();
-                sql = new MySqlCommand("INSERT INTO professor(nome, curso, salario, materia, estadocivil, genero, datanascimento, email, telefone, cep, cidade, uf, bairro, rua, numerorua) " +
-                    "VALUES (@nome, @curso, @salario, @materia, @estadocivil, @genero, @datanascimento, @email, @telefone, @cep, @cidade, @uf, @bairro, @rua, @numerorua)", con.con);
+                sql = new MySqlCommand("INSERT INTO professor(nome, curso, salario, estadocivil, genero, datanascimento, email, telefone, cep, cidade, uf, bairro, rua, numerorua) " +
+                    "VALUES (@nome, @curso, @salario, @estadocivil, @genero, @datanascimento, @email, @telefone, @cep, @cidade, @uf, @bairro, @rua, @numerorua);", con.con);
                 sql.Parameters.AddWithValue("@nome", professor.Nome);
                 sql.Parameters.AddWithValue("@curso", professor.Curso);
                 sql.Parameters.AddWithValue("@salario", professor.Salario);
-                sql.Parameters.AddWithValue("@materia", professor.Materia);
                 sql.Parameters.AddWithValue("@estadocivil", professor.EstadoCivil);
                 sql.Parameters.AddWithValue("@genero", professor.Genero);
                 sql.Parameters.AddWithValue("@datanascimento", professor.Datanascimento.ToString("yyyy-MM-dd"));
@@ -62,6 +63,19 @@ namespace ProjetoSistemaEe.DAO
                 sql.Parameters.AddWithValue("@numerorua", professor.Numerorua);
                 sql.ExecuteNonQuery();
                 sql.Dispose();
+                con.FecharConexao();
+
+                foreach (var item in professor.ListaDemateria)
+                {
+                    con.AbrirConexao();
+                    int id_professor = IdUltimoProfessor();
+                    sql = new MySqlCommand("INSERT INTO professor_materia(id_professor, id_materia) VALUES (@professorid, @materia);", con.con);
+                    sql.Parameters.AddWithValue("@professorid", id_professor);
+                    sql.Parameters.AddWithValue("@materia", item);
+                    sql.ExecuteNonQuery();
+                    sql.Dispose();
+                    con.FecharConexao();
+                }
             }
             catch (Exception)
             {
@@ -90,7 +104,7 @@ namespace ProjetoSistemaEe.DAO
                 sql.Parameters.AddWithValue("@genero", professor.Genero);
                 sql.Parameters.AddWithValue("@datanascimento", professor.Datanascimento.ToString("yyyy-MM-dd"));
                 sql.Parameters.AddWithValue("@email", professor.Email);
-                sql.Parameters.AddWithValue("@materia", professor.Materia);
+                sql.Parameters.AddWithValue("@materia", professor.ListaDemateria);
                 sql.Parameters.AddWithValue("@telefone", professor.Telefone);
                 sql.Parameters.AddWithValue("@cep", professor.Cep);
                 sql.Parameters.AddWithValue("@cidade", professor.Cidade);
@@ -98,8 +112,6 @@ namespace ProjetoSistemaEe.DAO
                 sql.Parameters.AddWithValue("@bairro", professor.Bairro);
                 sql.Parameters.AddWithValue("@rua", professor.Rua);
                 sql.Parameters.AddWithValue("@numerorua", professor.Numerorua);
-                sql.ExecuteNonQuery();
-                sql.Dispose();
             }
             catch (Exception)
             {
@@ -132,6 +144,13 @@ namespace ProjetoSistemaEe.DAO
             {
                 con.FecharConexao();
             }
+        }
+
+        public int IdUltimoProfessor()
+        {
+            sql = new MySqlCommand("SELECT MAX(id) as id FROM professor", con.con);
+            var result = sql.ExecuteScalar();
+            return Convert.ToInt32(result);
         }
     }
 }

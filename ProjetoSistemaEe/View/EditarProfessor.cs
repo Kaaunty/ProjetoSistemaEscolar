@@ -102,7 +102,7 @@ namespace ProjetoSistemaEe.View
                 professor.Id = Convert.ToInt32(txtID.Text);
                 professor.Nome = txtNome.Text;
                 professor.Curso = Convert.ToInt32(cbCurso.SelectedValue);
-                professor.Materia = Convert.ToInt32(cbMateria.SelectedValue);
+                professor.ListaDemateria = null;
                 professor.EstadoCivil = cbEstadoCivil.Text;
                 professor.Genero = cbGenero.Text;
                 professor.Salario = txtSalario.Text;

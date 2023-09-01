@@ -29,10 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroProfessor));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cbMateria = new System.Windows.Forms.ComboBox();
+            this.txtBusca = new System.Windows.Forms.TextBox();
+            this.gridMaterias = new System.Windows.Forms.DataGridView();
+            this.CursoCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nome_materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSalario = new System.Windows.Forms.TextBox();
-            this.cbCurso = new System.Windows.Forms.ComboBox();
             this.btnSalvar = new FontAwesome.Sharp.IconButton();
             this.label15 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -49,7 +55,6 @@
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -62,6 +67,7 @@
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMaterias)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -71,9 +77,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel1.Controls.Add(this.cbMateria);
+            this.panel1.Controls.Add(this.txtBusca);
+            this.panel1.Controls.Add(this.gridMaterias);
             this.panel1.Controls.Add(this.txtSalario);
-            this.panel1.Controls.Add(this.cbCurso);
             this.panel1.Controls.Add(this.btnSalvar);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.txtEmail);
@@ -90,7 +96,6 @@
             this.panel1.Controls.Add(this.txtTelefone);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
@@ -107,23 +112,85 @@
             this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 1;
             // 
-            // cbMateria
+            // txtBusca
             // 
-            this.cbMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMateria.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMateria.FormattingEnabled = true;
-            this.cbMateria.Items.AddRange(new object[] {
-            "Matematica",
-            "Literatura"});
-            this.cbMateria.Location = new System.Drawing.Point(301, 349);
-            this.cbMateria.Name = "cbMateria";
-            this.cbMateria.Size = new System.Drawing.Size(206, 30);
-            this.cbMateria.TabIndex = 48;
+            this.txtBusca.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusca.Location = new System.Drawing.Point(301, 252);
+            this.txtBusca.MaxLength = 50;
+            this.txtBusca.Name = "txtBusca";
+            this.txtBusca.Size = new System.Drawing.Size(206, 29);
+            this.txtBusca.TabIndex = 50;
+            this.txtBusca.Text = "Busca";
+            this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
+            // 
+            // gridMaterias
+            // 
+            this.gridMaterias.AllowUserToAddRows = false;
+            this.gridMaterias.AllowUserToDeleteRows = false;
+            this.gridMaterias.AllowUserToResizeColumns = false;
+            this.gridMaterias.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.gridMaterias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridMaterias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.gridMaterias.BackgroundColor = System.Drawing.Color.White;
+            this.gridMaterias.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(37)))), ((int)(((byte)(111)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridMaterias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.gridMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CursoCheckbox,
+            this.nome_materia});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridMaterias.DefaultCellStyle = dataGridViewCellStyle3;
+            this.gridMaterias.Location = new System.Drawing.Point(301, 296);
+            this.gridMaterias.Name = "gridMaterias";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridMaterias.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.gridMaterias.RowHeadersVisible = false;
+            this.gridMaterias.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridMaterias.Size = new System.Drawing.Size(206, 114);
+            this.gridMaterias.TabIndex = 49;
+            // 
+            // CursoCheckbox
+            // 
+            this.CursoCheckbox.HeaderText = "";
+            this.CursoCheckbox.Name = "CursoCheckbox";
+            this.CursoCheckbox.Width = 5;
+            // 
+            // nome_materia
+            // 
+            this.nome_materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nome_materia.DataPropertyName = "nome";
+            this.nome_materia.HeaderText = "Materia";
+            this.nome_materia.Name = "nome_materia";
+            this.nome_materia.ReadOnly = true;
+            this.nome_materia.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.nome_materia.Width = 67;
             // 
             // txtSalario
             // 
             this.txtSalario.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalario.Location = new System.Drawing.Point(301, 297);
+            this.txtSalario.Location = new System.Drawing.Point(301, 425);
             this.txtSalario.MaxLength = 20;
             this.txtSalario.Name = "txtSalario";
             this.txtSalario.Size = new System.Drawing.Size(206, 29);
@@ -131,20 +198,6 @@
             this.txtSalario.Text = "Salario";
             this.txtSalario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
             this.txtSalario.Leave += new System.EventHandler(this.txtSalario_Leave);
-            // 
-            // cbCurso
-            // 
-            this.cbCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCurso.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCurso.FormattingEnabled = true;
-            this.cbCurso.Items.AddRange(new object[] {
-            "Matematica",
-            "Literatura"});
-            this.cbCurso.Location = new System.Drawing.Point(301, 252);
-            this.cbCurso.Name = "cbCurso";
-            this.cbCurso.Size = new System.Drawing.Size(206, 30);
-            this.cbCurso.TabIndex = 43;
-            this.cbCurso.TextChanged += new System.EventHandler(this.cbCurso_TextChanged);
             // 
             // btnSalvar
             // 
@@ -173,7 +226,7 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(571, 489);
+            this.label15.Location = new System.Drawing.Point(571, 475);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(64, 26);
             this.label15.TabIndex = 40;
@@ -182,7 +235,7 @@
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(641, 488);
+            this.txtEmail.Location = new System.Drawing.Point(641, 474);
             this.txtEmail.MaxLength = 50;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(206, 29);
@@ -194,7 +247,7 @@
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(223, 297);
+            this.label16.Location = new System.Drawing.Point(223, 425);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(72, 26);
             this.label16.TabIndex = 35;
@@ -209,7 +262,7 @@
             "Masculino",
             "Feminino",
             "Outro"});
-            this.cbGenero.Location = new System.Drawing.Point(301, 438);
+            this.cbGenero.Location = new System.Drawing.Point(641, 518);
             this.cbGenero.Name = "cbGenero";
             this.cbGenero.Size = new System.Drawing.Size(206, 30);
             this.cbGenero.TabIndex = 31;
@@ -219,7 +272,7 @@
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(213, 439);
+            this.label13.Location = new System.Drawing.Point(553, 519);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(82, 26);
             this.label13.TabIndex = 30;
@@ -236,7 +289,7 @@
             "Separado",
             "Divorciado",
             "Viúvo"});
-            this.cbEstadoCivil.Location = new System.Drawing.Point(301, 398);
+            this.cbEstadoCivil.Location = new System.Drawing.Point(301, 474);
             this.cbEstadoCivil.Name = "cbEstadoCivil";
             this.cbEstadoCivil.Size = new System.Drawing.Size(206, 30);
             this.cbEstadoCivil.TabIndex = 29;
@@ -278,7 +331,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(565, 398);
+            this.label11.Location = new System.Drawing.Point(565, 384);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(70, 26);
             this.label11.TabIndex = 25;
@@ -306,7 +359,7 @@
             this.dtProfessor.Cursor = System.Windows.Forms.Cursors.Default;
             this.dtProfessor.CustomFormat = "dd/MM/yyyy";
             this.dtProfessor.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtProfessor.Location = new System.Drawing.Point(301, 486);
+            this.dtProfessor.Location = new System.Drawing.Point(301, 519);
             this.dtProfessor.Name = "dtProfessor";
             this.dtProfessor.Size = new System.Drawing.Size(206, 29);
             this.dtProfessor.TabIndex = 23;
@@ -314,7 +367,7 @@
             // txtTelefone
             // 
             this.txtTelefone.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefone.Location = new System.Drawing.Point(641, 439);
+            this.txtTelefone.Location = new System.Drawing.Point(641, 425);
             this.txtTelefone.Mask = "(00)00000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(206, 29);
@@ -325,7 +378,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(542, 442);
+            this.label5.Location = new System.Drawing.Point(542, 428);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 26);
             this.label5.TabIndex = 21;
@@ -336,22 +389,11 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(175, 398);
+            this.label3.Location = new System.Drawing.Point(175, 474);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 26);
             this.label3.TabIndex = 20;
             this.label3.Text = "Estado Civil:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(209, 349);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(86, 26);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Materia:";
             // 
             // label8
             // 
@@ -369,7 +411,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(555, 349);
+            this.label7.Location = new System.Drawing.Point(555, 335);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 26);
             this.label7.TabIndex = 17;
@@ -391,11 +433,11 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(224, 253);
+            this.label4.Location = new System.Drawing.Point(143, 252);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 26);
+            this.label4.Size = new System.Drawing.Size(152, 26);
             this.label4.TabIndex = 14;
-            this.label4.Text = "Curso:";
+            this.label4.Text = "Buscar Materia:";
             // 
             // label2
             // 
@@ -413,7 +455,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(98, 488);
+            this.label1.Location = new System.Drawing.Point(98, 521);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(197, 26);
             this.label1.TabIndex = 11;
@@ -432,7 +474,7 @@
             // txtBairro
             // 
             this.txtBairro.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBairro.Location = new System.Drawing.Point(641, 395);
+            this.txtBairro.Location = new System.Drawing.Point(641, 381);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.ReadOnly = true;
             this.txtBairro.Size = new System.Drawing.Size(206, 29);
@@ -442,7 +484,7 @@
             // txtCidade
             // 
             this.txtCidade.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCidade.Location = new System.Drawing.Point(641, 348);
+            this.txtCidade.Location = new System.Drawing.Point(641, 334);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.ReadOnly = true;
             this.txtCidade.Size = new System.Drawing.Size(206, 29);
@@ -482,12 +524,12 @@
             this.Load += new System.EventHandler(this.CadastroProfessor_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMaterias)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox cbCurso;
         private FontAwesome.Sharp.IconButton btnSalvar;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtEmail;
@@ -504,7 +546,6 @@
         private System.Windows.Forms.MaskedTextBox txtTelefone;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -518,6 +559,9 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtSalario;
-        private System.Windows.Forms.ComboBox cbMateria;
+        private System.Windows.Forms.DataGridView gridMaterias;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn CursoCheckbox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome_materia;
+        private System.Windows.Forms.TextBox txtBusca;
     }
 }

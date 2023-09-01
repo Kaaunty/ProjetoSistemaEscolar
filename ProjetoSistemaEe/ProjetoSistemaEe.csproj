@@ -107,6 +107,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\MateriaDAO.cs" />
+    <Compile Include="Entidades\Materia.cs" />
+    <Compile Include="Model\MateriaModel.cs" />
     <Compile Include="Utils\Conexao.cs" />
     <Compile Include="Connected Services\WSCorreios\Reference.cs">
       <AutoGen>True</AutoGen>

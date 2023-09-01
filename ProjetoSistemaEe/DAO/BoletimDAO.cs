@@ -210,13 +210,13 @@ namespace ProjetoSistemaEe.DAO
                     @"SELECT p.id AS ID_Professor,
                     p.nome AS Nome_Professor,
                     p.curso as curso_Professor,
-                    p.materia as ID_Materia,
+
                     c.nome as Nome_Curso,
                     c.id as Id_curso,
-                    m.nome as Nome_Materia
+
                     FROM professor p
                     JOIN cursos c ON p.curso = c.id
-                    JOIN materia m ON p.materia = m.id
+
                     WHERE p.curso = @id_curso
                     AND p.materia = m.id;", con.con);
                 sql.Parameters.AddWithValue("@id_curso", id_Curso);
