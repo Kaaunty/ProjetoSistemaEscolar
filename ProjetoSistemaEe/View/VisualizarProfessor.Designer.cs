@@ -35,6 +35,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.gridProfessor = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadocivil = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtprof = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endereco_completo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProfessor)).BeginInit();
             this.SuspendLayout();
@@ -69,6 +80,18 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridProfessor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridProfessor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridProfessor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nome,
+            this.materia,
+            this.salario,
+            this.estadocivil,
+            this.genero,
+            this.dtprof,
+            this.email,
+            this.telefone,
+            this.cep,
+            this.endereco_completo,
+            this.Column1});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -101,6 +124,95 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Clique duas vezes em um professor na tabela para editar ou deletar:";
             // 
+            // nome
+            // 
+            this.nome.DataPropertyName = "nome";
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            this.nome.Width = 65;
+            // 
+            // materia
+            // 
+            this.materia.DataPropertyName = "nome_materia";
+            this.materia.HeaderText = "Materia";
+            this.materia.Name = "materia";
+            this.materia.ReadOnly = true;
+            this.materia.Width = 72;
+            // 
+            // salario
+            // 
+            this.salario.DataPropertyName = "salario";
+            this.salario.HeaderText = "Salario";
+            this.salario.Name = "salario";
+            this.salario.ReadOnly = true;
+            this.salario.Width = 67;
+            // 
+            // estadocivil
+            // 
+            this.estadocivil.DataPropertyName = "estadocivil";
+            this.estadocivil.HeaderText = "Estado Civil";
+            this.estadocivil.Name = "estadocivil";
+            this.estadocivil.ReadOnly = true;
+            this.estadocivil.Width = 93;
+            // 
+            // genero
+            // 
+            this.genero.DataPropertyName = "genero";
+            this.genero.HeaderText = "Genero";
+            this.genero.Name = "genero";
+            this.genero.ReadOnly = true;
+            this.genero.Width = 70;
+            // 
+            // dtprof
+            // 
+            this.dtprof.DataPropertyName = "datanascimento";
+            this.dtprof.HeaderText = "Data De Nascimento";
+            this.dtprof.Name = "dtprof";
+            this.dtprof.ReadOnly = true;
+            this.dtprof.Width = 128;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "email";
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            this.email.Width = 61;
+            // 
+            // telefone
+            // 
+            this.telefone.DataPropertyName = "telefone";
+            this.telefone.HeaderText = "Telefone";
+            this.telefone.Name = "telefone";
+            this.telefone.ReadOnly = true;
+            this.telefone.Width = 76;
+            // 
+            // cep
+            // 
+            this.cep.DataPropertyName = "cep";
+            this.cep.HeaderText = "CEP";
+            this.cep.Name = "cep";
+            this.cep.ReadOnly = true;
+            this.cep.Width = 53;
+            // 
+            // endereco_completo
+            // 
+            this.endereco_completo.DataPropertyName = "endereco_completo";
+            this.endereco_completo.HeaderText = "Endereço";
+            this.endereco_completo.Name = "endereco_completo";
+            this.endereco_completo.ReadOnly = true;
+            this.endereco_completo.Width = 81;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "id_materia";
+            this.Column1.HeaderText = "id_materia";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            this.Column1.Width = 87;
+            // 
             // VisualizarProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -122,5 +234,16 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.DataGridView gridProfessor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadocivil;
+        private System.Windows.Forms.DataGridViewTextBoxColumn genero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtprof;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endereco_completo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

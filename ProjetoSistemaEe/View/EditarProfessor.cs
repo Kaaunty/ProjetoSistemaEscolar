@@ -9,7 +9,7 @@ namespace ProjetoSistemaEe.View
 {
     public partial class EditarProfessor : Form
     {
-        private CursoModel cursoModel = new CursoModel();
+        private MateriaModel materiaM = new MateriaModel();
         private ProfessorModel professormodel = new ProfessorModel();
         private Validar validar = new Validar();
         private VisualizarProfessor instanciaDoForm2; //crio um objeto do tipo FORM 1, que será usado dentro da classe
@@ -22,16 +22,21 @@ namespace ProjetoSistemaEe.View
             instanciaDoForm2 = InstanciaVisualizar; //passo o valor do form1 para o objeto criado
             txtID.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[0].Value.ToString();
             txtNome.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[1].Value.ToString();
-            cbCurso.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[11].Value.ToString();
+            foreach (DataGridViewRow row in gridMaterias.Rows)
+            {
+                if (instanciaDoForm2.gridProfessor.CurrentRow.Cells[1].Value.ToString().Contains(row.Cells[1].Value.ToString()))
+                {
+                    row.Cells[0].Value = true;
+                }
+            }
             txtSalario.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[3].Value.ToString();
-            cbMateria.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[12].Value.ToString();
-            cbEstadoCivil.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[5].Value.ToString();
-            cbGenero.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[6].Value.ToString();
-            dtProfessor.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[7].Value.ToString();
-            txtEmail.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[8].Value.ToString();
-            txtTelefone.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[9].Value.ToString();
-            txtCEP.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[10].Value.ToString();
-            string endereco = instanciaDoForm2.gridProfessor.CurrentRow.Cells[13].Value.ToString();
+            cbEstadoCivil.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[4].Value.ToString();
+            cbGenero.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[5].Value.ToString();
+            dtProfessor.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[6].Value.ToString();
+            txtEmail.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[7].Value.ToString();
+            txtTelefone.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[8].Value.ToString();
+            txtCEP.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[9].Value.ToString();
+            string endereco = instanciaDoForm2.gridProfessor.CurrentRow.Cells[11].Value.ToString();
             string[] enderecoSeparado = endereco.Split(delimitarchars);
             txtCidade.Text = enderecoSeparado[0];
             txtEstado.Text = enderecoSeparado[1];
@@ -42,35 +47,16 @@ namespace ProjetoSistemaEe.View
 
         private void CarregarComboBox()
         {
-            cbCurso.DataSource = cursoModel.ListarCursos();
-            cbCurso.DisplayMember = "Nome";
-            cbCurso.ValueMember = "id";
-            cbCurso.DropDownHeight = cbCurso.ItemHeight * 5;
-            cbCurso.SelectedIndex = -1;
-            int cursoid = Convert.ToInt32(cbCurso.SelectedValue);
-            DataTable materia_curso = cursoModel.BuscarMateria(cursoid);
-            cbMateria.DataSource = materia_curso;
+            gridMaterias.DataSource = materiaM.ListarMateria();
         }
 
         private void EditarProfessor_Load(object sender, EventArgs e)
         {
-            cbCurso.DisplayMember = "Nome";
-            cbCurso.ValueMember = "id";
-            DataTable materia_curso = cursoModel.BuscarMateria(Convert.ToInt32(cbCurso.SelectedValue));
-            cbMateria.DataSource = materia_curso;
-            cbMateria.DisplayMember = "Nome";
-            cbMateria.ValueMember = "id";
             Validar.FormatarData(dtProfessor, new DateTime(2004, 12, 31), new DateTime(1953, 01, 01));
         }
 
         private void cbCurso_TextChanged(object sender, EventArgs e)
         {
-            cbCurso.DisplayMember = "Nome";
-            cbCurso.ValueMember = "id";
-            DataTable materia_curso = cursoModel.BuscarMateria(Convert.ToInt32(cbCurso.SelectedValue));
-            cbMateria.DataSource = materia_curso;
-            cbMateria.DisplayMember = "Nome";
-            cbMateria.ValueMember = "id";
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -101,7 +87,6 @@ namespace ProjetoSistemaEe.View
             {
                 professor.Id = Convert.ToInt32(txtID.Text);
                 professor.Nome = txtNome.Text;
-                professor.Curso = Convert.ToInt32(cbCurso.SelectedValue);
                 professor.ListaDemateria = null;
                 professor.EstadoCivil = cbEstadoCivil.Text;
                 professor.Genero = cbGenero.Text;
@@ -219,6 +204,52 @@ namespace ProjetoSistemaEe.View
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             FormAbrir();
+        }
+
+        private void AddOnList()
+        {
+            foreach (DataGridViewRow row in gridMaterias.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                {
+                    if (!ListaMaterias.Items.Contains(row.Cells[2].Value))
+                    {
+                        ListaMaterias.Items.Add(row.Cells[2].Value);
+                    }
+                }
+            }
+        }
+
+        private void RemoveOnList()
+        {
+            foreach (DataGridViewRow row in gridMaterias.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells[0].Value) == false)
+                {
+                    if (ListaMaterias.Items.Contains(row.Cells[2].Value))
+                    {
+                        ListaMaterias.Items.Remove(row.Cells[2].Value);
+                    }
+                }
+            }
+        }
+
+        private void gridMaterias_CellValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            AddOnList();
+            RemoveOnList();
+        }
+
+        private void gridMaterias_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            AddOnList();
+            RemoveOnList();
+        }
+
+        private void gridMaterias_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            AddOnList();
+            RemoveOnList();
         }
     }
 }

@@ -19,11 +19,12 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.AbrirConexao();
-                sql = new MySqlCommand(@"SELECT p.nome,m.nome as nome_materia, p.salario, p.estadocivil, p.genero, p.datanascimento,
-                                    p.email, p.telefone, p.cep,
-                                    CONCAT(cidade, '-', uf, ', ', bairro, ', ', rua, ', ', numerorua) AS endereco_completo FROM xd_university.professor p
+                sql = new MySqlCommand(@"SELECT p.id, p.nome,m.nome as nome_materia, p.salario, p.estadocivil, p.genero, p.datanascimento,
+                                    p.email, p.telefone, p.cep,pm.id_materia,
+                                    CONCAT(cidade, '-', uf, ', ', bairro, ', ', rua, ', ', numerorua) AS endereco_completo FROM professor p
                                     LEFT JOIN professor_materia pm on p.id = pm.id_professor
-                                    INNER JOIN materia m on pm.id_materia = m.id;", con.con);
+                                    INNER JOIN materia m on pm.id_materia = m.id
+                                    GROUP BY p.id;", con.con);
                 MySqlDataAdapter da = new MySqlDataAdapter();
                 da.SelectCommand = sql;
                 DataTable dt = new DataTable();

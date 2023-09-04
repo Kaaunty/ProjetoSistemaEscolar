@@ -5,6 +5,7 @@ using ProjetoSistemaEe.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
@@ -18,6 +19,7 @@ namespace ProjetoSistemaEe.View
         public CadastroProfessor()
         {
             InitializeComponent();
+            gridMaterias.DataSource = materiaM.ListarMateria();
         }
 
         private void CadastroProfessor_Load(object sender, EventArgs e)
@@ -30,7 +32,6 @@ namespace ProjetoSistemaEe.View
         public void LimparCampos()
         {
             txtNome.Clear();
-            txtBusca.Clear();
             cbEstadoCivil.SelectedValue = 0;
             cbGenero.SelectedValue = 0;
             txtEmail.Clear();
@@ -166,27 +167,50 @@ namespace ProjetoSistemaEe.View
             gridMaterias.Columns[1].Visible = false;
         }
 
-        private void Buscar(Materia materiaProfessor)
+        private void AddOnList()
         {
-            try
+            foreach (DataGridViewRow row in gridMaterias.Rows)
             {
-                materiaProfessor.Nome = txtBusca.Text;
-                gridMaterias.DataSource = materiaM.BuscarMateria(materiaProfessor);
-            }
-            catch (Exception)
-            {
-                throw;
+                if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                {
+                    if (!ListaMaterias.Items.Contains(row.Cells[2].Value))
+                    {
+                        ListaMaterias.Items.Add(row.Cells[2].Value);
+                    }
+                }
             }
         }
 
-        private void txtBusca_TextChanged(object sender, EventArgs e)
+        private void RemoveOnList()
         {
-            Materia materiaProfessor = new Materia();
-            Buscar(materiaProfessor);
-            if (txtBusca.Text == "")
+            foreach (DataGridViewRow row in gridMaterias.Rows)
             {
-                LoadGrid();
+                if (Convert.ToBoolean(row.Cells[0].Value) == false)
+                {
+                    if (ListaMaterias.Items.Contains(row.Cells[2].Value))
+                    {
+                        ListaMaterias.Items.Remove(row.Cells[2].Value);
+                    }
+                }
             }
+        }
+
+        private void gridMaterias_CellValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            AddOnList();
+            RemoveOnList();
+        }
+
+        private void gridMaterias_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            AddOnList();
+            RemoveOnList();
+        }
+
+        private void gridMaterias_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            AddOnList();
+            RemoveOnList();
         }
     }
 }

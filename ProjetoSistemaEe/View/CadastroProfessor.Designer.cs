@@ -34,7 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtBusca = new System.Windows.Forms.TextBox();
+            this.ListaMaterias = new System.Windows.Forms.ListBox();
             this.gridMaterias = new System.Windows.Forms.DataGridView();
             this.CursoCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nome_materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,7 +58,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCEP = new System.Windows.Forms.MaskedTextBox();
@@ -77,7 +76,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel1.Controls.Add(this.txtBusca);
+            this.panel1.Controls.Add(this.ListaMaterias);
             this.panel1.Controls.Add(this.gridMaterias);
             this.panel1.Controls.Add(this.txtSalario);
             this.panel1.Controls.Add(this.btnSalvar);
@@ -99,7 +98,6 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtCEP);
@@ -112,16 +110,13 @@
             this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 1;
             // 
-            // txtBusca
+            // ListaMaterias
             // 
-            this.txtBusca.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusca.Location = new System.Drawing.Point(301, 252);
-            this.txtBusca.MaxLength = 50;
-            this.txtBusca.Name = "txtBusca";
-            this.txtBusca.Size = new System.Drawing.Size(206, 29);
-            this.txtBusca.TabIndex = 50;
-            this.txtBusca.Text = "Busca";
-            this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
+            this.ListaMaterias.FormattingEnabled = true;
+            this.ListaMaterias.Location = new System.Drawing.Point(65, 259);
+            this.ListaMaterias.Name = "ListaMaterias";
+            this.ListaMaterias.Size = new System.Drawing.Size(230, 108);
+            this.ListaMaterias.TabIndex = 51;
             // 
             // gridMaterias
             // 
@@ -155,7 +150,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.gridMaterias.DefaultCellStyle = dataGridViewCellStyle3;
-            this.gridMaterias.Location = new System.Drawing.Point(301, 296);
+            this.gridMaterias.Location = new System.Drawing.Point(301, 253);
             this.gridMaterias.Name = "gridMaterias";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
@@ -170,11 +165,15 @@
             this.gridMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridMaterias.Size = new System.Drawing.Size(206, 114);
             this.gridMaterias.TabIndex = 49;
+            this.gridMaterias.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridMaterias_CellLeave);
+            this.gridMaterias.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridMaterias_CellValidated);
+            this.gridMaterias.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridMaterias_CellValueChanged);
             // 
             // CursoCheckbox
             // 
             this.CursoCheckbox.HeaderText = "";
             this.CursoCheckbox.Name = "CursoCheckbox";
+            this.CursoCheckbox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.CursoCheckbox.Width = 5;
             // 
             // nome_materia
@@ -190,7 +189,7 @@
             // txtSalario
             // 
             this.txtSalario.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalario.Location = new System.Drawing.Point(301, 425);
+            this.txtSalario.Location = new System.Drawing.Point(301, 384);
             this.txtSalario.MaxLength = 20;
             this.txtSalario.Name = "txtSalario";
             this.txtSalario.Size = new System.Drawing.Size(206, 29);
@@ -247,7 +246,7 @@
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(223, 425);
+            this.label16.Location = new System.Drawing.Point(223, 384);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(72, 26);
             this.label16.TabIndex = 35;
@@ -289,7 +288,7 @@
             "Separado",
             "Divorciado",
             "Viúvo"});
-            this.cbEstadoCivil.Location = new System.Drawing.Point(301, 474);
+            this.cbEstadoCivil.Location = new System.Drawing.Point(301, 428);
             this.cbEstadoCivil.Name = "cbEstadoCivil";
             this.cbEstadoCivil.Size = new System.Drawing.Size(206, 30);
             this.cbEstadoCivil.TabIndex = 29;
@@ -359,7 +358,7 @@
             this.dtProfessor.Cursor = System.Windows.Forms.Cursors.Default;
             this.dtProfessor.CustomFormat = "dd/MM/yyyy";
             this.dtProfessor.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtProfessor.Location = new System.Drawing.Point(301, 519);
+            this.dtProfessor.Location = new System.Drawing.Point(301, 473);
             this.dtProfessor.Name = "dtProfessor";
             this.dtProfessor.Size = new System.Drawing.Size(206, 29);
             this.dtProfessor.TabIndex = 23;
@@ -389,7 +388,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(175, 474);
+            this.label3.Location = new System.Drawing.Point(175, 428);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 26);
             this.label3.TabIndex = 20;
@@ -428,17 +427,6 @@
             this.label6.TabIndex = 16;
             this.label6.Text = "Estado:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(143, 252);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(152, 26);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Buscar Materia:";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -455,7 +443,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(98, 521);
+            this.label1.Location = new System.Drawing.Point(98, 475);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(197, 26);
             this.label1.TabIndex = 11;
@@ -549,7 +537,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox txtCEP;
@@ -562,6 +549,6 @@
         private System.Windows.Forms.DataGridView gridMaterias;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CursoCheckbox;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome_materia;
-        private System.Windows.Forms.TextBox txtBusca;
+        private System.Windows.Forms.ListBox ListaMaterias;
     }
 }
