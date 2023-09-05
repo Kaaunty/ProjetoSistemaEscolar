@@ -1,11 +1,7 @@
-﻿using ProjetoSistemaEe.DAO;
-using ProjetoSistemaEe.Entidades;
+﻿using ProjetoSistemaEe.Entidades;
 using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View

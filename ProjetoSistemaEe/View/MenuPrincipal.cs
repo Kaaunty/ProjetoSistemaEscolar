@@ -8,8 +8,6 @@ namespace ProjetoSistemaEe.View
 {
     public partial class MenuPrincipal : Form
     {
-        private Validar Validar = new Validar();
-
         public MenuPrincipal()
         {
             InitializeComponent();
@@ -17,14 +15,14 @@ namespace ProjetoSistemaEe.View
 
         public void AbrirFormNoPainel(object FormSeg)
         {
-            if (this.panelPrincipal.Controls.Count > 0) //se tiver algum form aberto
-                this.panelPrincipal.Controls.RemoveAt(0); //remove
-            Form fh = FormSeg as Form; //cria um novo form
-            fh.TopLevel = false; //define que ele não é o form principal
-            fh.Dock = DockStyle.Fill; //define que ele vai ocupar todo o espaço do panel
-            this.panelPrincipal.Controls.Add(fh); //adiciona o form no panel
-            this.panelPrincipal.Tag = fh; //define o nome do form
-            fh.Show(); //abre o form
+            if (this.panelPrincipal.Controls.Count > 0)
+                this.panelPrincipal.Controls.RemoveAt(0);
+            Form fh = FormSeg as Form;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            this.panelPrincipal.Controls.Add(fh);
+            this.panelPrincipal.Tag = fh;
+            fh.Show();
         }
 
         private void btnCadastrarAluno_Click(object sender, EventArgs e)
@@ -169,17 +167,5 @@ namespace ProjetoSistemaEe.View
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
-        //[DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        //private static extern void ReleaseCapture();
-
-        //[DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        //private static extern void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
-        //private void MenuPrincipal_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    ReleaseCapture();
-        //    SendMessage(this.Handle, 0x112, 0xf012, 0);
-        //}
     }
 }

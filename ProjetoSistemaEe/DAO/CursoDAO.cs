@@ -26,25 +26,5 @@ namespace ProjetoSistemaEe.DAO
                 throw;
             }
         }
-
-        public DataTable BuscarMateria(int cursoid)
-        {
-            try
-            {
-                con.AbrirConexao();
-                sql = new MySqlCommand("SELECT materia.*, curso_materia.materiaid FROM curso_materia " +
-                    "INNER JOIN materia ON materia.id = curso_materia.materiaid WHERE curso_materia.cursoid = @cursoid order by nome", con.con);
-                sql.Parameters.AddWithValue("@cursoid", cursoid);
-                MySqlDataAdapter da = new MySqlDataAdapter(sql);
-                da.SelectCommand = sql;
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                return dt;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
     }
 }

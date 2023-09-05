@@ -27,28 +27,5 @@ namespace ProjetoSistemaEe.DAO
                 throw;
             }
         }
-
-        public DataTable BuscarMateria(Materia MateriaProfessor)
-        {
-            try
-            {
-                con.AbrirConexao();
-                sql = new MySqlCommand("SELECT * FROM materia where nome LIKE @nome", con.con);
-                sql.Parameters.AddWithValue("@nome", MateriaProfessor.Nome + "%");
-                MySqlDataAdapter da = new MySqlDataAdapter(sql);
-                da.SelectCommand = sql;
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                return dt;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                con.FecharConexao();
-            }
-        }
     }
 }

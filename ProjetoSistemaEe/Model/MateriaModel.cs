@@ -26,19 +26,5 @@ namespace ProjetoSistemaEe.Model
                 throw;
             }
         }
-
-        public DataTable BuscarMateria(Materia ProfessorMateria)
-        {
-            try
-            {
-                DataTable dt = new DataTable();
-                dt = dao.BuscarMateria(ProfessorMateria);
-                return dt;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
     }
 }

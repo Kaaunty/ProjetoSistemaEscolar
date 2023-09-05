@@ -37,11 +37,11 @@
             this.btnVisualizarAluno = new FontAwesome.Sharp.IconButton();
             this.btnCadastrarAluno = new FontAwesome.Sharp.IconButton();
             this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelsuperior = new System.Windows.Forms.Panel();
             this.btnMinimizar = new FontAwesome.Sharp.IconButton();
             this.btnFechar = new FontAwesome.Sharp.IconButton();
             this.panelLateral.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panelsuperior.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelLateral
@@ -166,16 +166,16 @@
             this.panelPrincipal.Size = new System.Drawing.Size(1039, 669);
             this.panelPrincipal.TabIndex = 1;
             // 
-            // panel1
+            // panelsuperior
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel1.Controls.Add(this.btnMinimizar);
-            this.panel1.Controls.Add(this.btnFechar);
-            this.panel1.Location = new System.Drawing.Point(211, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1039, 33);
-            this.panel1.TabIndex = 2;
+            this.panelsuperior.BackColor = System.Drawing.Color.White;
+            this.panelsuperior.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelsuperior.Controls.Add(this.btnMinimizar);
+            this.panelsuperior.Controls.Add(this.btnFechar);
+            this.panelsuperior.Location = new System.Drawing.Point(211, 0);
+            this.panelsuperior.Name = "panelsuperior";
+            this.panelsuperior.Size = new System.Drawing.Size(1039, 33);
+            this.panelsuperior.TabIndex = 2;
             // 
             // btnMinimizar
             // 
@@ -214,14 +214,14 @@
             this.ClientSize = new System.Drawing.Size(1250, 700);
             this.Controls.Add(this.panelLateral);
             this.Controls.Add(this.panelPrincipal);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelsuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuPrincipal";
             this.panelLateral.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.panelsuperior.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -236,7 +236,7 @@
         private FontAwesome.Sharp.IconButton btnVisualizarProf;
         private FontAwesome.Sharp.IconButton btnVisualizaBoletim;
         private System.Windows.Forms.Button btnCadastrarNotas;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelsuperior;
         private FontAwesome.Sharp.IconButton btnMinimizar;
         private FontAwesome.Sharp.IconButton btnFechar;
     }

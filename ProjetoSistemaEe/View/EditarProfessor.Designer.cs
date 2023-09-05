@@ -36,8 +36,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.ListaMaterias = new System.Windows.Forms.ListBox();
             this.gridMaterias = new System.Windows.Forms.DataGridView();
-            this.CursoCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.nome_materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSalario = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -69,6 +67,9 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.btnEditar = new FontAwesome.Sharp.IconButton();
             this.btnDeletar = new FontAwesome.Sharp.IconButton();
+            this.CursoCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nome_materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridMaterias)).BeginInit();
             this.SuspendLayout();
@@ -149,7 +150,8 @@
             this.gridMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CursoCheckbox,
-            this.nome_materia});
+            this.nome_materia,
+            this.id});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -175,24 +177,6 @@
             this.gridMaterias.TabIndex = 80;
             this.gridMaterias.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridMaterias_CellLeave);
             this.gridMaterias.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridMaterias_CellValidated);
-            this.gridMaterias.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridMaterias_CellValueChanged);
-            // 
-            // CursoCheckbox
-            // 
-            this.CursoCheckbox.HeaderText = "";
-            this.CursoCheckbox.Name = "CursoCheckbox";
-            this.CursoCheckbox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CursoCheckbox.Width = 5;
-            // 
-            // nome_materia
-            // 
-            this.nome_materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nome_materia.DataPropertyName = "nome";
-            this.nome_materia.HeaderText = "Materia";
-            this.nome_materia.Name = "nome_materia";
-            this.nome_materia.ReadOnly = true;
-            this.nome_materia.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.nome_materia.Width = 67;
             // 
             // txtSalario
             // 
@@ -572,6 +556,31 @@
             this.btnDeletar.UseVisualStyleBackColor = false;
             this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
+            // CursoCheckbox
+            // 
+            this.CursoCheckbox.HeaderText = "";
+            this.CursoCheckbox.Name = "CursoCheckbox";
+            this.CursoCheckbox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CursoCheckbox.Width = 5;
+            // 
+            // nome_materia
+            // 
+            this.nome_materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nome_materia.DataPropertyName = "nome";
+            this.nome_materia.HeaderText = "Materia";
+            this.nome_materia.Name = "nome_materia";
+            this.nome_materia.ReadOnly = true;
+            this.nome_materia.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.nome_materia.Width = 67;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            this.id.Width = 43;
+            // 
             // EditarProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -601,8 +610,6 @@
         private FontAwesome.Sharp.IconButton btnVoltar;
         private System.Windows.Forms.ListBox ListaMaterias;
         private System.Windows.Forms.DataGridView gridMaterias;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn CursoCheckbox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nome_materia;
         private System.Windows.Forms.TextBox txtSalario;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtEmail;
@@ -629,5 +636,8 @@
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.TextBox txtEstado;
         private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn CursoCheckbox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome_materia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }

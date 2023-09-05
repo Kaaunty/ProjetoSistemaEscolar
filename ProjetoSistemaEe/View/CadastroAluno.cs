@@ -23,7 +23,7 @@ namespace ProjetoSistemaEe
         {
             LimparCampos();
             Validar.FormatarData(dtAluno, new DateTime(2004, 12, 31), new DateTime(1953, 01, 01));
-            CarregarComboBox();
+            PolularComboBox();
             GerarRA();
         }
 
@@ -96,7 +96,7 @@ namespace ProjetoSistemaEe
             }
         }
 
-        private void CarregarComboBox()
+        private void PolularComboBox()
         {
             cbCurso.DataSource = cursoM.ListarCursos();
             cbCurso.DisplayMember = "Nome";

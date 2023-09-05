@@ -24,7 +24,7 @@ namespace ProjetoSistemaEe.DAO
                                     CONCAT(cidade, '-', uf, ', ', bairro, ', ', rua, ', ', numerorua) AS endereco_completo FROM professor p
                                     LEFT JOIN professor_materia pm on p.id = pm.id_professor
                                     INNER JOIN materia m on pm.id_materia = m.id
-                                    GROUP BY p.id;", con.con);
+                                    ", con.con);
                 MySqlDataAdapter da = new MySqlDataAdapter();
                 da.SelectCommand = sql;
                 DataTable dt = new DataTable();
@@ -46,10 +46,9 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.AbrirConexao();
-                sql = new MySqlCommand("INSERT INTO professor(nome, curso, salario, estadocivil, genero, datanascimento, email, telefone, cep, cidade, uf, bairro, rua, numerorua) " +
-                    "VALUES (@nome, @curso, @salario, @estadocivil, @genero, @datanascimento, @email, @telefone, @cep, @cidade, @uf, @bairro, @rua, @numerorua);", con.con);
+                sql = new MySqlCommand(@"INSERT INTO professor(nome, salario, estadocivil, genero, datanascimento, email, telefone, cep, cidade, uf, bairro, rua, numerorua)
+                   VALUES(@nome, @salario, @estadocivil, @genero, @datanascimento, @email, @telefone, @cep, @cidade, @uf, @bairro, @rua, @numerorua); ", con.con);
                 sql.Parameters.AddWithValue("@nome", professor.Nome);
-                sql.Parameters.AddWithValue("@curso", professor.Curso);
                 sql.Parameters.AddWithValue("@salario", professor.Salario);
                 sql.Parameters.AddWithValue("@estadocivil", professor.EstadoCivil);
                 sql.Parameters.AddWithValue("@genero", professor.Genero);
@@ -93,19 +92,17 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.AbrirConexao();
-                sql = new MySqlCommand("UPDATE professor SET id = @id, nome = @nome, curso = @curso, salario = @salario" +
-                    ",materia = @materia, estadocivil = @estadocivil, genero = @genero, datanascimento = @datanascimento" +
+                sql = new MySqlCommand("UPDATE professor SET id = @id, nome = @nome, salario = @salario" +
+                    ", estadocivil = @estadocivil, genero = @genero, datanascimento = @datanascimento" +
                     ", email = @email, telefone = @telefone, cep = @cep, cidade = @cidade, uf = @uf" +
                     ", bairro = @bairro, rua = @rua, numerorua = @numerorua where id = @id ;", con.con);
                 sql.Parameters.AddWithValue("@id", professor.Id);
                 sql.Parameters.AddWithValue("@nome", professor.Nome);
-                sql.Parameters.AddWithValue("@curso", professor.Curso);
                 sql.Parameters.AddWithValue("@salario", professor.Salario);
                 sql.Parameters.AddWithValue("@estadocivil", professor.EstadoCivil);
                 sql.Parameters.AddWithValue("@genero", professor.Genero);
                 sql.Parameters.AddWithValue("@datanascimento", professor.Datanascimento.ToString("yyyy-MM-dd"));
                 sql.Parameters.AddWithValue("@email", professor.Email);
-                sql.Parameters.AddWithValue("@materia", professor.ListaDemateria);
                 sql.Parameters.AddWithValue("@telefone", professor.Telefone);
                 sql.Parameters.AddWithValue("@cep", professor.Cep);
                 sql.Parameters.AddWithValue("@cidade", professor.Cidade);
@@ -113,6 +110,19 @@ namespace ProjetoSistemaEe.DAO
                 sql.Parameters.AddWithValue("@bairro", professor.Bairro);
                 sql.Parameters.AddWithValue("@rua", professor.Rua);
                 sql.Parameters.AddWithValue("@numerorua", professor.Numerorua);
+                sql.ExecuteNonQuery();
+                sql.Dispose();
+                con.FecharConexao();
+                foreach (var item in professor.ListaDemateria)
+                {
+                    con.AbrirConexao();
+                    sql = new MySqlCommand("UPDATE professor_materia SET id_materia = @materia WHERE id_professor = @id_professor;", con.con);
+                    sql.Parameters.AddWithValue("@id_professor", professor.Id);
+                    sql.Parameters.AddWithValue("@materia", item);
+                    sql.ExecuteNonQuery();
+                    sql.Dispose();
+                    con.FecharConexao();
+                }
             }
             catch (Exception)
             {

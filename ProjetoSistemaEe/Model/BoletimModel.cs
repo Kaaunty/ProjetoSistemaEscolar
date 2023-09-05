@@ -9,20 +9,6 @@ namespace ProjetoSistemaEe.Model
     {
         private BoletimDAO dao = new BoletimDAO();
 
-        public DataTable ListarAlunoPorMateria()
-        {
-            try
-            {
-                DataTable dt = new DataTable();
-                dt = dao.ListarAlunoPorMateria();
-                return dt;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
         public void CadastrarBoletim(Boletim boletim)
         {
             try
@@ -61,40 +47,12 @@ namespace ProjetoSistemaEe.Model
             }
         }
 
-        public DataTable ListarAlunoMateria(int id_aluno)
-        {
-            try
-            {
-                DataTable dt = new DataTable();
-                dt = dao.AlunoMateria(id_aluno);
-                return dt;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
         public DataTable ListarAlunoPorCurso(int curso_id)
         {
             try
             {
                 DataTable dt = new DataTable();
                 dt = dao.ListarAlunoPorCurso(curso_id);
-                return dt;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public DataTable ListarProfessorPorCurso(int curso_id)
-        {
-            try
-            {
-                DataTable dt = new DataTable();
-                dt = dao.ListarProfessorPorCurso(curso_id);
                 return dt;
             }
             catch (Exception)

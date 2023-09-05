@@ -21,19 +21,5 @@ namespace ProjetoSistemaEe.Model
                 throw ex;
             }
         }
-
-        public DataTable BuscarMateria(int cursoid)
-        {
-            try
-            {
-                DataTable dt = new DataTable();
-                dt = dao.BuscarMateria(cursoid);
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
     }
 }
