@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             this.panelLateral = new System.Windows.Forms.Panel();
-            this.btnCadastrarNotas = new System.Windows.Forms.Button();
-            this.btnVisualizaBoletim = new FontAwesome.Sharp.IconButton();
-            this.btnVisualizarProf = new FontAwesome.Sharp.IconButton();
-            this.btnCadastrarProf = new FontAwesome.Sharp.IconButton();
-            this.btnVisualizarAluno = new FontAwesome.Sharp.IconButton();
-            this.btnCadastrarAluno = new FontAwesome.Sharp.IconButton();
+            this.BtnCadastrarNotas = new System.Windows.Forms.Button();
+            this.BtnVisualizaBoletim = new FontAwesome.Sharp.IconButton();
+            this.BtnVisualizarProf = new FontAwesome.Sharp.IconButton();
+            this.BtnCadastrarProf = new FontAwesome.Sharp.IconButton();
+            this.BtnVisualizarAluno = new FontAwesome.Sharp.IconButton();
+            this.BtnCadastrarAluno = new FontAwesome.Sharp.IconButton();
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.panelsuperior = new System.Windows.Forms.Panel();
             this.btnMinimizar = new FontAwesome.Sharp.IconButton();
@@ -47,116 +47,116 @@
             // panelLateral
             // 
             this.panelLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
-            this.panelLateral.Controls.Add(this.btnCadastrarNotas);
-            this.panelLateral.Controls.Add(this.btnVisualizaBoletim);
-            this.panelLateral.Controls.Add(this.btnVisualizarProf);
-            this.panelLateral.Controls.Add(this.btnCadastrarProf);
-            this.panelLateral.Controls.Add(this.btnVisualizarAluno);
-            this.panelLateral.Controls.Add(this.btnCadastrarAluno);
+            this.panelLateral.Controls.Add(this.BtnCadastrarNotas);
+            this.panelLateral.Controls.Add(this.BtnVisualizaBoletim);
+            this.panelLateral.Controls.Add(this.BtnVisualizarProf);
+            this.panelLateral.Controls.Add(this.BtnCadastrarProf);
+            this.panelLateral.Controls.Add(this.BtnVisualizarAluno);
+            this.panelLateral.Controls.Add(this.BtnCadastrarAluno);
             this.panelLateral.Location = new System.Drawing.Point(-1, 0);
             this.panelLateral.Name = "panelLateral";
             this.panelLateral.Size = new System.Drawing.Size(212, 701);
             this.panelLateral.TabIndex = 0;
             // 
-            // btnCadastrarNotas
+            // BtnCadastrarNotas
             // 
-            this.btnCadastrarNotas.FlatAppearance.BorderSize = 0;
-            this.btnCadastrarNotas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrarNotas.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrarNotas.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrarNotas.Image")));
-            this.btnCadastrarNotas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrarNotas.Location = new System.Drawing.Point(6, 410);
-            this.btnCadastrarNotas.Name = "btnCadastrarNotas";
-            this.btnCadastrarNotas.Size = new System.Drawing.Size(205, 54);
-            this.btnCadastrarNotas.TabIndex = 11;
-            this.btnCadastrarNotas.Text = "Adicionar Notas";
-            this.btnCadastrarNotas.UseVisualStyleBackColor = true;
-            this.btnCadastrarNotas.Click += new System.EventHandler(this.btnCadastrarNotas_Click);
+            this.BtnCadastrarNotas.FlatAppearance.BorderSize = 0;
+            this.BtnCadastrarNotas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCadastrarNotas.ForeColor = System.Drawing.Color.White;
+            this.BtnCadastrarNotas.Image = ((System.Drawing.Image)(resources.GetObject("BtnCadastrarNotas.Image")));
+            this.BtnCadastrarNotas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCadastrarNotas.Location = new System.Drawing.Point(6, 410);
+            this.BtnCadastrarNotas.Name = "BtnCadastrarNotas";
+            this.BtnCadastrarNotas.Size = new System.Drawing.Size(205, 54);
+            this.BtnCadastrarNotas.TabIndex = 11;
+            this.BtnCadastrarNotas.Text = "Adicionar Notas";
+            this.BtnCadastrarNotas.UseVisualStyleBackColor = true;
+            this.BtnCadastrarNotas.Click += new System.EventHandler(this.BtnCadastrarNotas_Click);
             // 
-            // btnVisualizaBoletim
+            // BtnVisualizaBoletim
             // 
-            this.btnVisualizaBoletim.FlatAppearance.BorderSize = 0;
-            this.btnVisualizaBoletim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVisualizaBoletim.ForeColor = System.Drawing.Color.White;
-            this.btnVisualizaBoletim.IconChar = FontAwesome.Sharp.IconChar.List;
-            this.btnVisualizaBoletim.IconColor = System.Drawing.Color.White;
-            this.btnVisualizaBoletim.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnVisualizaBoletim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVisualizaBoletim.Location = new System.Drawing.Point(6, 499);
-            this.btnVisualizaBoletim.Name = "btnVisualizaBoletim";
-            this.btnVisualizaBoletim.Size = new System.Drawing.Size(205, 54);
-            this.btnVisualizaBoletim.TabIndex = 10;
-            this.btnVisualizaBoletim.Text = "Visualizar Boletim";
-            this.btnVisualizaBoletim.UseVisualStyleBackColor = true;
-            this.btnVisualizaBoletim.Click += new System.EventHandler(this.btnVisualizaBoletim_Click);
+            this.BtnVisualizaBoletim.FlatAppearance.BorderSize = 0;
+            this.BtnVisualizaBoletim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnVisualizaBoletim.ForeColor = System.Drawing.Color.White;
+            this.BtnVisualizaBoletim.IconChar = FontAwesome.Sharp.IconChar.List;
+            this.BtnVisualizaBoletim.IconColor = System.Drawing.Color.White;
+            this.BtnVisualizaBoletim.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnVisualizaBoletim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnVisualizaBoletim.Location = new System.Drawing.Point(6, 499);
+            this.BtnVisualizaBoletim.Name = "BtnVisualizaBoletim";
+            this.BtnVisualizaBoletim.Size = new System.Drawing.Size(205, 54);
+            this.BtnVisualizaBoletim.TabIndex = 10;
+            this.BtnVisualizaBoletim.Text = "Visualizar Boletim";
+            this.BtnVisualizaBoletim.UseVisualStyleBackColor = true;
+            this.BtnVisualizaBoletim.Click += new System.EventHandler(this.BtnVisualizaBoletim_Click);
             // 
-            // btnVisualizarProf
+            // BtnVisualizarProf
             // 
-            this.btnVisualizarProf.FlatAppearance.BorderSize = 0;
-            this.btnVisualizarProf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVisualizarProf.ForeColor = System.Drawing.Color.White;
-            this.btnVisualizarProf.IconChar = FontAwesome.Sharp.IconChar.List;
-            this.btnVisualizarProf.IconColor = System.Drawing.Color.White;
-            this.btnVisualizarProf.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnVisualizarProf.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVisualizarProf.Location = new System.Drawing.Point(6, 321);
-            this.btnVisualizarProf.Name = "btnVisualizarProf";
-            this.btnVisualizarProf.Size = new System.Drawing.Size(205, 54);
-            this.btnVisualizarProf.TabIndex = 8;
-            this.btnVisualizarProf.Text = "Visualizar Professor";
-            this.btnVisualizarProf.UseVisualStyleBackColor = true;
-            this.btnVisualizarProf.Click += new System.EventHandler(this.btnVisualizarProf_Click);
+            this.BtnVisualizarProf.FlatAppearance.BorderSize = 0;
+            this.BtnVisualizarProf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnVisualizarProf.ForeColor = System.Drawing.Color.White;
+            this.BtnVisualizarProf.IconChar = FontAwesome.Sharp.IconChar.List;
+            this.BtnVisualizarProf.IconColor = System.Drawing.Color.White;
+            this.BtnVisualizarProf.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnVisualizarProf.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnVisualizarProf.Location = new System.Drawing.Point(6, 321);
+            this.BtnVisualizarProf.Name = "BtnVisualizarProf";
+            this.BtnVisualizarProf.Size = new System.Drawing.Size(205, 54);
+            this.BtnVisualizarProf.TabIndex = 8;
+            this.BtnVisualizarProf.Text = "Visualizar Professor";
+            this.BtnVisualizarProf.UseVisualStyleBackColor = true;
+            this.BtnVisualizarProf.Click += new System.EventHandler(this.BtnVisualizarProf_Click);
             // 
-            // btnCadastrarProf
+            // BtnCadastrarProf
             // 
-            this.btnCadastrarProf.FlatAppearance.BorderSize = 0;
-            this.btnCadastrarProf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrarProf.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrarProf.IconChar = FontAwesome.Sharp.IconChar.PersonChalkboard;
-            this.btnCadastrarProf.IconColor = System.Drawing.Color.White;
-            this.btnCadastrarProf.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnCadastrarProf.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrarProf.Location = new System.Drawing.Point(6, 232);
-            this.btnCadastrarProf.Name = "btnCadastrarProf";
-            this.btnCadastrarProf.Size = new System.Drawing.Size(205, 54);
-            this.btnCadastrarProf.TabIndex = 7;
-            this.btnCadastrarProf.Text = "Cadastrar Professor";
-            this.btnCadastrarProf.UseVisualStyleBackColor = true;
-            this.btnCadastrarProf.Click += new System.EventHandler(this.btnCadastrarProf_Click);
+            this.BtnCadastrarProf.FlatAppearance.BorderSize = 0;
+            this.BtnCadastrarProf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCadastrarProf.ForeColor = System.Drawing.Color.White;
+            this.BtnCadastrarProf.IconChar = FontAwesome.Sharp.IconChar.PersonChalkboard;
+            this.BtnCadastrarProf.IconColor = System.Drawing.Color.White;
+            this.BtnCadastrarProf.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.BtnCadastrarProf.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCadastrarProf.Location = new System.Drawing.Point(6, 232);
+            this.BtnCadastrarProf.Name = "BtnCadastrarProf";
+            this.BtnCadastrarProf.Size = new System.Drawing.Size(205, 54);
+            this.BtnCadastrarProf.TabIndex = 7;
+            this.BtnCadastrarProf.Text = "Cadastrar Professor";
+            this.BtnCadastrarProf.UseVisualStyleBackColor = true;
+            this.BtnCadastrarProf.Click += new System.EventHandler(this.BtnCadastrarProf_Click);
             // 
-            // btnVisualizarAluno
+            // BtnVisualizarAluno
             // 
-            this.btnVisualizarAluno.FlatAppearance.BorderSize = 0;
-            this.btnVisualizarAluno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVisualizarAluno.ForeColor = System.Drawing.Color.White;
-            this.btnVisualizarAluno.IconChar = FontAwesome.Sharp.IconChar.List;
-            this.btnVisualizarAluno.IconColor = System.Drawing.Color.White;
-            this.btnVisualizarAluno.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnVisualizarAluno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVisualizarAluno.Location = new System.Drawing.Point(6, 143);
-            this.btnVisualizarAluno.Name = "btnVisualizarAluno";
-            this.btnVisualizarAluno.Size = new System.Drawing.Size(205, 54);
-            this.btnVisualizarAluno.TabIndex = 4;
-            this.btnVisualizarAluno.Text = "Visualizar Alunos";
-            this.btnVisualizarAluno.UseVisualStyleBackColor = true;
-            this.btnVisualizarAluno.Click += new System.EventHandler(this.btnVisualizarAluno_Click);
+            this.BtnVisualizarAluno.FlatAppearance.BorderSize = 0;
+            this.BtnVisualizarAluno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnVisualizarAluno.ForeColor = System.Drawing.Color.White;
+            this.BtnVisualizarAluno.IconChar = FontAwesome.Sharp.IconChar.List;
+            this.BtnVisualizarAluno.IconColor = System.Drawing.Color.White;
+            this.BtnVisualizarAluno.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnVisualizarAluno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnVisualizarAluno.Location = new System.Drawing.Point(6, 143);
+            this.BtnVisualizarAluno.Name = "BtnVisualizarAluno";
+            this.BtnVisualizarAluno.Size = new System.Drawing.Size(205, 54);
+            this.BtnVisualizarAluno.TabIndex = 4;
+            this.BtnVisualizarAluno.Text = "Visualizar Alunos";
+            this.BtnVisualizarAluno.UseVisualStyleBackColor = true;
+            this.BtnVisualizarAluno.Click += new System.EventHandler(this.BtnVisualizarAluno_Click);
             // 
-            // btnCadastrarAluno
+            // BtnCadastrarAluno
             // 
-            this.btnCadastrarAluno.FlatAppearance.BorderSize = 0;
-            this.btnCadastrarAluno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrarAluno.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrarAluno.IconChar = FontAwesome.Sharp.IconChar.GraduationCap;
-            this.btnCadastrarAluno.IconColor = System.Drawing.Color.White;
-            this.btnCadastrarAluno.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCadastrarAluno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrarAluno.Location = new System.Drawing.Point(7, 54);
-            this.btnCadastrarAluno.Name = "btnCadastrarAluno";
-            this.btnCadastrarAluno.Size = new System.Drawing.Size(202, 54);
-            this.btnCadastrarAluno.TabIndex = 3;
-            this.btnCadastrarAluno.Text = "Cadastrar Aluno";
-            this.btnCadastrarAluno.UseVisualStyleBackColor = true;
-            this.btnCadastrarAluno.Click += new System.EventHandler(this.btnCadastrarAluno_Click);
+            this.BtnCadastrarAluno.FlatAppearance.BorderSize = 0;
+            this.BtnCadastrarAluno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCadastrarAluno.ForeColor = System.Drawing.Color.White;
+            this.BtnCadastrarAluno.IconChar = FontAwesome.Sharp.IconChar.GraduationCap;
+            this.BtnCadastrarAluno.IconColor = System.Drawing.Color.White;
+            this.BtnCadastrarAluno.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnCadastrarAluno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCadastrarAluno.Location = new System.Drawing.Point(7, 54);
+            this.BtnCadastrarAluno.Name = "BtnCadastrarAluno";
+            this.BtnCadastrarAluno.Size = new System.Drawing.Size(202, 54);
+            this.BtnCadastrarAluno.TabIndex = 3;
+            this.BtnCadastrarAluno.Text = "Cadastrar Aluno";
+            this.BtnCadastrarAluno.UseVisualStyleBackColor = true;
+            this.BtnCadastrarAluno.Click += new System.EventHandler(this.BtnCadastrarAluno_Click);
             // 
             // panelPrincipal
             // 
@@ -190,7 +190,7 @@
             this.btnMinimizar.Size = new System.Drawing.Size(28, 28);
             this.btnMinimizar.TabIndex = 1;
             this.btnMinimizar.UseVisualStyleBackColor = true;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            this.btnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click);
             // 
             // btnFechar
             // 
@@ -205,7 +205,7 @@
             this.btnFechar.Size = new System.Drawing.Size(28, 28);
             this.btnFechar.TabIndex = 0;
             this.btnFechar.UseVisualStyleBackColor = true;
-            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
+            this.btnFechar.Click += new System.EventHandler(this.BtnFechar_Click);
             // 
             // MenuPrincipal
             // 
@@ -230,12 +230,12 @@
 
         private System.Windows.Forms.Panel panelLateral;
         private System.Windows.Forms.Panel panelPrincipal;
-        private FontAwesome.Sharp.IconButton btnCadastrarAluno;
-        private FontAwesome.Sharp.IconButton btnCadastrarProf;
-        private FontAwesome.Sharp.IconButton btnVisualizarAluno;
-        private FontAwesome.Sharp.IconButton btnVisualizarProf;
-        private FontAwesome.Sharp.IconButton btnVisualizaBoletim;
-        private System.Windows.Forms.Button btnCadastrarNotas;
+        private FontAwesome.Sharp.IconButton BtnCadastrarAluno;
+        private FontAwesome.Sharp.IconButton BtnCadastrarProf;
+        private FontAwesome.Sharp.IconButton BtnVisualizarAluno;
+        private FontAwesome.Sharp.IconButton BtnVisualizarProf;
+        private FontAwesome.Sharp.IconButton BtnVisualizaBoletim;
+        private System.Windows.Forms.Button BtnCadastrarNotas;
         private System.Windows.Forms.Panel panelsuperior;
         private FontAwesome.Sharp.IconButton btnMinimizar;
         private FontAwesome.Sharp.IconButton btnFechar;

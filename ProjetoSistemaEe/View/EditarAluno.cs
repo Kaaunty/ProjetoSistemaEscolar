@@ -11,7 +11,7 @@ namespace ProjetoSistemaEe.View
         private CursoModel cursoModel = new CursoModel();
         private AlunoModel alunoModel = new AlunoModel();
         private Validar validar = new Validar();
-        private VisualizarAluno instanciaDoForm1; //crio um objeto do tipo FORM 1, que será usado dentro da classe
+        private VisualizarAluno instanciaDoForm1;
         private char[] delimitarchars = { '-', ',' };
 
         public EditarAluno(VisualizarAluno InstanciaVisualizar)
@@ -19,7 +19,7 @@ namespace ProjetoSistemaEe.View
             InitializeComponent();
             CarregarComboBox();
             Validar.FormatarData(dtAluno, new DateTime(2004, 12, 31), new DateTime(1953, 01, 01));
-            instanciaDoForm1 = InstanciaVisualizar; //passo o valor do form1 para o objeto criado
+            instanciaDoForm1 = InstanciaVisualizar;
             txtRA.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[0].Value.ToString();
             txtNome.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[1].Value.ToString();
             cbCurso.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[11].Value.ToString();
@@ -131,29 +131,14 @@ namespace ProjetoSistemaEe.View
             }
         }
 
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            FormAbrir();
+        }
+
         private void txtCEP_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtCEP.Text) && txtCEP.MaskCompleted)
-            {
-                using (var ws = new WSCorreios.AtendeClienteClient())
-                {
-                    try
-                    {
-                        var endereco = ws.consultaCEP(txtCEP.Text.Trim());
-                        txtEstado.Text = endereco.uf;
-                        txtCidade.Text = endereco.cidade;
-                        txtBairro.Text = endereco.bairro;
-                        txtRua.Text = endereco.end;
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("CEP não encontrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtCEP.Clear();
-                        txtCEP.Focus();
-                    }
-                }
-            }
-            txtNum.Clear();
+            validar.VerificaCEP(txtCEP, txtEstado, txtCidade, txtBairro, txtRua, txtNum);
         }
 
         private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
@@ -171,11 +156,6 @@ namespace ProjetoSistemaEe.View
             VisualizarAluno formB = new VisualizarAluno();
             var principal = this.ParentForm as MenuPrincipal;
             principal.AbrirFormNoPainel(formB);
-        }
-
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            FormAbrir();
         }
     }
 }

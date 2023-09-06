@@ -34,10 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ListaMaterias = new System.Windows.Forms.ListBox();
             this.gridMaterias = new System.Windows.Forms.DataGridView();
-            this.CursoCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.nome_materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSalario = new System.Windows.Forms.TextBox();
             this.btnSalvar = new FontAwesome.Sharp.IconButton();
             this.label15 = new System.Windows.Forms.Label();
@@ -65,6 +62,9 @@
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
+            this.CursoCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nome_materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridMaterias)).BeginInit();
             this.SuspendLayout();
@@ -76,7 +76,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel1.Controls.Add(this.ListaMaterias);
             this.panel1.Controls.Add(this.gridMaterias);
             this.panel1.Controls.Add(this.txtSalario);
             this.panel1.Controls.Add(this.btnSalvar);
@@ -110,14 +109,6 @@
             this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 1;
             // 
-            // ListaMaterias
-            // 
-            this.ListaMaterias.FormattingEnabled = true;
-            this.ListaMaterias.Location = new System.Drawing.Point(65, 259);
-            this.ListaMaterias.Name = "ListaMaterias";
-            this.ListaMaterias.Size = new System.Drawing.Size(230, 108);
-            this.ListaMaterias.TabIndex = 51;
-            // 
             // gridMaterias
             // 
             this.gridMaterias.AllowUserToAddRows = false;
@@ -141,7 +132,8 @@
             this.gridMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CursoCheckbox,
-            this.nome_materia});
+            this.nome_materia,
+            this.id});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -163,33 +155,13 @@
             this.gridMaterias.RowHeadersVisible = false;
             this.gridMaterias.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridMaterias.Size = new System.Drawing.Size(206, 114);
+            this.gridMaterias.Size = new System.Drawing.Size(206, 157);
             this.gridMaterias.TabIndex = 49;
-            this.gridMaterias.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridMaterias_CellLeave);
-            this.gridMaterias.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridMaterias_CellValidated);
-            this.gridMaterias.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridMaterias_CellValueChanged);
-            // 
-            // CursoCheckbox
-            // 
-            this.CursoCheckbox.HeaderText = "";
-            this.CursoCheckbox.Name = "CursoCheckbox";
-            this.CursoCheckbox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CursoCheckbox.Width = 5;
-            // 
-            // nome_materia
-            // 
-            this.nome_materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nome_materia.DataPropertyName = "nome";
-            this.nome_materia.HeaderText = "Materia";
-            this.nome_materia.Name = "nome_materia";
-            this.nome_materia.ReadOnly = true;
-            this.nome_materia.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.nome_materia.Width = 67;
             // 
             // txtSalario
             // 
             this.txtSalario.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalario.Location = new System.Drawing.Point(301, 384);
+            this.txtSalario.Location = new System.Drawing.Point(301, 425);
             this.txtSalario.MaxLength = 20;
             this.txtSalario.Name = "txtSalario";
             this.txtSalario.Size = new System.Drawing.Size(206, 29);
@@ -246,7 +218,7 @@
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(223, 384);
+            this.label16.Location = new System.Drawing.Point(223, 425);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(72, 26);
             this.label16.TabIndex = 35;
@@ -288,7 +260,7 @@
             "Separado",
             "Divorciado",
             "Viúvo"});
-            this.cbEstadoCivil.Location = new System.Drawing.Point(301, 428);
+            this.cbEstadoCivil.Location = new System.Drawing.Point(301, 474);
             this.cbEstadoCivil.Name = "cbEstadoCivil";
             this.cbEstadoCivil.Size = new System.Drawing.Size(206, 30);
             this.cbEstadoCivil.TabIndex = 29;
@@ -358,7 +330,7 @@
             this.dtProfessor.Cursor = System.Windows.Forms.Cursors.Default;
             this.dtProfessor.CustomFormat = "dd/MM/yyyy";
             this.dtProfessor.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtProfessor.Location = new System.Drawing.Point(301, 473);
+            this.dtProfessor.Location = new System.Drawing.Point(301, 516);
             this.dtProfessor.Name = "dtProfessor";
             this.dtProfessor.Size = new System.Drawing.Size(206, 29);
             this.dtProfessor.TabIndex = 23;
@@ -388,7 +360,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(175, 428);
+            this.label3.Location = new System.Drawing.Point(175, 474);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 26);
             this.label3.TabIndex = 20;
@@ -443,7 +415,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(98, 475);
+            this.label1.Location = new System.Drawing.Point(98, 518);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(197, 26);
             this.label1.TabIndex = 11;
@@ -500,6 +472,31 @@
             this.txtNome.Text = "Nome";
             this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
+            // CursoCheckbox
+            // 
+            this.CursoCheckbox.HeaderText = "Escolher";
+            this.CursoCheckbox.Name = "CursoCheckbox";
+            this.CursoCheckbox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CursoCheckbox.Width = 54;
+            // 
+            // nome_materia
+            // 
+            this.nome_materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nome_materia.DataPropertyName = "nome";
+            this.nome_materia.HeaderText = "Materia";
+            this.nome_materia.Name = "nome_materia";
+            this.nome_materia.ReadOnly = true;
+            this.nome_materia.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.nome_materia.Width = 67;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            this.id.Width = 43;
+            // 
             // CadastroProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -549,6 +546,6 @@
         private System.Windows.Forms.DataGridView gridMaterias;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CursoCheckbox;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome_materia;
-        private System.Windows.Forms.ListBox ListaMaterias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }

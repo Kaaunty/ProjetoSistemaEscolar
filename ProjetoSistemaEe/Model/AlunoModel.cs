@@ -1,6 +1,7 @@
 ﻿using ProjetoSistemaEe.DAO;
 using ProjetoSistemaEe.Entidades;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -53,6 +54,20 @@ namespace ProjetoSistemaEe.Model
             try
             {
                 dao.ExcluirAluno(aluno);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Aluno> ListarPorList()
+        {
+            try
+            {
+                List<Aluno> alunos = new List<Aluno>();
+                alunos = dao.GetAlunos();
+                return alunos;
             }
             catch (Exception)
             {

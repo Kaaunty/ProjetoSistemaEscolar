@@ -10,11 +10,9 @@ namespace ProjetoSistemaEe.View
     public partial class CadastrarNotas : Form
     {
         private BoletimModel model = new BoletimModel();
-
         private ProfessorModel modelprofessor = new ProfessorModel();
-
         private CursoModel modelcurso = new CursoModel();
-        private AlunoModel modelaluno = new AlunoModel();
+        private Calcular calcular = new Calcular();
 
         private Validar validar = new Validar();
 
@@ -25,21 +23,8 @@ namespace ProjetoSistemaEe.View
 
         private void CadastrarNotas_Load(object sender, EventArgs e)
         {
-            LimparCampos();
+            validar.LimparControles(this);
             CarregarComboBox();
-        }
-
-        private void LimparCampos()
-        {
-            txtN1.Clear();
-            txtN2.Clear();
-            txtN3.Clear();
-            txtN4.Clear();
-            txtMedia.Clear();
-            cbCurso.SelectedValue = 0;
-            cbMateria.SelectedValue = 0;
-            cbAluno.SelectedValue = 0;
-            cbProfessor.SelectedValue = 0;
         }
 
         private void DesabilitarCampos()
@@ -62,7 +47,7 @@ namespace ProjetoSistemaEe.View
                         Boletim boletim = new Boletim();
                         Adicionar(boletim);
                         MessageBox.Show("Boletim cadastrado com sucesso!");
-                        LimparCampos();
+                        validar.LimparControles(this);
                         DesabilitarCampos();
                     }
                 }
@@ -102,50 +87,6 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        public void Calcular()
-        {
-            {
-                {
-                    try
-                    {
-                        double nota1, nota2, nota3, nota4, media;
-
-                        if (!double.TryParse(txtN1.Text, out nota1) || nota1 < 0 || nota1 > 10)
-                        {
-                            txtN1.Focus();
-                            txtN1.Clear();
-                            return;
-                        }
-                        if (!double.TryParse(txtN2.Text, out nota2) || nota2 < 0 || nota2 > 10)
-                        {
-                            txtN2.Focus();
-                            txtN2.Clear();
-                            return;
-                        }
-                        if (!double.TryParse(txtN3.Text, out nota3) || nota3 < 0 || nota3 > 10)
-                        {
-                            txtN3.Focus();
-                            txtN3.Clear();
-                            return;
-                        }
-                        if (!double.TryParse(txtN4.Text, out nota4) || nota4 < 0 || nota4 > 10)
-                        {
-                            txtN4.Focus();
-                            txtN4.Clear();
-                            return;
-                        }
-
-                        media = (nota1 + nota2 + nota3 + nota4) / 4;
-                        txtMedia.Text = media.ToString("N2");
-                    }
-                    catch (FormatException)
-                    {
-                        MessageBox.Show("Nota Invalida, digite um valor de 0 a 10", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-        }
-
         private void txtN_TextChanged(object sender, EventArgs e)
         {
             TextBox txt = (TextBox)sender;
@@ -163,7 +104,7 @@ namespace ProjetoSistemaEe.View
 
             if (txtN1.Text != "" && txtN2.Text != "" && txtN3.Text != "" && txtN4.Text != "")
             {
-                Calcular();
+                calcular.CalcularMedia(txtN1, txtN2, txtN3, txtN4, txtMedia);
                 btnAdicionar.Enabled = true;
             }
             else

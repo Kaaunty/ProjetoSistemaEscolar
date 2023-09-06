@@ -36,6 +36,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.ListaMaterias = new System.Windows.Forms.ListBox();
             this.gridMaterias = new System.Windows.Forms.DataGridView();
+            this.CursoCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nome_materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSalario = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -63,13 +66,9 @@
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.btnVoltar = new FontAwesome.Sharp.IconButton();
-            this.label14 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.btnEditar = new FontAwesome.Sharp.IconButton();
             this.btnDeletar = new FontAwesome.Sharp.IconButton();
-            this.CursoCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.nome_materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridMaterias)).BeginInit();
             this.SuspendLayout();
@@ -110,7 +109,6 @@
             this.panel1.Controls.Add(this.txtEstado);
             this.panel1.Controls.Add(this.txtNome);
             this.panel1.Controls.Add(this.btnVoltar);
-            this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.txtID);
             this.panel1.Controls.Add(this.btnEditar);
             this.panel1.Controls.Add(this.btnDeletar);
@@ -173,27 +171,54 @@
             this.gridMaterias.RowHeadersVisible = false;
             this.gridMaterias.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridMaterias.Size = new System.Drawing.Size(206, 114);
+            this.gridMaterias.Size = new System.Drawing.Size(206, 157);
             this.gridMaterias.TabIndex = 80;
             this.gridMaterias.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridMaterias_CellLeave);
             this.gridMaterias.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridMaterias_CellValidated);
             // 
+            // CursoCheckbox
+            // 
+            this.CursoCheckbox.HeaderText = "";
+            this.CursoCheckbox.Name = "CursoCheckbox";
+            this.CursoCheckbox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CursoCheckbox.Width = 5;
+            // 
+            // nome_materia
+            // 
+            this.nome_materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nome_materia.DataPropertyName = "nome";
+            this.nome_materia.HeaderText = "Materia";
+            this.nome_materia.Name = "nome_materia";
+            this.nome_materia.ReadOnly = true;
+            this.nome_materia.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.nome_materia.Width = 67;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            this.id.Width = 43;
+            // 
             // txtSalario
             // 
             this.txtSalario.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalario.Location = new System.Drawing.Point(317, 382);
+            this.txtSalario.Location = new System.Drawing.Point(317, 427);
             this.txtSalario.MaxLength = 20;
             this.txtSalario.Name = "txtSalario";
             this.txtSalario.Size = new System.Drawing.Size(206, 29);
             this.txtSalario.TabIndex = 79;
             this.txtSalario.Text = "Salario";
+            this.txtSalario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
+            this.txtSalario.Leave += new System.EventHandler(this.txtSalario_Leave);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(587, 473);
+            this.label15.Location = new System.Drawing.Point(587, 472);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(64, 26);
             this.label15.TabIndex = 78;
@@ -202,7 +227,7 @@
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(657, 472);
+            this.txtEmail.Location = new System.Drawing.Point(657, 471);
             this.txtEmail.MaxLength = 50;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(206, 29);
@@ -214,7 +239,7 @@
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(239, 382);
+            this.label16.Location = new System.Drawing.Point(239, 428);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(72, 26);
             this.label16.TabIndex = 76;
@@ -229,7 +254,7 @@
             "Masculino",
             "Feminino",
             "Outro"});
-            this.cbGenero.Location = new System.Drawing.Point(657, 516);
+            this.cbGenero.Location = new System.Drawing.Point(657, 517);
             this.cbGenero.Name = "cbGenero";
             this.cbGenero.Size = new System.Drawing.Size(206, 30);
             this.cbGenero.TabIndex = 75;
@@ -239,7 +264,7 @@
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(569, 517);
+            this.label13.Location = new System.Drawing.Point(569, 519);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(82, 26);
             this.label13.TabIndex = 74;
@@ -256,7 +281,7 @@
             "Separado",
             "Divorciado",
             "Viúvo"});
-            this.cbEstadoCivil.Location = new System.Drawing.Point(317, 426);
+            this.cbEstadoCivil.Location = new System.Drawing.Point(317, 470);
             this.cbEstadoCivil.Name = "cbEstadoCivil";
             this.cbEstadoCivil.Size = new System.Drawing.Size(206, 30);
             this.cbEstadoCivil.TabIndex = 73;
@@ -281,6 +306,7 @@
             this.txtNum.Size = new System.Drawing.Size(47, 29);
             this.txtNum.TabIndex = 71;
             this.txtNum.Text = "0000";
+            this.txtNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
             // 
             // txtRua
             // 
@@ -325,7 +351,7 @@
             this.dtProfessor.Cursor = System.Windows.Forms.Cursors.Default;
             this.dtProfessor.CustomFormat = "dd/MM/yyyy";
             this.dtProfessor.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtProfessor.Location = new System.Drawing.Point(317, 471);
+            this.dtProfessor.Location = new System.Drawing.Point(317, 518);
             this.dtProfessor.Name = "dtProfessor";
             this.dtProfessor.Size = new System.Drawing.Size(206, 29);
             this.dtProfessor.TabIndex = 67;
@@ -333,7 +359,7 @@
             // txtTelefone
             // 
             this.txtTelefone.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefone.Location = new System.Drawing.Point(657, 423);
+            this.txtTelefone.Location = new System.Drawing.Point(657, 427);
             this.txtTelefone.Mask = "(00)00000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(206, 29);
@@ -344,7 +370,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(558, 426);
+            this.label5.Location = new System.Drawing.Point(558, 428);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 26);
             this.label5.TabIndex = 65;
@@ -355,7 +381,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(191, 426);
+            this.label3.Location = new System.Drawing.Point(191, 472);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 26);
             this.label3.TabIndex = 64;
@@ -410,7 +436,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(114, 473);
+            this.label1.Location = new System.Drawing.Point(114, 519);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(197, 26);
             this.label1.TabIndex = 59;
@@ -424,6 +450,7 @@
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(206, 29);
             this.txtCEP.TabIndex = 58;
+            this.txtCEP.TextChanged += new System.EventHandler(this.txtCEP_TextChanged);
             // 
             // txtBairro
             // 
@@ -464,6 +491,7 @@
             this.txtNome.Size = new System.Drawing.Size(206, 29);
             this.txtNome.TabIndex = 54;
             this.txtNome.Text = "Nome";
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
             // btnVoltar
             // 
@@ -489,17 +517,6 @@
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(481, 160);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(35, 26);
-            this.label14.TabIndex = 52;
-            this.label14.Text = "ID:";
-            // 
             // txtID
             // 
             this.txtID.Enabled = false;
@@ -511,6 +528,7 @@
             this.txtID.TabIndex = 51;
             this.txtID.TabStop = false;
             this.txtID.Text = "000";
+            this.txtID.Visible = false;
             // 
             // btnEditar
             // 
@@ -556,31 +574,6 @@
             this.btnDeletar.UseVisualStyleBackColor = false;
             this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
-            // CursoCheckbox
-            // 
-            this.CursoCheckbox.HeaderText = "";
-            this.CursoCheckbox.Name = "CursoCheckbox";
-            this.CursoCheckbox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CursoCheckbox.Width = 5;
-            // 
-            // nome_materia
-            // 
-            this.nome_materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nome_materia.DataPropertyName = "nome";
-            this.nome_materia.HeaderText = "Materia";
-            this.nome_materia.Name = "nome_materia";
-            this.nome_materia.ReadOnly = true;
-            this.nome_materia.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.nome_materia.Width = 67;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.Visible = false;
-            this.id.Width = 43;
-            // 
             // EditarProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -605,7 +598,6 @@
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton btnEditar;
         private FontAwesome.Sharp.IconButton btnDeletar;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtID;
         private FontAwesome.Sharp.IconButton btnVoltar;
         private System.Windows.Forms.ListBox ListaMaterias;

@@ -1,7 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
 using ProjetoSistemaEe.Entidades;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
+using System.Windows;
+using System.Windows.Documents;
 
 namespace ProjetoSistemaEe.DAO
 {
@@ -81,7 +85,7 @@ namespace ProjetoSistemaEe.DAO
                 con.AbrirConexao();
                 sql = new MySqlCommand("SELECT * FROM aluno WHERE ra = @ra", con.con);
                 sql.Parameters.AddWithValue("@ra", ra);
-                var result = sql.ExecuteScalar(); // retorna o primeiro valor da primeira coluna da primeira linha
+                var result = sql.ExecuteScalar();
                 if (result != null)
                 {
                     return true;
@@ -150,6 +154,49 @@ namespace ProjetoSistemaEe.DAO
                 sql.Parameters.AddWithValue("@ra", aluno.RA);
                 sql.ExecuteNonQuery();
                 sql.Dispose();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.FecharConexao();
+            }
+        }
+
+        public List<Aluno> GetAlunos()
+        {
+            List<Aluno> alunos = new List<Aluno>();
+            try
+            {
+                con.AbrirConexao();
+                sql = new MySqlCommand(@"SELECT a.ra, a.nome, a.curso, a.periodo, a.estadocivil, a.genero, a.datanascimento,
+                                    a.email,a.turno,a.telefone,a.cep,c.nome as cursonome,CONCAT
+                                    (cidade,'-', uf, ',', bairro, ',', rua, ',', numerorua) AS endereco_completo FROM aluno a
+                                    LEFT JOIN cursos c ON a.curso = c.id", con.con);
+                MySqlDataReader dr = sql.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    alunos.Add(new Aluno()
+                    {
+                        RA = Convert.ToInt32(dr["ra"]),
+                        Nome = dr["nome"].ToString(),
+                        Curso = Convert.ToInt32(dr["curso"]),
+                        Periodo = dr["periodo"].ToString(),
+                        EstadoCivil = dr["estadocivil"].ToString(),
+                        Genero = dr["genero"].ToString(),
+                        Datanascimento = Convert.ToDateTime(dr["datanascimento"]),
+                        Email = dr["email"].ToString(),
+                        Turno = dr["turno"].ToString(),
+                        Telefone = dr["telefone"].ToString(),
+                        Cep = dr["cep"].ToString(),
+                        Estadocivil = dr["estadocivil"].ToString(),
+                    });
+                }
+                dr.Close();
+                return alunos;
             }
             catch (Exception)
             {

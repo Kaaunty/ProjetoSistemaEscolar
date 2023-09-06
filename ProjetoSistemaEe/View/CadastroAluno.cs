@@ -1,5 +1,4 @@
-﻿using ProjetoSistemaEe.DAO;
-using ProjetoSistemaEe.Entidades;
+﻿using ProjetoSistemaEe.Entidades;
 using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
 using System;
@@ -10,9 +9,9 @@ namespace ProjetoSistemaEe
     public partial class CadastroAluno : Form
     {
         private AlunoModel alunoM = new AlunoModel();
-        private AlunoDAO alunoDAO = new AlunoDAO();
         private Validar validar = new Validar();
         private CursoModel cursoM = new CursoModel();
+        private Calcular calcular = new Calcular();
 
         public CadastroAluno()
         {
@@ -21,29 +20,9 @@ namespace ProjetoSistemaEe
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            LimparCampos();
+            validar.LimparControles(this);
             Validar.FormatarData(dtAluno, new DateTime(2004, 12, 31), new DateTime(1953, 01, 01));
             PolularComboBox();
-            GerarRA();
-        }
-
-        public void LimparCampos()
-        {
-            txtNome.Clear();
-            cbCurso.SelectedValue = 0;
-            CbPeriodo.SelectedValue = 0;
-            cbEstadoCivil.SelectedValue = 0;
-            cbGenero.SelectedValue = 0;
-            txtEmail.Clear();
-            txtCEP.Clear();
-            txtEstado.Clear();
-            cbTurno.SelectedValue = 0;
-            txtCidade.Clear();
-            txtBairro.Clear();
-            txtRua.Clear();
-            txtNum.Clear();
-            txtTelefone.Clear();
-            txtRA.Clear();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -58,7 +37,7 @@ namespace ProjetoSistemaEe
                         Aluno alunos = new Aluno();
                         Salvar(alunos);
                         MessageBox.Show("Aluno cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LimparCampos();
+                        validar.LimparControles(this);
                     }
                 }
                 catch (Exception ex)
@@ -72,7 +51,7 @@ namespace ProjetoSistemaEe
         {
             try
             {
-                aluno.RA = Convert.ToInt32(txtRA.Text);
+                aluno.RA = calcular.GerarRA();
                 aluno.Nome = txtNome.Text;
                 aluno.Curso = Convert.ToInt32(cbCurso.SelectedValue);
                 aluno.Periodo = CbPeriodo.Text;
@@ -105,43 +84,6 @@ namespace ProjetoSistemaEe
             cbCurso.SelectedIndex = -1;
         }
 
-        private int GerarRA()
-        {
-            string raStr;
-            int ra;
-            try
-            {
-                do
-                {
-                    string raAno = DateTime.Now.Year.ToString();
-                    string raNum = new Random().Next(100000, 999999).ToString();
-                    raStr = raAno + raNum;
-                    ra = int.Parse(raStr);
-                } while (alunoDAO.VerificarRA(ra));
-                txtRA.Text = raStr;
-                return ra;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        private void BtnMouseDown(object sender, MouseEventArgs e)
-        {
-            ButtonHelper.ChangeButtonBackgroundImageOnMouseDown((Button)sender);
-        }
-
-        private void BtnLeave(object sender, EventArgs e)
-        {
-            ButtonHelper.ChangeButtonBackgroundImageOnLeave((Button)sender);
-        }
-
-        private void BtnHover(object sender, EventArgs e)
-        {
-            ButtonHelper.ChangeButtonBackgroundImageOnHover((Button)sender);
-        }
-
         private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.VerificaNumero(e);
@@ -154,28 +96,7 @@ namespace ProjetoSistemaEe
 
         private void txtCEP_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtCEP.Text) && txtCEP.MaskCompleted)
-            {
-                using (var ws = new WSCorreios.AtendeClienteClient())
-                {
-                    try
-                    {
-                        var endereco = ws.consultaCEP(txtCEP.Text.Trim());
-                        txtEstado.Text = endereco.uf;
-                        txtCidade.Text = endereco.cidade;
-                        txtBairro.Text = endereco.bairro;
-                        txtRua.Text = endereco.end;
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("CEP não encontrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtCEP.Clear();
-                        txtCEP.Focus();
-                    }
-                }
-            }
-
-            txtNum.Clear();
+            validar.VerificaCEP(txtCEP, txtEstado, txtCidade, txtBairro, txtRua, txtNum);
         }
     }
 }

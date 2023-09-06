@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.Utils
@@ -58,6 +57,85 @@ namespace ProjetoSistemaEe.Utils
             if (!(Char.IsLetter(e.KeyChar)) && !Char.IsControl(e.KeyChar) && (e.KeyChar != ' '))
             {
                 e.Handled = true;
+            }
+        }
+
+        public void VerificaCEP(MaskedTextBox textBox, TextBox estado, TextBox cidade, TextBox bairro, TextBox rua, TextBox numrua)
+        {
+            if (!string.IsNullOrEmpty(textBox.Text) && textBox.MaskCompleted)
+            {
+                using (var ws = new WSCorreios.AtendeClienteClient())
+                {
+                    try
+                    {
+                        var endereco = ws.consultaCEP(textBox.Text.Trim());
+                        estado.Text = endereco.uf;
+                        cidade.Text = endereco.cidade;
+                        bairro.Text = endereco.bairro;
+                        rua.Text = endereco.end;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("CEP não encontrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBox.Clear();
+                        textBox.Focus();
+                    }
+                }
+            }
+            numrua.Clear();
+        }
+
+        public void LimparControles(Control controle)
+        {
+            foreach (Control c in controle.Controls)
+            {
+                if (c.Controls.Count > 0)
+                {
+                    LimparControles(c);
+                }
+                else
+                {
+                    switch (c.GetType().ToString())
+                    {
+                        case "System.Windows.Forms.TextBox":
+                            ((TextBox)c).Clear();
+                            break;
+
+                        case "System.Windows.Forms.MaskedTextBox":
+                            ((MaskedTextBox)c).Clear();
+                            break;
+
+                        case "System.Windows.Forms.ComboBox":
+                            ((ComboBox)c).SelectedIndex = -1;
+                            break;
+
+                        case "System.Windows.Forms.DataGridView dataGridView":
+                            ((DataGridView)c).Rows.Clear();
+                            break;
+                    }
+                }
+            }
+        }
+
+        public void ValidarSalario(TextBox text)
+        {
+            double salario;
+            if (Double.TryParse(text.Text, out salario))
+            {
+                text.Text = String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:C2}", salario);
+
+                if (salario < 2000)
+                {
+                    MessageBox.Show("Salário Inválido (Menor que R$ 2.000)");
+                    text.Text = "";
+                    text.Focus();
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Digite um valor numérico válido.");
+                text.Text = "";
             }
         }
     }

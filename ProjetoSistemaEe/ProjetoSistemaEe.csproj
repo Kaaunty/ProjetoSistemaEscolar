@@ -110,7 +110,8 @@
     <Compile Include="DAO\MateriaDAO.cs" />
     <Compile Include="Entidades\Materia.cs" />
     <Compile Include="Model\MateriaModel.cs" />
-    <Compile Include="Utils\Conexao.cs" />
+    <Compile Include="Utils\Calcular.cs" />
+    <Compile Include="Conexao.cs" />
     <Compile Include="Connected Services\WSCorreios\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -134,7 +135,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RecursosVisuais.resx</DependentUpon>
     </Compile>
-    <Compile Include="Utils\ButtonHelper.cs" />
     <Compile Include="Utils\Validar.cs" />
     <Compile Include="View\CadastrarNotas.cs">
       <SubType>Form</SubType>

@@ -36,7 +36,6 @@
             this.cbTurno = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.txtRA = new System.Windows.Forms.TextBox();
             this.cbGenero = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -61,9 +60,9 @@
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnVoltar = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.btnDeletar = new FontAwesome.Sharp.IconButton();
-            this.btnVoltar = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -166,17 +165,6 @@
             this.label16.TabIndex = 35;
             this.label16.Text = "Periodo:";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(392, 546);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(42, 26);
-            this.label14.TabIndex = 33;
-            this.label14.Text = "RA:";
-            // 
             // txtRA
             // 
             this.txtRA.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -187,6 +175,7 @@
             this.txtRA.TabIndex = 32;
             this.txtRA.Text = "0000";
             this.txtRA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtRA.Visible = false;
             // 
             // cbGenero
             // 
@@ -456,7 +445,6 @@
             this.panel1.Controls.Add(this.cbTurno);
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.txtRA);
             this.panel1.Controls.Add(this.cbGenero);
             this.panel1.Controls.Add(this.label13);
@@ -484,6 +472,30 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 1;
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.BackColor = System.Drawing.Color.Transparent;
+            this.btnVoltar.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
+            this.btnVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnVoltar.FlatAppearance.BorderSize = 0;
+            this.btnVoltar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnVoltar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoltar.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnVoltar.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
+            this.btnVoltar.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.btnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnVoltar.IconSize = 30;
+            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVoltar.Location = new System.Drawing.Point(12, 12);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(130, 35);
+            this.btnVoltar.TabIndex = 48;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // iconButton1
             // 
@@ -529,30 +541,6 @@
             this.btnDeletar.UseVisualStyleBackColor = false;
             this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
-            // btnVoltar
-            // 
-            this.btnVoltar.BackColor = System.Drawing.Color.Transparent;
-            this.btnVoltar.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
-            this.btnVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnVoltar.FlatAppearance.BorderSize = 0;
-            this.btnVoltar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnVoltar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVoltar.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnVoltar.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
-            this.btnVoltar.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.btnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnVoltar.IconSize = 30;
-            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVoltar.Location = new System.Drawing.Point(12, 12);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(130, 35);
-            this.btnVoltar.TabIndex = 48;
-            this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = false;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
-            // 
             // EditarAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -579,7 +567,6 @@
         private System.Windows.Forms.ComboBox cbTurno;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtRA;
         private System.Windows.Forms.ComboBox cbGenero;
         private System.Windows.Forms.Label label13;

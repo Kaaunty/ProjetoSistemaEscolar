@@ -13,7 +13,7 @@ namespace ProjetoSistemaEe.View
         private MateriaModel materiaM = new MateriaModel();
         private ProfessorModel professormodel = new ProfessorModel();
         private Validar validar = new Validar();
-        private VisualizarProfessor instanciaDoForm2; //crio um objeto do tipo VisualizarProfessor , que será usado dentro da classe
+        private VisualizarProfessor instanciaDoForm2;
         private char[] delimitarchars = { '-', ',' };
 
         public EditarProfessor(VisualizarProfessor InstanciaVisualizar)
@@ -150,25 +150,7 @@ namespace ProjetoSistemaEe.View
 
         private void txtSalario_Leave(object sender, EventArgs e)
         {
-            double salario;
-            if (Double.TryParse(txtSalario.Text, out salario))
-            {
-                txtSalario.Text = String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:C2}", salario);
-
-                if (salario < 2000)
-                {
-                    MessageBox.Show("Salário Inválido (Menor que R$ 2.000)");
-                    txtSalario.Text = "";
-                    txtSalario.Focus();
-                    return;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Digite um valor numérico válido.");
-                txtSalario.Text = "";
-                txtSalario.Focus();
-            }
+            validar.ValidarSalario(txtSalario);
         }
 
         private void FormAbrir()
@@ -190,27 +172,7 @@ namespace ProjetoSistemaEe.View
 
         private void txtCEP_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtCEP.Text) && txtCEP.MaskCompleted)
-            {
-                using (var ws = new WSCorreios.AtendeClienteClient())
-                {
-                    try
-                    {
-                        var endereco = ws.consultaCEP(txtCEP.Text.Trim());
-                        txtEstado.Text = endereco.uf;
-                        txtCidade.Text = endereco.cidade;
-                        txtBairro.Text = endereco.bairro;
-                        txtRua.Text = endereco.end;
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("CEP não encontrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtCEP.Clear();
-                        txtCEP.Focus();
-                    }
-                }
-            }
-            txtNum.Clear();
+            validar.VerificaCEP(txtCEP, txtEstado, txtCidade, txtBairro, txtRua, txtNum);
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -271,11 +233,5 @@ namespace ProjetoSistemaEe.View
             AddOnList();
             RemoveOnList();
         }
-
-        //private void gridMaterias_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    AddOnList();
-        //    RemoveOnList();
-        //}
     }
 }

@@ -38,8 +38,6 @@
             this.cbTurno = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtRA = new System.Windows.Forms.TextBox();
             this.cbGenero = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.cbEstadoCivil = new System.Windows.Forms.ComboBox();
@@ -67,8 +65,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.background_aluno;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -81,8 +79,6 @@
             this.panel1.Controls.Add(this.cbTurno);
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.txtRA);
             this.panel1.Controls.Add(this.cbGenero);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.cbEstadoCivil);
@@ -175,9 +171,6 @@
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            this.btnSalvar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnMouseDown);
-            this.btnSalvar.MouseLeave += new System.EventHandler(this.BtnLeave);
-            this.btnSalvar.MouseHover += new System.EventHandler(this.BtnHover);
             // 
             // label15
             // 
@@ -234,28 +227,6 @@
             this.label16.Size = new System.Drawing.Size(84, 26);
             this.label16.TabIndex = 35;
             this.label16.Text = "Periodo:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(407, 540);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(42, 26);
-            this.label14.TabIndex = 33;
-            this.label14.Text = "RA:";
-            // 
-            // txtRA
-            // 
-            this.txtRA.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRA.Location = new System.Drawing.Point(455, 537);
-            this.txtRA.Name = "txtRA";
-            this.txtRA.ReadOnly = true;
-            this.txtRA.Size = new System.Drawing.Size(206, 29);
-            this.txtRA.TabIndex = 32;
-            this.txtRA.Text = "0000";
-            this.txtRA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cbGenero
             // 
@@ -547,8 +518,6 @@
         private System.Windows.Forms.ComboBox cbEstadoCivil;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cbGenero;
-        private System.Windows.Forms.TextBox txtRA;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox cbTurno;

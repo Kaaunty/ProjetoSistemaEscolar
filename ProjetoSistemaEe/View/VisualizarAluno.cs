@@ -1,5 +1,7 @@
-﻿using ProjetoSistemaEe.Model;
+﻿using ProjetoSistemaEe.Entidades;
+using ProjetoSistemaEe.Model;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
@@ -7,6 +9,7 @@ namespace ProjetoSistemaEe.View
     public partial class VisualizarAluno : Form
     {
         private AlunoModel alunoModel = new AlunoModel();
+        private List<Aluno> alunos = new List<Aluno>();
 
         public VisualizarAluno()
         {
@@ -16,26 +19,12 @@ namespace ProjetoSistemaEe.View
         public void VisualizarAluno_Load(object sender, EventArgs e)
         {
             ListarAluno();
+            alunos = alunoModel.ListarPorList();
         }
 
         private void ListarAluno()
         {
-            gridBoletim.DataSource = alunoModel.Listar();
-            gridBoletim.Columns[11].DisplayIndex = 2;
-            gridBoletim.Columns[0].HeaderText = "Código RA";
-            gridBoletim.Columns[1].HeaderText = "Nome";
-            gridBoletim.Columns[2].HeaderText = "Curso";
-            gridBoletim.Columns[2].Visible = false;
-            gridBoletim.Columns[3].HeaderText = "Periodo";
-            gridBoletim.Columns[4].HeaderText = "Estado Civil";
-            gridBoletim.Columns[5].HeaderText = "Gênero";
-            gridBoletim.Columns[6].HeaderText = "Data de Nascimento";
-            gridBoletim.Columns[7].HeaderText = "Email";
-            gridBoletim.Columns[8].HeaderText = "Turno";
-            gridBoletim.Columns[9].HeaderText = "Telefone";
-            gridBoletim.Columns[10].HeaderText = "CEP";
-            gridBoletim.Columns[11].HeaderText = "Curso";
-            gridBoletim.Columns[12].HeaderText = "Endereço";
+            gridBoletim.DataSource = alunoModel.ListarPorList();
         }
 
         private void gridAluno_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

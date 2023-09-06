@@ -10,6 +10,7 @@ namespace ProjetoSistemaEe.View
     {
         private Validar validar = new Validar();
         private BoletimModel model = new BoletimModel();
+        private Calcular calcular = new Calcular();
         private VisualizarBoletim instanciaDoForm1; //crio um objeto do tipo FORM 1, que será usado dentro da classe
 
         public EditarNotas(VisualizarBoletim InstanciaVisualizar)
@@ -73,50 +74,6 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        public void Calcular()
-        {
-            {
-                {
-                    try
-                    {
-                        double nota1, nota2, nota3, nota4, media;
-
-                        if (!double.TryParse(txtN1.Text, out nota1) || nota1 < 0 || nota1 > 10)
-                        {
-                            txtN1.Focus();
-                            txtN1.Clear();
-                            return;
-                        }
-                        if (!double.TryParse(txtN2.Text, out nota2) || nota2 < 0 || nota2 > 10)
-                        {
-                            txtN2.Focus();
-                            txtN2.Clear();
-                            return;
-                        }
-                        if (!double.TryParse(txtN3.Text, out nota3) || nota3 < 0 || nota3 > 10)
-                        {
-                            txtN3.Focus();
-                            txtN3.Clear();
-                            return;
-                        }
-                        if (!double.TryParse(txtN4.Text, out nota4) || nota4 < 0 || nota4 > 10)
-                        {
-                            txtN4.Focus();
-                            txtN4.Clear();
-                            return;
-                        }
-
-                        media = (nota1 + nota2 + nota3 + nota4) / 4;
-                        txtMedia.Text = media.ToString("N2");
-                    }
-                    catch (FormatException)
-                    {
-                        MessageBox.Show("Nota Invalida, digite um valor de 0 a 10", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-        }
-
         private void TxtN_TextChanged(object sender, EventArgs e)
         {
             TextBox txt = (TextBox)sender;
@@ -134,7 +91,7 @@ namespace ProjetoSistemaEe.View
 
             if (txtN1.Text != "" && txtN2.Text != "" && txtN3.Text != "" && txtN4.Text != "")
             {
-                Calcular();
+                calcular.CalcularMedia(txtN1, txtN2, txtN3, txtN4, txtMedia);
                 btnEditar.Enabled = true;
             }
             else

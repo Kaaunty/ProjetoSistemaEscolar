@@ -20,25 +20,9 @@ namespace ProjetoSistemaEe.View
 
         private void CadastroProfessor_Load(object sender, EventArgs e)
         {
-            LimparCampos();
+            validar.LimparControles(this);
             Validar.FormatarData(dtProfessor, new DateTime(2000, 12, 31), new DateTime(1953, 01, 01));
-            LoadGrid();
-        }
-
-        public void LimparCampos()
-        {
-            txtNome.Clear();
-            cbEstadoCivil.SelectedValue = 0;
-            cbGenero.SelectedValue = 0;
-            txtEmail.Clear();
-            txtCEP.Clear();
-            txtEstado.Clear();
-            txtSalario.Clear();
-            txtCidade.Clear();
-            txtBairro.Clear();
-            txtRua.Clear();
-            txtNum.Clear();
-            txtTelefone.Clear();
+            gridMaterias.DataSource = materiaM.ListarMateria();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -53,7 +37,7 @@ namespace ProjetoSistemaEe.View
                         Professor professores = new Professor();
                         Salvar(professores);
                         MessageBox.Show("Professor cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LimparCampos();
+                        validar.LimparControles(this);
                     }
                 }
                 catch (Exception ex)
@@ -68,12 +52,11 @@ namespace ProjetoSistemaEe.View
             try
             {
                 professor.Nome = txtNome.Text;
-
-                for (int i = 0; i < gridMaterias.Rows.Count; i++)
+                for (int i = 0; i < gridMaterias.Rows.Count; i++) //percorre o grid de materias
                 {
-                    if (Convert.ToBoolean(gridMaterias.Rows[i].Cells[0].Value) == true)
+                    if (Convert.ToBoolean(gridMaterias.Rows[i].Cells[0].Value) == true)//verifica se a linha esta selecionada
                     {
-                        professor.ListaDemateria.Add(Convert.ToInt32(gridMaterias.Rows[i].Cells[1].Value));
+                        professor.ListaDemateria.Add(Convert.ToInt32(gridMaterias.Rows[i].Cells[1].Value)); //adiciona o id da materia na lista
                     }
                 }
                 professor.EstadoCivil = cbEstadoCivil.Text;
@@ -88,7 +71,6 @@ namespace ProjetoSistemaEe.View
                 professor.Numerorua = txtNum.Text;
                 professor.Telefone = txtTelefone.Text;
                 professor.Datanascimento = dtProfessor.Value;
-
                 professorM.Salvar(professor);
             }
             catch (Exception)
@@ -99,25 +81,7 @@ namespace ProjetoSistemaEe.View
 
         private void txtSalario_Leave(object sender, EventArgs e)
         {
-            double salario;
-            if (Double.TryParse(txtSalario.Text, out salario))
-            {
-                txtSalario.Text = String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:C2}", salario);
-
-                if (salario < 2000)
-                {
-                    MessageBox.Show("Salário Inválido (Menor que R$ 2.000)");
-                    txtSalario.Text = "";
-                    txtSalario.Focus();
-                    return;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Digite um valor numérico válido.");
-                txtSalario.Text = "";
-                txtSalario.Focus();
-            }
+            validar.ValidarSalario(txtSalario);
         }
 
         private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
@@ -132,81 +96,7 @@ namespace ProjetoSistemaEe.View
 
         private void txtCEP_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtCEP.Text) && txtCEP.MaskCompleted)
-            {
-                using (var ws = new WSCorreios.AtendeClienteClient())
-                {
-                    try
-                    {
-                        var endereco = ws.consultaCEP(txtCEP.Text.Trim());
-                        txtEstado.Text = endereco.uf;
-                        txtCidade.Text = endereco.cidade;
-                        txtBairro.Text = endereco.bairro;
-                        txtRua.Text = endereco.end;
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("CEP não encontrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtCEP.Clear();
-                        txtCEP.Focus();
-                    }
-                }
-            }
-            txtNum.Clear();
-        }
-
-        public void LoadGrid()
-        {
-            gridMaterias.DataSource = materiaM.ListarMateria();
-            gridMaterias.Columns[0].HeaderText = "Escolher";
-            gridMaterias.Columns[0].Width = 30;
-            gridMaterias.Columns[1].Visible = false;
-        }
-
-        private void AddOnList()
-        {
-            foreach (DataGridViewRow row in gridMaterias.Rows)
-            {
-                if (Convert.ToBoolean(row.Cells[0].Value) == true)
-                {
-                    if (!ListaMaterias.Items.Contains(row.Cells[2].Value))
-                    {
-                        ListaMaterias.Items.Add(row.Cells[2].Value);
-                    }
-                }
-            }
-        }
-
-        private void RemoveOnList()
-        {
-            foreach (DataGridViewRow row in gridMaterias.Rows)
-            {
-                if (Convert.ToBoolean(row.Cells[0].Value) == false)
-                {
-                    if (ListaMaterias.Items.Contains(row.Cells[2].Value))
-                    {
-                        ListaMaterias.Items.Remove(row.Cells[2].Value);
-                    }
-                }
-            }
-        }
-
-        private void gridMaterias_CellValidated(object sender, DataGridViewCellEventArgs e)
-        {
-            AddOnList();
-            RemoveOnList();
-        }
-
-        private void gridMaterias_CellLeave(object sender, DataGridViewCellEventArgs e)
-        {
-            AddOnList();
-            RemoveOnList();
-        }
-
-        private void gridMaterias_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            AddOnList();
-            RemoveOnList();
+            validar.VerificaCEP(txtCEP, txtEstado, txtCidade, txtBairro, txtRua, txtNum);
         }
     }
 }

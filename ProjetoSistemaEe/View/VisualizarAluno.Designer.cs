@@ -35,6 +35,21 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.gridBoletim = new System.Windows.Forms.DataGridView();
+            this.ra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.periodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.turno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadocivil = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rua = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtAluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numrua = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridBoletim)).BeginInit();
             this.SuspendLayout();
@@ -81,6 +96,22 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridBoletim.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridBoletim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridBoletim.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ra,
+            this.nome,
+            this.periodo,
+            this.turno,
+            this.curso,
+            this.estadocivil,
+            this.telefone,
+            this.cep,
+            this.cidade,
+            this.Bairro,
+            this.rua,
+            this.dtAluno,
+            this.uf,
+            this.numrua,
+            this.email});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -99,6 +130,112 @@
             this.gridBoletim.Size = new System.Drawing.Size(1016, 420);
             this.gridBoletim.TabIndex = 0;
             this.gridBoletim.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridAluno_CellDoubleClick);
+            // 
+            // ra
+            // 
+            this.ra.DataPropertyName = "ra";
+            this.ra.HeaderText = "RA";
+            this.ra.Name = "ra";
+            this.ra.ReadOnly = true;
+            this.ra.Width = 47;
+            // 
+            // nome
+            // 
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            this.nome.Width = 65;
+            // 
+            // periodo
+            // 
+            this.periodo.HeaderText = "Periodo";
+            this.periodo.Name = "periodo";
+            this.periodo.ReadOnly = true;
+            this.periodo.Width = 73;
+            // 
+            // turno
+            // 
+            this.turno.HeaderText = "Turno";
+            this.turno.Name = "turno";
+            this.turno.ReadOnly = true;
+            this.turno.Width = 63;
+            // 
+            // curso
+            // 
+            this.curso.HeaderText = "Curso";
+            this.curso.Name = "curso";
+            this.curso.ReadOnly = true;
+            this.curso.Width = 63;
+            // 
+            // estadocivil
+            // 
+            this.estadocivil.HeaderText = "Estado Civil";
+            this.estadocivil.Name = "estadocivil";
+            this.estadocivil.ReadOnly = true;
+            this.estadocivil.Width = 93;
+            // 
+            // telefone
+            // 
+            this.telefone.HeaderText = "Telefone";
+            this.telefone.Name = "telefone";
+            this.telefone.ReadOnly = true;
+            this.telefone.Width = 76;
+            // 
+            // cep
+            // 
+            this.cep.HeaderText = "CEP";
+            this.cep.Name = "cep";
+            this.cep.ReadOnly = true;
+            this.cep.Width = 53;
+            // 
+            // cidade
+            // 
+            this.cidade.HeaderText = "Cidade";
+            this.cidade.Name = "cidade";
+            this.cidade.ReadOnly = true;
+            this.cidade.Width = 69;
+            // 
+            // Bairro
+            // 
+            this.Bairro.HeaderText = "Bairro";
+            this.Bairro.Name = "Bairro";
+            this.Bairro.ReadOnly = true;
+            this.Bairro.Width = 63;
+            // 
+            // rua
+            // 
+            this.rua.HeaderText = "Rua";
+            this.rua.Name = "rua";
+            this.rua.ReadOnly = true;
+            this.rua.Width = 52;
+            // 
+            // dtAluno
+            // 
+            this.dtAluno.HeaderText = "Data de Nascimento";
+            this.dtAluno.Name = "dtAluno";
+            this.dtAluno.ReadOnly = true;
+            this.dtAluno.Width = 127;
+            // 
+            // uf
+            // 
+            this.uf.HeaderText = "UF";
+            this.uf.Name = "uf";
+            this.uf.ReadOnly = true;
+            this.uf.Width = 46;
+            // 
+            // numrua
+            // 
+            this.numrua.HeaderText = "Numero Rua";
+            this.numrua.Name = "numrua";
+            this.numrua.ReadOnly = true;
+            this.numrua.Width = 91;
+            // 
+            // email
+            // 
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            this.email.Width = 61;
             // 
             // VisualizarAluno
             // 
@@ -123,5 +260,20 @@
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.DataGridView gridBoletim;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn periodo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn turno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn curso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadocivil;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Bairro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rua;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtAluno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numrua;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
     }
 }
