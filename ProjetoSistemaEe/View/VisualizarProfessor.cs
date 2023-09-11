@@ -24,6 +24,7 @@ namespace ProjetoSistemaEe.View
         private void ListarProfessor()
         {
             gridProfessor.DataSource = professorModel.Listar();
+            gridProfessor.AutoGenerateColumns = false;
         }
 
         private void gridProfessor_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)

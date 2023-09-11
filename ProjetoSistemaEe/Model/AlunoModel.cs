@@ -11,13 +11,13 @@ namespace ProjetoSistemaEe.Model
     {
         private AlunoDAO dao = new AlunoDAO();
 
-        public DataTable Listar()
+        public List<Aluno> Listar()
         {
             try
             {
-                DataTable dt = new DataTable();
-                dt = dao.ListarAluno();
-                return dt;
+                List<Aluno> alunos = new List<Aluno>();
+                alunos = dao.GetAlunos();
+                return alunos;
             }
             catch (Exception)
             {
@@ -54,20 +54,6 @@ namespace ProjetoSistemaEe.Model
             try
             {
                 dao.ExcluirAluno(aluno);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public List<Aluno> ListarPorList()
-        {
-            try
-            {
-                List<Aluno> alunos = new List<Aluno>();
-                alunos = dao.GetAlunos();
-                return alunos;
             }
             catch (Exception)
             {

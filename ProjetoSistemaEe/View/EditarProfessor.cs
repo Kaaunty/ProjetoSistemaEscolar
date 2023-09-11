@@ -69,8 +69,8 @@ namespace ProjetoSistemaEe.View
                     DialogResult result = MessageBox.Show("Deseja editar o professor?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
-                        Professor professores = new Professor();
-                        Editar(professores);
+                        //Professor professores = new Professor();
+                        //Editar(professores);
                         MessageBox.Show("Professor editado com sucesso!");
                         FormAbrir();
                     }
@@ -93,7 +93,7 @@ namespace ProjetoSistemaEe.View
                 {
                     if (Convert.ToBoolean(gridMaterias.Rows[i].Cells[0].Value) == true)
                     {
-                        professor.ListaDemateria.Add(Convert.ToInt32(gridMaterias.Rows[i].Cells[1].Value));
+                        //professor.Materia.Add(Convert.ToInt32(gridMaterias.Rows[i].Cells[1].Value));
                     }
                     else if (Convert.ToBoolean(gridMaterias.Rows[i].Cells[0].Value) == false)
                     {
@@ -125,8 +125,8 @@ namespace ProjetoSistemaEe.View
             DialogResult result = MessageBox.Show("Deseja excluir o professor?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Professor professores = new Professor();
-                Excluir(professores);
+                //Professor professores = new Professor();
+                //Excluir(professores);
                 MessageBox.Show("Professor excluido com sucesso!");
                 FormAbrir();
             }

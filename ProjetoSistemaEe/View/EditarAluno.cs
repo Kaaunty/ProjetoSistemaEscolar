@@ -58,8 +58,8 @@ namespace ProjetoSistemaEe.View
                     DialogResult result = MessageBox.Show("Deseja editar o aluno?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
-                        Aluno alunos = new Aluno();
-                        Editar(alunos);
+                        //Aluno alunos = new Aluno();
+                        //Editar(alunos);
                         MessageBox.Show("Aluno editado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         FormAbrir();
                     }
@@ -77,7 +77,7 @@ namespace ProjetoSistemaEe.View
             {
                 aluno.RA = Convert.ToInt32(txtRA.Text);
                 aluno.Nome = txtNome.Text;
-                aluno.Curso = Convert.ToInt32(cbCurso.SelectedValue);
+                //aluno.Curso = Convert.ToInt32(cbCurso.SelectedValue);
                 aluno.Periodo = cbPeriodo.Text;
                 aluno.EstadoCivil = cbEstadoCivil.Text;
                 aluno.Genero = cbGenero.Text;
@@ -106,8 +106,8 @@ namespace ProjetoSistemaEe.View
                 DialogResult result = MessageBox.Show("Deseja excluir o aluno?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    Aluno alunos = new Aluno();
-                    ExcluirAluno(alunos);
+                    //Aluno alunos = new Aluno();
+                    //ExcluirAluno(alunos);
                     MessageBox.Show("Aluno excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     FormAbrir();
                 }

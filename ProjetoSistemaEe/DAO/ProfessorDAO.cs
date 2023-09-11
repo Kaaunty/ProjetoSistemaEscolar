@@ -14,22 +14,42 @@ namespace ProjetoSistemaEe.DAO
         private MySqlCommand sql;
         private Conexao con = new Conexao();
 
-        public DataTable ListarProfessor()
+        public List<Professor> ListarProfessor()
         {
+            List<Professor> professores = new List<Professor>();
+            List<Materia> materia = new List<Materia>();
             try
             {
                 con.AbrirConexao();
                 sql = new MySqlCommand(@"SELECT p.id, p.nome,m.nome as nome_materia, p.salario, p.estadocivil, p.genero, p.datanascimento,
-                                    p.email, p.telefone, p.cep,pm.id_materia,
-                                    CONCAT(cidade, '-', uf, ', ', bairro, ', ', rua, ', ', numerorua) AS endereco_completo FROM professor p
+                                    p.email, p.telefone, p.cep,pm.id_materia,p.cidade,p.uf,p.bairro,p.rua,p.numerorua
+                                   FROM professor p
                                     LEFT JOIN professor_materia pm on p.id = pm.id_professor
                                     INNER JOIN materia m on pm.id_materia = m.id
                                     ", con.con);
-                MySqlDataAdapter da = new MySqlDataAdapter();
-                da.SelectCommand = sql;
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                return dt;
+                MySqlDataReader dr = sql.ExecuteReader();
+                while (dr.Read())
+                {
+                    int id = Convert.ToInt32(dr["id"]);
+                    string nome = dr["nome"].ToString();
+                    materia.Add(new Materia(Convert.ToInt32(dr["id_materia"]), dr["nome_materia"].ToString()));
+                    string salario = dr["salario"].ToString();
+                    string estadocivil = dr["estadocivil"].ToString();
+                    string genero = dr["genero"].ToString();
+                    DateTime datanascimento = Convert.ToDateTime(dr["datanascimento"]);
+                    string email = dr["email"].ToString();
+                    string telefone = dr["telefone"].ToString();
+                    string cep = dr["cep"].ToString();
+                    string cidade = dr["cidade"].ToString();
+                    string uf = dr["uf"].ToString();
+                    string bairro = dr["bairro"].ToString();
+                    string rua = dr["rua"].ToString();
+                    string numerorua = dr["numerorua"].ToString();
+
+                    Professor professor = new Professor(id, nome, materia, salario, estadocivil, genero, datanascimento, email, telefone, cep, cidade, uf, bairro, rua, numerorua);
+                    professores.Add(professor);
+                }
+                return professores;
             }
             catch (Exception)
             {
@@ -64,14 +84,13 @@ namespace ProjetoSistemaEe.DAO
                 sql.ExecuteNonQuery();
                 sql.Dispose();
                 con.FecharConexao();
-
-                foreach (var item in professor.ListaDemateria)
+                foreach (var item in professor.Materia)
                 {
                     con.AbrirConexao();
                     int id_professor = IdUltimoProfessor();
-                    sql = new MySqlCommand("INSERT INTO professor_materia(id_professor, id_materia) VALUES (@professorid, @materia);", con.con);
-                    sql.Parameters.AddWithValue("@professorid", id_professor);
-                    sql.Parameters.AddWithValue("@materia", item);
+                    sql = new MySqlCommand(@"INSERT INTO professor_materia(id_professor, id_materia) VALUES(@id_professor, @id_materia); ", con.con);
+                    sql.Parameters.AddWithValue("@id_professor", id_professor);
+                    sql.Parameters.AddWithValue("@id_materia", item.Cursoid);
                     sql.ExecuteNonQuery();
                     sql.Dispose();
                     con.FecharConexao();
@@ -113,16 +132,6 @@ namespace ProjetoSistemaEe.DAO
                 sql.ExecuteNonQuery();
                 sql.Dispose();
                 con.FecharConexao();
-                foreach (var item in professor.ListaDemateria)
-                {
-                    con.AbrirConexao();
-                    sql = new MySqlCommand("UPDATE professor_materia SET id_materia = @materia WHERE id_professor = @id_professor;", con.con);
-                    sql.Parameters.AddWithValue("@id_professor", professor.Id);
-                    sql.Parameters.AddWithValue("@materia", item);
-                    sql.ExecuteNonQuery();
-                    sql.Dispose();
-                    con.FecharConexao();
-                }
             }
             catch (Exception)
             {

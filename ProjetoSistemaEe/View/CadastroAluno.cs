@@ -2,6 +2,7 @@
 using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe
@@ -34,8 +35,7 @@ namespace ProjetoSistemaEe
                     DialogResult resultado = MessageBox.Show("Deseja cadastrar o aluno?", "Salvar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (resultado == DialogResult.Yes)
                     {
-                        Aluno alunos = new Aluno();
-                        Salvar(alunos);
+                        SalvarAluno();
                         MessageBox.Show("Aluno cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         validar.LimparControles(this);
                     }
@@ -47,26 +47,27 @@ namespace ProjetoSistemaEe
             }
         }
 
-        private void Salvar(Aluno aluno)
+        private void SalvarAluno()
         {
             try
             {
-                aluno.RA = calcular.GerarRA();
-                aluno.Nome = txtNome.Text;
-                aluno.Curso = Convert.ToInt32(cbCurso.SelectedValue);
-                aluno.Periodo = CbPeriodo.Text;
-                aluno.EstadoCivil = cbEstadoCivil.Text;
-                aluno.Genero = cbGenero.Text;
-                aluno.Email = txtEmail.Text;
-                aluno.Turno = cbTurno.Text;
-                aluno.Telefone = txtTelefone.Text;
-                aluno.Cep = txtCEP.Text;
-                aluno.Cidade = txtCidade.Text;
-                aluno.Uf = txtEstado.Text;
-                aluno.Bairro = txtBairro.Text;
-                aluno.Rua = txtRua.Text;
-                aluno.Numerorua = txtNum.Text;
-                aluno.Datanascimento = Convert.ToDateTime(dtAluno.Text);
+                int ra = calcular.GerarRA();
+                string nome = txtNome.Text;
+                string curso = cbCurso.SelectedValue.ToString();
+                string periodo = CbPeriodo.Text;
+                string estadocivil = cbEstadoCivil.Text;
+                string genero = cbGenero.Text;
+                DateTime datanascimento = Convert.ToDateTime(dtAluno.Text);
+                string email = txtEmail.Text;
+                string turno = cbTurno.Text;
+                string telefone = txtTelefone.Text;
+                string cep = txtCEP.Text;
+                string cidade = txtCidade.Text;
+                string uf = txtEstado.Text;
+                string bairro = txtBairro.Text;
+                string rua = txtRua.Text;
+                string numerorua = txtNum.Text;
+                Aluno aluno = new Aluno(ra, nome, curso, periodo, estadocivil, genero, datanascimento, email, turno, telefone, cep, cidade, uf, bairro, rua, numerorua);
                 alunoM.Salvar(aluno);
             }
             catch (Exception)

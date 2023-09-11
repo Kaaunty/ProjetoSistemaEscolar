@@ -1,6 +1,7 @@
 ﻿using ProjetoSistemaEe.DAO;
 using ProjetoSistemaEe.Entidades;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -10,7 +11,7 @@ namespace ProjetoSistemaEe.Model
     {
         private ProfessorDAO dao = new ProfessorDAO();
 
-        public DataTable Listar()
+        public List<Professor> Listar()
         {
             try
             {

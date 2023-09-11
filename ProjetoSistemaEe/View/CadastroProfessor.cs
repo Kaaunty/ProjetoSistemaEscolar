@@ -2,7 +2,9 @@
 using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Windows.Media.Media3D;
 
 namespace ProjetoSistemaEe.View
 {
@@ -34,8 +36,7 @@ namespace ProjetoSistemaEe.View
                     DialogResult result = MessageBox.Show("Deseja cadastrar o professor?", "Cadastrar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
-                        Professor professores = new Professor();
-                        Salvar(professores);
+                        Salvar();
                         MessageBox.Show("Professor cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         validar.LimparControles(this);
                     }
@@ -47,31 +48,51 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        private void Salvar(Professor professor)
+        private void Salvar()
         {
             try
             {
-                professor.Nome = txtNome.Text;
-                for (int i = 0; i < gridMaterias.Rows.Count; i++) //percorre o grid de materias
+                Professor professor = new Professor
                 {
-                    if (Convert.ToBoolean(gridMaterias.Rows[i].Cells[0].Value) == true)//verifica se a linha esta selecionada
+                    Nome = txtNome.Text,
+                    Materia = ReceberMateriasSelecionadas(),
+                    EstadoCivil = cbEstadoCivil.Text,
+                    Genero = cbGenero.Text,
+                    Email = txtEmail.Text,
+                    Cep = txtCEP.Text,
+                    Uf = txtEstado.Text,
+                    Salario = txtSalario.Text,
+                    Cidade = txtCidade.Text,
+                    Bairro = txtBairro.Text,
+                    Rua = txtRua.Text,
+                    Numerorua = txtNum.Text,
+                    Telefone = txtTelefone.Text,
+                    Datanascimento = dtProfessor.Value
+                };
+
+                professorM.Salvar(professor);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private List<Materia> ReceberMateriasSelecionadas()
+        {
+            try
+            {
+                List<Materia> materias = new List<Materia>();
+                foreach (DataGridViewRow row in gridMaterias.Rows)
+                {
+                    if (Convert.ToBoolean(row.Cells[0].Value) == true)
                     {
-                        professor.ListaDemateria.Add(Convert.ToInt32(gridMaterias.Rows[i].Cells[1].Value)); //adiciona o id da materia na lista
+                        Materia materia = new Materia();
+                        materia.Cursoid = Convert.ToInt32(row.Cells[1].Value);
+                        materias.Add(materia);
                     }
                 }
-                professor.EstadoCivil = cbEstadoCivil.Text;
-                professor.Genero = cbGenero.Text;
-                professor.Email = txtEmail.Text;
-                professor.Cep = txtCEP.Text;
-                professor.Uf = txtEstado.Text;
-                professor.Salario = txtSalario.Text;
-                professor.Cidade = txtCidade.Text;
-                professor.Bairro = txtBairro.Text;
-                professor.Rua = txtRua.Text;
-                professor.Numerorua = txtNum.Text;
-                professor.Telefone = txtTelefone.Text;
-                professor.Datanascimento = dtProfessor.Value;
-                professorM.Salvar(professor);
+                return materias;
             }
             catch (Exception)
             {

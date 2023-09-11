@@ -9,7 +9,7 @@ namespace ProjetoSistemaEe.Model
 {
     internal interface IPessoaModel<tipo>
     {
-        DataTable Listar();
+        List<tipo> Listar();
 
         void Salvar(tipo pessoa);
 

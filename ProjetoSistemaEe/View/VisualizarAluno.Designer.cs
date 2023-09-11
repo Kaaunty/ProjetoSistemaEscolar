@@ -37,19 +37,20 @@
             this.gridBoletim = new System.Windows.Forms.DataGridView();
             this.ra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.periodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.turno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.periodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadocivil = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datanascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.turno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rua = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtAluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numrua = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rua = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numerorua = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridBoletim)).BeginInit();
             this.SuspendLayout();
@@ -99,19 +100,20 @@
             this.gridBoletim.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ra,
             this.nome,
-            this.periodo,
-            this.turno,
             this.curso,
+            this.periodo,
             this.estadocivil,
-            this.telefone,
+            this.genero,
+            this.datanascimento,
+            this.email,
+            this.turno,
+            this.Telefone,
             this.cep,
             this.cidade,
-            this.Bairro,
-            this.rua,
-            this.dtAluno,
             this.uf,
-            this.numrua,
-            this.email});
+            this.bairro,
+            this.rua,
+            this.numerorua});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -125,6 +127,7 @@
             this.gridBoletim.MultiSelect = false;
             this.gridBoletim.Name = "gridBoletim";
             this.gridBoletim.ReadOnly = true;
+            this.gridBoletim.RowHeadersVisible = false;
             this.gridBoletim.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridBoletim.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridBoletim.Size = new System.Drawing.Size(1016, 420);
@@ -141,48 +144,79 @@
             // 
             // nome
             // 
+            this.nome.DataPropertyName = "nome";
             this.nome.HeaderText = "Nome";
             this.nome.Name = "nome";
             this.nome.ReadOnly = true;
             this.nome.Width = 65;
             // 
-            // periodo
-            // 
-            this.periodo.HeaderText = "Periodo";
-            this.periodo.Name = "periodo";
-            this.periodo.ReadOnly = true;
-            this.periodo.Width = 73;
-            // 
-            // turno
-            // 
-            this.turno.HeaderText = "Turno";
-            this.turno.Name = "turno";
-            this.turno.ReadOnly = true;
-            this.turno.Width = 63;
-            // 
             // curso
             // 
+            this.curso.DataPropertyName = "curso";
             this.curso.HeaderText = "Curso";
             this.curso.Name = "curso";
             this.curso.ReadOnly = true;
             this.curso.Width = 63;
             // 
+            // periodo
+            // 
+            this.periodo.DataPropertyName = "periodo";
+            this.periodo.HeaderText = "Periodo";
+            this.periodo.Name = "periodo";
+            this.periodo.ReadOnly = true;
+            this.periodo.Width = 73;
+            // 
             // estadocivil
             // 
+            this.estadocivil.DataPropertyName = "estadocivil";
             this.estadocivil.HeaderText = "Estado Civil";
             this.estadocivil.Name = "estadocivil";
             this.estadocivil.ReadOnly = true;
             this.estadocivil.Width = 93;
             // 
-            // telefone
+            // genero
             // 
-            this.telefone.HeaderText = "Telefone";
-            this.telefone.Name = "telefone";
-            this.telefone.ReadOnly = true;
-            this.telefone.Width = 76;
+            this.genero.DataPropertyName = "genero";
+            this.genero.HeaderText = "Gênero";
+            this.genero.Name = "genero";
+            this.genero.ReadOnly = true;
+            this.genero.Width = 70;
+            // 
+            // datanascimento
+            // 
+            this.datanascimento.DataPropertyName = "datanascimento";
+            this.datanascimento.HeaderText = "Data de Nascimento";
+            this.datanascimento.Name = "datanascimento";
+            this.datanascimento.ReadOnly = true;
+            this.datanascimento.Width = 127;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "email";
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            this.email.Width = 61;
+            // 
+            // turno
+            // 
+            this.turno.DataPropertyName = "turno";
+            this.turno.HeaderText = "Turno";
+            this.turno.Name = "turno";
+            this.turno.ReadOnly = true;
+            this.turno.Width = 63;
+            // 
+            // Telefone
+            // 
+            this.Telefone.DataPropertyName = "telefone";
+            this.Telefone.HeaderText = "Telefone";
+            this.Telefone.Name = "Telefone";
+            this.Telefone.ReadOnly = true;
+            this.Telefone.Width = 76;
             // 
             // cep
             // 
+            this.cep.DataPropertyName = "cep";
             this.cep.HeaderText = "CEP";
             this.cep.Name = "cep";
             this.cep.ReadOnly = true;
@@ -190,52 +224,43 @@
             // 
             // cidade
             // 
+            this.cidade.DataPropertyName = "cidade";
             this.cidade.HeaderText = "Cidade";
             this.cidade.Name = "cidade";
             this.cidade.ReadOnly = true;
             this.cidade.Width = 69;
             // 
-            // Bairro
-            // 
-            this.Bairro.HeaderText = "Bairro";
-            this.Bairro.Name = "Bairro";
-            this.Bairro.ReadOnly = true;
-            this.Bairro.Width = 63;
-            // 
-            // rua
-            // 
-            this.rua.HeaderText = "Rua";
-            this.rua.Name = "rua";
-            this.rua.ReadOnly = true;
-            this.rua.Width = 52;
-            // 
-            // dtAluno
-            // 
-            this.dtAluno.HeaderText = "Data de Nascimento";
-            this.dtAluno.Name = "dtAluno";
-            this.dtAluno.ReadOnly = true;
-            this.dtAluno.Width = 127;
-            // 
             // uf
             // 
+            this.uf.DataPropertyName = "uf";
             this.uf.HeaderText = "UF";
             this.uf.Name = "uf";
             this.uf.ReadOnly = true;
             this.uf.Width = 46;
             // 
-            // numrua
+            // bairro
             // 
-            this.numrua.HeaderText = "Numero Rua";
-            this.numrua.Name = "numrua";
-            this.numrua.ReadOnly = true;
-            this.numrua.Width = 91;
+            this.bairro.DataPropertyName = "bairro";
+            this.bairro.HeaderText = "Bairro";
+            this.bairro.Name = "bairro";
+            this.bairro.ReadOnly = true;
+            this.bairro.Width = 63;
             // 
-            // email
+            // rua
             // 
-            this.email.HeaderText = "Email";
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            this.email.Width = 61;
+            this.rua.DataPropertyName = "rua";
+            this.rua.HeaderText = "Rua";
+            this.rua.Name = "rua";
+            this.rua.ReadOnly = true;
+            this.rua.Width = 52;
+            // 
+            // numerorua
+            // 
+            this.numerorua.DataPropertyName = "numerorua";
+            this.numerorua.HeaderText = "Numero";
+            this.numerorua.Name = "numerorua";
+            this.numerorua.ReadOnly = true;
+            this.numerorua.Width = 76;
             // 
             // VisualizarAluno
             // 
@@ -262,18 +287,19 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ra;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn periodo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn turno;
         private System.Windows.Forms.DataGridViewTextBoxColumn curso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn periodo;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadocivil;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn genero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datanascimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn turno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefone;
         private System.Windows.Forms.DataGridViewTextBoxColumn cep;
         private System.Windows.Forms.DataGridViewTextBoxColumn cidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Bairro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rua;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtAluno;
         private System.Windows.Forms.DataGridViewTextBoxColumn uf;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numrua;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bairro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rua;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numerorua;
     }
 }

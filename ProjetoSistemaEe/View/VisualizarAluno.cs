@@ -2,6 +2,7 @@
 using ProjetoSistemaEe.Model;
 using System;
 using System.Collections.Generic;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
@@ -9,7 +10,6 @@ namespace ProjetoSistemaEe.View
     public partial class VisualizarAluno : Form
     {
         private AlunoModel alunoModel = new AlunoModel();
-        private List<Aluno> alunos = new List<Aluno>();
 
         public VisualizarAluno()
         {
@@ -19,12 +19,12 @@ namespace ProjetoSistemaEe.View
         public void VisualizarAluno_Load(object sender, EventArgs e)
         {
             ListarAluno();
-            alunos = alunoModel.ListarPorList();
         }
 
         private void ListarAluno()
         {
-            gridBoletim.DataSource = alunoModel.ListarPorList();
+            gridBoletim.AutoGenerateColumns = false;
+            gridBoletim.DataSource = alunoModel.Listar();
         }
 
         private void gridAluno_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

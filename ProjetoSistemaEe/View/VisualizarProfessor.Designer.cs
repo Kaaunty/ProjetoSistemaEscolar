@@ -134,7 +134,7 @@
             // 
             // materia
             // 
-            this.materia.DataPropertyName = "nome_materia";
+            this.materia.DataPropertyName = "materia";
             this.materia.HeaderText = "Materia";
             this.materia.Name = "materia";
             this.materia.ReadOnly = true;

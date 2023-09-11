@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\MateriaDAO.cs" />
+    <Compile Include="Entidades\Curso.cs" />
     <Compile Include="Entidades\Materia.cs" />
     <Compile Include="Model\MateriaModel.cs" />
     <Compile Include="Utils\Calcular.cs" />
