@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroAluno));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnClose = new FontAwesome.Sharp.IconButton();
+            this.BtnMinimize = new FontAwesome.Sharp.IconButton();
             this.txtCEP = new System.Windows.Forms.MaskedTextBox();
             this.CbPeriodo = new System.Windows.Forms.ComboBox();
             this.cbCurso = new System.Windows.Forms.ComboBox();
@@ -60,7 +64,9 @@
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
+            this.BtnPreviousMenu = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -70,6 +76,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.background_aluno;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.txtCEP);
             this.panel1.Controls.Add(this.CbPeriodo);
             this.panel1.Controls.Add(this.cbCurso);
@@ -106,6 +113,48 @@
             this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 0;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel2.Controls.Add(this.BtnPreviousMenu);
+            this.panel2.Controls.Add(this.BtnClose);
+            this.panel2.Controls.Add(this.BtnMinimize);
+            this.panel2.Location = new System.Drawing.Point(2, 1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1037, 35);
+            this.panel2.TabIndex = 6;
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.FlatAppearance.BorderSize = 0;
+            this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnClose.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.BtnClose.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnClose.IconSize = 40;
+            this.BtnClose.Location = new System.Drawing.Point(1008, 3);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(28, 28);
+            this.BtnClose.TabIndex = 0;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
+            // BtnMinimize
+            // 
+            this.BtnMinimize.FlatAppearance.BorderSize = 0;
+            this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMinimize.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.BtnMinimize.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnMinimize.IconSize = 40;
+            this.BtnMinimize.Location = new System.Drawing.Point(974, 4);
+            this.BtnMinimize.Name = "BtnMinimize";
+            this.BtnMinimize.Size = new System.Drawing.Size(28, 28);
+            this.BtnMinimize.TabIndex = 1;
+            this.BtnMinimize.UseVisualStyleBackColor = true;
+            this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
+            // 
             // txtCEP
             // 
             this.txtCEP.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -113,7 +162,7 @@
             this.txtCEP.Mask = "00000-000";
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(206, 29);
-            this.txtCEP.TabIndex = 46;
+            this.txtCEP.TabIndex = 7;
             this.txtCEP.TextChanged += new System.EventHandler(this.txtCEP_TextChanged);
             // 
             // CbPeriodo
@@ -135,7 +184,7 @@
             this.CbPeriodo.Location = new System.Drawing.Point(315, 284);
             this.CbPeriodo.Name = "CbPeriodo";
             this.CbPeriodo.Size = new System.Drawing.Size(52, 30);
-            this.CbPeriodo.TabIndex = 44;
+            this.CbPeriodo.TabIndex = 2;
             // 
             // cbCurso
             // 
@@ -148,7 +197,7 @@
             this.cbCurso.Location = new System.Drawing.Point(315, 241);
             this.cbCurso.Name = "cbCurso";
             this.cbCurso.Size = new System.Drawing.Size(206, 30);
-            this.cbCurso.TabIndex = 43;
+            this.cbCurso.TabIndex = 1;
             // 
             // btnSalvar
             // 
@@ -167,7 +216,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(454, 609);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(130, 35);
-            this.btnSalvar.TabIndex = 41;
+            this.btnSalvar.TabIndex = 11;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -190,7 +239,7 @@
             this.txtEmail.MaxLength = 30;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(206, 29);
-            this.txtEmail.TabIndex = 39;
+            this.txtEmail.TabIndex = 6;
             this.txtEmail.Text = "Email:";
             // 
             // cbTurno
@@ -204,7 +253,7 @@
             this.cbTurno.Location = new System.Drawing.Point(629, 430);
             this.cbTurno.Name = "cbTurno";
             this.cbTurno.Size = new System.Drawing.Size(206, 30);
-            this.cbTurno.TabIndex = 38;
+            this.cbTurno.TabIndex = 9;
             // 
             // label17
             // 
@@ -240,7 +289,7 @@
             this.cbGenero.Location = new System.Drawing.Point(315, 379);
             this.cbGenero.Name = "cbGenero";
             this.cbGenero.Size = new System.Drawing.Size(206, 30);
-            this.cbGenero.TabIndex = 31;
+            this.cbGenero.TabIndex = 4;
             // 
             // label13
             // 
@@ -267,7 +316,7 @@
             this.cbEstadoCivil.Location = new System.Drawing.Point(315, 332);
             this.cbEstadoCivil.Name = "cbEstadoCivil";
             this.cbEstadoCivil.Size = new System.Drawing.Size(206, 30);
-            this.cbEstadoCivil.TabIndex = 29;
+            this.cbEstadoCivil.TabIndex = 3;
             // 
             // label12
             // 
@@ -287,7 +336,7 @@
             this.txtNum.MaxLength = 4;
             this.txtNum.Name = "txtNum";
             this.txtNum.Size = new System.Drawing.Size(47, 29);
-            this.txtNum.TabIndex = 27;
+            this.txtNum.TabIndex = 8;
             this.txtNum.Text = "0000";
             this.txtNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
             // 
@@ -299,6 +348,7 @@
             this.txtRua.ReadOnly = true;
             this.txtRua.Size = new System.Drawing.Size(206, 29);
             this.txtRua.TabIndex = 26;
+            this.txtRua.TabStop = false;
             this.txtRua.Text = "Rua";
             // 
             // label11
@@ -337,7 +387,7 @@
             this.dtAluno.Location = new System.Drawing.Point(315, 431);
             this.dtAluno.Name = "dtAluno";
             this.dtAluno.Size = new System.Drawing.Size(206, 29);
-            this.dtAluno.TabIndex = 23;
+            this.dtAluno.TabIndex = 5;
             // 
             // txtTelefone
             // 
@@ -346,7 +396,7 @@
             this.txtTelefone.Mask = "(00)00000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(206, 29);
-            this.txtTelefone.TabIndex = 22;
+            this.txtTelefone.TabIndex = 10;
             // 
             // label5
             // 
@@ -444,6 +494,7 @@
             this.txtBairro.ReadOnly = true;
             this.txtBairro.Size = new System.Drawing.Size(206, 29);
             this.txtBairro.TabIndex = 8;
+            this.txtBairro.TabStop = false;
             this.txtBairro.Text = "Bairro";
             // 
             // txtCidade
@@ -454,6 +505,7 @@
             this.txtCidade.ReadOnly = true;
             this.txtCidade.Size = new System.Drawing.Size(206, 29);
             this.txtCidade.TabIndex = 7;
+            this.txtCidade.TabStop = false;
             this.txtCidade.Text = "Cidade";
             // 
             // txtEstado
@@ -464,6 +516,7 @@
             this.txtEstado.ReadOnly = true;
             this.txtEstado.Size = new System.Drawing.Size(206, 29);
             this.txtEstado.TabIndex = 6;
+            this.txtEstado.TabStop = false;
             this.txtEstado.Text = "Estado";
             // 
             // txtNome
@@ -477,6 +530,21 @@
             this.txtNome.Text = "Nome";
             this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
+            // BtnPreviousMenu
+            // 
+            this.BtnPreviousMenu.FlatAppearance.BorderSize = 0;
+            this.BtnPreviousMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPreviousMenu.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
+            this.BtnPreviousMenu.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnPreviousMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnPreviousMenu.IconSize = 40;
+            this.BtnPreviousMenu.Location = new System.Drawing.Point(940, 4);
+            this.BtnPreviousMenu.Name = "BtnPreviousMenu";
+            this.BtnPreviousMenu.Size = new System.Drawing.Size(28, 28);
+            this.BtnPreviousMenu.TabIndex = 2;
+            this.BtnPreviousMenu.UseVisualStyleBackColor = true;
+            this.BtnPreviousMenu.Click += new System.EventHandler(this.BtnPreviousMenu_Click);
+            // 
             // CadastroAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -484,12 +552,14 @@
             this.ClientSize = new System.Drawing.Size(1039, 669);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CadastroAluno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -528,6 +598,10 @@
         private System.Windows.Forms.ComboBox CbPeriodo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MaskedTextBox txtCEP;
+        private System.Windows.Forms.Panel panel2;
+        private FontAwesome.Sharp.IconButton BtnClose;
+        private FontAwesome.Sharp.IconButton BtnMinimize;
+        private FontAwesome.Sharp.IconButton BtnPreviousMenu;
     }
 }
 

@@ -1,6 +1,7 @@
 ﻿using ProjetoSistemaEe.Entidades;
 using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
+using ProjetoSistemaEe.View;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -98,6 +99,24 @@ namespace ProjetoSistemaEe
         private void txtCEP_TextChanged(object sender, EventArgs e)
         {
             validar.VerificaCEP(txtCEP, txtEstado, txtCidade, txtBairro, txtRua, txtNum);
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void BtnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void BtnPreviousMenu_Click(object sender, EventArgs e)
+        {
+            Close();
+            MenuPrincipal main_Menu = new MenuPrincipal();
+            main_Menu.TopLevel = true;
+            main_Menu.Show();
         }
     }
 }

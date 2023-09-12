@@ -51,13 +51,19 @@
             this.bairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rua = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numerorua = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnPreviousMenu = new FontAwesome.Sharp.IconButton();
+            this.BtnClose = new FontAwesome.Sharp.IconButton();
+            this.BtnMinimize = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridBoletim)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.gridBoletim);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -172,7 +178,7 @@
             this.estadocivil.HeaderText = "Estado Civil";
             this.estadocivil.Name = "estadocivil";
             this.estadocivil.ReadOnly = true;
-            this.estadocivil.Width = 93;
+            this.estadocivil.Width = 86;
             // 
             // genero
             // 
@@ -262,6 +268,63 @@
             this.numerorua.ReadOnly = true;
             this.numerorua.Width = 76;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel2.Controls.Add(this.BtnPreviousMenu);
+            this.panel2.Controls.Add(this.BtnClose);
+            this.panel2.Controls.Add(this.BtnMinimize);
+            this.panel2.Location = new System.Drawing.Point(1, 1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1037, 35);
+            this.panel2.TabIndex = 7;
+            // 
+            // BtnPreviousMenu
+            // 
+            this.BtnPreviousMenu.FlatAppearance.BorderSize = 0;
+            this.BtnPreviousMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPreviousMenu.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
+            this.BtnPreviousMenu.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnPreviousMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnPreviousMenu.IconSize = 40;
+            this.BtnPreviousMenu.Location = new System.Drawing.Point(940, 4);
+            this.BtnPreviousMenu.Name = "BtnPreviousMenu";
+            this.BtnPreviousMenu.Size = new System.Drawing.Size(28, 28);
+            this.BtnPreviousMenu.TabIndex = 2;
+            this.BtnPreviousMenu.UseVisualStyleBackColor = true;
+            this.BtnPreviousMenu.Click += new System.EventHandler(this.BtnPreviousMenu_Click);
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.FlatAppearance.BorderSize = 0;
+            this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnClose.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.BtnClose.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnClose.IconSize = 40;
+            this.BtnClose.Location = new System.Drawing.Point(1008, 3);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(28, 28);
+            this.BtnClose.TabIndex = 0;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
+            // BtnMinimize
+            // 
+            this.BtnMinimize.FlatAppearance.BorderSize = 0;
+            this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMinimize.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.BtnMinimize.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnMinimize.IconSize = 40;
+            this.BtnMinimize.Location = new System.Drawing.Point(974, 4);
+            this.BtnMinimize.Name = "BtnMinimize";
+            this.BtnMinimize.Size = new System.Drawing.Size(28, 28);
+            this.BtnMinimize.TabIndex = 1;
+            this.BtnMinimize.UseVisualStyleBackColor = true;
+            this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
+            // 
             // VisualizarAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -276,6 +339,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridBoletim)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -301,5 +365,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bairro;
         private System.Windows.Forms.DataGridViewTextBoxColumn rua;
         private System.Windows.Forms.DataGridViewTextBoxColumn numerorua;
+        private System.Windows.Forms.Panel panel2;
+        private FontAwesome.Sharp.IconButton BtnPreviousMenu;
+        private FontAwesome.Sharp.IconButton BtnClose;
+        private FontAwesome.Sharp.IconButton BtnMinimize;
     }
 }

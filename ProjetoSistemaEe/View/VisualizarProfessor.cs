@@ -1,8 +1,5 @@
 ﻿using ProjetoSistemaEe.Model;
 using System;
-using System.Collections;
-using System.Data;
-using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
@@ -23,15 +20,30 @@ namespace ProjetoSistemaEe.View
 
         private void ListarProfessor()
         {
-            gridProfessor.DataSource = professorModel.Listar();
             gridProfessor.AutoGenerateColumns = false;
+            gridProfessor.DataSource = professorModel.Listar();
         }
 
         private void gridProfessor_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            EditarProfessor editarProfessor = new EditarProfessor(this);
-            var principal = this.ParentForm as MenuPrincipal;
-            principal.AbrirFormNoPainel(editarProfessor);
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void BtnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void BtnPreviousMenu_Click(object sender, EventArgs e)
+        {
+            MenuPrincipal main_Menu = new MenuPrincipal();
+            Close();
+            main_Menu.TopLevel = true;
+            main_Menu.Show();
         }
     }
 }

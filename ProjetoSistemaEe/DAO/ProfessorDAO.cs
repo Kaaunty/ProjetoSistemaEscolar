@@ -1,11 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using ProjetoSistemaEe.Entidades;
-using ProjetoSistemaEe.View;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Windows;
-using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.DAO
 {
@@ -18,14 +14,15 @@ namespace ProjetoSistemaEe.DAO
         {
             List<Professor> professores = new List<Professor>();
             List<Materia> materia = new List<Materia>();
+
             try
             {
                 con.AbrirConexao();
                 sql = new MySqlCommand(@"SELECT p.id, p.nome,m.nome as nome_materia, p.salario, p.estadocivil, p.genero, p.datanascimento,
-                                    p.email, p.telefone, p.cep,pm.id_materia,p.cidade,p.uf,p.bairro,p.rua,p.numerorua
-                                   FROM professor p
-                                    LEFT JOIN professor_materia pm on p.id = pm.id_professor
-                                    INNER JOIN materia m on pm.id_materia = m.id
+                                        p.email, p.telefone, p.cep,pm.id_materia,p.cidade,p.uf,p.bairro,p.rua,p.numerorua
+                                        FROM professor p
+                                        LEFT JOIN professor_materia pm on p.id = pm.id_professor
+                                        INNER JOIN materia m on pm.id_materia = m.id
                                     ", con.con);
                 MySqlDataReader dr = sql.ExecuteReader();
                 while (dr.Read())
@@ -49,6 +46,7 @@ namespace ProjetoSistemaEe.DAO
                     Professor professor = new Professor(id, nome, materia, salario, estadocivil, genero, datanascimento, email, telefone, cep, cidade, uf, bairro, rua, numerorua);
                     professores.Add(professor);
                 }
+
                 return professores;
             }
             catch (Exception)
@@ -84,7 +82,7 @@ namespace ProjetoSistemaEe.DAO
                 sql.ExecuteNonQuery();
                 sql.Dispose();
                 con.FecharConexao();
-                foreach (var item in professor.Materia)
+                foreach (var item in professor.Materias)
                 {
                     con.AbrirConexao();
                     int id_professor = IdUltimoProfessor();

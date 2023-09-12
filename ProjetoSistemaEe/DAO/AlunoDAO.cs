@@ -70,7 +70,7 @@ namespace ProjetoSistemaEe.DAO
                 sql.Parameters.AddWithValue("@nome", aluno.Nome);
                 sql.Parameters.AddWithValue("@curso", aluno.Curso);
                 sql.Parameters.AddWithValue("@periodo", aluno.Periodo);
-                sql.Parameters.AddWithValue("@estadocivil", aluno.EstadoCivil);
+                sql.Parameters.AddWithValue("@estadocivil", aluno.Estadocivil);
                 sql.Parameters.AddWithValue("@genero", aluno.Genero);
                 sql.Parameters.AddWithValue("@datanascimento", aluno.Datanascimento);
                 sql.Parameters.AddWithValue("@email", aluno.Email);
@@ -139,7 +139,7 @@ namespace ProjetoSistemaEe.DAO
                 sql.Parameters.AddWithValue("@nome", aluno.Nome);
                 sql.Parameters.AddWithValue("@curso", aluno.Curso);
                 sql.Parameters.AddWithValue("@periodo", aluno.Periodo);
-                sql.Parameters.AddWithValue("@estadocivil", aluno.EstadoCivil);
+                sql.Parameters.AddWithValue("@estadocivil", aluno.Estadocivil);
                 sql.Parameters.AddWithValue("@genero", aluno.Genero);
                 sql.Parameters.AddWithValue("@datanascimento", aluno.Datanascimento.ToString("yyyy-MM-dd"));
                 sql.Parameters.AddWithValue("@email", aluno.Email);

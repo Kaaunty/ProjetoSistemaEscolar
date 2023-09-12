@@ -31,13 +31,6 @@ namespace ProjetoSistemaEe.View
             txtEmail.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[7].Value.ToString();
             txtTelefone.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[8].Value.ToString();
             txtCEP.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[9].Value.ToString();
-            string endereco = instanciaDoForm2.gridProfessor.CurrentRow.Cells[11].Value.ToString();
-            string[] enderecoSeparado = endereco.Split(delimitarchars);
-            txtCidade.Text = enderecoSeparado[0];
-            txtEstado.Text = enderecoSeparado[1];
-            txtBairro.Text = enderecoSeparado[2];
-            txtRua.Text = enderecoSeparado[3];
-            txtNum.Text = enderecoSeparado[4];
 
             foreach (DataGridViewRow rowprofessor in instanciaDoForm2.gridProfessor.Rows)
             {
@@ -69,10 +62,7 @@ namespace ProjetoSistemaEe.View
                     DialogResult result = MessageBox.Show("Deseja editar o professor?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
-                        //Professor professores = new Professor();
-                        //Editar(professores);
                         MessageBox.Show("Professor editado com sucesso!");
-                        FormAbrir();
                     }
                 }
                 catch (Exception ex)
@@ -125,10 +115,7 @@ namespace ProjetoSistemaEe.View
             DialogResult result = MessageBox.Show("Deseja excluir o professor?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                //Professor professores = new Professor();
-                //Excluir(professores);
                 MessageBox.Show("Professor excluido com sucesso!");
-                FormAbrir();
             }
         }
 
@@ -148,16 +135,11 @@ namespace ProjetoSistemaEe.View
             }
         }
 
+        #region Validações
+
         private void txtSalario_Leave(object sender, EventArgs e)
         {
             validar.ValidarSalario(txtSalario);
-        }
-
-        private void FormAbrir()
-        {
-            VisualizarProfessor formB = new VisualizarProfessor();
-            var principal = this.ParentForm as MenuPrincipal;
-            principal.AbrirFormNoPainel(formB);
         }
 
         private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
@@ -175,10 +157,7 @@ namespace ProjetoSistemaEe.View
             validar.VerificaCEP(txtCEP, txtEstado, txtCidade, txtBairro, txtRua, txtNum);
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            FormAbrir();
-        }
+        #endregion Validações
 
         private void AddOnList()
         {

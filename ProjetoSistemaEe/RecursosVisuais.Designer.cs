@@ -103,6 +103,16 @@ namespace ProjetoSistemaEe {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BackgroundMenuPrincipal {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundMenuPrincipal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap botaoroxo {
             get {
                 object obj = ResourceManager.GetObject("botaoroxo", resourceCulture);

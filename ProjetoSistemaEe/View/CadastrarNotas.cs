@@ -154,5 +154,23 @@ namespace ProjetoSistemaEe.View
             int id_professor = Convert.ToInt32(cbProfessor.SelectedValue);
             cbMateria.DataSource = model.ListarMateriaPorProfessor(id_professor);
         }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void BtnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void BtnPreviousMenu_Click(object sender, EventArgs e)
+        {
+            MenuPrincipal mainMenu = new MenuPrincipal();
+            Hide();
+            mainMenu.TopLevel = true;
+            mainMenu.Show();
+        }
     }
 }

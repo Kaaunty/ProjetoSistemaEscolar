@@ -24,7 +24,7 @@ namespace ProjetoSistemaEe.View
         {
             validar.LimparControles(this);
             Validar.FormatarData(dtProfessor, new DateTime(2000, 12, 31), new DateTime(1953, 01, 01));
-            gridMaterias.DataSource = materiaM.ListarMateria();
+            PopularGrid();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -39,6 +39,7 @@ namespace ProjetoSistemaEe.View
                         Salvar();
                         MessageBox.Show("Professor cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         validar.LimparControles(this);
+                        PopularGrid();
                     }
                 }
                 catch (Exception ex)
@@ -55,7 +56,7 @@ namespace ProjetoSistemaEe.View
                 Professor professor = new Professor
                 {
                     Nome = txtNome.Text,
-                    Materia = ReceberMateriasSelecionadas(),
+                    Materias = ReceberMateriasSelecionadas(),
                     EstadoCivil = cbEstadoCivil.Text,
                     Genero = cbGenero.Text,
                     Email = txtEmail.Text,
@@ -69,7 +70,6 @@ namespace ProjetoSistemaEe.View
                     Telefone = txtTelefone.Text,
                     Datanascimento = dtProfessor.Value
                 };
-
                 professorM.Salvar(professor);
             }
             catch (Exception)
@@ -100,6 +100,20 @@ namespace ProjetoSistemaEe.View
             }
         }
 
+        private void PopularGrid()
+        {
+            try
+            {
+                gridMaterias.DataSource = materiaM.ListarMateria();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        #region Validações
+
         private void txtSalario_Leave(object sender, EventArgs e)
         {
             validar.ValidarSalario(txtSalario);
@@ -118,6 +132,26 @@ namespace ProjetoSistemaEe.View
         private void txtCEP_TextChanged(object sender, EventArgs e)
         {
             validar.VerificaCEP(txtCEP, txtEstado, txtCidade, txtBairro, txtRua, txtNum);
+        }
+
+        #endregion Validações
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void BtnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void BtnPreviousMenu_Click(object sender, EventArgs e)
+        {
+            MenuPrincipal main_Menu = new MenuPrincipal();
+            main_Menu.TopLevel = true;
+            main_Menu.Show();
+            Close();
         }
     }
 }

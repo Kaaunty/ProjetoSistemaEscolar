@@ -33,8 +33,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnPreviousMenu = new FontAwesome.Sharp.IconButton();
+            this.BtnClose = new FontAwesome.Sharp.IconButton();
+            this.BtnMinimize = new FontAwesome.Sharp.IconButton();
             this.gridProfessor = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,21 +47,85 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endereco_completo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rua = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numrua = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProfessor)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.gridProfessor);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel2.Controls.Add(this.BtnPreviousMenu);
+            this.panel2.Controls.Add(this.BtnClose);
+            this.panel2.Controls.Add(this.BtnMinimize);
+            this.panel2.Location = new System.Drawing.Point(1, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1037, 35);
+            this.panel2.TabIndex = 7;
+            // 
+            // BtnPreviousMenu
+            // 
+            this.BtnPreviousMenu.FlatAppearance.BorderSize = 0;
+            this.BtnPreviousMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPreviousMenu.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
+            this.BtnPreviousMenu.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnPreviousMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnPreviousMenu.IconSize = 40;
+            this.BtnPreviousMenu.Location = new System.Drawing.Point(940, 4);
+            this.BtnPreviousMenu.Name = "BtnPreviousMenu";
+            this.BtnPreviousMenu.Size = new System.Drawing.Size(28, 28);
+            this.BtnPreviousMenu.TabIndex = 2;
+            this.BtnPreviousMenu.UseVisualStyleBackColor = true;
+            this.BtnPreviousMenu.Click += new System.EventHandler(this.BtnPreviousMenu_Click);
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.FlatAppearance.BorderSize = 0;
+            this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnClose.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.BtnClose.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnClose.IconSize = 40;
+            this.BtnClose.Location = new System.Drawing.Point(1008, 3);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(28, 28);
+            this.BtnClose.TabIndex = 0;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
+            // BtnMinimize
+            // 
+            this.BtnMinimize.FlatAppearance.BorderSize = 0;
+            this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMinimize.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.BtnMinimize.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnMinimize.IconSize = 40;
+            this.BtnMinimize.Location = new System.Drawing.Point(974, 4);
+            this.BtnMinimize.Name = "BtnMinimize";
+            this.BtnMinimize.Size = new System.Drawing.Size(28, 28);
+            this.BtnMinimize.TabIndex = 1;
+            this.BtnMinimize.UseVisualStyleBackColor = true;
+            this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
             // 
             // gridProfessor
             // 
@@ -90,7 +157,11 @@
             this.email,
             this.telefone,
             this.cep,
-            this.endereco_completo,
+            this.cidade,
+            this.uf,
+            this.rua,
+            this.bairro,
+            this.numrua,
             this.Column1});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
@@ -112,18 +183,6 @@
             this.gridProfessor.TabIndex = 1;
             this.gridProfessor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProfessor_CellContentDoubleClick);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
-            this.label2.Location = new System.Drawing.Point(217, 175);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(605, 26);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Clique duas vezes em um professor na tabela para editar ou deletar:";
-            // 
             // nome
             // 
             this.nome.DataPropertyName = "nome";
@@ -134,10 +193,11 @@
             // 
             // materia
             // 
-            this.materia.DataPropertyName = "materia";
+            this.materia.DataPropertyName = "Teste";
             this.materia.HeaderText = "Materia";
             this.materia.Name = "materia";
             this.materia.ReadOnly = true;
+            this.materia.Visible = false;
             this.materia.Width = 72;
             // 
             // salario
@@ -154,7 +214,7 @@
             this.estadocivil.HeaderText = "Estado Civil";
             this.estadocivil.Name = "estadocivil";
             this.estadocivil.ReadOnly = true;
-            this.estadocivil.Width = 93;
+            this.estadocivil.Width = 86;
             // 
             // genero
             // 
@@ -196,13 +256,45 @@
             this.cep.ReadOnly = true;
             this.cep.Width = 53;
             // 
-            // endereco_completo
+            // cidade
             // 
-            this.endereco_completo.DataPropertyName = "endereco_completo";
-            this.endereco_completo.HeaderText = "Endereço";
-            this.endereco_completo.Name = "endereco_completo";
-            this.endereco_completo.ReadOnly = true;
-            this.endereco_completo.Width = 81;
+            this.cidade.DataPropertyName = "cidade";
+            this.cidade.HeaderText = "Cidade";
+            this.cidade.Name = "cidade";
+            this.cidade.ReadOnly = true;
+            this.cidade.Width = 69;
+            // 
+            // uf
+            // 
+            this.uf.DataPropertyName = "uf";
+            this.uf.HeaderText = "UF";
+            this.uf.Name = "uf";
+            this.uf.ReadOnly = true;
+            this.uf.Width = 46;
+            // 
+            // rua
+            // 
+            this.rua.DataPropertyName = "rua";
+            this.rua.HeaderText = "Rua";
+            this.rua.Name = "rua";
+            this.rua.ReadOnly = true;
+            this.rua.Width = 52;
+            // 
+            // bairro
+            // 
+            this.bairro.DataPropertyName = "bairro";
+            this.bairro.HeaderText = "Bairro";
+            this.bairro.Name = "bairro";
+            this.bairro.ReadOnly = true;
+            this.bairro.Width = 63;
+            // 
+            // numrua
+            // 
+            this.numrua.DataPropertyName = "numerorua";
+            this.numrua.HeaderText = "Numero";
+            this.numrua.Name = "numrua";
+            this.numrua.ReadOnly = true;
+            this.numrua.Width = 76;
             // 
             // Column1
             // 
@@ -213,6 +305,18 @@
             this.Column1.Visible = false;
             this.Column1.Width = 87;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
+            this.label2.Location = new System.Drawing.Point(217, 175);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(605, 26);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Clique duas vezes em um professor na tabela para editar ou deletar:";
+            // 
             // VisualizarProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,10 +325,12 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VisualizarProfessor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VisualizarProfessor";
             this.Load += new System.EventHandler(this.VisualizarProfessor_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridProfessor)).EndInit();
             this.ResumeLayout(false);
 
@@ -243,7 +349,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
         private System.Windows.Forms.DataGridViewTextBoxColumn cep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn endereco_completo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rua;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bairro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numrua;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Panel panel2;
+        private FontAwesome.Sharp.IconButton BtnPreviousMenu;
+        private FontAwesome.Sharp.IconButton BtnClose;
+        private FontAwesome.Sharp.IconButton BtnMinimize;
     }
 }

@@ -39,7 +39,6 @@ namespace ProjetoSistemaEe.View
                     Boletim boletim = new Boletim();
                     Editar(boletim);
                     MessageBox.Show("Boletim editado com sucesso!");
-                    FormAbrir();
                 }
             }
             catch (Exception ex)
@@ -101,21 +100,27 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        private void FormAbrir()
-        {
-            VisualizarBoletim formB = new VisualizarBoletim();
-            var principal = this.ParentForm as MenuPrincipal;
-            principal.AbrirFormNoPainel(formB);
-        }
-
         private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.VerificaNumero(e);
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
+        private void BtnPreviousMenu_Click(object sender, EventArgs e)
         {
-            FormAbrir();
+            MenuPrincipal main_Menu = new MenuPrincipal();
+            Close();
+            main_Menu.TopLevel = true;
+            main_Menu.Show();
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void BtnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿using ProjetoSistemaEe.Utils;
-using System;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
+﻿using System;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
@@ -14,92 +10,62 @@ namespace ProjetoSistemaEe.View
             InitializeComponent();
         }
 
-        public void AbrirFormNoPainel(object FormSeg)
-        {
-            if (this.panelPrincipal.Controls.Count > 0)
-                this.panelPrincipal.Controls.RemoveAt(0);
-            Form fh = FormSeg as Form;
-            fh.TopLevel = false;
-            fh.Dock = DockStyle.Fill;
-            this.panelPrincipal.Controls.Add(fh);
-            this.panelPrincipal.Tag = fh;
-            fh.Show();
-        }
-
-        private void HabilitarBotao()
-        {
-            BtnCadastrarAluno.Enabled = true;
-            BtnCadastrarAluno.BackColor = Color.FromArgb(43, 7, 94);
-            BtnVisualizarAluno.Enabled = true;
-            BtnVisualizarAluno.BackColor = Color.FromArgb(43, 7, 94);
-            BtnCadastrarProf.Enabled = true;
-            BtnCadastrarProf.BackColor = Color.FromArgb(43, 7, 94);
-            BtnVisualizarProf.Enabled = true;
-            BtnVisualizarProf.BackColor = Color.FromArgb(43, 7, 94);
-            BtnVisualizarProf.Enabled = true;
-            BtnVisualizarProf.BackColor = Color.FromArgb(43, 7, 94);
-            BtnCadastrarNotas.Enabled = true;
-            BtnCadastrarNotas.BackColor = Color.FromArgb(43, 7, 94);
-            BtnVisualizaBoletim.Enabled = true;
-            BtnVisualizaBoletim.BackColor = Color.FromArgb(43, 7, 94);
-        }
-
-        private void BtnCadastrarAluno_Click(object sender, EventArgs e)
-        {
-            AbrirFormNoPainel(new CadastroAluno());
-            HabilitarBotao();
-            BtnCadastrarAluno.Enabled = false;
-            BtnCadastrarAluno.BackColor = Color.FromArgb(54, 7, 94);
-        }
-
-        private void BtnVisualizarAluno_Click(object sender, EventArgs e)
-        {
-            AbrirFormNoPainel(new VisualizarAluno());
-            HabilitarBotao();
-            BtnVisualizarAluno.Enabled = false;
-            BtnVisualizarAluno.BackColor = Color.FromArgb(54, 7, 94);
-        }
-
-        private void BtnCadastrarProf_Click(object sender, EventArgs e)
-        {
-            AbrirFormNoPainel(new CadastroProfessor());
-            HabilitarBotao();
-            BtnCadastrarProf.Enabled = false;
-            BtnCadastrarProf.BackColor = Color.FromArgb(54, 7, 94);
-        }
-
-        private void BtnVisualizarProf_Click(object sender, EventArgs e)
-        {
-            AbrirFormNoPainel(new VisualizarProfessor());
-            HabilitarBotao();
-            BtnVisualizarProf.Enabled = false;
-            BtnVisualizarProf.BackColor = Color.FromArgb(54, 7, 94);
-        }
-
-        private void BtnCadastrarNotas_Click(object sender, EventArgs e)
-        {
-            AbrirFormNoPainel(new CadastrarNotas());
-            HabilitarBotao();
-            BtnCadastrarNotas.Enabled = false;
-            BtnCadastrarNotas.BackColor = Color.FromArgb(54, 7, 94);
-        }
-
-        private void BtnVisualizaBoletim_Click(object sender, EventArgs e)
-        {
-            AbrirFormNoPainel(new VisualizarBoletim());
-            HabilitarBotao();
-            BtnVisualizaBoletim.Enabled = false;
-            BtnVisualizaBoletim.BackColor = Color.FromArgb(54, 7, 94);
-        }
-
-        private void BtnFechar_Click(object sender, EventArgs e)
+        private void BtnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void BtnMinimizar_Click(object sender, EventArgs e)
+        private void BtnMinimize_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void BtnStudentRegister_Click(object sender, EventArgs e)
+        {
+            CadastroAluno cadastroAluno = new CadastroAluno();
+            Hide();
+            cadastroAluno.TopLevel = true;
+            cadastroAluno.Show();
+        }
+
+        private void BtnTeacherRegister_Click(object sender, EventArgs e)
+        {
+            CadastroProfessor cadastroProfessor = new CadastroProfessor();
+            Hide();
+            cadastroProfessor.TopLevel = true;
+            cadastroProfessor.Show();
+        }
+
+        private void BtntranscriptAdd_Click(object sender, EventArgs e)
+        {
+            CadastrarNotas cadastrarNotas = new CadastrarNotas();
+            Hide();
+            cadastrarNotas.TopLevel = true;
+            cadastrarNotas.Show();
+        }
+
+        private void BtnStudentView_Click(object sender, EventArgs e)
+        {
+            VisualizarAluno visualizarAluno = new VisualizarAluno();
+            Hide();
+            visualizarAluno.TopLevel = true;
+            visualizarAluno.Show();
+        }
+
+        private void BtnTeacherView_Click(object sender, EventArgs e)
+        {
+            VisualizarProfessor visualizarProfessor = new VisualizarProfessor();
+            Hide();
+            visualizarProfessor.TopLevel = true;
+            visualizarProfessor.Show();
+        }
+
+        private void BtntranscriptView_Click(object sender, EventArgs e)
+        {
+            VisualizarBoletim visualizarBoletim = new VisualizarBoletim();
+            Hide();
+            visualizarBoletim.TopLevel = true;
+            visualizarBoletim.Show();
         }
     }
 }

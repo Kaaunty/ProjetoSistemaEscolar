@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Documents;
+using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.Entidades
 {
@@ -9,7 +10,7 @@ namespace ProjetoSistemaEe.Entidades
         private string salario;
         private int id;
 
-        private List<Materia> materia = new List<Materia>();
+        private List<Materia> materias = new List<Materia>();
 
         public Professor()
         {
@@ -19,7 +20,7 @@ namespace ProjetoSistemaEe.Entidades
         {
             this.id = id;
             Nome = nome;
-            this.Materia = materia;
+            this.Materias = materia;
             this.salario = salario;
             Estadocivil = estadocivil;
             Genero = genero;
@@ -37,6 +38,6 @@ namespace ProjetoSistemaEe.Entidades
         public int Id { get => id; set => id = value; }
 
         public string Salario { get => salario; set => salario = value; }
-        internal List<Materia> Materia { get => materia; set => materia = value; }
+        public List<Materia> Materias { get => materias; set => materias = value; }
     }
 }

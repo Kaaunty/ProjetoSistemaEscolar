@@ -29,9 +29,24 @@ namespace ProjetoSistemaEe.View
 
         private void gridAluno_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            EditarAluno editarAluno = new EditarAluno(this);
-            var principal = this.ParentForm as MenuPrincipal;
-            principal.AbrirFormNoPainel(editarAluno);
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void BtnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void BtnPreviousMenu_Click(object sender, EventArgs e)
+        {
+            MenuPrincipal main_Menu = new MenuPrincipal();
+            Close();
+            main_Menu.TopLevel = true;
+            main_Menu.Show();
         }
     }
 }

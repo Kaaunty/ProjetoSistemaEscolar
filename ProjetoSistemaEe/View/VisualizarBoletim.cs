@@ -38,9 +38,24 @@ namespace ProjetoSistemaEe.View
 
         private void gridBoletim_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            EditarNotas EditarNotas = new EditarNotas(this);
-            var principal = this.ParentForm as MenuPrincipal;
-            principal.AbrirFormNoPainel(EditarNotas);
+        }
+
+        private void BtnClose_Click(object sender, System.EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void BtnMinimize_Click(object sender, System.EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void BtnPreviousMenu_Click(object sender, System.EventArgs e)
+        {
+            MenuPrincipal main_Menu = new MenuPrincipal();
+            Close();
+            main_Menu.TopLevel = true;
+            main_Menu.Show();
         }
     }
 }

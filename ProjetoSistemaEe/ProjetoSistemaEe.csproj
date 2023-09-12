@@ -111,7 +111,7 @@
     <Compile Include="Entidades\Curso.cs" />
     <Compile Include="Entidades\Materia.cs" />
     <Compile Include="Model\MateriaModel.cs" />
-    <Compile Include="Utils\Calcular.cs" />
+    <Compile Include="Services\Calcular.cs" />
     <Compile Include="Conexao.cs" />
     <Compile Include="Connected Services\WSCorreios\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -453,6 +453,7 @@
     <None Include="Resources\background_professor.png" />
     <None Include="Resources\background_aluno.png" />
     <None Include="Resources\Background_Menu.png" />
+    <None Include="Resources\BackgroundMenuPrincipal.png" />
     <Content Include="Resources\Blue and White Black Simple Registration Form.png" />
     <Content Include="Resources\Boletim Escolar UI.png" />
     <Content Include="Resources\boletim.png" />

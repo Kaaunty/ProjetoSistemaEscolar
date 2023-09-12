@@ -15,7 +15,9 @@ namespace ProjetoSistemaEe.Model
         {
             try
             {
-                return dao.ListarProfessor();
+                List<Professor> professores = new List<Professor>();
+                professores = dao.ListarProfessor();
+                return professores;
             }
             catch (Exception)
             {

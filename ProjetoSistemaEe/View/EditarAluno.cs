@@ -12,7 +12,6 @@ namespace ProjetoSistemaEe.View
         private AlunoModel alunoModel = new AlunoModel();
         private Validar validar = new Validar();
         private VisualizarAluno instanciaDoForm1;
-        private char[] delimitarchars = { '-', ',' };
 
         public EditarAluno(VisualizarAluno InstanciaVisualizar)
         {
@@ -22,7 +21,7 @@ namespace ProjetoSistemaEe.View
             instanciaDoForm1 = InstanciaVisualizar;
             txtRA.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[0].Value.ToString();
             txtNome.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[1].Value.ToString();
-            cbCurso.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[11].Value.ToString();
+            cbCurso.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[2].Value.ToString();
             cbPeriodo.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[3].Value.ToString();
             cbEstadoCivil.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[4].Value.ToString();
             cbGenero.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[5].Value.ToString();
@@ -31,13 +30,11 @@ namespace ProjetoSistemaEe.View
             cbTurno.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[8].Value.ToString();
             txtTelefone.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[9].Value.ToString();
             txtCEP.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[10].Value.ToString();
-            string endereco = instanciaDoForm1.gridBoletim.CurrentRow.Cells[12].Value.ToString();
-            string[] enderecoSeparado = endereco.Split(delimitarchars);
-            txtCidade.Text = enderecoSeparado[0];
-            txtEstado.Text = enderecoSeparado[1];
-            txtBairro.Text = enderecoSeparado[2];
-            txtRua.Text = enderecoSeparado[3];
-            txtNum.Text = enderecoSeparado[4];
+            txtCidade.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[11].Value.ToString();
+            txtEstado.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[12].Value.ToString();
+            txtBairro.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[13].Value.ToString();
+            txtRua.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[14].Value.ToString();
+            txtNum.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[15].Value.ToString();
         }
 
         private void CarregarComboBox()
@@ -58,10 +55,8 @@ namespace ProjetoSistemaEe.View
                     DialogResult result = MessageBox.Show("Deseja editar o aluno?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
-                        //Aluno alunos = new Aluno();
-                        //Editar(alunos);
+                        Editar();
                         MessageBox.Show("Aluno editado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        FormAbrir();
                     }
                 }
                 catch (Exception ex)
@@ -71,26 +66,27 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        private void Editar(Aluno aluno)
+        private void Editar()
         {
             try
             {
-                aluno.RA = Convert.ToInt32(txtRA.Text);
-                aluno.Nome = txtNome.Text;
-                //aluno.Curso = Convert.ToInt32(cbCurso.SelectedValue);
-                aluno.Periodo = cbPeriodo.Text;
-                aluno.EstadoCivil = cbEstadoCivil.Text;
-                aluno.Genero = cbGenero.Text;
-                aluno.Email = txtEmail.Text;
-                aluno.Turno = cbTurno.Text;
-                aluno.Telefone = txtTelefone.Text;
-                aluno.Cep = txtCEP.Text;
-                aluno.Cidade = txtCidade.Text;
-                aluno.Uf = txtEstado.Text;
-                aluno.Bairro = txtBairro.Text;
-                aluno.Rua = txtRua.Text;
-                aluno.Numerorua = txtNum.Text;
-                aluno.Datanascimento = Convert.ToDateTime(dtAluno.Text);
+                int ra = Convert.ToInt32(txtRA.Text);
+                string nome = txtNome.Text;
+                string curso = cbCurso.SelectedValue.ToString();
+                string periodo = cbPeriodo.Text;
+                string estadocivil = cbEstadoCivil.Text;
+                string genero = cbGenero.Text;
+                DateTime datanascimento = Convert.ToDateTime(dtAluno.Text);
+                string email = txtEmail.Text;
+                string turno = cbTurno.Text;
+                string telefone = txtTelefone.Text;
+                string cep = txtCEP.Text;
+                string cidade = txtCidade.Text;
+                string uf = txtEstado.Text;
+                string bairro = txtBairro.Text;
+                string rua = txtRua.Text;
+                string numerorua = txtNum.Text;
+                Aluno aluno = new Aluno(ra, nome, curso, periodo, estadocivil, genero, datanascimento, email, turno, telefone, cep, cidade, uf, bairro, rua, numerorua);
                 alunoModel.Editar(aluno);
             }
             catch (Exception)
@@ -106,10 +102,7 @@ namespace ProjetoSistemaEe.View
                 DialogResult result = MessageBox.Show("Deseja excluir o aluno?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    //Aluno alunos = new Aluno();
-                    //ExcluirAluno(alunos);
                     MessageBox.Show("Aluno excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FormAbrir();
                 }
             }
             catch (Exception ex)
@@ -131,10 +124,7 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            FormAbrir();
-        }
+        #region Validações
 
         private void txtCEP_TextChanged(object sender, EventArgs e)
         {
@@ -151,11 +141,28 @@ namespace ProjetoSistemaEe.View
             validar.VerificaNumero(e);
         }
 
-        private void FormAbrir()
+        #endregion Validações
+
+        #region Botões
+
+        private void BtnClose_Click(object sender, EventArgs e)
         {
-            VisualizarAluno formB = new VisualizarAluno();
-            var principal = this.ParentForm as MenuPrincipal;
-            principal.AbrirFormNoPainel(formB);
+            Application.Exit();
         }
+
+        private void BtnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void BtnPreviousMenu_Click(object sender, EventArgs e)
+        {
+            Close();
+            MenuPrincipal main_Menu = new MenuPrincipal();
+            main_Menu.TopLevel = true;
+            main_Menu.Show();
+        }
+
+        #endregion Botões
     }
 }

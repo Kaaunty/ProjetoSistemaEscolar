@@ -60,10 +60,14 @@
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnVoltar = new FontAwesome.Sharp.IconButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnPreviousMenu = new FontAwesome.Sharp.IconButton();
+            this.BtnClose = new FontAwesome.Sharp.IconButton();
+            this.BtnMinimize = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.btnDeletar = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtCEP
@@ -434,7 +438,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.background_aluno;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel1.Controls.Add(this.btnVoltar);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.iconButton1);
             this.panel1.Controls.Add(this.txtCEP);
             this.panel1.Controls.Add(this.cbPeriodo);
@@ -473,29 +477,62 @@
             this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 1;
             // 
-            // btnVoltar
+            // panel2
             // 
-            this.btnVoltar.BackColor = System.Drawing.Color.Transparent;
-            this.btnVoltar.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
-            this.btnVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnVoltar.FlatAppearance.BorderSize = 0;
-            this.btnVoltar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnVoltar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVoltar.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnVoltar.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
-            this.btnVoltar.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.btnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnVoltar.IconSize = 30;
-            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVoltar.Location = new System.Drawing.Point(12, 12);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(130, 35);
-            this.btnVoltar.TabIndex = 48;
-            this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = false;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel2.Controls.Add(this.BtnPreviousMenu);
+            this.panel2.Controls.Add(this.BtnClose);
+            this.panel2.Controls.Add(this.BtnMinimize);
+            this.panel2.Location = new System.Drawing.Point(1, 1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1037, 35);
+            this.panel2.TabIndex = 48;
+            // 
+            // BtnPreviousMenu
+            // 
+            this.BtnPreviousMenu.FlatAppearance.BorderSize = 0;
+            this.BtnPreviousMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPreviousMenu.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
+            this.BtnPreviousMenu.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnPreviousMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnPreviousMenu.IconSize = 40;
+            this.BtnPreviousMenu.Location = new System.Drawing.Point(940, 4);
+            this.BtnPreviousMenu.Name = "BtnPreviousMenu";
+            this.BtnPreviousMenu.Size = new System.Drawing.Size(28, 28);
+            this.BtnPreviousMenu.TabIndex = 2;
+            this.BtnPreviousMenu.UseVisualStyleBackColor = true;
+            this.BtnPreviousMenu.Click += new System.EventHandler(this.BtnPreviousMenu_Click);
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.FlatAppearance.BorderSize = 0;
+            this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnClose.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.BtnClose.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnClose.IconSize = 40;
+            this.BtnClose.Location = new System.Drawing.Point(1008, 3);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(28, 28);
+            this.BtnClose.TabIndex = 0;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
+            // BtnMinimize
+            // 
+            this.BtnMinimize.FlatAppearance.BorderSize = 0;
+            this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMinimize.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.BtnMinimize.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnMinimize.IconSize = 40;
+            this.BtnMinimize.Location = new System.Drawing.Point(974, 4);
+            this.BtnMinimize.Name = "BtnMinimize";
+            this.BtnMinimize.Size = new System.Drawing.Size(28, 28);
+            this.BtnMinimize.TabIndex = 1;
+            this.BtnMinimize.UseVisualStyleBackColor = true;
+            this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
             // 
             // iconButton1
             // 
@@ -553,6 +590,7 @@
             this.Text = "EditarAluno";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -593,6 +631,9 @@
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton btnDeletar;
-        private FontAwesome.Sharp.IconButton btnVoltar;
+        private System.Windows.Forms.Panel panel2;
+        private FontAwesome.Sharp.IconButton BtnPreviousMenu;
+        private FontAwesome.Sharp.IconButton BtnClose;
+        private FontAwesome.Sharp.IconButton BtnMinimize;
     }
 }

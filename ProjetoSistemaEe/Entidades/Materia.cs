@@ -1,4 +1,6 @@
-﻿namespace ProjetoSistemaEe.Entidades
+﻿using System.Data;
+
+namespace ProjetoSistemaEe.Entidades
 {
     internal class Materia
     {
