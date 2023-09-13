@@ -23,12 +23,16 @@ namespace ProjetoSistemaEe.View
 
         private void ListarAluno()
         {
-            gridBoletim.AutoGenerateColumns = false;
-            gridBoletim.DataSource = alunoModel.Listar();
+            gridAluno.AutoGenerateColumns = false;
+            gridAluno.DataSource = alunoModel.Listar();
         }
 
         private void gridAluno_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            Aluno aluno = (Aluno)gridAluno.Rows[e.RowIndex].DataBoundItem;
+            EditarAluno editarAluno = new EditarAluno(aluno);
+            editarAluno.ShowDialog();
+            ListarAluno();
         }
 
         private void BtnClose_Click(object sender, EventArgs e)

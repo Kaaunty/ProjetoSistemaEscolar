@@ -1,7 +1,9 @@
 ﻿using ProjetoSistemaEe.DAO;
 using ProjetoSistemaEe.Entidades;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Windows.Documents;
 
 namespace ProjetoSistemaEe.Model
 {
@@ -21,13 +23,13 @@ namespace ProjetoSistemaEe.Model
             }
         }
 
-        public DataTable ListarNotas()
+        public List<Boletim> Listar()
         {
             try
             {
-                DataTable dt = new DataTable();
-                dt = dao.ListarBoletim();
-                return dt;
+                List<Boletim> boletins = new List<Boletim>();
+                boletins = dao.ListarBoletim();
+                return boletins;
             }
             catch (Exception)
             {

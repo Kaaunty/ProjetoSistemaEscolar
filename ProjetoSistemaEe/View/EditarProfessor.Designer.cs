@@ -35,7 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.BtnPreviousMenu = new FontAwesome.Sharp.IconButton();
             this.BtnClose = new FontAwesome.Sharp.IconButton();
             this.BtnMinimize = new FontAwesome.Sharp.IconButton();
             this.ListaMaterias = new System.Windows.Forms.ListBox();
@@ -125,27 +124,12 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel2.Controls.Add(this.BtnPreviousMenu);
             this.panel2.Controls.Add(this.BtnClose);
             this.panel2.Controls.Add(this.BtnMinimize);
             this.panel2.Location = new System.Drawing.Point(1, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1037, 35);
             this.panel2.TabIndex = 82;
-            // 
-            // BtnPreviousMenu
-            // 
-            this.BtnPreviousMenu.FlatAppearance.BorderSize = 0;
-            this.BtnPreviousMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPreviousMenu.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
-            this.BtnPreviousMenu.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnPreviousMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnPreviousMenu.IconSize = 40;
-            this.BtnPreviousMenu.Location = new System.Drawing.Point(940, 4);
-            this.BtnPreviousMenu.Name = "BtnPreviousMenu";
-            this.BtnPreviousMenu.Size = new System.Drawing.Size(28, 28);
-            this.BtnPreviousMenu.TabIndex = 2;
-            this.BtnPreviousMenu.UseVisualStyleBackColor = true;
             // 
             // BtnClose
             // 
@@ -160,6 +144,7 @@
             this.BtnClose.Size = new System.Drawing.Size(28, 28);
             this.BtnClose.TabIndex = 0;
             this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // BtnMinimize
             // 
@@ -174,6 +159,7 @@
             this.BtnMinimize.Size = new System.Drawing.Size(28, 28);
             this.BtnMinimize.TabIndex = 1;
             this.BtnMinimize.UseVisualStyleBackColor = true;
+            this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
             // 
             // ListaMaterias
             // 
@@ -182,6 +168,7 @@
             this.ListaMaterias.Name = "ListaMaterias";
             this.ListaMaterias.Size = new System.Drawing.Size(230, 108);
             this.ListaMaterias.TabIndex = 81;
+            this.ListaMaterias.Visible = false;
             // 
             // gridMaterias
             // 
@@ -291,6 +278,7 @@
             this.txtEmail.Size = new System.Drawing.Size(206, 29);
             this.txtEmail.TabIndex = 77;
             this.txtEmail.Text = "Email:";
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // label16
             // 
@@ -666,7 +654,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nome_materia;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.Panel panel2;
-        private FontAwesome.Sharp.IconButton BtnPreviousMenu;
         private FontAwesome.Sharp.IconButton BtnClose;
         private FontAwesome.Sharp.IconButton BtnMinimize;
     }

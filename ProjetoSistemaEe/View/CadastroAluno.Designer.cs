@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroAluno));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnPreviousMenu = new FontAwesome.Sharp.IconButton();
             this.BtnClose = new FontAwesome.Sharp.IconButton();
             this.BtnMinimize = new FontAwesome.Sharp.IconButton();
             this.txtCEP = new System.Windows.Forms.MaskedTextBox();
@@ -64,7 +65,6 @@
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.BtnPreviousMenu = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -124,6 +124,21 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1037, 35);
             this.panel2.TabIndex = 6;
+            // 
+            // BtnPreviousMenu
+            // 
+            this.BtnPreviousMenu.FlatAppearance.BorderSize = 0;
+            this.BtnPreviousMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPreviousMenu.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
+            this.BtnPreviousMenu.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnPreviousMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnPreviousMenu.IconSize = 40;
+            this.BtnPreviousMenu.Location = new System.Drawing.Point(940, 4);
+            this.BtnPreviousMenu.Name = "BtnPreviousMenu";
+            this.BtnPreviousMenu.Size = new System.Drawing.Size(28, 28);
+            this.BtnPreviousMenu.TabIndex = 2;
+            this.BtnPreviousMenu.UseVisualStyleBackColor = true;
+            this.BtnPreviousMenu.Click += new System.EventHandler(this.BtnPreviousMenu_Click);
             // 
             // BtnClose
             // 
@@ -241,6 +256,7 @@
             this.txtEmail.Size = new System.Drawing.Size(206, 29);
             this.txtEmail.TabIndex = 6;
             this.txtEmail.Text = "Email:";
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // cbTurno
             // 
@@ -338,7 +354,6 @@
             this.txtNum.Size = new System.Drawing.Size(47, 29);
             this.txtNum.TabIndex = 8;
             this.txtNum.Text = "0000";
-            this.txtNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
             // 
             // txtRua
             // 
@@ -529,21 +544,6 @@
             this.txtNome.TabIndex = 0;
             this.txtNome.Text = "Nome";
             this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
-            // 
-            // BtnPreviousMenu
-            // 
-            this.BtnPreviousMenu.FlatAppearance.BorderSize = 0;
-            this.BtnPreviousMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPreviousMenu.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
-            this.BtnPreviousMenu.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnPreviousMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnPreviousMenu.IconSize = 40;
-            this.BtnPreviousMenu.Location = new System.Drawing.Point(940, 4);
-            this.BtnPreviousMenu.Name = "BtnPreviousMenu";
-            this.BtnPreviousMenu.Size = new System.Drawing.Size(28, 28);
-            this.BtnPreviousMenu.TabIndex = 2;
-            this.BtnPreviousMenu.UseVisualStyleBackColor = true;
-            this.BtnPreviousMenu.Click += new System.EventHandler(this.BtnPreviousMenu_Click);
             // 
             // CadastroAluno
             // 

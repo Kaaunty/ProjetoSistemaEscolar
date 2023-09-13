@@ -39,6 +39,7 @@ namespace ProjetoSistemaEe.View
                         Salvar();
                         MessageBox.Show("Professor cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         validar.LimparControles(this);
+                        LimparDataGrid();
                         PopularGrid();
                     }
                 }
@@ -56,8 +57,8 @@ namespace ProjetoSistemaEe.View
                 Professor professor = new Professor
                 {
                     Nome = txtNome.Text,
-                    Materias = ReceberMateriasSelecionadas(),
-                    EstadoCivil = cbEstadoCivil.Text,
+                    Materia = ReceberMateriasSelecionadas(),
+                    Estadocivil = cbEstadoCivil.Text,
                     Genero = cbGenero.Text,
                     Email = txtEmail.Text,
                     Cep = txtCEP.Text,
@@ -97,6 +98,17 @@ namespace ProjetoSistemaEe.View
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        private void LimparDataGrid()
+        {
+            foreach (DataGridViewRow row in gridMaterias.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                {
+                    row.Cells[0].Value = false;
+                }
             }
         }
 
@@ -152,6 +164,11 @@ namespace ProjetoSistemaEe.View
             main_Menu.TopLevel = true;
             main_Menu.Show();
             Close();
+        }
+
+        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.BloqueiaEspaco(e);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.Utils
 {
-    internal class Calcular
+    internal class Calculos
     {
         private AlunoDAO alunoDAO = new AlunoDAO();
 

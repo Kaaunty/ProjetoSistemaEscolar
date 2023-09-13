@@ -10,23 +10,27 @@ namespace ProjetoSistemaEe.View
     {
         private Validar validar = new Validar();
         private BoletimModel model = new BoletimModel();
-        private Calcular calcular = new Calcular();
-        private VisualizarBoletim instanciaDoForm1; //crio um objeto do tipo FORM 1, que será usado dentro da classe
+        private Calculos calcular = new Calculos();
+        private Boletim boletim;
 
-        public EditarNotas(VisualizarBoletim InstanciaVisualizar)
+        public EditarNotas(Boletim boletim)
         {
+            this.boletim = boletim;
             InitializeComponent();
-            instanciaDoForm1 = InstanciaVisualizar; //passo o valor do form1 para o objeto criado
-            txtRA.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[0].Value.ToString();
-            txtNome.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[1].Value.ToString();
-            txtCurso.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[2].Value.ToString();
-            txtMateria.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[3].Value.ToString();
-            txtNomeProfessor.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[4].Value.ToString();
-            txtN1.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[5].Value.ToString();
-            txtN2.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[6].Value.ToString();
-            txtN3.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[7].Value.ToString();
-            txtN4.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[8].Value.ToString();
-            txtMedia.Text = instanciaDoForm1.gridBoletim.CurrentRow.Cells[9].Value.ToString();
+        }
+
+        private void PopularCampos()
+        {
+            txtRA.Text = boletim.ra.ToString();
+            txtNome.Text = boletim.nome_aluno;
+            txtN1.Text = boletim.nota1.ToString();
+            txtN2.Text = boletim.nota2.ToString();
+            txtN3.Text = boletim.nota3.ToString();
+            txtN4.Text = boletim.nota4.ToString();
+            txtMedia.Text = boletim.media.ToString();
+            txtNomeProfessor.Text = boletim.nome_professor;
+            txtMateria.Text = boletim.nome_materia;
+            txtCurso.Text = boletim.nome_curso;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -36,8 +40,8 @@ namespace ProjetoSistemaEe.View
                 DialogResult result = MessageBox.Show("Deseja editar a nota do aluno?", "Adicionar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    Boletim boletim = new Boletim();
-                    Editar(boletim);
+                    //Boletim boletim = new Boletim();
+                    //Editar(boletim);
                     MessageBox.Show("Boletim editado com sucesso!");
                 }
             }
@@ -51,19 +55,18 @@ namespace ProjetoSistemaEe.View
         {
             try
             {
-                boletim.Id = Convert.ToInt32(instanciaDoForm1.gridBoletim.CurrentRow.Cells[0].Value.ToString());
-                boletim.Nota1 = Convert.ToDouble(txtN1.Text);
-                boletim.Nota2 = Convert.ToDouble(txtN2.Text);
-                boletim.Nota3 = Convert.ToDouble(txtN3.Text);
-                boletim.Nota4 = Convert.ToDouble(txtN4.Text);
-                boletim.Media = Convert.ToDouble(txtMedia.Text);
-                if (boletim.Media >= 7)
+                boletim.nota1 = Convert.ToDouble(txtN1.Text);
+                boletim.nota2 = Convert.ToDouble(txtN2.Text);
+                boletim.nota3 = Convert.ToDouble(txtN3.Text);
+                boletim.nota4 = Convert.ToDouble(txtN4.Text);
+                boletim.media = Convert.ToDouble(txtMedia.Text);
+                if (boletim.media >= 7)
                 {
-                    boletim.Situacao = "Aprovado";
+                    boletim.situacao = "Aprovado";
                 }
                 else
                 {
-                    boletim.Situacao = "Reprovado";
+                    boletim.situacao = "Reprovado";
                 }
                 model.EditarBoletim(boletim);
             }
@@ -105,17 +108,9 @@ namespace ProjetoSistemaEe.View
             validar.VerificaNumero(e);
         }
 
-        private void BtnPreviousMenu_Click(object sender, EventArgs e)
-        {
-            MenuPrincipal main_Menu = new MenuPrincipal();
-            Close();
-            main_Menu.TopLevel = true;
-            main_Menu.Show();
-        }
-
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();
         }
 
         private void BtnMinimize_Click(object sender, EventArgs e)

@@ -2,7 +2,7 @@
 
 namespace ProjetoSistemaEe.Entidades
 {
-    internal class Pessoa
+    public class Pessoa
     {
         private string nome;
         private string estadocivil;
@@ -31,7 +31,6 @@ namespace ProjetoSistemaEe.Entidades
 
         public string Uf { get => uf; set => uf = value; }
         public string Numerorua { get => numerorua; set => numerorua = value; }
-        public string EstadoCivil { get => estadoCivil; set => estadoCivil = value; }
         public string Email { get => email; set => email = value; }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace ProjetoSistemaEe.Entidades
 {
-    internal class Materia
+    public class Materia
     {
         private string nome;
         private int cursoid;

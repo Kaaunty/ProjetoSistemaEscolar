@@ -1,5 +1,7 @@
-﻿using ProjetoSistemaEe.Model;
+﻿using ProjetoSistemaEe.Entidades;
+using ProjetoSistemaEe.Model;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
@@ -26,6 +28,10 @@ namespace ProjetoSistemaEe.View
 
         private void gridProfessor_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            Professor professor = (Professor)gridProfessor.Rows[e.RowIndex].DataBoundItem;
+            EditarProfessor editarProfessor = new EditarProfessor(professor);
+            editarProfessor.ShowDialog();
+            ListarProfessor();
         }
 
         private void BtnClose_Click(object sender, EventArgs e)

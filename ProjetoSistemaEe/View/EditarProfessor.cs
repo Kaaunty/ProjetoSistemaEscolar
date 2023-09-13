@@ -3,54 +3,51 @@ using ProjetoSistemaEe.Entidades;
 using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
 {
     public partial class EditarProfessor : Form
     {
-        private MateriaModel materiaM = new MateriaModel();
         private ProfessorModel professormodel = new ProfessorModel();
+        private MateriaModel materiamodel = new MateriaModel();
         private Validar validar = new Validar();
-        private VisualizarProfessor instanciaDoForm2;
-        private char[] delimitarchars = { '-', ',' };
+        private Professor professor;
 
-        public EditarProfessor(VisualizarProfessor InstanciaVisualizar)
+        public EditarProfessor(Professor professor)
         {
+            this.professor = professor;
             InitializeComponent();
-            gridMaterias.DataSource = materiaM.ListarMateria();
-            ListaMaterias.Visible = false;
-            instanciaDoForm2 = InstanciaVisualizar; //passo o valor do form1 para o objeto criado
-            txtID.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[0].Value.ToString();
-            txtNome.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[1].Value.ToString();
-            txtSalario.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[3].Value.ToString();
-            cbEstadoCivil.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[4].Value.ToString();
-            cbGenero.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[5].Value.ToString();
-            dtProfessor.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[6].Value.ToString();
-            txtEmail.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[7].Value.ToString();
-            txtTelefone.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[8].Value.ToString();
-            txtCEP.Text = instanciaDoForm2.gridProfessor.CurrentRow.Cells[9].Value.ToString();
-
-            foreach (DataGridViewRow rowprofessor in instanciaDoForm2.gridProfessor.Rows)
-            {
-                if (rowprofessor.Cells[0].Value.ToString() == txtID.Text)
-                {
-                    foreach (DataGridViewRow rowmateria in gridMaterias.Rows)
-                    {
-                        if (rowmateria.Cells[1].Value.ToString() == rowprofessor.Cells[10].Value.ToString())
-                        {
-                            rowmateria.Cells[0].Value = true;
-                        }
-                    }
-                }
-            }
         }
 
         private void EditarProfessor_Load(object sender, EventArgs e)
         {
             Validar.FormatarData(dtProfessor, new DateTime(2004, 12, 31), new DateTime(1953, 01, 01));
+            gridMaterias.DataSource = materiamodel.ListarMateria();
+            AdicionarMateriasNaLista();
+            PopularCampos();
             SelecionarMaterias();
+        }
+
+        private void PopularCampos()
+        {
+            txtID.Text = professor.Id.ToString();
+            txtNome.Text = professor.Nome;
+            cbEstadoCivil.Text = professor.Estadocivil;
+            txtSalario.Text = professor.Salario;
+            cbGenero.Text = professor.Genero;
+            dtProfessor.Text = professor.Datanascimento.ToString();
+            txtEmail.Text = professor.Email;
+            txtTelefone.Text = professor.Telefone;
+            txtCEP.Text = professor.Cep;
+            txtCidade.Text = professor.Cidade;
+            txtEstado.Text = professor.Uf;
+            txtBairro.Text = professor.Bairro;
+            txtRua.Text = professor.Rua;
+            txtNum.Text = professor.Numerorua;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -62,7 +59,9 @@ namespace ProjetoSistemaEe.View
                     DialogResult result = MessageBox.Show("Deseja editar o professor?", "Editar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
+                        Editar();
                         MessageBox.Show("Professor editado com sucesso!");
+                        Close();
                     }
                 }
                 catch (Exception ex)
@@ -72,35 +71,27 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        private void Editar(Professor professor)
+        private void Editar()
         {
             try
             {
-                professor.Id = Convert.ToInt32(txtID.Text);
-                professor.Nome = txtNome.Text;
-                // VERIFICAR ISSO -->
-                for (int i = 0; i < gridMaterias.Rows.Count; i++)
-                {
-                    if (Convert.ToBoolean(gridMaterias.Rows[i].Cells[0].Value) == true)
-                    {
-                        //professor.Materia.Add(Convert.ToInt32(gridMaterias.Rows[i].Cells[1].Value));
-                    }
-                    else if (Convert.ToBoolean(gridMaterias.Rows[i].Cells[0].Value) == false)
-                    {
-                    }
-                }
-                professor.EstadoCivil = cbEstadoCivil.Text;
-                professor.Genero = cbGenero.Text;
-                professor.Salario = txtSalario.Text;
-                professor.Datanascimento = Convert.ToDateTime(dtProfessor.Text);
-                professor.Email = txtEmail.Text;
-                professor.Telefone = txtTelefone.Text;
-                professor.Cep = txtCEP.Text;
-                professor.Cidade = txtCidade.Text;
-                professor.Uf = txtEstado.Text;
-                professor.Bairro = txtBairro.Text;
-                professor.Rua = txtRua.Text;
-                professor.Numerorua = txtNum.Text;
+                int id = Convert.ToInt32(txtID.Text);
+                string nome = txtNome.Text;
+                string estadocivil = cbEstadoCivil.Text;
+                string genero = cbGenero.Text;
+                DateTime datanascimento = dtProfessor.Value;
+                string email = txtEmail.Text;
+                string telefone = txtTelefone.Text;
+                string cep = txtCEP.Text;
+                string cidade = txtCidade.Text;
+                string uf = txtEstado.Text;
+                string bairro = txtBairro.Text;
+                string rua = txtRua.Text;
+                string numerorua = txtNum.Text;
+                string salario = txtSalario.Text;
+                List<Materia> materias = ReceberMateriasSelecionadas();
+
+                Professor professor = new Professor(id, nome, materias, salario, estadocivil, genero, datanascimento, email, telefone, cep, cidade, uf, bairro, rua, numerorua);
 
                 professormodel.Editar(professor);
             }
@@ -110,16 +101,37 @@ namespace ProjetoSistemaEe.View
             }
         }
 
+        private List<Materia> ReceberMateriasSelecionadas()
+        {
+            List<Materia> materias = new List<Materia>();
+            foreach (DataGridViewRow row in gridMaterias.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                {
+                    Materia materia = new Materia(Convert.ToInt32(row.Cells[1].Value), row.Cells[2].Value.ToString());
+                    materias.Add(materia);
+                }
+                else if (Convert.ToBoolean(row.Cells[0].Value) == false)
+                {
+                    Materia materia = new Materia(Convert.ToInt32(row.Cells[1].Value), row.Cells[2].Value.ToString());
+                    materias.Remove(materia);
+                }
+            }
+            return materias;
+        }
+
         private void btnDeletar_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Deseja excluir o professor?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                Excluir();
                 MessageBox.Show("Professor excluido com sucesso!");
+                Close();
             }
         }
 
-        private void Excluir(Professor professor)
+        private void Excluir()
         {
             if (validar.ValidateControls(this))
             {
@@ -157,21 +169,12 @@ namespace ProjetoSistemaEe.View
             validar.VerificaCEP(txtCEP, txtEstado, txtCidade, txtBairro, txtRua, txtNum);
         }
 
-        #endregion Validações
-
-        private void AddOnList()
+        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            foreach (DataGridViewRow row in gridMaterias.Rows)
-            {
-                if (Convert.ToBoolean(row.Cells[0].Value) == true)
-                {
-                    if (!ListaMaterias.Items.Contains(row.Cells[2].Value))
-                    {
-                        ListaMaterias.Items.Add(row.Cells[2].Value);
-                    }
-                }
-            }
+            validar.BloqueiaEspaco(e);
         }
+
+        #endregion Validações
 
         private void SelecionarMaterias()
         {
@@ -182,6 +185,28 @@ namespace ProjetoSistemaEe.View
                     if (row.Cells[2].Value.ToString() == item)
                     {
                         row.Cells[0].Value = true;
+                    }
+                }
+            }
+        }
+
+        private void AdicionarMateriasNaLista()
+        {
+            foreach (Materia item in professor.Materia)
+            {
+                ListaMaterias.Items.Add(item.Nome);
+            }
+        }
+
+        private void AddOnList()
+        {
+            foreach (DataGridViewRow row in gridMaterias.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                {
+                    if (!ListaMaterias.Items.Contains(row.Cells[2].Value))
+                    {
+                        ListaMaterias.Items.Add(row.Cells[2].Value);
                     }
                 }
             }
@@ -211,6 +236,16 @@ namespace ProjetoSistemaEe.View
         {
             AddOnList();
             RemoveOnList();
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void BtnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

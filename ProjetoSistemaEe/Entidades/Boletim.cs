@@ -1,29 +1,40 @@
 ﻿namespace ProjetoSistemaEe.Entidades
 {
-    internal class Boletim
+    public class Boletim
     {
-        private int id;
-        private int idAluno;
-        private string idCurso;
-        private string idDisciplina;
-        private double nota1;
-        private double nota2;
-        private double nota3;
-        private double nota4;
-        private double media;
-        private int idprofessor;
-        private string situacao;
+        public int id;
+        public double nota1;
+        public double nota2;
+        public double nota3;
+        public double nota4;
+        public double media;
+        public string situacao;
+        public int ra;
+        public string nome_aluno;
+        public string nome_curso;
+        public string nome_materia;
+        public string nome_professor;
+        public int id_curso;
+        public int id_professor;
+        public int id_disciplina;
 
-        public int IdAluno { get => idAluno; set => idAluno = value; }
-        public string IdDisciplina { get => idDisciplina; set => idDisciplina = value; }
-        public double Nota1 { get => nota1; set => nota1 = value; }
-        public double Nota2 { get => nota2; set => nota2 = value; }
-        public double Nota3 { get => nota3; set => nota3 = value; }
-        public double Nota4 { get => nota4; set => nota4 = value; }
-        public double Media { get => media; set => media = value; }
-        public int Idprofessor { get => idprofessor; set => idprofessor = value; }
-        public string Situacao { get => situacao; set => situacao = value; }
-        public int Id { get => id; set => id = value; }
-        public string IdCurso { get => idCurso; set => idCurso = value; }
+        public Boletim(int id, int ra, string nome_aluno, string nome_curso, int id_curso, int id_professor, int id_disciplina, string nome_materia, string nome_professor, double nota1, double nota2, double nota3, double nota4, double media, string situacao)
+        {
+            this.id = id;
+            this.ra = ra;
+            this.nome_aluno = nome_aluno;
+            this.nome_curso = nome_curso;
+            this.id_curso = id_curso;
+            this.id_professor = id_professor;
+            this.id_disciplina = id_disciplina;
+            this.nome_materia = nome_materia;
+            this.nome_professor = nome_professor;
+            this.nota1 = nota1;
+            this.nota2 = nota2;
+            this.nota3 = nota3;
+            this.nota4 = nota4;
+            this.media = media;
+            this.situacao = situacao;
+        }
     }
 }

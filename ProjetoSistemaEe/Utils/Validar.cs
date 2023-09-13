@@ -60,6 +60,14 @@ namespace ProjetoSistemaEe.Utils
             }
         }
 
+        public void BloqueiaEspaco(KeyPressEventArgs e)
+        {
+            if (!(e.KeyChar != ' '))
+            {
+                e.Handled = true;
+            }
+        }
+
         public void VerificaCEP(MaskedTextBox textBox, TextBox estado, TextBox cidade, TextBox bairro, TextBox rua, TextBox numrua)
         {
             if (!string.IsNullOrEmpty(textBox.Text) && textBox.MaskCompleted)
@@ -107,10 +115,6 @@ namespace ProjetoSistemaEe.Utils
 
                         case "System.Windows.Forms.ComboBox":
                             ((ComboBox)c).SelectedIndex = -1;
-                            break;
-
-                        case "System.Windows.Forms.DataGridView dataGridView":
-                            ((DataGridView)c).Rows.Clear();
                             break;
                     }
                 }

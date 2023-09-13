@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.Entidades
 {
-    internal class Professor : Pessoa
+    public class Professor : Pessoa
     {
         private string salario;
         private int id;
 
-        private List<Materia> materias = new List<Materia>();
+        public List<Materia> Materia = new List<Materia>();
 
         public Professor()
         {
@@ -20,7 +20,7 @@ namespace ProjetoSistemaEe.Entidades
         {
             this.id = id;
             Nome = nome;
-            this.Materias = materia;
+            this.Materia = materia;
             this.salario = salario;
             Estadocivil = estadocivil;
             Genero = genero;
@@ -38,6 +38,5 @@ namespace ProjetoSistemaEe.Entidades
         public int Id { get => id; set => id = value; }
 
         public string Salario { get => salario; set => salario = value; }
-        public List<Materia> Materias { get => materias; set => materias = value; }
     }
 }

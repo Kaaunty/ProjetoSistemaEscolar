@@ -54,7 +54,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.BtnPreviousMenu = new FontAwesome.Sharp.IconButton();
             this.BtnClose = new FontAwesome.Sharp.IconButton();
             this.BtnMinimize = new FontAwesome.Sharp.IconButton();
             this.panel2.SuspendLayout();
@@ -397,28 +396,12 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel4.Controls.Add(this.BtnPreviousMenu);
             this.panel4.Controls.Add(this.BtnClose);
             this.panel4.Controls.Add(this.BtnMinimize);
             this.panel4.Location = new System.Drawing.Point(1, 1);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1037, 35);
             this.panel4.TabIndex = 10;
-            // 
-            // BtnPreviousMenu
-            // 
-            this.BtnPreviousMenu.FlatAppearance.BorderSize = 0;
-            this.BtnPreviousMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPreviousMenu.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
-            this.BtnPreviousMenu.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnPreviousMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnPreviousMenu.IconSize = 40;
-            this.BtnPreviousMenu.Location = new System.Drawing.Point(940, 4);
-            this.BtnPreviousMenu.Name = "BtnPreviousMenu";
-            this.BtnPreviousMenu.Size = new System.Drawing.Size(28, 28);
-            this.BtnPreviousMenu.TabIndex = 2;
-            this.BtnPreviousMenu.UseVisualStyleBackColor = true;
-            this.BtnPreviousMenu.Click += new System.EventHandler(this.BtnPreviousMenu_Click);
             // 
             // BtnClose
             // 
@@ -497,7 +480,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
-        private FontAwesome.Sharp.IconButton BtnPreviousMenu;
         private FontAwesome.Sharp.IconButton BtnClose;
         private FontAwesome.Sharp.IconButton BtnMinimize;
     }

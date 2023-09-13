@@ -1,5 +1,7 @@
 ﻿using ProjetoSistemaEe.DAO;
+using ProjetoSistemaEe.Entidades;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace ProjetoSistemaEe.Model
@@ -15,6 +17,48 @@ namespace ProjetoSistemaEe.Model
                 DataTable dt = new DataTable();
                 dt = dao.ListarCursos();
                 return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Curso> ListarCursosSeTiverAluno()
+        {
+            try
+            {
+                List<Curso> ListaCursos = new List<Curso>();
+                ListaCursos = dao.ListarCursoSeTiverAluno();
+                return ListaCursos;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Aluno> ListarAlunoPorCurso(int id_curso)
+        {
+            try
+            {
+                List<Aluno> ListaAlunos = new List<Aluno>();
+                ListaAlunos = dao.ListarAlunoPorCurso(id_curso);
+                return ListaAlunos;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Materia> ListarMateriaPorProfessor(int id_professor)
+        {
+            try
+            {
+                List<Materia> ListaMaterias = new List<Materia>();
+                ListaMaterias = dao.ListarMateriaPorProfessor(id_professor);
+                return ListaMaterias;
             }
             catch (Exception ex)
             {

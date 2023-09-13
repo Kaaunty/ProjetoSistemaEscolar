@@ -28,7 +28,8 @@ namespace ProjetoSistemaEe.DAO
                 {
                     int ra = Convert.ToInt32(dr["ra"]);
                     string nome = dr["nome"].ToString();
-                    string curso = GetCourses(Convert.ToInt32(dr["curso"]));
+                    int id_curso = Convert.ToInt32(dr["curso"]);
+                    Curso curso = GetCourses(id_curso);
                     string periodo = dr["periodo"].ToString();
                     string estadocivil = dr["estadocivil"].ToString();
                     string genero = dr["genero"].ToString();
@@ -68,7 +69,7 @@ namespace ProjetoSistemaEe.DAO
                 sql = new MySqlCommand("INSERT INTO aluno(ra, nome, curso, periodo, estadocivil, genero, datanascimento, email, turno, telefone, cep, cidade, uf, bairro, rua, numerorua) VALUES (@ra, @nome, @curso, @periodo, @estadocivil, @genero, @datanascimento, @email, @turno, @telefone, @cep, @cidade, @uf, @bairro, @rua, @numerorua)", con.con);
                 sql.Parameters.AddWithValue("@ra", aluno.RA);
                 sql.Parameters.AddWithValue("@nome", aluno.Nome);
-                sql.Parameters.AddWithValue("@curso", aluno.Curso);
+                sql.Parameters.AddWithValue("@curso", aluno.Curso.Id_curso);
                 sql.Parameters.AddWithValue("@periodo", aluno.Periodo);
                 sql.Parameters.AddWithValue("@estadocivil", aluno.Estadocivil);
                 sql.Parameters.AddWithValue("@genero", aluno.Genero);
@@ -137,7 +138,7 @@ namespace ProjetoSistemaEe.DAO
                     ", bairro = @bairro, rua = @rua, numerorua = @numerorua where ra = @ra ;", con.con);
                 sql.Parameters.AddWithValue("@ra", aluno.RA);
                 sql.Parameters.AddWithValue("@nome", aluno.Nome);
-                sql.Parameters.AddWithValue("@curso", aluno.Curso);
+                sql.Parameters.AddWithValue("@curso", aluno.Curso.Id_curso);
                 sql.Parameters.AddWithValue("@periodo", aluno.Periodo);
                 sql.Parameters.AddWithValue("@estadocivil", aluno.Estadocivil);
                 sql.Parameters.AddWithValue("@genero", aluno.Genero);
@@ -186,22 +187,22 @@ namespace ProjetoSistemaEe.DAO
             }
         }
 
-        public string GetCourses(int id_curso)
+        public Curso GetCourses(int id_curso)
         {
             try
             {
                 con.AbrirConexao();
-                sql = new MySqlCommand("SELECT nome FROM cursos WHERE id = @id_curso", con.con);
-                sql.Parameters.AddWithValue("@id_curso", id_curso);
-                var result = sql.ExecuteScalar();
-                if (result != null)
+                sql = new MySqlCommand("SELECT * FROM cursos WHERE id = @id", con.con);
+                sql.Parameters.AddWithValue("@id", id_curso);
+                MySqlDataReader dr = sql.ExecuteReader();
+                while (dr.Read())
                 {
-                    return result.ToString();
+                    string nome = dr["nome"].ToString();
+                    int id = Convert.ToInt32(dr["id"]);
+                    Curso curso = new Curso(id, nome);
+                    return curso;
                 }
-                else
-                {
-                    return "";
-                }
+                return null;
             }
             catch (Exception)
             {

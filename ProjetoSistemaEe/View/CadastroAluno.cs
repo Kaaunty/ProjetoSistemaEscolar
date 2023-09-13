@@ -13,7 +13,7 @@ namespace ProjetoSistemaEe
         private AlunoModel alunoM = new AlunoModel();
         private Validar validar = new Validar();
         private CursoModel cursoM = new CursoModel();
-        private Calcular calcular = new Calcular();
+        private Calculos calcular = new Calculos();
 
         public CadastroAluno()
         {
@@ -54,7 +54,8 @@ namespace ProjetoSistemaEe
             {
                 int ra = calcular.GerarRA();
                 string nome = txtNome.Text;
-                string curso = cbCurso.SelectedValue.ToString();
+                int id_curso = Convert.ToInt32(cbCurso.SelectedValue);
+                Curso curso = new Curso(id_curso);
                 string periodo = CbPeriodo.Text;
                 string estadocivil = cbEstadoCivil.Text;
                 string genero = cbGenero.Text;
@@ -86,6 +87,8 @@ namespace ProjetoSistemaEe
             cbCurso.SelectedIndex = -1;
         }
 
+        #region Validações
+
         private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.VerificaNumero(e);
@@ -96,10 +99,17 @@ namespace ProjetoSistemaEe
             validar.VerificaLetra(e);
         }
 
+        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validar.BloqueiaEspaco(e);
+        }
+
         private void txtCEP_TextChanged(object sender, EventArgs e)
         {
             validar.VerificaCEP(txtCEP, txtEstado, txtCidade, txtBairro, txtRua, txtNum);
         }
+
+        #endregion Validações
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
