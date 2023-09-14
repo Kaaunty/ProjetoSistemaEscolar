@@ -23,13 +23,13 @@ namespace ProjetoSistemaEe.Model
             }
         }
 
-        public List<Boletim> Listar()
+        public List<Boletim> ListarBoletim()
         {
             try
             {
-                List<Boletim> boletins = new List<Boletim>();
-                boletins = dao.ListarBoletim();
-                return boletins;
+                List<Boletim> boletims = new List<Boletim>();
+                boletims = dao.ListarBoletim();
+                return boletims;
             }
             catch (Exception)
             {
@@ -42,34 +42,6 @@ namespace ProjetoSistemaEe.Model
             try
             {
                 dao.EditarBoletim(boletim);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public DataTable ListarAlunoPorCurso(int curso_id)
-        {
-            try
-            {
-                DataTable dt = new DataTable();
-                dt = dao.ListarAlunoPorCurso(curso_id);
-                return dt;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public DataTable ListarMateriaPorProfessor(int id_professor)
-        {
-            try
-            {
-                DataTable dt = new DataTable();
-                dt = dao.ListarMateriaPorProfessor(id_professor);
-                return dt;
             }
             catch (Exception)
             {

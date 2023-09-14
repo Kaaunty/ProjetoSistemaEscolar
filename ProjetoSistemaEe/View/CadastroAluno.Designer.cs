@@ -65,6 +65,7 @@
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
+            this.BtnTest = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +77,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.background_aluno;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.BtnTest);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.txtCEP);
             this.panel1.Controls.Add(this.CbPeriodo);
@@ -545,6 +547,28 @@
             this.txtNome.Text = "Nome";
             this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
+            // BtnTest
+            // 
+            this.BtnTest.BackColor = System.Drawing.Color.Transparent;
+            this.BtnTest.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
+            this.BtnTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnTest.FlatAppearance.BorderSize = 0;
+            this.BtnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTest.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTest.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnTest.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.BtnTest.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnTest.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnTest.IconSize = 35;
+            this.BtnTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTest.Location = new System.Drawing.Point(629, 609);
+            this.BtnTest.Name = "BtnTest";
+            this.BtnTest.Size = new System.Drawing.Size(130, 35);
+            this.BtnTest.TabIndex = 42;
+            this.BtnTest.Text = "Teste";
+            this.BtnTest.UseVisualStyleBackColor = false;
+            this.BtnTest.Click += new System.EventHandler(this.BtnTest_Click);
+            // 
             // CadastroAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -602,6 +626,7 @@
         private FontAwesome.Sharp.IconButton BtnClose;
         private FontAwesome.Sharp.IconButton BtnMinimize;
         private FontAwesome.Sharp.IconButton BtnPreviousMenu;
+        private FontAwesome.Sharp.IconButton BtnTest;
     }
 }
 

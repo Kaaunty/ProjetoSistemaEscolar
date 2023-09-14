@@ -17,7 +17,6 @@ namespace ProjetoSistemaEe.View
         public CadastroProfessor()
         {
             InitializeComponent();
-            gridMaterias.DataSource = materiaM.ListarMateria();
         }
 
         private void CadastroProfessor_Load(object sender, EventArgs e)
@@ -25,6 +24,12 @@ namespace ProjetoSistemaEe.View
             validar.LimparControles(this);
             Validar.FormatarData(dtProfessor, new DateTime(2000, 12, 31), new DateTime(1953, 01, 01));
             PopularGrid();
+        }
+
+        private void PopularGrid()
+        {
+            gridMaterias.AutoGenerateColumns = false;
+            gridMaterias.DataSource = materiaM.ListarMateria();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -45,7 +50,7 @@ namespace ProjetoSistemaEe.View
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao cadastrar o profesor:" + ex.Message);
+                    MessageBox.Show("Erro ao cadastrar o professor:" + ex.Message);
                 }
             }
         }
@@ -54,23 +59,21 @@ namespace ProjetoSistemaEe.View
         {
             try
             {
-                Professor professor = new Professor
-                {
-                    Nome = txtNome.Text,
-                    Materia = ReceberMateriasSelecionadas(),
-                    Estadocivil = cbEstadoCivil.Text,
-                    Genero = cbGenero.Text,
-                    Email = txtEmail.Text,
-                    Cep = txtCEP.Text,
-                    Uf = txtEstado.Text,
-                    Salario = txtSalario.Text,
-                    Cidade = txtCidade.Text,
-                    Bairro = txtBairro.Text,
-                    Rua = txtRua.Text,
-                    Numerorua = txtNum.Text,
-                    Telefone = txtTelefone.Text,
-                    Datanascimento = dtProfessor.Value
-                };
+                string nome = txtNome.Text;
+                List<Materia> materia = ReceberMateriasSelecionadas();
+                string estadocivil = cbEstadoCivil.Text;
+                string genero = cbGenero.Text;
+                string email = txtEmail.Text;
+                string cep = txtCEP.Text;
+                string uf = txtEstado.Text;
+                string salario = txtSalario.Text;
+                string cidade = txtCidade.Text;
+                string bairro = txtBairro.Text;
+                string rua = txtRua.Text;
+                string numerorua = txtNum.Text;
+                string telefone = txtTelefone.Text;
+                DateTime datanascimento = dtProfessor.Value;
+                Professor professor = new Professor(nome, materia, salario, estadocivil, genero, datanascimento, email, telefone, cep, cidade, uf, bairro, rua, numerorua);
                 professorM.Salvar(professor);
             }
             catch (Exception)
@@ -89,7 +92,7 @@ namespace ProjetoSistemaEe.View
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
                     {
                         Materia materia = new Materia();
-                        materia.Cursoid = Convert.ToInt32(row.Cells[1].Value);
+                        materia.Materiaid = Convert.ToInt32(row.Cells[2].Value);
                         materias.Add(materia);
                     }
                 }
@@ -109,18 +112,6 @@ namespace ProjetoSistemaEe.View
                 {
                     row.Cells[0].Value = false;
                 }
-            }
-        }
-
-        private void PopularGrid()
-        {
-            try
-            {
-                gridMaterias.DataSource = materiaM.ListarMateria();
-            }
-            catch (Exception)
-            {
-                throw;
             }
         }
 
@@ -148,6 +139,8 @@ namespace ProjetoSistemaEe.View
 
         #endregion Validações
 
+        #region Botões
+
         private void BtnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -169,6 +162,21 @@ namespace ProjetoSistemaEe.View
         private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
             validar.BloqueiaEspaco(e);
+        }
+
+        #endregion Botões
+
+        private void BtnTest_Click(object sender, EventArgs e)
+        {
+            txtNome.Text = "Teste";
+            txtEmail.Text = "Teste@teste.com";
+            txtCEP.Text = "13254685";
+            txtSalario.Text = "9999";
+            txtNum.Text = "123";
+            txtTelefone.Text = "11971258656";
+            cbEstadoCivil.Text = "Solteiro";
+            cbGenero.Text = "Masculino";
+            dtProfessor.Value = new DateTime(1999, 12, 31);
         }
     }
 }

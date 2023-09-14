@@ -18,12 +18,12 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.AbrirConexao();
-                sql = new MySqlCommand(@"SELECT p.id, p.nome,m.nome as nome_materia, p.salario, p.estadocivil, p.genero, p.datanascimento,
+                sql = new MySqlCommand(@"SELECT p.id, p.nome,d.nome_disciplina as nome_materia, p.salario, p.estadocivil, p.genero, p.datanascimento,
                                         p.email, p.telefone, p.cep,pm.id_materia,p.cidade,p.uf,p.bairro,p.rua,p.numerorua
                                         FROM professor p
                                         LEFT JOIN professor_materia pm on p.id = pm.id_professor
-                                        INNER JOIN materia m on pm.id_materia = m.id
-                                        group by p.id;
+                                        INNER JOIN disciplinas d on pm.id_materia = d.id
+                                        group by p.id;;
                                     ", con.con);
                 MySqlDataReader dr = sql.ExecuteReader();
                 while (dr.Read())
@@ -89,7 +89,7 @@ namespace ProjetoSistemaEe.DAO
                     int id_professor = IdUltimoProfessor();
                     sql = new MySqlCommand(@"INSERT INTO professor_materia(id_professor, id_materia) VALUES(@id_professor, @id_materia); ", con.con);
                     sql.Parameters.AddWithValue("@id_professor", id_professor);
-                    sql.Parameters.AddWithValue("@id_materia", item.Cursoid);
+                    sql.Parameters.AddWithValue("@id_materia", item.Materiaid);
                     sql.ExecuteNonQuery();
                     sql.Dispose();
                     con.FecharConexao();
@@ -114,7 +114,6 @@ namespace ProjetoSistemaEe.DAO
                     ", estadocivil = @estadocivil, genero = @genero, datanascimento = @datanascimento" +
                     ", email = @email, telefone = @telefone, cep = @cep, cidade = @cidade, uf = @uf" +
                     ", bairro = @bairro, rua = @rua, numerorua = @numerorua where id = @id ;", con.con);
-
                 sql = new MySqlCommand("Delete from professor_materia where id_professor = @id;", con.con);
                 sql.Parameters.AddWithValue("@id", professor.Id);
                 sql.Parameters.AddWithValue("@nome", professor.Nome);
@@ -138,7 +137,7 @@ namespace ProjetoSistemaEe.DAO
                     con.AbrirConexao();
                     sql = new MySqlCommand(@"INSERT INTO professor_materia(id_professor, id_materia) VALUES(@id_professor, @id_materia); ", con.con);
                     sql.Parameters.AddWithValue("@id_professor", professor.Id);
-                    sql.Parameters.AddWithValue("@id_materia", item.Cursoid);
+                    sql.Parameters.AddWithValue("@id_materia", item.Materiaid);
                     sql.ExecuteNonQuery();
                     sql.Dispose();
                     con.FecharConexao();
@@ -190,9 +189,9 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.AbrirConexao();
-                sql = new MySqlCommand(@"SELECT p.id, pm.id_materia, m.nome from professor p
+                sql = new MySqlCommand(@"SELECT p.id, pm.id_materia, d.nome_disciplina from professor p
                                      Inner join professor_materia pm on p.id = pm.id_professor
-                                     LEFT join materia m on pm.id_materia = m.id
+                                     LEFT join disciplinas d on pm.id_materia = d.id
                                      where p.id = @id_professor;", con.con);
                 sql.Parameters.AddWithValue("@id_professor", id);
                 MySqlDataReader dr = sql.ExecuteReader();
@@ -200,8 +199,8 @@ namespace ProjetoSistemaEe.DAO
                 while (dr.Read())
                 {
                     int id_materia = Convert.ToInt32(dr["id_materia"]);
-                    string nome = dr["nome"].ToString();
-                    Materia materia = new Materia(id_materia, nome);
+                    string nome_materia = dr["nome_disciplina"].ToString();
+                    Materia materia = new Materia(id_materia, nome_materia);
                     materias.Add(materia);
                 }
                 return materias;

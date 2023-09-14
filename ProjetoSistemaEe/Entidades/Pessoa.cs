@@ -15,7 +15,6 @@ namespace ProjetoSistemaEe.Entidades
         private string genero;
         private string uf;
         private string numerorua;
-        private string estadoCivil;
         private string email;
 
         public string Nome { get => nome; set => nome = value; }

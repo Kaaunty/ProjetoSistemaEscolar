@@ -13,13 +13,13 @@ namespace ProjetoSistemaEe.Model
     {
         private MateriaDAO dao = new MateriaDAO();
 
-        public DataTable ListarMateria()
+        public List<Materia> ListarMateria()
         {
             try
             {
-                DataTable dt = new DataTable();
-                dt = dao.ListarMaterias();
-                return dt;
+                List<Materia> materias = new List<Materia>();
+                materias = dao.ListarMaterias();
+                return materias;
             }
             catch (Exception)
             {

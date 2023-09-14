@@ -2,6 +2,7 @@
 using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -12,6 +13,7 @@ namespace ProjetoSistemaEe.View
         private Calculos calcular = new Calculos();
         private CursoModel cursoModel = new CursoModel();
         private ProfessorModel professorModel = new ProfessorModel();
+        private BoletimModel boletimModel = new BoletimModel();
 
         private Validar validar = new Validar();
 
@@ -23,16 +25,7 @@ namespace ProjetoSistemaEe.View
         private void CadastrarNotas_Load(object sender, EventArgs e)
         {
             validar.LimparControles(this);
-
             CarregarComboBox();
-        }
-
-        private void DesabilitarCampos()
-        {
-            txtN1.Enabled = false;
-            txtN2.Enabled = false;
-            txtN3.Enabled = false;
-            txtN4.Enabled = false;
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -44,15 +37,39 @@ namespace ProjetoSistemaEe.View
                     DialogResult result = MessageBox.Show("Deseja adicionar a nota ao aluno?", "Adicionar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
+                        Adicionar();
                         MessageBox.Show("Boletim cadastrado com sucesso!");
                         validar.LimparControles(this);
-                        DesabilitarCampos();
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erro ao adicionar: " + ex.Message);
                 }
+            }
+        }
+
+        private void Adicionar()
+        {
+            try
+            {
+                int ra = Convert.ToInt32(cbAluno.SelectedValue);
+                int id_professor = Convert.ToInt32(cbProfessor.SelectedValue);
+                int id_disciplina = Convert.ToInt32(cbMateria.SelectedValue);
+                int id_curso = Convert.ToInt32(cbCurso.SelectedValue);
+                double nota1 = Convert.ToDouble(txtN1.Text);
+                double nota2 = Convert.ToDouble(txtN2.Text);
+                double nota3 = Convert.ToDouble(txtN3.Text);
+                double nota4 = Convert.ToDouble(txtN4.Text);
+                double media = Convert.ToDouble(txtMedia.Text);
+                string situacao = calcular.VerificarSituacao(media);
+
+                Boletim boletim = new Boletim(ra, id_professor, id_disciplina, id_curso, nota1, nota2, nota3, nota4, media, situacao);
+                boletimModel.CadastrarBoletim(boletim);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao adicionar: " + ex.Message);
             }
         }
 
@@ -132,20 +149,33 @@ namespace ProjetoSistemaEe.View
             cbProfessor.DropDownHeight = cbProfessor.Height * 5;
             cbProfessor.DataSource = professorModel.Listar();
             //
-            cbMateria.ValueMember = "Cursoid";
+            cbMateria.ValueMember = "Materiaid";
             cbMateria.DisplayMember = "Nome";
             cbMateria.DropDownHeight = cbMateria.Height * 5;
-            cbMateria.DataSource = cursoModel.ListarMateriaPorProfessor(Convert.ToInt32(cbProfessor.SelectedValue));
-            //
+            cbMateria.DataSource = cursoModel.ListarMateriaPorProfessorECurso(Convert.ToInt32(cbProfessor.SelectedValue), Convert.ToInt32(cbCurso.SelectedValue));
         }
 
         private void cbCurso_TextChanged(object sender, EventArgs e)
         {
             int id_curso = Convert.ToInt32(cbCurso.SelectedValue);
+            int id_professor = Convert.ToInt32(cbProfessor.SelectedValue);
             cbAluno.ValueMember = "RA";
             cbAluno.DisplayMember = "Nome";
             cbAluno.DropDownHeight = cbAluno.Height * 5;
             cbAluno.DataSource = cursoModel.ListarAlunoPorCurso(id_curso);
+            //
+            cbMateria.ValueMember = "Materiaid";
+            cbMateria.DisplayMember = "Nome";
+            cbMateria.DropDownHeight = cbMateria.Height * 5;
+            cbMateria.DataSource = cursoModel.ListarMateriaPorProfessorECurso(Convert.ToInt32(id_professor), Convert.ToInt32(id_curso));
+        }
+
+        private void cbProfessor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbMateria.ValueMember = "Materiaid";
+            cbMateria.DisplayMember = "Nome";
+            cbMateria.DropDownHeight = cbMateria.Height * 5;
+            cbMateria.DataSource = cursoModel.ListarMateriaPorProfessorECurso(Convert.ToInt32(cbProfessor.SelectedValue), Convert.ToInt32(cbCurso.SelectedValue));
         }
     }
 }

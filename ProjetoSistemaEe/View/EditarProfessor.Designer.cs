@@ -39,9 +39,6 @@
             this.BtnMinimize = new FontAwesome.Sharp.IconButton();
             this.ListaMaterias = new System.Windows.Forms.ListBox();
             this.gridMaterias = new System.Windows.Forms.DataGridView();
-            this.CursoCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.nome_materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSalario = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -71,6 +68,9 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.btnEditar = new FontAwesome.Sharp.IconButton();
             this.btnDeletar = new FontAwesome.Sharp.IconButton();
+            this.CursoCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nome_materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridMaterias)).BeginInit();
@@ -220,31 +220,6 @@
             this.gridMaterias.TabIndex = 80;
             this.gridMaterias.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridMaterias_CellLeave);
             this.gridMaterias.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridMaterias_CellValidated);
-            // 
-            // CursoCheckbox
-            // 
-            this.CursoCheckbox.HeaderText = "";
-            this.CursoCheckbox.Name = "CursoCheckbox";
-            this.CursoCheckbox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CursoCheckbox.Width = 5;
-            // 
-            // nome_materia
-            // 
-            this.nome_materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nome_materia.DataPropertyName = "nome";
-            this.nome_materia.HeaderText = "Materia";
-            this.nome_materia.Name = "nome_materia";
-            this.nome_materia.ReadOnly = true;
-            this.nome_materia.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.nome_materia.Width = 67;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.Visible = false;
-            this.id.Width = 43;
             // 
             // txtSalario
             // 
@@ -596,6 +571,31 @@
             this.btnDeletar.UseVisualStyleBackColor = false;
             this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
+            // CursoCheckbox
+            // 
+            this.CursoCheckbox.HeaderText = "";
+            this.CursoCheckbox.Name = "CursoCheckbox";
+            this.CursoCheckbox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CursoCheckbox.Width = 5;
+            // 
+            // nome_materia
+            // 
+            this.nome_materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nome_materia.DataPropertyName = "nome";
+            this.nome_materia.HeaderText = "Materia";
+            this.nome_materia.Name = "nome_materia";
+            this.nome_materia.ReadOnly = true;
+            this.nome_materia.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.nome_materia.Width = 67;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "Materiaid";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            this.id.Width = 43;
+            // 
             // EditarProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -650,11 +650,11 @@
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.TextBox txtEstado;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn CursoCheckbox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nome_materia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.Panel panel2;
         private FontAwesome.Sharp.IconButton BtnClose;
         private FontAwesome.Sharp.IconButton BtnMinimize;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn CursoCheckbox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome_materia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }

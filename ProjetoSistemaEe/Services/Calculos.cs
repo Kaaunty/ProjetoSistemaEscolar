@@ -72,5 +72,21 @@ namespace ProjetoSistemaEe.Utils
                 }
             }
         }
+
+        public string VerificarSituacao(double media)
+        {
+            if (media < 7)
+            {
+                return "Reprovado";
+            }
+            else if (media < 5 && media >= 7)
+            {
+                return "Recuperação";
+            }
+            else
+            {
+                return "Aprovado";
+            }
+        }
     }
 }

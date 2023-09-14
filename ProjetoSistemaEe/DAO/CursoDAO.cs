@@ -64,7 +64,9 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.AbrirConexao();
-                sql = new MySqlCommand("SELECT * FROM aluno WHERE curso = @id_curso", con.con);
+                sql = new MySqlCommand(@"SELECT a.ra, a.nome FROM aluno a
+                                         JOIN boletim b ON a.ra != b.id_aluno
+                                         where a.curso = @id_curso;", con.con);
                 sql.Parameters.AddWithValue("@id_curso", id_curso);
                 MySqlDataReader dr = sql.ExecuteReader();
                 while (dr.Read())
@@ -86,23 +88,28 @@ namespace ProjetoSistemaEe.DAO
             }
         }
 
-        public List<Materia> ListarMateriaPorProfessor(int id_professor)
+        public List<Materia> ListarMateriaPorProfessorECurso(int id_professor, int id_curso)
         {
             try
             {
                 con.AbrirConexao();
-                sql = new MySqlCommand(@"SELECT p.id as id_professor, m.id as id_materia, m.nome as nome_materia FROM professor_materia pm
-                                         JOIN professor p on pm.id_professor = p.id
-                                         JOIN materia m on pm.id_materia = m.id
-                                         where p.id = @id_professor;", con.con);
+                sql = new MySqlCommand(@"SELECT d.nome_disciplina, d.id as materia_id
+                                         FROM disciplinas d
+                                         INNER JOIN cursos_materias cm ON d.id = cm.materia_id
+                                         INNER JOIN cursos c ON cm.curso_id = c.id
+                                         INNER JOIN professor_materia pm ON d.id = pm.id_materia
+                                         INNER JOIN professor p ON pm.id_professor = p.id
+                                         WHERE p.id = @id_professor
+                                           AND c.id = @id_curso;", con.con);
                 sql.Parameters.AddWithValue("@id_professor", id_professor);
+                sql.Parameters.AddWithValue("@id_curso", id_curso);
                 MySqlDataReader dr = sql.ExecuteReader();
                 List<Materia> ListaMaterias = new List<Materia>();
                 while (dr.Read())
                 {
                     Materia materia = new Materia();
-                    materia.Cursoid = Convert.ToInt32(dr["id_materia"]);
-                    materia.Nome = dr["nome_materia"].ToString();
+                    materia.Materiaid = Convert.ToInt32(dr["materia_id"]);
+                    materia.Nome = dr["nome_disciplina"].ToString();
                     ListaMaterias.Add(materia);
                 }
                 return ListaMaterias;

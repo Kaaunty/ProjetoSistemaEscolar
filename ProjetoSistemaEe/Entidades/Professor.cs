@@ -35,6 +35,24 @@ namespace ProjetoSistemaEe.Entidades
             Numerorua = numerorua;
         }
 
+        public Professor(string nome, List<Materia> materia, string salario, string estadocivil, string genero, DateTime datanascimento, string email, string telefone, string cep, string cidade, string uf, string bairro, string rua, string numerorua)
+        {
+            Nome = nome;
+            Materia = materia;
+            this.salario = salario;
+            Estadocivil = estadocivil;
+            Genero = genero;
+            Datanascimento = datanascimento;
+            Email = email;
+            Telefone = telefone;
+            Cep = cep;
+            Cidade = cidade;
+            Uf = uf;
+            Bairro = bairro;
+            Rua = rua;
+            Numerorua = numerorua;
+        }
+
         public int Id { get => id; set => id = value; }
 
         public string Salario { get => salario; set => salario = value; }

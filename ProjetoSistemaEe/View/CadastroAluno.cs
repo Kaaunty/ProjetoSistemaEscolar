@@ -128,5 +128,20 @@ namespace ProjetoSistemaEe
             main_Menu.TopLevel = true;
             main_Menu.Show();
         }
+
+        private void BtnTest_Click(object sender, EventArgs e)
+        {
+            txtNome.Text = "Teste";
+            txtEmail.Text = "Teste@teste.com";
+            txtCEP.Text = "13254685";
+            cbTurno.Text = "Diurno";
+            cbCurso.Text = "Arqueologia";
+            CbPeriodo.SelectedValue = "1°";
+            txtNum.Text = "123";
+            txtTelefone.Text = "11971258656";
+            cbEstadoCivil.Text = "Solteiro";
+            cbGenero.Text = "Masculino";
+            dtAluno.Value = new DateTime(1999, 12, 31);
+        }
     }
 }

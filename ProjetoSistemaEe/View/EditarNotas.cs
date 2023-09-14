@@ -21,16 +21,16 @@ namespace ProjetoSistemaEe.View
 
         private void PopularCampos()
         {
-            txtRA.Text = boletim.ra.ToString();
-            txtNome.Text = boletim.nome_aluno;
-            txtN1.Text = boletim.nota1.ToString();
-            txtN2.Text = boletim.nota2.ToString();
-            txtN3.Text = boletim.nota3.ToString();
-            txtN4.Text = boletim.nota4.ToString();
-            txtMedia.Text = boletim.media.ToString();
-            txtNomeProfessor.Text = boletim.nome_professor;
-            txtMateria.Text = boletim.nome_materia;
-            txtCurso.Text = boletim.nome_curso;
+            txtRA.Text = boletim.Ra.ToString();
+            txtNome.Text = boletim.Nome_aluno;
+            txtN1.Text = boletim.Nota1.ToString();
+            txtN2.Text = boletim.Nota2.ToString();
+            txtN3.Text = boletim.Nota3.ToString();
+            txtN4.Text = boletim.Nota4.ToString();
+            txtMedia.Text = boletim.Media.ToString();
+            txtNomeProfessor.Text = boletim.Nome_professor;
+            txtMateria.Text = boletim.Nome_materia;
+            txtCurso.Text = boletim.Nome_curso;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -55,18 +55,18 @@ namespace ProjetoSistemaEe.View
         {
             try
             {
-                boletim.nota1 = Convert.ToDouble(txtN1.Text);
-                boletim.nota2 = Convert.ToDouble(txtN2.Text);
-                boletim.nota3 = Convert.ToDouble(txtN3.Text);
-                boletim.nota4 = Convert.ToDouble(txtN4.Text);
-                boletim.media = Convert.ToDouble(txtMedia.Text);
-                if (boletim.media >= 7)
+                boletim.Nota1 = Convert.ToDouble(txtN1.Text);
+                boletim.Nota2 = Convert.ToDouble(txtN2.Text);
+                boletim.Nota3 = Convert.ToDouble(txtN3.Text);
+                boletim.Nota4 = Convert.ToDouble(txtN4.Text);
+                boletim.Media = Convert.ToDouble(txtMedia.Text);
+                if (boletim.Media >= 7)
                 {
-                    boletim.situacao = "Aprovado";
+                    boletim.Situacao = "Aprovado";
                 }
                 else
                 {
-                    boletim.situacao = "Reprovado";
+                    boletim.Situacao = "Reprovado";
                 }
                 model.EditarBoletim(boletim);
             }

@@ -52,12 +52,12 @@ namespace ProjetoSistemaEe.Model
             }
         }
 
-        public List<Materia> ListarMateriaPorProfessor(int id_professor)
+        public List<Materia> ListarMateriaPorProfessorECurso(int id_professor, int id_curso)
         {
             try
             {
                 List<Materia> ListaMaterias = new List<Materia>();
-                ListaMaterias = dao.ListarMateriaPorProfessor(id_professor);
+                ListaMaterias = dao.ListarMateriaPorProfessorECurso(id_professor, id_curso);
                 return ListaMaterias;
             }
             catch (Exception ex)

@@ -52,17 +52,15 @@
             this.situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDisciplina = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aaaadgbv = new System.Windows.Forms.DataGridView();
+            this.id_professor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridBoletim)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aaaadgbv)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.Controls.Add(this.aaaadgbv);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.gridBoletim);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -161,7 +159,8 @@
             this.media,
             this.situacao,
             this.id_curso,
-            this.idDisciplina});
+            this.idDisciplina,
+            this.id_professor});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -180,6 +179,7 @@
             this.gridBoletim.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridBoletim.Size = new System.Drawing.Size(1016, 411);
             this.gridBoletim.TabIndex = 1;
+            this.gridBoletim.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gridBoletim_CellFormatting);
             this.gridBoletim.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridBoletim_CellMouseDoubleClick);
             // 
             // ra_aluno
@@ -196,6 +196,7 @@
             this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
+            this.id.Visible = false;
             this.id.Width = 43;
             // 
             // nome_aluno
@@ -284,6 +285,7 @@
             this.id_curso.HeaderText = "Curso ID";
             this.id_curso.Name = "id_curso";
             this.id_curso.ReadOnly = true;
+            this.id_curso.Visible = false;
             this.id_curso.Width = 77;
             // 
             // idDisciplina
@@ -292,15 +294,16 @@
             this.idDisciplina.HeaderText = "Disciplina ID";
             this.idDisciplina.Name = "idDisciplina";
             this.idDisciplina.ReadOnly = true;
+            this.idDisciplina.Visible = false;
             this.idDisciplina.Width = 97;
             // 
-            // aaaadgbv
+            // id_professor
             // 
-            this.aaaadgbv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.aaaadgbv.Location = new System.Drawing.Point(197, 67);
-            this.aaaadgbv.Name = "aaaadgbv";
-            this.aaaadgbv.Size = new System.Drawing.Size(240, 150);
-            this.aaaadgbv.TabIndex = 3;
+            this.id_professor.DataPropertyName = "Id_professor";
+            this.id_professor.HeaderText = "ID_Professor";
+            this.id_professor.Name = "id_professor";
+            this.id_professor.ReadOnly = true;
+            this.id_professor.Width = 97;
             // 
             // VisualizarBoletim
             // 
@@ -316,7 +319,6 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridBoletim)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aaaadgbv)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -342,6 +344,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn situacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_curso;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDisciplina;
-        private System.Windows.Forms.DataGridView aaaadgbv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_professor;
     }
 }

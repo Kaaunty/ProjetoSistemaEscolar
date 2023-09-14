@@ -112,7 +112,7 @@
     <Compile Include="Entidades\Materia.cs" />
     <Compile Include="Model\MateriaModel.cs" />
     <Compile Include="Services\Calculos.cs" />
-    <Compile Include="Conexao.cs" />
+    <Compile Include="Services\Conexao.cs" />
     <Compile Include="Connected Services\WSCorreios\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

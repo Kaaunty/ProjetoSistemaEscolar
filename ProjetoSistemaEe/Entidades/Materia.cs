@@ -5,19 +5,25 @@ namespace ProjetoSistemaEe.Entidades
     public class Materia
     {
         private string nome;
-        private int cursoid;
+        private int materiaid;
+        private int v;
 
         public Materia()
         {
         }
 
-        public Materia(int id_curso, string nome)
+        public Materia(int v)
+        {
+            this.v = v;
+        }
+
+        public Materia(int materia_id, string nome)
         {
             this.nome = nome;
-            this.Cursoid = id_curso;
+            this.Materiaid = materia_id;
         }
 
         public string Nome { get => nome; set => nome = value; }
-        public int Cursoid { get => cursoid; set => cursoid = value; }
+        public int Materiaid { get => materiaid; set => materiaid = value; }
     }
 }

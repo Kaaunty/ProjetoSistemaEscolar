@@ -186,7 +186,7 @@
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
             this.label14.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label14.Location = new System.Drawing.Point(38, 138);
+            this.label14.Location = new System.Drawing.Point(42, 138);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(93, 28);
             this.label14.TabIndex = 51;
@@ -240,7 +240,7 @@
             this.cbMateria.Items.AddRange(new object[] {
             "Matematica",
             "Literatura"});
-            this.cbMateria.Location = new System.Drawing.Point(141, 137);
+            this.cbMateria.Location = new System.Drawing.Point(141, 140);
             this.cbMateria.Name = "cbMateria";
             this.cbMateria.Size = new System.Drawing.Size(292, 30);
             this.cbMateria.TabIndex = 47;
@@ -258,6 +258,7 @@
             this.cbProfessor.Name = "cbProfessor";
             this.cbProfessor.Size = new System.Drawing.Size(292, 30);
             this.cbProfessor.TabIndex = 46;
+            this.cbProfessor.SelectedIndexChanged += new System.EventHandler(this.cbProfessor_SelectedIndexChanged);
             // 
             // cbCurso
             // 

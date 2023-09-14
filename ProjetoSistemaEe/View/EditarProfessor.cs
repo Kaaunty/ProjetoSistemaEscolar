@@ -108,13 +108,10 @@ namespace ProjetoSistemaEe.View
             {
                 if (Convert.ToBoolean(row.Cells[0].Value) == true)
                 {
-                    Materia materia = new Materia(Convert.ToInt32(row.Cells[1].Value), row.Cells[2].Value.ToString());
+                    int id = Convert.ToInt32(row.Cells[2].Value);
+                    string nome = row.Cells[1].Value.ToString();
+                    Materia materia = new Materia(id, nome);
                     materias.Add(materia);
-                }
-                else if (Convert.ToBoolean(row.Cells[0].Value) == false)
-                {
-                    Materia materia = new Materia(Convert.ToInt32(row.Cells[1].Value), row.Cells[2].Value.ToString());
-                    materias.Remove(materia);
                 }
             }
             return materias;
@@ -182,7 +179,7 @@ namespace ProjetoSistemaEe.View
             {
                 foreach (DataGridViewRow row in gridMaterias.Rows)
                 {
-                    if (row.Cells[2].Value.ToString() == item)
+                    if (row.Cells[1].Value.ToString() == item)
                     {
                         row.Cells[0].Value = true;
                     }
