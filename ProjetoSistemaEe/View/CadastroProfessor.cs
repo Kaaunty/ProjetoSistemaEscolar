@@ -3,6 +3,7 @@ using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Media.Media3D;
 
@@ -34,7 +35,7 @@ namespace ProjetoSistemaEe.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (validar.ValidateControls(this))
+            if (validar.ValidateControls(this) && ValidarGridSelecionado())
             {
                 try
                 {
@@ -92,7 +93,7 @@ namespace ProjetoSistemaEe.View
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
                     {
                         Materia materia = new Materia();
-                        materia.Materiaid = Convert.ToInt32(row.Cells[2].Value);
+                        materia.Materiaid = Convert.ToInt32(row.Cells[3].Value);
                         materias.Add(materia);
                     }
                 }
@@ -137,6 +138,19 @@ namespace ProjetoSistemaEe.View
             validar.VerificaCEP(txtCEP, txtEstado, txtCidade, txtBairro, txtRua, txtNum);
         }
 
+        public bool ValidarGridSelecionado()
+        {
+            foreach (DataGridViewRow row in gridMaterias.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                {
+                    return true;
+                }
+            }
+            MessageBox.Show("Selecione pelo menos uma matéria!");
+            return false;
+        }
+
         #endregion Validações
 
         #region Botões
@@ -171,7 +185,7 @@ namespace ProjetoSistemaEe.View
             txtNome.Text = "Teste";
             txtEmail.Text = "Teste@teste.com";
             txtCEP.Text = "13254685";
-            txtSalario.Text = "9999";
+            txtSalario.Text = "R$ 9.999,00";
             txtNum.Text = "123";
             txtTelefone.Text = "11971258656";
             cbEstadoCivil.Text = "Solteiro";

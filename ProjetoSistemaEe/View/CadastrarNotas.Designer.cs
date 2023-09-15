@@ -65,7 +65,6 @@
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.btnAdicionar);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -145,7 +144,7 @@
             this.btnAdicionar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAdicionar.IconSize = 30;
             this.btnAdicionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdicionar.Location = new System.Drawing.Point(466, 584);
+            this.btnAdicionar.Location = new System.Drawing.Point(267, 307);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(130, 35);
             this.btnAdicionar.TabIndex = 6;
@@ -155,8 +154,9 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.btnAdicionar);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label11);
@@ -174,9 +174,9 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(12, 214);
+            this.panel2.Location = new System.Drawing.Point(195, 170);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1015, 364);
+            this.panel2.Size = new System.Drawing.Size(649, 364);
             this.panel2.TabIndex = 8;
             // 
             // label14
@@ -186,7 +186,7 @@
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
             this.label14.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label14.Location = new System.Drawing.Point(42, 138);
+            this.label14.Location = new System.Drawing.Point(25, 241);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(93, 28);
             this.label14.TabIndex = 51;
@@ -199,7 +199,7 @@
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
             this.label13.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label13.Location = new System.Drawing.Point(23, 186);
+            this.label13.Location = new System.Drawing.Point(10, 192);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(112, 28);
             this.label13.TabIndex = 50;
@@ -212,7 +212,7 @@
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
             this.label12.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label12.Location = new System.Drawing.Point(59, 41);
+            this.label12.Location = new System.Drawing.Point(46, 96);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 28);
             this.label12.TabIndex = 49;
@@ -225,7 +225,7 @@
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
             this.label11.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label11.Location = new System.Drawing.Point(59, 91);
+            this.label11.Location = new System.Drawing.Point(46, 146);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(72, 28);
             this.label11.TabIndex = 48;
@@ -240,7 +240,7 @@
             this.cbMateria.Items.AddRange(new object[] {
             "Matematica",
             "Literatura"});
-            this.cbMateria.Location = new System.Drawing.Point(141, 140);
+            this.cbMateria.Location = new System.Drawing.Point(128, 240);
             this.cbMateria.Name = "cbMateria";
             this.cbMateria.Size = new System.Drawing.Size(292, 30);
             this.cbMateria.TabIndex = 47;
@@ -254,7 +254,7 @@
             this.cbProfessor.Items.AddRange(new object[] {
             "Matematica",
             "Literatura"});
-            this.cbProfessor.Location = new System.Drawing.Point(141, 188);
+            this.cbProfessor.Location = new System.Drawing.Point(128, 191);
             this.cbProfessor.Name = "cbProfessor";
             this.cbProfessor.Size = new System.Drawing.Size(292, 30);
             this.cbProfessor.TabIndex = 46;
@@ -269,7 +269,7 @@
             this.cbCurso.Items.AddRange(new object[] {
             "Matematica",
             "Literatura"});
-            this.cbCurso.Location = new System.Drawing.Point(141, 40);
+            this.cbCurso.Location = new System.Drawing.Point(128, 95);
             this.cbCurso.Name = "cbCurso";
             this.cbCurso.Size = new System.Drawing.Size(292, 30);
             this.cbCurso.TabIndex = 45;
@@ -284,7 +284,7 @@
             this.cbAluno.Items.AddRange(new object[] {
             "Matematica",
             "Literatura"});
-            this.cbAluno.Location = new System.Drawing.Point(141, 90);
+            this.cbAluno.Location = new System.Drawing.Point(128, 145);
             this.cbAluno.Name = "cbAluno";
             this.cbAluno.Size = new System.Drawing.Size(292, 30);
             this.cbAluno.TabIndex = 44;
@@ -293,7 +293,7 @@
             // 
             this.txtN4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtN4.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN4.Location = new System.Drawing.Point(589, 184);
+            this.txtN4.Location = new System.Drawing.Point(556, 202);
             this.txtN4.Name = "txtN4";
             this.txtN4.Size = new System.Drawing.Size(67, 33);
             this.txtN4.TabIndex = 4;
@@ -306,7 +306,7 @@
             this.txtMedia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMedia.Enabled = false;
             this.txtMedia.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMedia.Location = new System.Drawing.Point(590, 257);
+            this.txtMedia.Location = new System.Drawing.Point(557, 275);
             this.txtMedia.Name = "txtMedia";
             this.txtMedia.ReadOnly = true;
             this.txtMedia.Size = new System.Drawing.Size(67, 33);
@@ -317,7 +317,7 @@
             // 
             this.txtN3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtN3.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN3.Location = new System.Drawing.Point(589, 137);
+            this.txtN3.Location = new System.Drawing.Point(556, 153);
             this.txtN3.Name = "txtN3";
             this.txtN3.Size = new System.Drawing.Size(67, 33);
             this.txtN3.TabIndex = 3;
@@ -332,7 +332,7 @@
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
             this.label5.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(503, 258);
+            this.label5.Location = new System.Drawing.Point(470, 276);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 28);
             this.label5.TabIndex = 10;
@@ -342,7 +342,7 @@
             // 
             this.txtN2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtN2.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN2.Location = new System.Drawing.Point(590, 87);
+            this.txtN2.Location = new System.Drawing.Point(557, 107);
             this.txtN2.Name = "txtN2";
             this.txtN2.Size = new System.Drawing.Size(67, 33);
             this.txtN2.TabIndex = 2;
@@ -357,7 +357,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
             this.label1.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(504, 34);
+            this.label1.Location = new System.Drawing.Point(471, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 28);
             this.label1.TabIndex = 0;
@@ -367,7 +367,7 @@
             // 
             this.txtN1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtN1.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN1.Location = new System.Drawing.Point(589, 33);
+            this.txtN1.Location = new System.Drawing.Point(556, 57);
             this.txtN1.Name = "txtN1";
             this.txtN1.Size = new System.Drawing.Size(67, 33);
             this.txtN1.TabIndex = 1;
@@ -382,7 +382,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
             this.label2.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(500, 186);
+            this.label2.Location = new System.Drawing.Point(467, 204);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 28);
             this.label2.TabIndex = 1;
@@ -395,7 +395,7 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
             this.label4.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(500, 88);
+            this.label4.Location = new System.Drawing.Point(467, 109);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 28);
             this.label4.TabIndex = 3;
@@ -408,7 +408,7 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
             this.label3.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(500, 138);
+            this.label3.Location = new System.Drawing.Point(467, 155);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 28);
             this.label3.TabIndex = 2;

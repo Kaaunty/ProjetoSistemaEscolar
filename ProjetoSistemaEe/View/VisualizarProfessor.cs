@@ -1,7 +1,11 @@
-﻿using ProjetoSistemaEe.Entidades;
+﻿using Microsoft.SqlServer.Server;
+using ProjetoSistemaEe.Entidades;
 using ProjetoSistemaEe.Model;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
@@ -18,6 +22,7 @@ namespace ProjetoSistemaEe.View
         private void VisualizarProfessor_Load(object sender, EventArgs e)
         {
             ListarProfessor();
+            TxtPesquisar.Clear();
         }
 
         private void ListarProfessor()
@@ -50,6 +55,19 @@ namespace ProjetoSistemaEe.View
             Close();
             main_Menu.TopLevel = true;
             main_Menu.Show();
+        }
+
+        private void PesquisarProfessor()
+        {
+            gridProfessor.AutoGenerateColumns = false;
+            List<Professor> professor = professorModel.Listar();
+            professor = professor.Where(x => x.Nome.ToLower().Contains(TxtPesquisar.Text.ToLower())).ToList();
+            gridProfessor.DataSource = professor;
+        }
+
+        private void TxtPesquisar_TextChanged(object sender, EventArgs e)
+        {
+            PesquisarProfessor();
         }
     }
 }

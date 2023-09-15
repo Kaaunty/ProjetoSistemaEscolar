@@ -34,11 +34,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.gridMaterias = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BtnClose = new FontAwesome.Sharp.IconButton();
             this.BtnMinimize = new FontAwesome.Sharp.IconButton();
             this.ListaMaterias = new System.Windows.Forms.ListBox();
-            this.gridMaterias = new System.Windows.Forms.DataGridView();
             this.txtSalario = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -70,10 +70,12 @@
             this.btnDeletar = new FontAwesome.Sharp.IconButton();
             this.CursoCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nome_materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridMaterias)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -83,9 +85,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.gridMaterias);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.ListaMaterias);
-            this.panel1.Controls.Add(this.gridMaterias);
             this.panel1.Controls.Add(this.txtSalario);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.txtEmail);
@@ -119,6 +121,57 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 2;
+            // 
+            // gridMaterias
+            // 
+            this.gridMaterias.AllowUserToAddRows = false;
+            this.gridMaterias.AllowUserToDeleteRows = false;
+            this.gridMaterias.AllowUserToResizeColumns = false;
+            this.gridMaterias.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.gridMaterias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridMaterias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.gridMaterias.BackgroundColor = System.Drawing.Color.White;
+            this.gridMaterias.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(37)))), ((int)(((byte)(111)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridMaterias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.gridMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CursoCheckbox,
+            this.nome_materia,
+            this.curso,
+            this.idMateria,
+            this.idCurso});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridMaterias.DefaultCellStyle = dataGridViewCellStyle3;
+            this.gridMaterias.Location = new System.Drawing.Point(247, 251);
+            this.gridMaterias.Name = "gridMaterias";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridMaterias.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.gridMaterias.RowHeadersVisible = false;
+            this.gridMaterias.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridMaterias.Size = new System.Drawing.Size(276, 157);
+            this.gridMaterias.TabIndex = 2;
             // 
             // panel2
             // 
@@ -166,60 +219,9 @@
             this.ListaMaterias.FormattingEnabled = true;
             this.ListaMaterias.Location = new System.Drawing.Point(81, 257);
             this.ListaMaterias.Name = "ListaMaterias";
-            this.ListaMaterias.Size = new System.Drawing.Size(230, 108);
+            this.ListaMaterias.Size = new System.Drawing.Size(150, 108);
             this.ListaMaterias.TabIndex = 81;
             this.ListaMaterias.Visible = false;
-            // 
-            // gridMaterias
-            // 
-            this.gridMaterias.AllowUserToAddRows = false;
-            this.gridMaterias.AllowUserToDeleteRows = false;
-            this.gridMaterias.AllowUserToResizeColumns = false;
-            this.gridMaterias.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.gridMaterias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.gridMaterias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.gridMaterias.BackgroundColor = System.Drawing.Color.White;
-            this.gridMaterias.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(37)))), ((int)(((byte)(111)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridMaterias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.gridMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CursoCheckbox,
-            this.nome_materia,
-            this.id});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridMaterias.DefaultCellStyle = dataGridViewCellStyle3;
-            this.gridMaterias.Location = new System.Drawing.Point(317, 251);
-            this.gridMaterias.Name = "gridMaterias";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridMaterias.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.gridMaterias.RowHeadersVisible = false;
-            this.gridMaterias.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridMaterias.Size = new System.Drawing.Size(206, 157);
-            this.gridMaterias.TabIndex = 80;
-            this.gridMaterias.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridMaterias_CellLeave);
-            this.gridMaterias.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridMaterias_CellValidated);
             // 
             // txtSalario
             // 
@@ -573,10 +575,10 @@
             // 
             // CursoCheckbox
             // 
-            this.CursoCheckbox.HeaderText = "";
+            this.CursoCheckbox.HeaderText = "Escolher";
             this.CursoCheckbox.Name = "CursoCheckbox";
             this.CursoCheckbox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CursoCheckbox.Width = 5;
+            this.CursoCheckbox.Width = 54;
             // 
             // nome_materia
             // 
@@ -588,13 +590,31 @@
             this.nome_materia.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.nome_materia.Width = 67;
             // 
-            // id
+            // curso
             // 
-            this.id.DataPropertyName = "Materiaid";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.Visible = false;
-            this.id.Width = 43;
+            this.curso.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.curso.DataPropertyName = "nomeCurso";
+            this.curso.HeaderText = "Curso";
+            this.curso.Name = "curso";
+            this.curso.ReadOnly = true;
+            this.curso.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.curso.Width = 59;
+            // 
+            // idMateria
+            // 
+            this.idMateria.DataPropertyName = "Materiaid";
+            this.idMateria.HeaderText = "IDMateria";
+            this.idMateria.Name = "idMateria";
+            this.idMateria.Visible = false;
+            this.idMateria.Width = 78;
+            // 
+            // idCurso
+            // 
+            this.idCurso.DataPropertyName = "idCurso";
+            this.idCurso.HeaderText = "CursoID";
+            this.idCurso.Name = "idCurso";
+            this.idCurso.Visible = false;
+            this.idCurso.Width = 70;
             // 
             // EditarProfessor
             // 
@@ -611,8 +631,8 @@
             this.Load += new System.EventHandler(this.EditarProfessor_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridMaterias)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -623,7 +643,6 @@
         private FontAwesome.Sharp.IconButton btnDeletar;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.ListBox ListaMaterias;
-        private System.Windows.Forms.DataGridView gridMaterias;
         private System.Windows.Forms.TextBox txtSalario;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtEmail;
@@ -653,8 +672,11 @@
         private System.Windows.Forms.Panel panel2;
         private FontAwesome.Sharp.IconButton BtnClose;
         private FontAwesome.Sharp.IconButton BtnMinimize;
+        private System.Windows.Forms.DataGridView gridMaterias;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CursoCheckbox;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome_materia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn curso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idMateria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCurso;
     }
 }

@@ -5,7 +5,7 @@ namespace ProjetoSistemaEe.DAO
 {
     internal class Conexao
     {
-        private string conexao = "SERVER=localhost; DATABASE=xd_university; UID=root; PWD=admin;";
+        private static string conexao = "SERVER=localhost; DATABASE=xd_university; UID=root; PWD=admin;";
         public MySqlConnection con = null;
 
         public void AbrirConexao()

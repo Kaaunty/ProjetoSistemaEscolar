@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnTest = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BtnPreviousMenu = new FontAwesome.Sharp.IconButton();
             this.BtnClose = new FontAwesome.Sharp.IconButton();
@@ -66,10 +67,11 @@
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.BtnTest = new FontAwesome.Sharp.IconButton();
             this.CursoCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nome_materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridMaterias)).BeginInit();
@@ -116,6 +118,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 1;
+            // 
+            // BtnTest
+            // 
+            this.BtnTest.BackColor = System.Drawing.Color.Transparent;
+            this.BtnTest.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
+            this.BtnTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnTest.FlatAppearance.BorderSize = 0;
+            this.BtnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTest.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTest.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnTest.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.BtnTest.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnTest.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnTest.IconSize = 35;
+            this.BtnTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTest.Location = new System.Drawing.Point(623, 612);
+            this.BtnTest.Name = "BtnTest";
+            this.BtnTest.Size = new System.Drawing.Size(130, 35);
+            this.BtnTest.TabIndex = 41;
+            this.BtnTest.Text = "Teste";
+            this.BtnTest.UseVisualStyleBackColor = false;
+            this.BtnTest.Click += new System.EventHandler(this.BtnTest_Click);
             // 
             // panel2
             // 
@@ -198,7 +222,9 @@
             this.gridMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CursoCheckbox,
             this.nome_materia,
-            this.id});
+            this.curso,
+            this.idMateria,
+            this.idCurso});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -207,7 +233,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.gridMaterias.DefaultCellStyle = dataGridViewCellStyle3;
-            this.gridMaterias.Location = new System.Drawing.Point(301, 253);
+            this.gridMaterias.Location = new System.Drawing.Point(231, 253);
             this.gridMaterias.Name = "gridMaterias";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
@@ -220,7 +246,7 @@
             this.gridMaterias.RowHeadersVisible = false;
             this.gridMaterias.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridMaterias.Size = new System.Drawing.Size(206, 157);
+            this.gridMaterias.Size = new System.Drawing.Size(276, 157);
             this.gridMaterias.TabIndex = 1;
             // 
             // txtSalario
@@ -542,28 +568,6 @@
             this.txtNome.Text = "Nome";
             this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
-            // BtnTest
-            // 
-            this.BtnTest.BackColor = System.Drawing.Color.Transparent;
-            this.BtnTest.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
-            this.BtnTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnTest.FlatAppearance.BorderSize = 0;
-            this.BtnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTest.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTest.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnTest.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.BtnTest.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnTest.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnTest.IconSize = 35;
-            this.BtnTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnTest.Location = new System.Drawing.Point(623, 612);
-            this.BtnTest.Name = "BtnTest";
-            this.BtnTest.Size = new System.Drawing.Size(130, 35);
-            this.BtnTest.TabIndex = 41;
-            this.BtnTest.Text = "Teste";
-            this.BtnTest.UseVisualStyleBackColor = false;
-            this.BtnTest.Click += new System.EventHandler(this.BtnTest_Click);
-            // 
             // CursoCheckbox
             // 
             this.CursoCheckbox.HeaderText = "Escolher";
@@ -581,13 +585,31 @@
             this.nome_materia.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.nome_materia.Width = 67;
             // 
-            // id
+            // curso
             // 
-            this.id.DataPropertyName = "Materiaid";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.Visible = false;
-            this.id.Width = 43;
+            this.curso.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.curso.DataPropertyName = "nomeCurso";
+            this.curso.HeaderText = "Curso";
+            this.curso.Name = "curso";
+            this.curso.ReadOnly = true;
+            this.curso.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.curso.Width = 59;
+            // 
+            // idMateria
+            // 
+            this.idMateria.DataPropertyName = "Materiaid";
+            this.idMateria.HeaderText = "IDMateria";
+            this.idMateria.Name = "idMateria";
+            this.idMateria.Visible = false;
+            this.idMateria.Width = 78;
+            // 
+            // idCurso
+            // 
+            this.idCurso.DataPropertyName = "idCurso";
+            this.idCurso.HeaderText = "CursoID";
+            this.idCurso.Name = "idCurso";
+            this.idCurso.Visible = false;
+            this.idCurso.Width = 70;
             // 
             // CadastroProfessor
             // 
@@ -645,6 +667,8 @@
         private FontAwesome.Sharp.IconButton BtnTest;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CursoCheckbox;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome_materia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn curso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idMateria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCurso;
     }
 }

@@ -54,6 +54,7 @@
             this.numrua = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
+            this.TxtPesquisar = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProfessor)).BeginInit();
@@ -62,6 +63,7 @@
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.TxtPesquisar);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.gridProfessor);
             this.panel1.Controls.Add(this.label2);
@@ -317,6 +319,17 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Clique duas vezes em um professor na tabela para editar ou deletar:";
             // 
+            // TxtPesquisar
+            // 
+            this.TxtPesquisar.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPesquisar.Location = new System.Drawing.Point(416, 202);
+            this.TxtPesquisar.MaxLength = 50;
+            this.TxtPesquisar.Name = "TxtPesquisar";
+            this.TxtPesquisar.Size = new System.Drawing.Size(206, 29);
+            this.TxtPesquisar.TabIndex = 3;
+            this.TxtPesquisar.Text = "Pesquisar";
+            this.TxtPesquisar.TextChanged += new System.EventHandler(this.TxtPesquisar_TextChanged);
+            // 
             // VisualizarProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -359,5 +372,6 @@
         private FontAwesome.Sharp.IconButton BtnPreviousMenu;
         private FontAwesome.Sharp.IconButton BtnClose;
         private FontAwesome.Sharp.IconButton BtnMinimize;
+        private System.Windows.Forms.TextBox TxtPesquisar;
     }
 }

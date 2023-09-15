@@ -66,5 +66,16 @@
             this.Media = media;
             this.Situacao = situacao;
         }
+
+        public Boletim(int id, double nota1, double nota2, double nota3, double nota4, double media, string situacao)
+        {
+            this.id = id;
+            this.nota1 = nota1;
+            this.nota2 = nota2;
+            this.nota3 = nota3;
+            this.nota4 = nota4;
+            this.media = media;
+            this.Situacao = situacao;
+        }
     }
 }

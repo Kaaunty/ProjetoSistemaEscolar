@@ -18,13 +18,18 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.AbrirConexao();
-                sql = new MySqlCommand("SELECT * FROM disciplinas order by nome_disciplina", con.con);
+                sql = new MySqlCommand(@"select cm.curso_id,cm.materia_id,d.nome_disciplina,c.nome from cursos_materias cm
+                                         JOIN cursos c ON cm.curso_id = c.id
+                                         JOIN disciplinas d ON cm.materia_id = d.id
+                                         ORDER BY nome_disciplina;", con.con);
                 MySqlDataReader dr = sql.ExecuteReader();
                 while (dr.Read())
                 {
-                    int id = Convert.ToInt32(dr["id"]);
+                    int idCurso = Convert.ToInt32(dr["curso_id"]);
+                    int idMateria = Convert.ToInt32(dr["materia_id"]);
                     string nome = dr["nome_disciplina"].ToString();
-                    Materia materia = new Materia(id, nome);
+                    string nomeCurso = dr["nome"].ToString();
+                    Materia materia = new Materia(idCurso, idMateria, nome, nomeCurso);
                     materias.Add(materia);
                 }
                 return materias;

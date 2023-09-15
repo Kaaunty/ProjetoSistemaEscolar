@@ -64,9 +64,12 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.AbrirConexao();
-                sql = new MySqlCommand(@"SELECT a.ra, a.nome FROM aluno a
-                                         JOIN boletim b ON a.ra != b.id_aluno
-                                         where a.curso = @id_curso;", con.con);
+                sql = new MySqlCommand(@"SELECT a.ra, a.nome
+                                         FROM aluno a
+                                         LEFT JOIN boletim b ON a.ra = b.id_aluno
+                                         AND a.curso = b.id_curso
+                                         WHERE b.id IS NULL
+                                         AND a.curso = @id_curso;", con.con);
                 sql.Parameters.AddWithValue("@id_curso", id_curso);
                 MySqlDataReader dr = sql.ExecuteReader();
                 while (dr.Read())
@@ -110,6 +113,7 @@ namespace ProjetoSistemaEe.DAO
                     Materia materia = new Materia();
                     materia.Materiaid = Convert.ToInt32(dr["materia_id"]);
                     materia.Nome = dr["nome_disciplina"].ToString();
+
                     ListaMaterias.Add(materia);
                 }
                 return ListaMaterias;

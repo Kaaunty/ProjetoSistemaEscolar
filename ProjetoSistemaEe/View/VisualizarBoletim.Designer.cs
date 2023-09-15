@@ -299,10 +299,11 @@
             // 
             // id_professor
             // 
-            this.id_professor.DataPropertyName = "Id_professor";
+            this.id_professor.DataPropertyName = "Id_Professor";
             this.id_professor.HeaderText = "ID_Professor";
             this.id_professor.Name = "id_professor";
             this.id_professor.ReadOnly = true;
+            this.id_professor.Visible = false;
             this.id_professor.Width = 97;
             // 
             // VisualizarBoletim

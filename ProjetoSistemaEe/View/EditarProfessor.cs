@@ -21,13 +21,13 @@ namespace ProjetoSistemaEe.View
         {
             this.professor = professor;
             InitializeComponent();
+            gridMaterias.AutoGenerateColumns = false;
+            gridMaterias.DataSource = materiamodel.ListarMateria();
         }
 
         private void EditarProfessor_Load(object sender, EventArgs e)
         {
             Validar.FormatarData(dtProfessor, new DateTime(2004, 12, 31), new DateTime(1953, 01, 01));
-            gridMaterias.DataSource = materiamodel.ListarMateria();
-            AdicionarMateriasNaLista();
             PopularCampos();
             SelecionarMaterias();
         }
@@ -52,7 +52,7 @@ namespace ProjetoSistemaEe.View
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (validar.ValidateControls(this))
+            if (validar.ValidateControls(this) && ValidarGridSelecionado())
             {
                 try
                 {
@@ -108,9 +108,9 @@ namespace ProjetoSistemaEe.View
             {
                 if (Convert.ToBoolean(row.Cells[0].Value) == true)
                 {
-                    int id = Convert.ToInt32(row.Cells[2].Value);
+                    int materiaid = Convert.ToInt32(row.Cells[3].Value);
                     string nome = row.Cells[1].Value.ToString();
-                    Materia materia = new Materia(id, nome);
+                    Materia materia = new Materia(materiaid, nome);
                     materias.Add(materia);
                 }
             }
@@ -144,6 +144,20 @@ namespace ProjetoSistemaEe.View
             }
         }
 
+        private void SelecionarMaterias()
+        {
+            foreach (Materia item in professor.Materia)
+            {
+                foreach (DataGridViewRow row in gridMaterias.Rows)
+                {
+                    if (item.Nome == row.Cells[1].Value.ToString())
+                    {
+                        row.Cells[0].Value = true;
+                    }
+                }
+            }
+        }
+
         #region Validações
 
         private void txtSalario_Leave(object sender, EventArgs e)
@@ -171,69 +185,22 @@ namespace ProjetoSistemaEe.View
             validar.BloqueiaEspaco(e);
         }
 
-        #endregion Validações
-
-        private void SelecionarMaterias()
-        {
-            foreach (string item in ListaMaterias.Items)
-            {
-                foreach (DataGridViewRow row in gridMaterias.Rows)
-                {
-                    if (row.Cells[1].Value.ToString() == item)
-                    {
-                        row.Cells[0].Value = true;
-                    }
-                }
-            }
-        }
-
-        private void AdicionarMateriasNaLista()
-        {
-            foreach (Materia item in professor.Materia)
-            {
-                ListaMaterias.Items.Add(item.Nome);
-            }
-        }
-
-        private void AddOnList()
+        public bool ValidarGridSelecionado()
         {
             foreach (DataGridViewRow row in gridMaterias.Rows)
             {
                 if (Convert.ToBoolean(row.Cells[0].Value) == true)
                 {
-                    if (!ListaMaterias.Items.Contains(row.Cells[2].Value))
-                    {
-                        ListaMaterias.Items.Add(row.Cells[2].Value);
-                    }
+                    return true;
                 }
             }
+            MessageBox.Show("Selecione pelo menos uma matéria!");
+            return false;
         }
 
-        private void RemoveOnList()
-        {
-            foreach (DataGridViewRow row in gridMaterias.Rows)
-            {
-                if (Convert.ToBoolean(row.Cells[0].Value) == false)
-                {
-                    if (ListaMaterias.Items.Contains(row.Cells[2].Value))
-                    {
-                        ListaMaterias.Items.Remove(row.Cells[2].Value);
-                    }
-                }
-            }
-        }
+        #endregion Validações
 
-        private void gridMaterias_CellValidated(object sender, DataGridViewCellEventArgs e)
-        {
-            AddOnList();
-            RemoveOnList();
-        }
-
-        private void gridMaterias_CellLeave(object sender, DataGridViewCellEventArgs e)
-        {
-            AddOnList();
-            RemoveOnList();
-        }
+        #region Botões Menu
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
@@ -244,5 +211,7 @@ namespace ProjetoSistemaEe.View
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        #endregion Botões Menu
     }
 }

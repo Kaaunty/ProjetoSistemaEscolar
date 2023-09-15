@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Utilities.Collections;
 using ProjetoSistemaEe.Entidades;
 using System;
 using System.Collections.Generic;
@@ -47,7 +48,6 @@ namespace ProjetoSistemaEe.DAO
                     Professor professor = new Professor(id, nome, materia, salario, estadocivil, genero, datanascimento, email, telefone, cep, cidade, uf, bairro, rua, numerorua);
                     professores.Add(professor);
                 }
-
                 return professores;
             }
             catch (Exception)
@@ -105,16 +105,16 @@ namespace ProjetoSistemaEe.DAO
             }
         }
 
-        internal void EditarProfessor(Professor professor)
+        public void EditarProfessor(Professor professor)
         {
             try
             {
                 con.AbrirConexao();
                 sql = new MySqlCommand("UPDATE professor SET id = @id, nome = @nome, salario = @salario" +
-                    ", estadocivil = @estadocivil, genero = @genero, datanascimento = @datanascimento" +
-                    ", email = @email, telefone = @telefone, cep = @cep, cidade = @cidade, uf = @uf" +
-                    ", bairro = @bairro, rua = @rua, numerorua = @numerorua where id = @id ;", con.con);
-                sql = new MySqlCommand("Delete from professor_materia where id_professor = @id;", con.con);
+                                       ", estadocivil = @estadocivil, genero = @genero, datanascimento = @datanascimento" +
+                                       ", email = @email, telefone = @telefone, cep = @cep, cidade = @cidade, uf = @uf" +
+                                       ", bairro = @bairro, rua = @rua, numerorua = @numerorua where id = @id;" +
+                                       "DELETE FROM professor_materia WHERE id_professor = @id", con.con);
                 sql.Parameters.AddWithValue("@id", professor.Id);
                 sql.Parameters.AddWithValue("@nome", professor.Nome);
                 sql.Parameters.AddWithValue("@salario", professor.Salario);
@@ -131,7 +131,7 @@ namespace ProjetoSistemaEe.DAO
                 sql.Parameters.AddWithValue("@numerorua", professor.Numerorua);
                 sql.ExecuteNonQuery();
                 sql.Dispose();
-                con.FecharConexao();
+
                 foreach (var item in professor.Materia)
                 {
                     con.AbrirConexao();
