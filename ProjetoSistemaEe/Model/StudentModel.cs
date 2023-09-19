@@ -2,22 +2,20 @@
 using ProjetoSistemaEe.Entidades;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.Model
 {
-    internal class ProfessorModel : IFunctionModel<Professor>
+    internal class StudentModel : IFunctionModel<Student>
     {
-        private ProfessorDAO dao = new ProfessorDAO();
+        private StudentDAO dao = new StudentDAO();
 
-        public List<Professor> GetEntities()
+        public List<Student> GetEntities()
         {
             try
             {
-                List<Professor> professors = new List<Professor>();
-                professors = dao.GetProfessors();
-                return professors;
+                List<Student> students = new List<Student>();
+                students = dao.GetStudents();
+                return students;
             }
             catch (Exception)
             {
@@ -25,11 +23,11 @@ namespace ProjetoSistemaEe.Model
             }
         }
 
-        public void Register(Professor professor)
+        public void Register(Student aluno)
         {
             try
             {
-                dao.RegisterProfessor(professor);
+                dao.RegisterStudent(aluno);
             }
             catch (Exception)
             {
@@ -37,11 +35,11 @@ namespace ProjetoSistemaEe.Model
             }
         }
 
-        public void Edit(Professor professor)
+        public void Edit(Student aluno)
         {
             try
             {
-                dao.EditProfessor(professor);
+                dao.EditStudent(aluno);
             }
             catch (Exception)
             {
@@ -49,11 +47,11 @@ namespace ProjetoSistemaEe.Model
             }
         }
 
-        public void Delete(Professor professor)
+        public void Delete(Student aluno)
         {
             try
             {
-                dao.DeleteProfessor(professor);
+                dao.DeleteStudent(aluno);
             }
             catch (Exception)
             {

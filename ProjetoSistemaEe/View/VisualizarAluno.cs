@@ -9,7 +9,7 @@ namespace ProjetoSistemaEe.View
 {
     public partial class VisualizarAluno : Form
     {
-        private AlunoModel alunoModel = new AlunoModel();
+        private StudentModel alunoModel = new StudentModel();
 
         public VisualizarAluno()
         {
@@ -29,8 +29,8 @@ namespace ProjetoSistemaEe.View
 
         private void gridAluno_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Aluno aluno = (Aluno)gridAluno.Rows[e.RowIndex].DataBoundItem;
-            EditarAluno editarAluno = new EditarAluno(aluno);
+            Student aluno = (Student)gridAluno.Rows[e.RowIndex].DataBoundItem;
+            EditStudent editarAluno = new EditStudent(aluno);
             editarAluno.ShowDialog();
             ListarAluno();
         }

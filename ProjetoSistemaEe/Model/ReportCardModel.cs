@@ -2,22 +2,20 @@
 using ProjetoSistemaEe.Entidades;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.Model
 {
-    internal class ProfessorModel : IFunctionModel<Professor>
+    internal class ReportCardModel : IFunctionModel<ReportCard>
     {
-        private ProfessorDAO dao = new ProfessorDAO();
+        private ReportCardDAO dao = new ReportCardDAO();
 
-        public List<Professor> GetEntities()
+        public List<ReportCard> GetEntities()
         {
             try
             {
-                List<Professor> professors = new List<Professor>();
-                professors = dao.GetProfessors();
-                return professors;
+                List<ReportCard> reportCards = new List<ReportCard>();
+                reportCards = dao.GetReportCards();
+                return reportCards;
             }
             catch (Exception)
             {
@@ -25,11 +23,11 @@ namespace ProjetoSistemaEe.Model
             }
         }
 
-        public void Register(Professor professor)
+        public void Register(ReportCard reportCard)
         {
             try
             {
-                dao.RegisterProfessor(professor);
+                dao.RegisterReportCard(reportCard);
             }
             catch (Exception)
             {
@@ -37,11 +35,11 @@ namespace ProjetoSistemaEe.Model
             }
         }
 
-        public void Edit(Professor professor)
+        public void Edit(ReportCard reportCard)
         {
             try
             {
-                dao.EditProfessor(professor);
+                dao.EditReportCard(reportCard);
             }
             catch (Exception)
             {
@@ -49,11 +47,11 @@ namespace ProjetoSistemaEe.Model
             }
         }
 
-        public void Delete(Professor professor)
+        public void Delete(ReportCard reportCard)
         {
             try
             {
-                dao.DeleteProfessor(professor);
+                dao.DeleteReportCard(reportCard);
             }
             catch (Exception)
             {

@@ -22,7 +22,7 @@ namespace ProjetoSistemaEe.View
 
         private void BtnStudentRegister_Click(object sender, EventArgs e)
         {
-            CadastroAluno cadastroAluno = new CadastroAluno();
+            RegisterStudent cadastroAluno = new RegisterStudent();
             Hide();
             cadastroAluno.TopLevel = true;
             cadastroAluno.Show();
@@ -30,7 +30,7 @@ namespace ProjetoSistemaEe.View
 
         private void BtnTeacherRegister_Click(object sender, EventArgs e)
         {
-            CadastroProfessor cadastroProfessor = new CadastroProfessor();
+            RegisterProfessor cadastroProfessor = new RegisterProfessor();
             Hide();
             cadastroProfessor.TopLevel = true;
             cadastroProfessor.Show();
@@ -38,7 +38,7 @@ namespace ProjetoSistemaEe.View
 
         private void BtntranscriptAdd_Click(object sender, EventArgs e)
         {
-            CadastrarNotas cadastrarNotas = new CadastrarNotas();
+            RegisterGrades cadastrarNotas = new RegisterGrades();
             Hide();
             cadastrarNotas.TopLevel = true;
             cadastrarNotas.Show();

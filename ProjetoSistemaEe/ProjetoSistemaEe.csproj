@@ -107,73 +107,73 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\MateriaDAO.cs" />
-    <Compile Include="Entidades\Curso.cs" />
-    <Compile Include="Entidades\Materia.cs" />
-    <Compile Include="Model\MateriaModel.cs" />
-    <Compile Include="Services\Calculos.cs" />
-    <Compile Include="Services\Conexao.cs" />
+    <Compile Include="DAO\SubjectDAO.cs" />
+    <Compile Include="Entities\Course.cs" />
+    <Compile Include="Entities\Subjects.cs" />
+    <Compile Include="Model\SubjectsModel.cs" />
+    <Compile Include="Services\Calculations.cs" />
+    <Compile Include="Services\Connection.cs" />
     <Compile Include="Connected Services\WSCorreios\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="DAO\AlunoDAO.cs" />
-    <Compile Include="DAO\BoletimDAO.cs" />
-    <Compile Include="DAO\CursoDAO.cs" />
+    <Compile Include="DAO\StudentDAO.cs" />
+    <Compile Include="DAO\ReportCardDAO.cs" />
+    <Compile Include="DAO\CourseDAO.cs" />
     <Compile Include="DAO\ProfessorDAO.cs" />
-    <Compile Include="Entidades\Aluno.cs" />
-    <Compile Include="Entidades\Boletim.cs" />
-    <Compile Include="Entidades\Pessoa.cs" />
-    <Compile Include="Entidades\Professor.cs" />
-    <Compile Include="Model\AlunoModel.cs" />
-    <Compile Include="Model\BoletimModel.cs" />
-    <Compile Include="Model\CursoModel.cs" />
-    <Compile Include="Model\IPessoaModel.cs" />
+    <Compile Include="Entities\Student.cs" />
+    <Compile Include="Entities\ReportCard.cs" />
+    <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\Professor.cs" />
+    <Compile Include="Model\StudentModel.cs" />
+    <Compile Include="Model\ReportCardModel.cs" />
+    <Compile Include="Model\CourseModel.cs" />
+    <Compile Include="Model\IPersonModel.cs" />
     <Compile Include="Model\ProfessorModel.cs" />
     <Compile Include="RecursosVisuais.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RecursosVisuais.resx</DependentUpon>
     </Compile>
-    <Compile Include="Utils\Validar.cs" />
-    <Compile Include="View\CadastrarNotas.cs">
+    <Compile Include="Utils\Validations.cs" />
+    <Compile Include="View\RegisterGrades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\CadastrarNotas.Designer.cs">
-      <DependentUpon>CadastrarNotas.cs</DependentUpon>
+    <Compile Include="View\RegisterGrades.Designer.cs">
+      <DependentUpon>RegisterGrades.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\CadastroAluno.cs">
+    <Compile Include="View\RegisterStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\CadastroAluno.Designer.cs">
-      <DependentUpon>CadastroAluno.cs</DependentUpon>
+    <Compile Include="View\RegisterStudent.Designer.cs">
+      <DependentUpon>RegisterStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\CadastroProfessor.cs">
+    <Compile Include="View\RegisterProfessor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\CadastroProfessor.Designer.cs">
-      <DependentUpon>CadastroProfessor.cs</DependentUpon>
+    <Compile Include="View\RegisterProfessor.Designer.cs">
+      <DependentUpon>RegisterProfessor.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\EditarAluno.cs">
+    <Compile Include="View\EditStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\EditarAluno.Designer.cs">
-      <DependentUpon>EditarAluno.cs</DependentUpon>
+    <Compile Include="View\EditStudent.Designer.cs">
+      <DependentUpon>EditStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\EditarNotas.cs">
+    <Compile Include="View\EditGrade.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\EditarNotas.Designer.cs">
-      <DependentUpon>EditarNotas.cs</DependentUpon>
+    <Compile Include="View\EditGrade.Designer.cs">
+      <DependentUpon>EditGrade.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\EditarProfessor.cs">
+    <Compile Include="View\EditProfessor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\EditarProfessor.Designer.cs">
-      <DependentUpon>EditarProfessor.cs</DependentUpon>
+    <Compile Include="View\EditProfessor.Designer.cs">
+      <DependentUpon>EditProfessor.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -203,23 +203,23 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>RecursosVisuais.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\CadastrarNotas.resx">
-      <DependentUpon>CadastrarNotas.cs</DependentUpon>
+    <EmbeddedResource Include="View\RegisterGrades.resx">
+      <DependentUpon>RegisterGrades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\CadastroAluno.resx">
-      <DependentUpon>CadastroAluno.cs</DependentUpon>
+    <EmbeddedResource Include="View\RegisterStudent.resx">
+      <DependentUpon>RegisterStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\CadastroProfessor.resx">
-      <DependentUpon>CadastroProfessor.cs</DependentUpon>
+    <EmbeddedResource Include="View\RegisterProfessor.resx">
+      <DependentUpon>RegisterProfessor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\EditarAluno.resx">
-      <DependentUpon>EditarAluno.cs</DependentUpon>
+    <EmbeddedResource Include="View\EditStudent.resx">
+      <DependentUpon>EditStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\EditarNotas.resx">
-      <DependentUpon>EditarNotas.cs</DependentUpon>
+    <EmbeddedResource Include="View\EditGrade.resx">
+      <DependentUpon>EditGrade.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\EditarProfessor.resx">
-      <DependentUpon>EditarProfessor.cs</DependentUpon>
+    <EmbeddedResource Include="View\EditProfessor.resx">
+      <DependentUpon>EditProfessor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>

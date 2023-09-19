@@ -138,7 +138,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(568, 26);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Clique duas vezes em um aluno na tabela para editar ou deletar:";
+            this.label2.Text = "Clique duas vezes em um student na tabela para editar ou deletar:";
             // 
             // gridAluno
             // 

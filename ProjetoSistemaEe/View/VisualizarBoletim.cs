@@ -9,7 +9,7 @@ namespace ProjetoSistemaEe.View
 {
     public partial class VisualizarBoletim : Form
     {
-        private BoletimModel model = new BoletimModel();
+        private ReportCardModel model = new ReportCardModel();
 
         public VisualizarBoletim()
         {
@@ -23,13 +23,13 @@ namespace ProjetoSistemaEe.View
 
         public void ListarNotas()
         {
-            gridBoletim.DataSource = model.ListarBoletim();
+            gridBoletim.DataSource = model.Listar();
         }
 
         private void gridBoletim_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Boletim boletim = (Boletim)gridBoletim.Rows[e.RowIndex].DataBoundItem;
-            EditarNotas EditarNotas = new EditarNotas(boletim);
+            ReportCard boletim = (ReportCard)gridBoletim.Rows[e.RowIndex].DataBoundItem;
+            EditGrade EditarNotas = new EditGrade(boletim);
             EditarNotas.ShowDialog();
             ListarNotas();
         }

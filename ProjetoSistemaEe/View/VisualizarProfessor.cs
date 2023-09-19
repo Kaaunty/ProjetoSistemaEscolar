@@ -34,7 +34,7 @@ namespace ProjetoSistemaEe.View
         private void gridProfessor_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Professor professor = (Professor)gridProfessor.Rows[e.RowIndex].DataBoundItem;
-            EditarProfessor editarProfessor = new EditarProfessor(professor);
+            EditProfessor editarProfessor = new EditProfessor(professor);
             editarProfessor.ShowDialog();
             ListarProfessor();
         }
