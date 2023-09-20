@@ -52,6 +52,19 @@ namespace ProjetoSistemaEe.Utils
             }
         }
 
+        public void PermitNumberAndComma(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsNumber(e.KeyChar)) && !Char.IsControl(e.KeyChar) && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+                MessageBox.Show("Apenas um ponto é permitido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public void PermitLetter(KeyPressEventArgs e)
         {
             if (!(Char.IsLetter(e.KeyChar)) && !Char.IsControl(e.KeyChar) && (e.KeyChar != ' '))

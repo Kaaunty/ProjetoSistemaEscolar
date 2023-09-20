@@ -34,25 +34,30 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.gridMaterias = new System.Windows.Forms.DataGridView();
+            this.SubjectsGrid = new System.Windows.Forms.DataGridView();
+            this.CursoCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nome_materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BtnClose = new FontAwesome.Sharp.IconButton();
             this.BtnMinimize = new FontAwesome.Sharp.IconButton();
             this.ListaMaterias = new System.Windows.Forms.ListBox();
-            this.txtSalario = new System.Windows.Forms.TextBox();
+            this.TxtSalary = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.cbGenero = new System.Windows.Forms.ComboBox();
+            this.CbGender = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.cbEstadoCivil = new System.Windows.Forms.ComboBox();
+            this.CbMartialStatus = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtNum = new System.Windows.Forms.TextBox();
-            this.txtRua = new System.Windows.Forms.TextBox();
+            this.TxtNum = new System.Windows.Forms.TextBox();
+            this.TxtStreet = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.dtProfessor = new System.Windows.Forms.DateTimePicker();
-            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.DtProfessor = new System.Windows.Forms.DateTimePicker();
+            this.TxtPhone = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -60,21 +65,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCEP = new System.Windows.Forms.MaskedTextBox();
-            this.txtBairro = new System.Windows.Forms.TextBox();
-            this.txtCidade = new System.Windows.Forms.TextBox();
-            this.txtEstado = new System.Windows.Forms.TextBox();
-            this.txtNome = new System.Windows.Forms.TextBox();
+            this.TxtZipCode = new System.Windows.Forms.MaskedTextBox();
+            this.TxtDistrict = new System.Windows.Forms.TextBox();
+            this.TxtCity = new System.Windows.Forms.TextBox();
+            this.TxtState = new System.Windows.Forms.TextBox();
+            this.TxtName = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.btnEditar = new FontAwesome.Sharp.IconButton();
-            this.btnDeletar = new FontAwesome.Sharp.IconButton();
-            this.CursoCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.nome_materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnEdit = new FontAwesome.Sharp.IconButton();
+            this.BtnDelete = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridMaterias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubjectsGrid)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,23 +85,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel1.Controls.Add(this.gridMaterias);
+            this.panel1.Controls.Add(this.SubjectsGrid);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.ListaMaterias);
-            this.panel1.Controls.Add(this.txtSalario);
+            this.panel1.Controls.Add(this.TxtSalary);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.txtEmail);
             this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.cbGenero);
+            this.panel1.Controls.Add(this.CbGender);
             this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.cbEstadoCivil);
+            this.panel1.Controls.Add(this.CbMartialStatus);
             this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.txtNum);
-            this.panel1.Controls.Add(this.txtRua);
+            this.panel1.Controls.Add(this.TxtNum);
+            this.panel1.Controls.Add(this.TxtStreet);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.dtProfessor);
-            this.panel1.Controls.Add(this.txtTelefone);
+            this.panel1.Controls.Add(this.DtProfessor);
+            this.panel1.Controls.Add(this.TxtPhone);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label8);
@@ -109,31 +109,31 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtCEP);
-            this.panel1.Controls.Add(this.txtBairro);
-            this.panel1.Controls.Add(this.txtCidade);
-            this.panel1.Controls.Add(this.txtEstado);
-            this.panel1.Controls.Add(this.txtNome);
+            this.panel1.Controls.Add(this.TxtZipCode);
+            this.panel1.Controls.Add(this.TxtDistrict);
+            this.panel1.Controls.Add(this.TxtCity);
+            this.panel1.Controls.Add(this.TxtState);
+            this.panel1.Controls.Add(this.TxtName);
             this.panel1.Controls.Add(this.txtID);
-            this.panel1.Controls.Add(this.btnEditar);
-            this.panel1.Controls.Add(this.btnDeletar);
+            this.panel1.Controls.Add(this.BtnEdit);
+            this.panel1.Controls.Add(this.BtnDelete);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 2;
             // 
-            // gridMaterias
+            // SubjectsGrid
             // 
-            this.gridMaterias.AllowUserToAddRows = false;
-            this.gridMaterias.AllowUserToDeleteRows = false;
-            this.gridMaterias.AllowUserToResizeColumns = false;
-            this.gridMaterias.AllowUserToResizeRows = false;
+            this.SubjectsGrid.AllowUserToAddRows = false;
+            this.SubjectsGrid.AllowUserToDeleteRows = false;
+            this.SubjectsGrid.AllowUserToResizeColumns = false;
+            this.SubjectsGrid.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.gridMaterias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.gridMaterias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.gridMaterias.BackgroundColor = System.Drawing.Color.White;
-            this.gridMaterias.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SubjectsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.SubjectsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.SubjectsGrid.BackgroundColor = System.Drawing.Color.White;
+            this.SubjectsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -141,9 +141,9 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(37)))), ((int)(((byte)(111)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridMaterias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.gridMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SubjectsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.SubjectsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SubjectsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CursoCheckbox,
             this.nome_materia,
             this.curso,
@@ -156,9 +156,9 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridMaterias.DefaultCellStyle = dataGridViewCellStyle3;
-            this.gridMaterias.Location = new System.Drawing.Point(247, 251);
-            this.gridMaterias.Name = "gridMaterias";
+            this.SubjectsGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.SubjectsGrid.Location = new System.Drawing.Point(247, 251);
+            this.SubjectsGrid.Name = "SubjectsGrid";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -166,12 +166,55 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridMaterias.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.gridMaterias.RowHeadersVisible = false;
-            this.gridMaterias.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridMaterias.Size = new System.Drawing.Size(276, 157);
-            this.gridMaterias.TabIndex = 2;
+            this.SubjectsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.SubjectsGrid.RowHeadersVisible = false;
+            this.SubjectsGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.SubjectsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.SubjectsGrid.Size = new System.Drawing.Size(276, 157);
+            this.SubjectsGrid.TabIndex = 2;
+            // 
+            // CursoCheckbox
+            // 
+            this.CursoCheckbox.HeaderText = "Escolher";
+            this.CursoCheckbox.Name = "CursoCheckbox";
+            this.CursoCheckbox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CursoCheckbox.Width = 54;
+            // 
+            // nome_materia
+            // 
+            this.nome_materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nome_materia.DataPropertyName = "SubjectName";
+            this.nome_materia.HeaderText = "Materia";
+            this.nome_materia.Name = "nome_materia";
+            this.nome_materia.ReadOnly = true;
+            this.nome_materia.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.nome_materia.Width = 67;
+            // 
+            // curso
+            // 
+            this.curso.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.curso.DataPropertyName = "Course";
+            this.curso.HeaderText = "Curso";
+            this.curso.Name = "curso";
+            this.curso.ReadOnly = true;
+            this.curso.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.curso.Width = 59;
+            // 
+            // idMateria
+            // 
+            this.idMateria.DataPropertyName = "SubjectId";
+            this.idMateria.HeaderText = "IDMateria";
+            this.idMateria.Name = "idMateria";
+            this.idMateria.Visible = false;
+            this.idMateria.Width = 78;
+            // 
+            // idCurso
+            // 
+            this.idCurso.DataPropertyName = "idCurso";
+            this.idCurso.HeaderText = "CursoID";
+            this.idCurso.Name = "idCurso";
+            this.idCurso.Visible = false;
+            this.idCurso.Width = 70;
             // 
             // panel2
             // 
@@ -188,7 +231,7 @@
             // 
             this.BtnClose.FlatAppearance.BorderSize = 0;
             this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnClose.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.BtnClose.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
             this.BtnClose.IconColor = System.Drawing.Color.WhiteSmoke;
             this.BtnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnClose.IconSize = 40;
@@ -223,17 +266,17 @@
             this.ListaMaterias.TabIndex = 81;
             this.ListaMaterias.Visible = false;
             // 
-            // txtSalario
+            // TxtSalary
             // 
-            this.txtSalario.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalario.Location = new System.Drawing.Point(317, 427);
-            this.txtSalario.MaxLength = 20;
-            this.txtSalario.Name = "txtSalario";
-            this.txtSalario.Size = new System.Drawing.Size(206, 29);
-            this.txtSalario.TabIndex = 79;
-            this.txtSalario.Text = "Salario";
-            this.txtSalario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
-            this.txtSalario.Leave += new System.EventHandler(this.txtSalario_Leave);
+            this.TxtSalary.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSalary.Location = new System.Drawing.Point(317, 427);
+            this.TxtSalary.MaxLength = 20;
+            this.TxtSalary.Name = "TxtSalary";
+            this.TxtSalary.Size = new System.Drawing.Size(206, 29);
+            this.TxtSalary.TabIndex = 79;
+            this.TxtSalary.Text = "Salario";
+            this.TxtSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNum_KeyPress);
+            this.TxtSalary.Leave += new System.EventHandler(this.TxtSalary_Leave);
             // 
             // label15
             // 
@@ -255,7 +298,7 @@
             this.txtEmail.Size = new System.Drawing.Size(206, 29);
             this.txtEmail.TabIndex = 77;
             this.txtEmail.Text = "Email:";
-            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmail_KeyPress);
             // 
             // label16
             // 
@@ -268,19 +311,19 @@
             this.label16.TabIndex = 76;
             this.label16.Text = "Salario";
             // 
-            // cbGenero
+            // CbGender
             // 
-            this.cbGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGenero.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbGenero.FormattingEnabled = true;
-            this.cbGenero.Items.AddRange(new object[] {
+            this.CbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbGender.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbGender.FormattingEnabled = true;
+            this.CbGender.Items.AddRange(new object[] {
             "Masculino",
             "Feminino",
             "Outro"});
-            this.cbGenero.Location = new System.Drawing.Point(657, 517);
-            this.cbGenero.Name = "cbGenero";
-            this.cbGenero.Size = new System.Drawing.Size(206, 30);
-            this.cbGenero.TabIndex = 75;
+            this.CbGender.Location = new System.Drawing.Point(657, 517);
+            this.CbGender.Name = "CbGender";
+            this.CbGender.Size = new System.Drawing.Size(206, 30);
+            this.CbGender.TabIndex = 75;
             // 
             // label13
             // 
@@ -293,21 +336,21 @@
             this.label13.TabIndex = 74;
             this.label13.Text = "Gênero:";
             // 
-            // cbEstadoCivil
+            // CbMartialStatus
             // 
-            this.cbEstadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbEstadoCivil.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbEstadoCivil.FormattingEnabled = true;
-            this.cbEstadoCivil.Items.AddRange(new object[] {
+            this.CbMartialStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbMartialStatus.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbMartialStatus.FormattingEnabled = true;
+            this.CbMartialStatus.Items.AddRange(new object[] {
             "Solteiro",
             "Casado",
             "Separado",
             "Divorciado",
             "Viúvo"});
-            this.cbEstadoCivil.Location = new System.Drawing.Point(317, 470);
-            this.cbEstadoCivil.Name = "cbEstadoCivil";
-            this.cbEstadoCivil.Size = new System.Drawing.Size(206, 30);
-            this.cbEstadoCivil.TabIndex = 73;
+            this.CbMartialStatus.Location = new System.Drawing.Point(317, 470);
+            this.CbMartialStatus.Name = "CbMartialStatus";
+            this.CbMartialStatus.Size = new System.Drawing.Size(206, 30);
+            this.CbMartialStatus.TabIndex = 73;
             // 
             // label12
             // 
@@ -320,26 +363,26 @@
             this.label12.TabIndex = 72;
             this.label12.Text = "N°:";
             // 
-            // txtNum
+            // TxtNum
             // 
-            this.txtNum.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNum.Location = new System.Drawing.Point(910, 294);
-            this.txtNum.MaxLength = 4;
-            this.txtNum.Name = "txtNum";
-            this.txtNum.Size = new System.Drawing.Size(47, 29);
-            this.txtNum.TabIndex = 71;
-            this.txtNum.Text = "0000";
-            this.txtNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
+            this.TxtNum.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNum.Location = new System.Drawing.Point(910, 294);
+            this.TxtNum.MaxLength = 4;
+            this.TxtNum.Name = "TxtNum";
+            this.TxtNum.Size = new System.Drawing.Size(47, 29);
+            this.TxtNum.TabIndex = 71;
+            this.TxtNum.Text = "0000";
+            this.TxtNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNum_KeyPress);
             // 
-            // txtRua
+            // TxtStreet
             // 
-            this.txtRua.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRua.Location = new System.Drawing.Point(657, 294);
-            this.txtRua.Name = "txtRua";
-            this.txtRua.ReadOnly = true;
-            this.txtRua.Size = new System.Drawing.Size(206, 29);
-            this.txtRua.TabIndex = 70;
-            this.txtRua.Text = "Rua";
+            this.TxtStreet.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtStreet.Location = new System.Drawing.Point(657, 294);
+            this.TxtStreet.Name = "TxtStreet";
+            this.TxtStreet.ReadOnly = true;
+            this.TxtStreet.Size = new System.Drawing.Size(206, 29);
+            this.TxtStreet.TabIndex = 70;
+            this.TxtStreet.Text = "Rua";
             // 
             // label11
             // 
@@ -363,30 +406,30 @@
             this.label10.TabIndex = 68;
             this.label10.Text = "Rua:";
             // 
-            // dtProfessor
+            // DtProfessor
             // 
-            this.dtProfessor.CalendarFont = new System.Drawing.Font("Manrope", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtProfessor.CalendarForeColor = System.Drawing.Color.Coral;
-            this.dtProfessor.CalendarMonthBackground = System.Drawing.Color.Yellow;
-            this.dtProfessor.CalendarTitleBackColor = System.Drawing.Color.MidnightBlue;
-            this.dtProfessor.CalendarTitleForeColor = System.Drawing.Color.AliceBlue;
-            this.dtProfessor.CalendarTrailingForeColor = System.Drawing.Color.Green;
-            this.dtProfessor.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dtProfessor.CustomFormat = "dd/MM/yyyy";
-            this.dtProfessor.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtProfessor.Location = new System.Drawing.Point(317, 518);
-            this.dtProfessor.Name = "dtProfessor";
-            this.dtProfessor.Size = new System.Drawing.Size(206, 29);
-            this.dtProfessor.TabIndex = 67;
+            this.DtProfessor.CalendarFont = new System.Drawing.Font("Manrope", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtProfessor.CalendarForeColor = System.Drawing.Color.Coral;
+            this.DtProfessor.CalendarMonthBackground = System.Drawing.Color.Yellow;
+            this.DtProfessor.CalendarTitleBackColor = System.Drawing.Color.MidnightBlue;
+            this.DtProfessor.CalendarTitleForeColor = System.Drawing.Color.AliceBlue;
+            this.DtProfessor.CalendarTrailingForeColor = System.Drawing.Color.Green;
+            this.DtProfessor.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtProfessor.CustomFormat = "dd/MM/yyyy";
+            this.DtProfessor.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtProfessor.Location = new System.Drawing.Point(317, 518);
+            this.DtProfessor.Name = "DtProfessor";
+            this.DtProfessor.Size = new System.Drawing.Size(206, 29);
+            this.DtProfessor.TabIndex = 67;
             // 
-            // txtTelefone
+            // TxtPhone
             // 
-            this.txtTelefone.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefone.Location = new System.Drawing.Point(657, 427);
-            this.txtTelefone.Mask = "(00)00000-0000";
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(206, 29);
-            this.txtTelefone.TabIndex = 66;
+            this.TxtPhone.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPhone.Location = new System.Drawing.Point(657, 427);
+            this.TxtPhone.Mask = "(00)00000-0000";
+            this.TxtPhone.Name = "TxtPhone";
+            this.TxtPhone.Size = new System.Drawing.Size(206, 29);
+            this.TxtPhone.TabIndex = 66;
             // 
             // label5
             // 
@@ -465,56 +508,56 @@
             this.label1.TabIndex = 59;
             this.label1.Text = "Data de Nascimento:";
             // 
-            // txtCEP
+            // TxtZipCode
             // 
-            this.txtCEP.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCEP.Location = new System.Drawing.Point(657, 204);
-            this.txtCEP.Mask = "00000-000";
-            this.txtCEP.Name = "txtCEP";
-            this.txtCEP.Size = new System.Drawing.Size(206, 29);
-            this.txtCEP.TabIndex = 58;
-            this.txtCEP.TextChanged += new System.EventHandler(this.txtCEP_TextChanged);
+            this.TxtZipCode.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtZipCode.Location = new System.Drawing.Point(657, 204);
+            this.TxtZipCode.Mask = "00000-000";
+            this.TxtZipCode.Name = "TxtZipCode";
+            this.TxtZipCode.Size = new System.Drawing.Size(206, 29);
+            this.TxtZipCode.TabIndex = 58;
+            this.TxtZipCode.TextChanged += new System.EventHandler(this.TxtZipCode_TextChanged);
             // 
-            // txtBairro
+            // TxtDistrict
             // 
-            this.txtBairro.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBairro.Location = new System.Drawing.Point(657, 379);
-            this.txtBairro.Name = "txtBairro";
-            this.txtBairro.ReadOnly = true;
-            this.txtBairro.Size = new System.Drawing.Size(206, 29);
-            this.txtBairro.TabIndex = 57;
-            this.txtBairro.Text = "Bairro";
+            this.TxtDistrict.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDistrict.Location = new System.Drawing.Point(657, 379);
+            this.TxtDistrict.Name = "TxtDistrict";
+            this.TxtDistrict.ReadOnly = true;
+            this.TxtDistrict.Size = new System.Drawing.Size(206, 29);
+            this.TxtDistrict.TabIndex = 57;
+            this.TxtDistrict.Text = "Bairro";
             // 
-            // txtCidade
+            // TxtCity
             // 
-            this.txtCidade.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCidade.Location = new System.Drawing.Point(657, 332);
-            this.txtCidade.Name = "txtCidade";
-            this.txtCidade.ReadOnly = true;
-            this.txtCidade.Size = new System.Drawing.Size(206, 29);
-            this.txtCidade.TabIndex = 56;
-            this.txtCidade.Text = "Cidade";
+            this.TxtCity.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCity.Location = new System.Drawing.Point(657, 332);
+            this.TxtCity.Name = "TxtCity";
+            this.TxtCity.ReadOnly = true;
+            this.TxtCity.Size = new System.Drawing.Size(206, 29);
+            this.TxtCity.TabIndex = 56;
+            this.TxtCity.Text = "Cidade";
             // 
-            // txtEstado
+            // TxtState
             // 
-            this.txtEstado.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstado.Location = new System.Drawing.Point(657, 250);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.ReadOnly = true;
-            this.txtEstado.Size = new System.Drawing.Size(206, 29);
-            this.txtEstado.TabIndex = 55;
-            this.txtEstado.Text = "Estado";
+            this.TxtState.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtState.Location = new System.Drawing.Point(657, 250);
+            this.TxtState.Name = "TxtState";
+            this.TxtState.ReadOnly = true;
+            this.TxtState.Size = new System.Drawing.Size(206, 29);
+            this.TxtState.TabIndex = 55;
+            this.TxtState.Text = "Estado";
             // 
-            // txtNome
+            // TxtName
             // 
-            this.txtNome.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(317, 204);
-            this.txtNome.MaxLength = 50;
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(206, 29);
-            this.txtNome.TabIndex = 54;
-            this.txtNome.Text = "Nome";
-            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
+            this.TxtName.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtName.Location = new System.Drawing.Point(317, 204);
+            this.TxtName.MaxLength = 50;
+            this.TxtName.Name = "TxtName";
+            this.TxtName.Size = new System.Drawing.Size(206, 29);
+            this.TxtName.TabIndex = 54;
+            this.TxtName.Text = "Nome";
+            this.TxtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtName_KeyPress);
             // 
             // txtID
             // 
@@ -529,109 +572,66 @@
             this.txtID.Text = "000";
             this.txtID.Visible = false;
             // 
-            // btnEditar
+            // BtnEdit
             // 
-            this.btnEditar.BackColor = System.Drawing.Color.Transparent;
-            this.btnEditar.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
-            this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnEditar.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.btnEditar.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEditar.IconSize = 35;
-            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(386, 574);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(130, 35);
-            this.btnEditar.TabIndex = 12;
-            this.btnEditar.Text = "EditStudent";
-            this.btnEditar.UseVisualStyleBackColor = false;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            this.BtnEdit.BackColor = System.Drawing.Color.Transparent;
+            this.BtnEdit.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
+            this.BtnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnEdit.FlatAppearance.BorderSize = 0;
+            this.BtnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEdit.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEdit.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnEdit.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.BtnEdit.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnEdit.IconSize = 35;
+            this.BtnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEdit.Location = new System.Drawing.Point(386, 574);
+            this.BtnEdit.Name = "BtnEdit";
+            this.BtnEdit.Size = new System.Drawing.Size(130, 35);
+            this.BtnEdit.TabIndex = 12;
+            this.BtnEdit.Text = "Editar";
+            this.BtnEdit.UseVisualStyleBackColor = false;
+            this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
-            // btnDeletar
+            // BtnDelete
             // 
-            this.btnDeletar.BackColor = System.Drawing.Color.Transparent;
-            this.btnDeletar.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
-            this.btnDeletar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDeletar.FlatAppearance.BorderSize = 0;
-            this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeletar.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeletar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDeletar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.btnDeletar.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDeletar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDeletar.IconSize = 35;
-            this.btnDeletar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeletar.Location = new System.Drawing.Point(522, 574);
-            this.btnDeletar.Name = "btnDeletar";
-            this.btnDeletar.Size = new System.Drawing.Size(130, 35);
-            this.btnDeletar.TabIndex = 13;
-            this.btnDeletar.Text = "     Deletar";
-            this.btnDeletar.UseVisualStyleBackColor = false;
-            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
+            this.BtnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.BtnDelete.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
+            this.BtnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnDelete.FlatAppearance.BorderSize = 0;
+            this.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnDelete.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDelete.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.BtnDelete.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnDelete.IconSize = 35;
+            this.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnDelete.Location = new System.Drawing.Point(522, 574);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(130, 35);
+            this.BtnDelete.TabIndex = 13;
+            this.BtnDelete.Text = "     Deletar";
+            this.BtnDelete.UseVisualStyleBackColor = false;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
-            // CursoCheckbox
-            // 
-            this.CursoCheckbox.HeaderText = "Escolher";
-            this.CursoCheckbox.Name = "CursoCheckbox";
-            this.CursoCheckbox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CursoCheckbox.Width = 54;
-            // 
-            // nome_materia
-            // 
-            this.nome_materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nome_materia.DataPropertyName = "nome";
-            this.nome_materia.HeaderText = "Materia";
-            this.nome_materia.Name = "nome_materia";
-            this.nome_materia.ReadOnly = true;
-            this.nome_materia.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.nome_materia.Width = 67;
-            // 
-            // curso
-            // 
-            this.curso.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.curso.DataPropertyName = "nomeCurso";
-            this.curso.HeaderText = "Curso";
-            this.curso.Name = "curso";
-            this.curso.ReadOnly = true;
-            this.curso.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.curso.Width = 59;
-            // 
-            // idMateria
-            // 
-            this.idMateria.DataPropertyName = "Materiaid";
-            this.idMateria.HeaderText = "IDMateria";
-            this.idMateria.Name = "idMateria";
-            this.idMateria.Visible = false;
-            this.idMateria.Width = 78;
-            // 
-            // idCurso
-            // 
-            this.idCurso.DataPropertyName = "idCurso";
-            this.idCurso.HeaderText = "CursoID";
-            this.idCurso.Name = "idCurso";
-            this.idCurso.Visible = false;
-            this.idCurso.Width = 70;
-            // 
-            // EditarProfessor
+            // EditProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 669);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "EditarProfessor";
+            this.Name = "EditProfessor";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditarProfessor";
-            this.Load += new System.EventHandler(this.EditarProfessor_Load);
+            this.Load += new System.EventHandler(this.EditProfessor_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridMaterias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubjectsGrid)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -639,24 +639,24 @@
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private FontAwesome.Sharp.IconButton btnEditar;
-        private FontAwesome.Sharp.IconButton btnDeletar;
+        private FontAwesome.Sharp.IconButton BtnEdit;
+        private FontAwesome.Sharp.IconButton BtnDelete;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.ListBox ListaMaterias;
-        private System.Windows.Forms.TextBox txtSalario;
+        private System.Windows.Forms.TextBox TxtSalary;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox cbGenero;
+        private System.Windows.Forms.ComboBox CbGender;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox cbEstadoCivil;
+        private System.Windows.Forms.ComboBox CbMartialStatus;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtNum;
-        private System.Windows.Forms.TextBox txtRua;
+        private System.Windows.Forms.TextBox TxtNum;
+        private System.Windows.Forms.TextBox TxtStreet;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dtProfessor;
-        private System.Windows.Forms.MaskedTextBox txtTelefone;
+        private System.Windows.Forms.DateTimePicker DtProfessor;
+        private System.Windows.Forms.MaskedTextBox TxtPhone;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
@@ -664,15 +664,15 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox txtCEP;
-        private System.Windows.Forms.TextBox txtBairro;
-        private System.Windows.Forms.TextBox txtCidade;
-        private System.Windows.Forms.TextBox txtEstado;
-        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.MaskedTextBox TxtZipCode;
+        private System.Windows.Forms.TextBox TxtDistrict;
+        private System.Windows.Forms.TextBox TxtCity;
+        private System.Windows.Forms.TextBox TxtState;
+        private System.Windows.Forms.TextBox TxtName;
         private System.Windows.Forms.Panel panel2;
         private FontAwesome.Sharp.IconButton BtnClose;
         private FontAwesome.Sharp.IconButton BtnMinimize;
-        private System.Windows.Forms.DataGridView gridMaterias;
+        private System.Windows.Forms.DataGridView SubjectsGrid;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CursoCheckbox;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome_materia;
         private System.Windows.Forms.DataGridViewTextBoxColumn curso;

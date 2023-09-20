@@ -2,13 +2,11 @@
 using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
 using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
 {
-    public partial class CadastrarNotas : Form
+    public partial class RegisterGrades : Form
     {
         private Calculations calculate = new Calculations();
         private CourseModel courseModel = new CourseModel();
@@ -16,24 +14,24 @@ namespace ProjetoSistemaEe.View
         private ReportCardModel reportCardModel = new ReportCardModel();
         private Validations validate = new Validations();
 
-        public CadastrarNotas()
+        public RegisterGrades()
         {
             InitializeComponent();
         }
 
-        private void CadastrarNotas_Load(object sender, EventArgs e)
+        private void RegisterGrades_Load(object sender, EventArgs e)
         {
             validate.ClearControls(this);
             PopulateComboBox();
         }
 
-        private void btnAdicionar_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
             if (validate.ValidateControls(this))
             {
                 try
                 {
-                    DialogResult result = MessageBox.Show("Deseja adicionar a grade ao student?", "Adicionar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult result = MessageBox.Show("Deseja adicionar a media ao estudante?", "Adicionar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
                         Register();
@@ -52,15 +50,15 @@ namespace ProjetoSistemaEe.View
         {
             try
             {
-                int ra = Convert.ToInt32(cbAluno.SelectedValue);
-                int professorId = Convert.ToInt32(cbProfessor.SelectedValue);
-                int subjectId = Convert.ToInt32(cbMateria.SelectedValue);
-                int courseId = Convert.ToInt32(cbCurso.SelectedValue);
-                double grade1 = Convert.ToDouble(txtN1.Text);
-                double grade2 = Convert.ToDouble(txtN2.Text);
-                double grade3 = Convert.ToDouble(txtN3.Text);
-                double grade4 = Convert.ToDouble(txtN4.Text);
-                double average = Convert.ToDouble(txtMedia.Text);
+                int ra = Convert.ToInt32(CbStudent.SelectedValue);
+                int professorId = Convert.ToInt32(CbProfessor.SelectedValue);
+                int subjectId = Convert.ToInt32(CbSubject.SelectedValue);
+                int courseId = Convert.ToInt32(CbCourse.SelectedValue);
+                double grade1 = Convert.ToDouble(TxtN1.Text);
+                double grade2 = Convert.ToDouble(TxtN2.Text);
+                double grade3 = Convert.ToDouble(TxtN3.Text);
+                double grade4 = Convert.ToDouble(TxtN4.Text);
+                double average = Convert.ToDouble(TxtAverage.Text);
                 string situation = calculate.CheckSituation(average);
 
                 ReportCard boletim = new ReportCard(ra, professorId, subjectId, courseId, grade1, grade2, grade3, grade4, average, situation);
@@ -72,12 +70,12 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        #region Validações
+        #region Validations
 
-        private void txtN_TextChanged(object sender, EventArgs e)
+        private void TxtN_TextChanged(object sender, EventArgs e)
         {
             TextBox txt = (TextBox)sender;
-            if (!string.IsNullOrEmpty(txt.Text))
+            if (!string.IsNullOrEmpty(txt.Text) && txt.Text != ",")
             {
                 double grade = Convert.ToDouble(txt.Text);
                 if (grade < 0 || grade > 10)
@@ -89,24 +87,24 @@ namespace ProjetoSistemaEe.View
                 }
             }
 
-            if (txtN1.Text != "" && txtN2.Text != "" && txtN3.Text != "" && txtN4.Text != "")
+            if (TxtN1.Text != "" && TxtN2.Text != "" && TxtN3.Text != "" && TxtN4.Text != "")
             {
-                calculate.CalculateAverage(txtN1, txtN2, txtN3, txtN4, txtMedia);
-                btnAdicionar.Enabled = true;
+                calculate.CalculateAverage(TxtN1, TxtN2, TxtN3, TxtN4, TxtAverage);
+                BtnAdd.Enabled = true;
             }
             else
             {
-                txtMedia.Clear();
-                btnAdicionar.Enabled = false;
+                TxtAverage.Clear();
+                BtnAdd.Enabled = false;
             }
         }
 
-        private void txt_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            validate.PermitNumber(e);
+            validate.PermitNumberAndComma(sender, e);
         }
 
-        #endregion Validações
+        #endregion Validations
 
         #region Menu
 
@@ -122,7 +120,7 @@ namespace ProjetoSistemaEe.View
 
         private void BtnPreviousMenu_Click(object sender, EventArgs e)
         {
-            MenuPrincipal mainMenu = new MenuPrincipal();
+            MainMenu mainMenu = new MainMenu();
             Close();
             mainMenu.TopLevel = true;
             mainMenu.Show();
@@ -132,49 +130,49 @@ namespace ProjetoSistemaEe.View
 
         private void PopulateComboBox()
         {   //
-            cbCurso.ValueMember = "courseId";
-            cbCurso.DisplayMember = "Nome_curso";
-            cbCurso.DropDownHeight = cbCurso.Height * 5;
-            cbCurso.DataSource = courseModel.GetCoursesByStudents();
+            CbCourse.ValueMember = "courseId";
+            CbCourse.DisplayMember = "courseName";
+            CbCourse.DropDownHeight = CbCourse.Height * 5;
+            CbCourse.DataSource = courseModel.GetCoursesByStudents();
             //
-            cbAluno.ValueMember = "RA";
-            cbAluno.DisplayMember = "Nome";
-            cbAluno.DropDownHeight = cbAluno.Height * 5;
-            cbAluno.DataSource = courseModel.GetStudentsByCourse(Convert.ToInt32(cbCurso.SelectedValue));
+            CbStudent.ValueMember = "RA";
+            CbStudent.DisplayMember = "Name";
+            CbStudent.DropDownHeight = CbStudent.Height * 2;
+            CbStudent.DataSource = courseModel.GetStudentsByCourse(Convert.ToInt32(CbCourse.SelectedValue));
             //
 
-            cbProfessor.ValueMember = "id";
-            cbProfessor.DisplayMember = "nome";
-            cbProfessor.DropDownHeight = cbProfessor.Height * 5;
-            cbProfessor.DataSource = professorModel.GetEntities();
+            CbProfessor.ValueMember = "Id";
+            CbProfessor.DisplayMember = "Name";
+            CbProfessor.DropDownHeight = CbProfessor.Height * 5;
+            CbProfessor.DataSource = professorModel.GetEntities();
             //
-            cbMateria.ValueMember = "Materiaid";
-            cbMateria.DisplayMember = "Nome";
-            cbMateria.DropDownHeight = cbMateria.Height * 5;
-            cbMateria.DataSource = courseModel.GetSubjectsByProfessorAndCourse(Convert.ToInt32(cbProfessor.SelectedValue), Convert.ToInt32(cbCurso.SelectedValue));
+            CbSubject.ValueMember = "SubjectId";
+            CbSubject.DisplayMember = "SubjectName";
+            CbSubject.DropDownHeight = CbSubject.Height * 5;
+            CbSubject.DataSource = courseModel.GetSubjectsByProfessorAndCourse(Convert.ToInt32(CbProfessor.SelectedValue), Convert.ToInt32(CbCourse.SelectedValue));
         }
 
         private void cbCurso_TextChanged(object sender, EventArgs e)
         {
-            int id_curso = Convert.ToInt32(cbCurso.SelectedValue);
-            int id_professor = Convert.ToInt32(cbProfessor.SelectedValue);
-            cbAluno.ValueMember = "RA";
-            cbAluno.DisplayMember = "Nome";
-            cbAluno.DropDownHeight = cbAluno.Height * 5;
-            cbAluno.DataSource = courseModel.GetStudentsByCourse(id_curso);
+            int courseId = Convert.ToInt32(CbCourse.SelectedValue);
+            int professorId = Convert.ToInt32(CbProfessor.SelectedValue);
+            CbStudent.ValueMember = "RA";
+            CbStudent.DisplayMember = "Name";
+            CbStudent.DropDownHeight = CbStudent.Height * 5;
+            CbStudent.DataSource = courseModel.GetStudentsByCourse(courseId);
             //
-            cbMateria.ValueMember = "Materiaid";
-            cbMateria.DisplayMember = "Nome";
-            cbMateria.DropDownHeight = cbMateria.Height * 5;
-            cbMateria.DataSource = courseModel.GetSubjectsByProfessorAndCourse(Convert.ToInt32(id_professor), Convert.ToInt32(id_curso));
+            CbSubject.ValueMember = "SubjectId";
+            CbSubject.DisplayMember = "SubjectName";
+            CbSubject.DropDownHeight = CbSubject.Height * 5;
+            CbSubject.DataSource = courseModel.GetSubjectsByProfessorAndCourse(Convert.ToInt32(professorId), Convert.ToInt32(courseId));
         }
 
         private void cbProfessor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbMateria.ValueMember = "Materiaid";
-            cbMateria.DisplayMember = "Nome";
-            cbMateria.DropDownHeight = cbMateria.Height * 5;
-            cbMateria.DataSource = courseModel.GetSubjectsByProfessorAndCourse(Convert.ToInt32(cbProfessor.SelectedValue), Convert.ToInt32(cbCurso.SelectedValue));
+            CbSubject.ValueMember = "SubjectId";
+            CbSubject.DisplayMember = "SubjectName";
+            CbSubject.DropDownHeight = CbSubject.Height * 5;
+            CbSubject.DataSource = courseModel.GetSubjectsByProfessorAndCourse(Convert.ToInt32(CbProfessor.SelectedValue), Convert.ToInt32(CbCourse.SelectedValue));
         }
     }
 }

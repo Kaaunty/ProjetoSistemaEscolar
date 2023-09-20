@@ -5,7 +5,7 @@ namespace ProjetoSistemaEe.Entidades
     public class Person
     {
         private string name;
-        private string martialStatus;
+        private string maritalStatus;
         private string phone;
         private string zipCode;
         private string city;
@@ -18,7 +18,7 @@ namespace ProjetoSistemaEe.Entidades
         private string email;
 
         public string Name { get => name; set => name = value; }
-        public string MartialStatus { get => martialStatus; set => martialStatus = value; }
+        public string MaritalStatus { get => maritalStatus; set => maritalStatus = value; }
         public string Phone { get => phone; set => phone = value; }
         public string ZipCode { get => zipCode; set => zipCode = value; }
         public string City { get => city; set => city = value; }

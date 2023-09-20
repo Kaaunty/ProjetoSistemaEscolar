@@ -1,6 +1,6 @@
 ﻿namespace ProjetoSistemaEe.View
 {
-    partial class MenuPrincipal
+    partial class MainMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtntranscriptAdd = new System.Windows.Forms.Button();
             this.BtntranscriptView = new FontAwesome.Sharp.IconButton();

@@ -30,19 +30,18 @@ namespace ProjetoSistemaEe.View
             txtN3.Text = reportCard.Grade3.ToString();
             txtN4.Text = reportCard.Grade4.ToString();
             txtMedia.Text = reportCard.Average.ToString();
-            txtNomeProfessor.Text = reportCard.Professor.Name;
             txtMateria.Text = reportCard.Subject.SubjectName;
             txtCurso.Text = reportCard.Course.CourseName;
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void BtnEdit_Click(object sender, EventArgs e)
         {
             try
             {
-                DialogResult result = MessageBox.Show("Deseja editar a grade do student?", "Adicionar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Deseja editar a media do estudante?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    EditGrade();
+                    EditGrades();
                     MessageBox.Show("Boletim editado com sucesso!");
                     Close();
                 }
@@ -53,7 +52,7 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        private void EditGrade()
+        private void EditGrades()
         {
             try
             {
@@ -64,8 +63,8 @@ namespace ProjetoSistemaEe.View
                 double grade4 = Convert.ToDouble(txtN4.Text);
                 double average = Convert.ToDouble(txtMedia.Text);
                 string situation = calculate.CheckSituation(average);
-                ReportCard boletim = new ReportCard(id, grade1, grade2, grade3, grade4, average, situation);
-                reportCardModel.Edit(boletim);
+                ReportCard reportCard = new ReportCard(id, grade1, grade2, grade3, grade4, average, situation);
+                reportCardModel.Edit(reportCard);
             }
             catch (Exception)
             {
@@ -73,12 +72,12 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        #region Validações
+        #region Validations
 
         private void TxtN_TextChanged(object sender, EventArgs e)
         {
             TextBox txt = (TextBox)sender;
-            if (!string.IsNullOrEmpty(txt.Text))
+            if (!string.IsNullOrEmpty(txt.Text) && txt.Text != ",")
             {
                 double grade = Convert.ToDouble(txt.Text);
                 if (grade < 0 || grade > 10)
@@ -102,14 +101,14 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtNum_KeyPress(object sender, KeyPressEventArgs e)
         {
-            validate.PermitNumber(e);
+            validate.PermitNumberAndComma(sender, e);
         }
 
-        #endregion Validações
+        #endregion Validations
 
-        #region Botões
+        #region Buttons
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
@@ -121,6 +120,6 @@ namespace ProjetoSistemaEe.View
             WindowState = FormWindowState.Minimized;
         }
 
-        #endregion Botões
+        #endregion Buttons
     }
 }

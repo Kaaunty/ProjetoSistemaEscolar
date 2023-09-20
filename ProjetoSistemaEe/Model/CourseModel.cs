@@ -17,9 +17,9 @@ namespace ProjetoSistemaEe.Model
                 courses = dao.GetCourses();
                 return courses;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -31,9 +31,9 @@ namespace ProjetoSistemaEe.Model
                 courses = dao.GetCoursesByStudents();
                 return courses;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -45,9 +45,9 @@ namespace ProjetoSistemaEe.Model
                 students = dao.GetStudentsByCourse(courseId);
                 return students;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -59,9 +59,9 @@ namespace ProjetoSistemaEe.Model
                 subjects = dao.GetSubjectsByProfessorAndCourse(professorId, courseId);
                 return subjects;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
     }

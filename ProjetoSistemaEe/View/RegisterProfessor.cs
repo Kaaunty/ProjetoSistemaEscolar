@@ -3,9 +3,7 @@ using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Media.Media3D;
 
 namespace ProjetoSistemaEe.View
 {
@@ -23,17 +21,17 @@ namespace ProjetoSistemaEe.View
         private void CadastroProfessor_Load(object sender, EventArgs e)
         {
             validate.ClearControls(this);
-            validate.FormatDate(dtProfessor, new DateTime(2000, 12, 31), new DateTime(1953, 01, 01));
+            validate.FormatDate(DtProfessor, new DateTime(2000, 12, 31), new DateTime(1953, 01, 01));
             PopulateGrid();
         }
 
         private void PopulateGrid()
         {
-            gridMaterias.AutoGenerateColumns = false;
-            gridMaterias.DataSource = subjectModel.GetSubjects();
+            SubjectsGrid.AutoGenerateColumns = false;
+            SubjectsGrid.DataSource = subjectModel.GetSubjects();
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
             if (validate.ValidateControls(this) && ValidateGridSelected())
             {
@@ -60,20 +58,20 @@ namespace ProjetoSistemaEe.View
         {
             try
             {
-                string name = txtNome.Text;
+                string name = TxtName.Text;
                 List<Subjects> subjects = GetSeletectedSubjects();
-                string martialStatus = cbEstadoCivil.Text;
-                string gender = cbGenero.Text;
+                string martialStatus = CbMartialStatus.Text;
+                string gender = CbGender.Text;
                 string email = txtEmail.Text;
-                string zipCode = txtCEP.Text;
-                string state = txtEstado.Text;
-                string salary = txtSalario.Text;
-                string city = txtCidade.Text;
-                string district = txtBairro.Text;
-                string street = txtRua.Text;
-                string streetNumber = txtNum.Text;
-                string phone = txtTelefone.Text;
-                DateTime birchDate = dtProfessor.Value;
+                string zipCode = TxtZipCode.Text;
+                string state = TxtState.Text;
+                string salary = TxtSalary.Text;
+                string city = TxtCity.Text;
+                string district = TxtDistrict.Text;
+                string street = TxtStreet.Text;
+                string streetNumber = TxtNum.Text;
+                string phone = TxtPhone.Text;
+                DateTime birchDate = DtProfessor.Value;
                 Professor professor = new Professor(name, subjects, salary, martialStatus, gender, birchDate, email, phone, zipCode, city, state, district, street, streetNumber);
                 professorModel.Register(professor);
             }
@@ -88,7 +86,7 @@ namespace ProjetoSistemaEe.View
             try
             {
                 List<Subjects> subjects = new List<Subjects>();
-                foreach (DataGridViewRow row in gridMaterias.Rows)
+                foreach (DataGridViewRow row in SubjectsGrid.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
                     {
@@ -107,7 +105,7 @@ namespace ProjetoSistemaEe.View
 
         private void ClearDataGrid()
         {
-            foreach (DataGridViewRow row in gridMaterias.Rows)
+            foreach (DataGridViewRow row in SubjectsGrid.Rows)
             {
                 if (Convert.ToBoolean(row.Cells[0].Value) == true)
                 {
@@ -116,36 +114,36 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        #region Validações
+        #region Validations
 
-        private void txtSalario_Leave(object sender, EventArgs e)
+        private void TxtSalary_Leave(object sender, EventArgs e)
         {
-            validate.ValidateSalary(txtSalario);
+            validate.ValidateSalary(TxtSalary);
         }
 
-        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtName_KeyPress(object sender, KeyPressEventArgs e)
         {
             validate.PermitLetter(e);
         }
 
-        private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtNum_KeyPress(object sender, KeyPressEventArgs e)
         {
             validate.PermitNumber(e);
         }
 
-        private void txtCEP_TextChanged(object sender, EventArgs e)
+        private void TxtZipCode_TextChanged(object sender, EventArgs e)
         {
-            validate.ValidateCEP(txtCEP, txtEstado, txtCidade, txtBairro, txtRua, txtNum);
+            validate.ValidateCEP(TxtZipCode, TxtState, TxtCity, TxtDistrict, TxtStreet, TxtNum);
         }
 
-        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
             validate.BlockSpaceBar(e);
         }
 
         public bool ValidateGridSelected()
         {
-            foreach (DataGridViewRow row in gridMaterias.Rows)
+            foreach (DataGridViewRow row in SubjectsGrid.Rows)
             {
                 if (Convert.ToBoolean(row.Cells[0].Value) == true)
                 {
@@ -156,14 +154,9 @@ namespace ProjetoSistemaEe.View
             return false;
         }
 
-        #endregion Validações
+        #endregion Validations
 
-        #region Botões
-
-        private void BtnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        #region Buttons
 
         private void BtnMinimize_Click(object sender, EventArgs e)
         {
@@ -172,25 +165,25 @@ namespace ProjetoSistemaEe.View
 
         private void BtnPreviousMenu_Click(object sender, EventArgs e)
         {
-            MenuPrincipal main_Menu = new MenuPrincipal();
-            main_Menu.TopLevel = true;
-            main_Menu.Show();
+            MainMenu Mainmenu = new MainMenu();
+            Mainmenu.TopLevel = true;
+            Mainmenu.Show();
             Close();
         }
 
-        #endregion Botões
+        #endregion Buttons
 
         private void BtnTest_Click(object sender, EventArgs e)
         {
-            txtNome.Text = "Teste";
+            TxtName.Text = "Teste";
             txtEmail.Text = "Teste@teste.com";
-            txtCEP.Text = "13254685";
-            txtSalario.Text = "R$ 9.999,00";
-            txtNum.Text = "123";
-            txtTelefone.Text = "11971258656";
-            cbEstadoCivil.Text = "Solteiro";
-            cbGenero.Text = "Masculino";
-            dtProfessor.Value = new DateTime(1999, 12, 31);
+            TxtZipCode.Text = "13254685";
+            TxtSalary.Text = "R$ 9.999,00";
+            TxtNum.Text = "123";
+            TxtPhone.Text = "11971258656";
+            CbMartialStatus.Text = "Solteiro";
+            CbGender.Text = "Masculino";
+            DtProfessor.Value = new DateTime(1999, 12, 31);
         }
     }
 }

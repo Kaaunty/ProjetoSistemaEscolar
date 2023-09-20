@@ -21,13 +21,13 @@ namespace ProjetoSistemaEe.View
         {
             this.professor = professor;
             InitializeComponent();
-            gridMaterias.AutoGenerateColumns = false;
-            gridMaterias.DataSource = subjectModel.GetSubjects();
+            SubjectsGrid.AutoGenerateColumns = false;
+            SubjectsGrid.DataSource = subjectModel.GetSubjects();
         }
 
-        private void EditarProfessor_Load(object sender, EventArgs e)
+        private void EditProfessor_Load(object sender, EventArgs e)
         {
-            validate.FormatDate(dtProfessor, new DateTime(2004, 12, 31), new DateTime(1953, 01, 01));
+            validate.FormatDate(DtProfessor, new DateTime(2004, 12, 31), new DateTime(1953, 01, 01));
             PopulateFields();
             SelectSubjects();
         }
@@ -35,28 +35,28 @@ namespace ProjetoSistemaEe.View
         private void PopulateFields()
         {
             txtID.Text = professor.Id.ToString();
-            txtNome.Text = professor.Name;
-            cbEstadoCivil.Text = professor.MartialStatus;
-            txtSalario.Text = professor.Salary;
-            cbGenero.Text = professor.Gender;
-            dtProfessor.Text = professor.BirthDate.ToString();
+            TxtName.Text = professor.Name;
+            CbMartialStatus.Text = professor.MaritalStatus;
+            TxtSalary.Text = professor.Salary;
+            CbGender.Text = professor.Gender;
+            DtProfessor.Text = professor.BirthDate.ToString();
             txtEmail.Text = professor.Email;
-            txtTelefone.Text = professor.Phone;
-            txtCEP.Text = professor.ZipCode;
-            txtCidade.Text = professor.City;
-            txtEstado.Text = professor.State;
-            txtBairro.Text = professor.District;
-            txtRua.Text = professor.Street;
-            txtNum.Text = professor.StreetNumber;
+            TxtPhone.Text = professor.Phone;
+            TxtZipCode.Text = professor.ZipCode;
+            TxtCity.Text = professor.City;
+            TxtState.Text = professor.State;
+            TxtDistrict.Text = professor.District;
+            TxtStreet.Text = professor.Street;
+            TxtNum.Text = professor.StreetNumber;
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void BtnEdit_Click(object sender, EventArgs e)
         {
             if (validate.ValidateControls(this) && ValidateGridSelected())
             {
                 try
                 {
-                    DialogResult result = MessageBox.Show("Deseja editar o professor?", "EditStudent", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult result = MessageBox.Show("Deseja editar o professor?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
                         EditGrade();
@@ -76,22 +76,22 @@ namespace ProjetoSistemaEe.View
             try
             {
                 int id = Convert.ToInt32(txtID.Text);
-                string name = txtNome.Text;
-                string martialStatus = cbEstadoCivil.Text;
-                string gender = cbGenero.Text;
-                DateTime birchDate = dtProfessor.Value;
+                string name = TxtName.Text;
+                string martialStatus = CbMartialStatus.Text;
+                string gender = CbGender.Text;
+                DateTime birthDate = DtProfessor.Value;
                 string email = txtEmail.Text;
-                string phone = txtTelefone.Text;
-                string zipCode = txtCEP.Text;
-                string city = txtCidade.Text;
-                string state = txtEstado.Text;
-                string district = txtBairro.Text;
-                string street = txtRua.Text;
-                string streetNumber = txtNum.Text;
-                string salary = txtSalario.Text;
+                string phone = TxtPhone.Text;
+                string zipCode = TxtZipCode.Text;
+                string city = TxtCity.Text;
+                string state = TxtState.Text;
+                string district = TxtDistrict.Text;
+                string street = TxtStreet.Text;
+                string streetNumber = TxtNum.Text;
+                string salary = TxtSalary.Text;
                 List<Subjects> subjects = GetSeletectedSubjects();
 
-                Professor professor = new Professor(id, name, subjects, salary, martialStatus, gender, birchDate, email, phone, zipCode, city, state, district, street, streetNumber);
+                Professor professor = new Professor(id, name, subjects, salary, martialStatus, gender, birthDate, email, phone, zipCode, city, state, district, street, streetNumber);
 
                 professorModel.Edit(professor);
             }
@@ -103,32 +103,32 @@ namespace ProjetoSistemaEe.View
 
         private List<Subjects> GetSeletectedSubjects()
         {
-            List<Subjects> materias = new List<Subjects>();
-            foreach (DataGridViewRow row in gridMaterias.Rows)
+            List<Subjects> subjects = new List<Subjects>();
+            foreach (DataGridViewRow row in SubjectsGrid.Rows)
             {
                 if (Convert.ToBoolean(row.Cells[0].Value) == true)
                 {
-                    int materiaid = Convert.ToInt32(row.Cells[3].Value);
-                    string nome = row.Cells[1].Value.ToString();
-                    Subjects materia = new Subjects(materiaid, nome);
-                    materias.Add(materia);
+                    int subjectId = Convert.ToInt32(row.Cells[3].Value);
+                    string name = row.Cells[1].Value.ToString();
+                    Subjects subject = new Subjects(subjectId, name);
+                    subjects.Add(subject);
                 }
             }
-            return materias;
+            return subjects;
         }
 
-        private void btnDeletar_Click(object sender, EventArgs e)
+        private void BtnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Deseja excluir o professor?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Deseja excluir o professor?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Excluir();
+                Delete();
                 MessageBox.Show("Professor excluido com sucesso!");
                 Close();
             }
         }
 
-        private void Excluir()
+        private void Delete()
         {
             if (validate.ValidateControls(this))
             {
@@ -148,7 +148,7 @@ namespace ProjetoSistemaEe.View
         {
             foreach (Subjects item in professor.Subjects)
             {
-                foreach (DataGridViewRow row in gridMaterias.Rows)
+                foreach (DataGridViewRow row in SubjectsGrid.Rows)
                 {
                     if (item.SubjectName == row.Cells[1].Value.ToString())
                     {
@@ -158,36 +158,36 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        #region Validações
+        #region Validations
 
-        private void txtSalario_Leave(object sender, EventArgs e)
+        private void TxtSalary_Leave(object sender, EventArgs e)
         {
-            validate.ValidateSalary(txtSalario);
+            validate.ValidateSalary(TxtSalary);
         }
 
-        private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtNum_KeyPress(object sender, KeyPressEventArgs e)
         {
             validate.PermitNumber(e);
         }
 
-        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtName_KeyPress(object sender, KeyPressEventArgs e)
         {
             validate.PermitLetter(e);
         }
 
-        private void txtCEP_TextChanged(object sender, EventArgs e)
+        private void TxtZipCode_TextChanged(object sender, EventArgs e)
         {
-            validate.ValidateCEP(txtCEP, txtEstado, txtCidade, txtBairro, txtRua, txtNum);
+            validate.ValidateCEP(TxtZipCode, TxtState, TxtCity, TxtDistrict, TxtStreet, TxtNum);
         }
 
-        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
             validate.BlockSpaceBar(e);
         }
 
         public bool ValidateGridSelected()
         {
-            foreach (DataGridViewRow row in gridMaterias.Rows)
+            foreach (DataGridViewRow row in SubjectsGrid.Rows)
             {
                 if (Convert.ToBoolean(row.Cells[0].Value) == true)
                 {
@@ -198,9 +198,9 @@ namespace ProjetoSistemaEe.View
             return false;
         }
 
-        #endregion Validações
+        #endregion Validations
 
-        #region Botões Menu
+        #region Buttons
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
@@ -212,6 +212,6 @@ namespace ProjetoSistemaEe.View
             WindowState = FormWindowState.Minimized;
         }
 
-        #endregion Botões Menu
+        #endregion Buttons
     }
 }

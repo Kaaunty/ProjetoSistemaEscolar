@@ -35,12 +35,10 @@
             this.txtN2 = new System.Windows.Forms.TextBox();
             this.txtCurso = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtNomeProfessor = new System.Windows.Forms.TextBox();
             this.txtMateria = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtRA = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtN1 = new System.Windows.Forms.TextBox();
@@ -52,11 +50,11 @@
             this.txtN4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.BtnClose = new FontAwesome.Sharp.IconButton();
             this.BtnMinimize = new FontAwesome.Sharp.IconButton();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -85,7 +83,7 @@
             this.txtN3.TabIndex = 3;
             this.txtN3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtN3.TextChanged += new System.EventHandler(this.TxtN_TextChanged);
-            this.txtN3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
+            this.txtN3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNum_KeyPress);
             // 
             // label5
             // 
@@ -110,7 +108,7 @@
             this.txtN2.TabIndex = 2;
             this.txtN2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtN2.TextChanged += new System.EventHandler(this.TxtN_TextChanged);
-            this.txtN2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
+            this.txtN2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNum_KeyPress);
             // 
             // txtCurso
             // 
@@ -137,19 +135,6 @@
             this.label6.Size = new System.Drawing.Size(76, 28);
             this.label6.TabIndex = 8;
             this.label6.Text = "Curso:";
-            // 
-            // txtNomeProfessor
-            // 
-            this.txtNomeProfessor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNomeProfessor.Enabled = false;
-            this.txtNomeProfessor.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeProfessor.Location = new System.Drawing.Point(166, 233);
-            this.txtNomeProfessor.Name = "txtNomeProfessor";
-            this.txtNomeProfessor.ReadOnly = true;
-            this.txtNomeProfessor.Size = new System.Drawing.Size(413, 29);
-            this.txtNomeProfessor.TabIndex = 7;
-            this.txtNomeProfessor.TabStop = false;
-            this.txtNomeProfessor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtMateria
             // 
@@ -203,19 +188,6 @@
             this.txtRA.TabStop = false;
             this.txtRA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
-            this.label8.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label8.Location = new System.Drawing.Point(18, 231);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(142, 28);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Professor(a):";
-            // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -252,7 +224,7 @@
             this.txtN1.TabIndex = 1;
             this.txtN1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtN1.TextChanged += new System.EventHandler(this.TxtN_TextChanged);
-            this.txtN1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
+            this.txtN1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNum_KeyPress);
             // 
             // label2
             // 
@@ -314,9 +286,9 @@
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(130, 35);
             this.btnEditar.TabIndex = 6;
-            this.btnEditar.Text = "EditStudent";
+            this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            this.btnEditar.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // panel2
             // 
@@ -346,7 +318,7 @@
             this.txtN4.TabIndex = 4;
             this.txtN4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtN4.TextChanged += new System.EventHandler(this.TxtN_TextChanged);
-            this.txtN4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
+            this.txtN4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNum_KeyPress);
             // 
             // label4
             // 
@@ -367,18 +339,27 @@
             this.panel3.Controls.Add(this.txtID);
             this.panel3.Controls.Add(this.txtCurso);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.txtNomeProfessor);
             this.panel3.Controls.Add(this.txtMateria);
             this.panel3.Controls.Add(this.txtNome);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.txtRA);
-            this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Location = new System.Drawing.Point(334, 214);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(591, 364);
             this.panel3.TabIndex = 12;
+            // 
+            // txtID
+            // 
+            this.txtID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtID.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtID.Location = new System.Drawing.Point(5, 41);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(67, 33);
+            this.txtID.TabIndex = 11;
+            this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtID.Visible = false;
             // 
             // panel1
             // 
@@ -409,7 +390,7 @@
             // 
             this.BtnClose.FlatAppearance.BorderSize = 0;
             this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnClose.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.BtnClose.IconChar = FontAwesome.Sharp.IconChar.RotateBackward;
             this.BtnClose.IconColor = System.Drawing.Color.WhiteSmoke;
             this.BtnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnClose.IconSize = 40;
@@ -435,25 +416,14 @@
             this.BtnMinimize.UseVisualStyleBackColor = true;
             this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
             // 
-            // txtID
-            // 
-            this.txtID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtID.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(5, 41);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(67, 33);
-            this.txtID.TabIndex = 11;
-            this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtID.Visible = false;
-            // 
-            // EditarNotas
+            // EditGrade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 669);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "EditarNotas";
+            this.Name = "EditGrade";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditarNotas";
             this.panel2.ResumeLayout(false);
@@ -474,12 +444,10 @@
         private System.Windows.Forms.TextBox txtN2;
         private System.Windows.Forms.TextBox txtCurso;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtNomeProfessor;
         private System.Windows.Forms.TextBox txtMateria;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtRA;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtN1;

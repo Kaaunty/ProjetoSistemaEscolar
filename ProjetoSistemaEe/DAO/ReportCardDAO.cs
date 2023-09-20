@@ -23,7 +23,6 @@ namespace ProjetoSistemaEe.DAO
                   s.name AS student_name,
                   c.name AS course_name,
                   sb.name AS subject_name,
-                  p.id AS professor_id,
                   rc.grade1,
                   rc.grade2,
                   rc.grade3,
@@ -34,7 +33,6 @@ namespace ProjetoSistemaEe.DAO
                   rc.id AS reportcard_id,
                   rc.subject_id AS subject_id
                   FROM reportcards rc
-                  JOIN professors p on p.id = rc.professor_id
                   JOIN students s on s.ra = rc.student_id
                   JOIN courses c on c.id = rc.course_id
                   JOIN subjects sb on sb.id = rc.subject_id;", con.con);
@@ -49,14 +47,13 @@ namespace ProjetoSistemaEe.DAO
                     string courseName = dr["course_name"].ToString();
                     int subjectId = Convert.ToInt32(dr["subject_id"]);
                     string subjectName = dr["subject_name"].ToString();
-                    int professorId = Convert.ToInt32(dr["professor_id"]);
                     double grade1 = Convert.ToDouble(dr["grade1"]);
                     double grade2 = Convert.ToDouble(dr["grade2"]);
                     double grade3 = Convert.ToDouble(dr["grade3"]);
                     double grade4 = Convert.ToDouble(dr["grade4"]);
                     double average = Convert.ToDouble(dr["average"]);
                     string situation = dr["situation"].ToString();
-                    ReportCard reportCard = new ReportCard(id, ra, studentName, courseId, courseName, subjectId, subjectName, professorId, grade1, grade2, grade3, grade4, average, situation);
+                    ReportCard reportCard = new ReportCard(id, ra, studentName, courseId, courseName, subjectId, subjectName, grade1, grade2, grade3, grade4, average, situation);
                     reportCards.Add(reportCard);
                 }
                 return reportCards;
@@ -77,16 +74,15 @@ namespace ProjetoSistemaEe.DAO
             {
                 con.OpenConnection();
                 sql = new MySqlCommand(@"INSERT INTO reportcards ()
-                                         VALUES(DEFAULT, @student_id, @course_id, @subject_id, @grade1, @grade2, @grade3, @grade4, @average, @professor_id, @situation;", con.con);
-                sql.Parameters.AddWithValue("@student_id", reportCard.Ra);
-                sql.Parameters.AddWithValue("@course_id", reportCard.CourseId);
-                sql.Parameters.AddWithValue("@subject_id", reportCard.SubjectId);
+                                         VALUES(DEFAULT, @student_id, @course_id, @subject_id, @grade1, @grade2, @grade3, @grade4, @average, @situation);", con.con);
+                sql.Parameters.AddWithValue("@student_id", reportCard.Student.Ra);
+                sql.Parameters.AddWithValue("@course_id", reportCard.Course.CourseId);
+                sql.Parameters.AddWithValue("@subject_id", reportCard.Subject.SubjectId);
                 sql.Parameters.AddWithValue("@grade1", reportCard.Grade1);
                 sql.Parameters.AddWithValue("@grade2", reportCard.Grade2);
                 sql.Parameters.AddWithValue("@grade3", reportCard.Grade3);
                 sql.Parameters.AddWithValue("@grade4", reportCard.Grade4);
                 sql.Parameters.AddWithValue("@average", reportCard.Average);
-                sql.Parameters.AddWithValue("@professor_id", reportCard.ProfessorId);
                 sql.Parameters.AddWithValue("@situation", reportCard.Situation);
                 sql.ExecuteNonQuery();
             }

@@ -69,18 +69,18 @@ namespace ProjetoSistemaEe.DAO
                 con.OpenConnection();
                 sql = new MySqlCommand(@"SELECT s.ra, s.name
                                          FROM students s
-                                         LEFT JOIN reportcards rc ON s.ra = rc.studentId
-                                         AND s.course = rc.courseId
+                                         LEFT JOIN reportcards rc ON s.ra = rc.student_id
+                                         AND s.course = rc.course_id
                                          WHERE rc.id IS NULL
-                                         AND s.course = @courseId;", con.con);
-                sql.Parameters.AddWithValue("@id_curso", courseId);
+                                         AND s.course = @course_id;", con.con);
+                sql.Parameters.AddWithValue("@course_id", courseId);
                 MySqlDataReader dr = sql.ExecuteReader();
                 while (dr.Read())
                 {
-                    Student aluno = new Student();
-                    aluno.RA = Convert.ToInt32(dr["ra"]);
-                    aluno.Name = dr["name"].ToString();
-                    Students.Add(aluno);
+                    Student student = new Student();
+                    student.RA = Convert.ToInt32(dr["ra"]);
+                    student.Name = dr["name"].ToString();
+                    Students.Add(student);
                 }
                 return Students;
             }
@@ -100,13 +100,13 @@ namespace ProjetoSistemaEe.DAO
             {
                 List<Subjects> subjects = new List<Subjects>();
                 con.OpenConnection();
-                sql = new MySqlCommand(@"Select s.name, s.id from subjects s
-                                           Inner Join courses_subjects cs ON s.id = cs.subjects_d
-                                           Inner JOIN courses c ON cs.coursesId = c.id
-                                           Inner Join professor_subjects ps ON s.id = ps.professor_id
-                                           inner join professors p on ps.professor_id = p.id
-                                           Where p.id = @professor_id
-                                           And c.id = @course_id;", con.con);
+                sql = new MySqlCommand(@"select ps.professor_id, cs.subject_id,s.name as subject_name,c.id as course_id from professor_subjects ps
+                                         Inner join subjects s ON s.id = ps.subject_id
+                                         Inner join professors p ON p.id = ps.professor_id
+                                         Inner join courses_subjects cs ON cs.subject_id = ps.subject_id
+                                         Inner join courses c ON c.id = cs.course_id
+                                         Where p.id = @professor_id
+                                         And c.id = @course_id;", con.con);
                 sql.Parameters.AddWithValue("@professor_id", professorId);
                 sql.Parameters.AddWithValue("@course_id", courseId);
                 MySqlDataReader dr = sql.ExecuteReader();
@@ -114,16 +114,16 @@ namespace ProjetoSistemaEe.DAO
                 while (dr.Read())
                 {
                     Subjects subject = new Subjects();
-                    subject.SubjectId = Convert.ToInt32(dr["id"]);
-                    subject.SubjectName = dr["name"].ToString();
+                    subject.SubjectId = Convert.ToInt32(dr["subject_id"]);
+                    subject.SubjectName = dr["subject_name"].ToString();
 
                     subjects.Add(subject);
                 }
                 return subjects;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
             finally
             {

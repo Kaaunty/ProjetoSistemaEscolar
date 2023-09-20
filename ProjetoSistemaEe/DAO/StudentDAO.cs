@@ -26,20 +26,20 @@ namespace ProjetoSistemaEe.DAO
                     string name = dr["name"].ToString();
                     Course course = GetCourses(Convert.ToInt32(dr["course"]));
                     string period = dr["period"].ToString();
-                    string martialStatus = dr["martialStatus"].ToString();
+                    string maritalStatus = dr["marital_status"].ToString();
                     string gender = dr["gender"].ToString();
-                    DateTime birthDate = Convert.ToDateTime(dr["birthDate"]);
+                    DateTime birthDate = Convert.ToDateTime(dr["birth_date"]);
                     string email = dr["email"].ToString();
                     string shift = dr["shift"].ToString();
                     string phone = dr["phone"].ToString();
-                    string zipCode = dr["zipCode"].ToString();
+                    string zipCode = dr["zip_code"].ToString();
                     string city = dr["city"].ToString();
                     string state = dr["state"].ToString();
                     string district = dr["district"].ToString();
                     string street = dr["street"].ToString();
-                    string streetNumber = dr["streetNumber"].ToString();
+                    string streetNumber = dr["street_number"].ToString();
 
-                    Student student = new Student(ra, name, course, period, martialStatus, gender, birthDate, email, shift, phone, zipCode, city, state, district, street, streetNumber);
+                    Student student = new Student(ra, name, course, period, maritalStatus, gender, birthDate, email, shift, phone, zipCode, city, state, district, street, streetNumber);
 
                     students.Add(student);
                 }
@@ -60,13 +60,13 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.OpenConnection();
-                sql = new MySqlCommand("INSERT INTO student() VALUES (@ra, @name, @course, @period, @martial_status, " +
+                sql = new MySqlCommand("INSERT INTO students() VALUES (@ra, @name, @course, @period, @marital_status, " +
                     "@gender, @birch_date, @email, @shift, @phone, @zip_code, @city, @state, @district, @street, @street_number)", con.con);
                 sql.Parameters.AddWithValue("@ra", student.RA);
                 sql.Parameters.AddWithValue("@name", student.Name);
                 sql.Parameters.AddWithValue("@course", student.Course.CourseId);
                 sql.Parameters.AddWithValue("@period", student.Period);
-                sql.Parameters.AddWithValue("@martial_status", student.MartialStatus);
+                sql.Parameters.AddWithValue("@marital_status", student.MaritalStatus);
                 sql.Parameters.AddWithValue("@gender", student.Gender);
                 sql.Parameters.AddWithValue("@birch_date", student.BirthDate);
                 sql.Parameters.AddWithValue("@email", student.Email);
@@ -128,16 +128,16 @@ namespace ProjetoSistemaEe.DAO
             {
                 con.OpenConnection();
                 sql = new MySqlCommand(@"UPDATE students SET ra = @ra, name = @name, course = @course, period = @period,
-                                         martial_status = @martial_status, gender = @gender, birch_date = @birch_date,
+                                         marital_status = @marital_status, gender = @gender, birth_date = @birth_date,
                                          email = @email, shift = @shift, phone = @phone, zip_code = @zip_code, city = @city, state = @state,
                                          district = @district, street = @street, street_number = @street_number where ra = @ra;", con.con);
                 sql.Parameters.AddWithValue("@ra", student.RA);
                 sql.Parameters.AddWithValue("@name", student.Name);
                 sql.Parameters.AddWithValue("@course", student.Course.CourseId);
                 sql.Parameters.AddWithValue("@period", student.Period);
-                sql.Parameters.AddWithValue("@martial_status", student.MartialStatus);
+                sql.Parameters.AddWithValue("@marital_status", student.MaritalStatus);
                 sql.Parameters.AddWithValue("@gender", student.Gender);
-                sql.Parameters.AddWithValue("@birch_date", student.BirthDate.ToString("yyyy-MM-dd"));
+                sql.Parameters.AddWithValue("@birth_date", student.BirthDate.ToString("yyyy-MM-dd"));
                 sql.Parameters.AddWithValue("@email", student.Email);
                 sql.Parameters.AddWithValue("@shift", student.Shift);
                 sql.Parameters.AddWithValue("@phone", student.Phone);

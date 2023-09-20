@@ -19,7 +19,7 @@ namespace ProjetoSistemaEe.Entidades
             Name = name;
             this.Course = course;
             this.period = period;
-            MartialStatus = martialStatus;
+            MaritalStatus = martialStatus;
             Gender = gender;
             BirthDate = birthDate;
             Email = email;
@@ -38,5 +38,10 @@ namespace ProjetoSistemaEe.Entidades
         public string Period { get => period; set => period = value; }
         public string Shift { get => shift; set => shift = value; }
         public Course Course { get => course; set => course = value; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

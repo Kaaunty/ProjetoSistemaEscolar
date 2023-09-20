@@ -129,7 +129,7 @@
     <Compile Include="Model\StudentModel.cs" />
     <Compile Include="Model\ReportCardModel.cs" />
     <Compile Include="Model\CourseModel.cs" />
-    <Compile Include="Model\IPersonModel.cs" />
+    <Compile Include="Model\IFunctionModel.cs" />
     <Compile Include="Model\ProfessorModel.cs" />
     <Compile Include="RecursosVisuais.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -175,29 +175,29 @@
     <Compile Include="View\EditProfessor.Designer.cs">
       <DependentUpon>EditProfessor.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\MenuPrincipal.cs">
+    <Compile Include="View\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\MenuPrincipal.Designer.cs">
-      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    <Compile Include="View\MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\VisualizarAluno.cs">
+    <Compile Include="View\StudentView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\VisualizarAluno.Designer.cs">
-      <DependentUpon>VisualizarAluno.cs</DependentUpon>
+    <Compile Include="View\StudentView.Designer.cs">
+      <DependentUpon>StudentView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\VisualizarBoletim.cs">
+    <Compile Include="View\ReportCardView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\VisualizarBoletim.Designer.cs">
-      <DependentUpon>VisualizarBoletim.cs</DependentUpon>
+    <Compile Include="View\ReportCardView.Designer.cs">
+      <DependentUpon>ReportCardView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\VisualizarProfessor.cs">
+    <Compile Include="View\ProfessorView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\VisualizarProfessor.Designer.cs">
-      <DependentUpon>VisualizarProfessor.cs</DependentUpon>
+    <Compile Include="View\ProfessorView.Designer.cs">
+      <DependentUpon>ProfessorView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="RecursosVisuais.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -221,17 +221,17 @@
     <EmbeddedResource Include="View\EditProfessor.resx">
       <DependentUpon>EditProfessor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\MenuPrincipal.resx">
-      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="View\MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\VisualizarAluno.resx">
-      <DependentUpon>VisualizarAluno.cs</DependentUpon>
+    <EmbeddedResource Include="View\StudentView.resx">
+      <DependentUpon>StudentView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\VisualizarBoletim.resx">
-      <DependentUpon>VisualizarBoletim.cs</DependentUpon>
+    <EmbeddedResource Include="View\ReportCardView.resx">
+      <DependentUpon>ReportCardView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\VisualizarProfessor.resx">
-      <DependentUpon>VisualizarProfessor.cs</DependentUpon>
+    <EmbeddedResource Include="View\ProfessorView.resx">
+      <DependentUpon>ProfessorView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Connected Services\WSCorreios\AtendeClienteService.wsdl" />
     <None Include="Connected Services\WSCorreios\ProjetoSistemaEe.WSCorreios.atualizaPagamentoNaEntregaResponse.datasource">

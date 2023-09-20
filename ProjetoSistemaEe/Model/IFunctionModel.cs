@@ -6,10 +6,10 @@ namespace ProjetoSistemaEe.Model
     {
         List<tipo> GetEntities();
 
-        void Register(tipo pessoa);
+        void Register(tipo entitiy);
 
-        void Edit(tipo pessoa);
+        void Edit(tipo entitiy);
 
-        void Delete(tipo pessoa);
+        void Delete(tipo entitiy);
     }
 }

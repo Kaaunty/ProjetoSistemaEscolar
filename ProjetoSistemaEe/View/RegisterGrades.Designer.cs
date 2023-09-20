@@ -1,6 +1,6 @@
 ﻿namespace ProjetoSistemaEe.View
 {
-    partial class CadastrarNotas
+    partial class RegisterGrades
     {
         /// <summary>
         /// Required designer variable.
@@ -30,27 +30,28 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterGrades));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.BtnPreviousMenu = new FontAwesome.Sharp.IconButton();
-            this.BtnClose = new FontAwesome.Sharp.IconButton();
             this.BtnMinimize = new FontAwesome.Sharp.IconButton();
-            this.btnAdicionar = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
+            this.BtnAdd = new FontAwesome.Sharp.IconButton();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.cbMateria = new System.Windows.Forms.ComboBox();
-            this.cbProfessor = new System.Windows.Forms.ComboBox();
-            this.cbCurso = new System.Windows.Forms.ComboBox();
-            this.cbAluno = new System.Windows.Forms.ComboBox();
-            this.txtN4 = new System.Windows.Forms.TextBox();
-            this.txtMedia = new System.Windows.Forms.TextBox();
-            this.txtN3 = new System.Windows.Forms.TextBox();
+            this.CbSubject = new System.Windows.Forms.ComboBox();
+            this.CbProfessor = new System.Windows.Forms.ComboBox();
+            this.CbCourse = new System.Windows.Forms.ComboBox();
+            this.CbStudent = new System.Windows.Forms.ComboBox();
+            this.TxtN4 = new System.Windows.Forms.TextBox();
+            this.TxtAverage = new System.Windows.Forms.TextBox();
+            this.TxtN3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtN2 = new System.Windows.Forms.TextBox();
+            this.TxtN2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtN1 = new System.Windows.Forms.TextBox();
+            this.TxtN1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -64,6 +65,8 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -71,12 +74,38 @@
             this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 0;
             // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(385, 212);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(269, 28);
+            this.label7.TabIndex = 53;
+            this.label7.Text = "iguais ao do curso do aluno";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(116, 180);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(807, 28);
+            this.label6.TabIndex = 52;
+            this.label6.Text = "Para adicionar uma nota, é preciso selecionar um professor que contenha materias " +
+    "";
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel3.Controls.Add(this.BtnPreviousMenu);
-            this.panel3.Controls.Add(this.BtnClose);
             this.panel3.Controls.Add(this.BtnMinimize);
             this.panel3.Location = new System.Drawing.Point(1, 1);
             this.panel3.Name = "panel3";
@@ -91,27 +120,12 @@
             this.BtnPreviousMenu.IconColor = System.Drawing.Color.WhiteSmoke;
             this.BtnPreviousMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnPreviousMenu.IconSize = 40;
-            this.BtnPreviousMenu.Location = new System.Drawing.Point(940, 4);
+            this.BtnPreviousMenu.Location = new System.Drawing.Point(1007, 4);
             this.BtnPreviousMenu.Name = "BtnPreviousMenu";
             this.BtnPreviousMenu.Size = new System.Drawing.Size(28, 28);
             this.BtnPreviousMenu.TabIndex = 2;
             this.BtnPreviousMenu.UseVisualStyleBackColor = true;
             this.BtnPreviousMenu.Click += new System.EventHandler(this.BtnPreviousMenu_Click);
-            // 
-            // BtnClose
-            // 
-            this.BtnClose.FlatAppearance.BorderSize = 0;
-            this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnClose.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.BtnClose.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnClose.IconSize = 40;
-            this.BtnClose.Location = new System.Drawing.Point(1008, 3);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(28, 28);
-            this.BtnClose.TabIndex = 0;
-            this.BtnClose.UseVisualStyleBackColor = true;
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // BtnMinimize
             // 
@@ -128,53 +142,29 @@
             this.BtnMinimize.UseVisualStyleBackColor = true;
             this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
             // 
-            // btnAdicionar
-            // 
-            this.btnAdicionar.BackColor = System.Drawing.Color.Transparent;
-            this.btnAdicionar.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
-            this.btnAdicionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAdicionar.FlatAppearance.BorderSize = 0;
-            this.btnAdicionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnAdicionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdicionar.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdicionar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAdicionar.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.btnAdicionar.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAdicionar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAdicionar.IconSize = 30;
-            this.btnAdicionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdicionar.Location = new System.Drawing.Point(267, 307);
-            this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(130, 35);
-            this.btnAdicionar.TabIndex = 6;
-            this.btnAdicionar.Text = "    Adicinar";
-            this.btnAdicionar.UseVisualStyleBackColor = false;
-            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
-            // 
             // panel2
             // 
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.btnAdicionar);
+            this.panel2.Controls.Add(this.BtnAdd);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.cbMateria);
-            this.panel2.Controls.Add(this.cbProfessor);
-            this.panel2.Controls.Add(this.cbCurso);
-            this.panel2.Controls.Add(this.cbAluno);
-            this.panel2.Controls.Add(this.txtN4);
-            this.panel2.Controls.Add(this.txtMedia);
-            this.panel2.Controls.Add(this.txtN3);
+            this.panel2.Controls.Add(this.CbSubject);
+            this.panel2.Controls.Add(this.CbProfessor);
+            this.panel2.Controls.Add(this.CbCourse);
+            this.panel2.Controls.Add(this.CbStudent);
+            this.panel2.Controls.Add(this.TxtN4);
+            this.panel2.Controls.Add(this.TxtAverage);
+            this.panel2.Controls.Add(this.TxtN3);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.txtN2);
+            this.panel2.Controls.Add(this.TxtN2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.txtN1);
+            this.panel2.Controls.Add(this.TxtN1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(195, 170);
+            this.panel2.Location = new System.Drawing.Point(195, 243);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(649, 364);
             this.panel2.TabIndex = 8;
@@ -191,6 +181,30 @@
             this.label14.Size = new System.Drawing.Size(93, 28);
             this.label14.TabIndex = 51;
             this.label14.Text = "Materia:";
+            // 
+            // BtnAdd
+            // 
+            this.BtnAdd.BackColor = System.Drawing.Color.Transparent;
+            this.BtnAdd.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
+            this.BtnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnAdd.FlatAppearance.BorderSize = 0;
+            this.BtnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAdd.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAdd.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnAdd.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.BtnAdd.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnAdd.IconSize = 30;
+            this.BtnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAdd.Location = new System.Drawing.Point(267, 307);
+            this.BtnAdd.Name = "BtnAdd";
+            this.BtnAdd.Size = new System.Drawing.Size(130, 35);
+            this.BtnAdd.TabIndex = 6;
+            this.BtnAdd.Text = "     Adicionar";
+            this.BtnAdd.UseVisualStyleBackColor = false;
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // label13
             // 
@@ -231,99 +245,99 @@
             this.label11.TabIndex = 48;
             this.label11.Text = "Aluno:";
             // 
-            // cbMateria
+            // CbSubject
             // 
-            this.cbMateria.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMateria.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMateria.FormattingEnabled = true;
-            this.cbMateria.Items.AddRange(new object[] {
+            this.CbSubject.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbSubject.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbSubject.FormattingEnabled = true;
+            this.CbSubject.Items.AddRange(new object[] {
             "Matematica",
             "Literatura"});
-            this.cbMateria.Location = new System.Drawing.Point(128, 240);
-            this.cbMateria.Name = "cbMateria";
-            this.cbMateria.Size = new System.Drawing.Size(292, 30);
-            this.cbMateria.TabIndex = 47;
+            this.CbSubject.Location = new System.Drawing.Point(128, 240);
+            this.CbSubject.Name = "CbSubject";
+            this.CbSubject.Size = new System.Drawing.Size(292, 30);
+            this.CbSubject.TabIndex = 47;
             // 
-            // cbProfessor
+            // CbProfessor
             // 
-            this.cbProfessor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbProfessor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbProfessor.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbProfessor.FormattingEnabled = true;
-            this.cbProfessor.Items.AddRange(new object[] {
+            this.CbProfessor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CbProfessor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbProfessor.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbProfessor.FormattingEnabled = true;
+            this.CbProfessor.Items.AddRange(new object[] {
             "Matematica",
             "Literatura"});
-            this.cbProfessor.Location = new System.Drawing.Point(128, 191);
-            this.cbProfessor.Name = "cbProfessor";
-            this.cbProfessor.Size = new System.Drawing.Size(292, 30);
-            this.cbProfessor.TabIndex = 46;
-            this.cbProfessor.SelectedIndexChanged += new System.EventHandler(this.cbProfessor_SelectedIndexChanged);
+            this.CbProfessor.Location = new System.Drawing.Point(128, 191);
+            this.CbProfessor.Name = "CbProfessor";
+            this.CbProfessor.Size = new System.Drawing.Size(292, 30);
+            this.CbProfessor.TabIndex = 46;
+            this.CbProfessor.SelectedIndexChanged += new System.EventHandler(this.cbProfessor_SelectedIndexChanged);
             // 
-            // cbCurso
+            // CbCourse
             // 
-            this.cbCurso.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCurso.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCurso.FormattingEnabled = true;
-            this.cbCurso.Items.AddRange(new object[] {
+            this.CbCourse.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CbCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbCourse.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbCourse.FormattingEnabled = true;
+            this.CbCourse.Items.AddRange(new object[] {
             "Matematica",
             "Literatura"});
-            this.cbCurso.Location = new System.Drawing.Point(128, 95);
-            this.cbCurso.Name = "cbCurso";
-            this.cbCurso.Size = new System.Drawing.Size(292, 30);
-            this.cbCurso.TabIndex = 45;
-            this.cbCurso.TextChanged += new System.EventHandler(this.cbCurso_TextChanged);
+            this.CbCourse.Location = new System.Drawing.Point(128, 95);
+            this.CbCourse.Name = "CbCourse";
+            this.CbCourse.Size = new System.Drawing.Size(292, 30);
+            this.CbCourse.TabIndex = 45;
+            this.CbCourse.TextChanged += new System.EventHandler(this.cbCurso_TextChanged);
             // 
-            // cbAluno
+            // CbStudent
             // 
-            this.cbAluno.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbAluno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbAluno.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAluno.FormattingEnabled = true;
-            this.cbAluno.Items.AddRange(new object[] {
+            this.CbStudent.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CbStudent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbStudent.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbStudent.FormattingEnabled = true;
+            this.CbStudent.Items.AddRange(new object[] {
             "Matematica",
             "Literatura"});
-            this.cbAluno.Location = new System.Drawing.Point(128, 145);
-            this.cbAluno.Name = "cbAluno";
-            this.cbAluno.Size = new System.Drawing.Size(292, 30);
-            this.cbAluno.TabIndex = 44;
+            this.CbStudent.Location = new System.Drawing.Point(128, 145);
+            this.CbStudent.Name = "CbStudent";
+            this.CbStudent.Size = new System.Drawing.Size(292, 30);
+            this.CbStudent.TabIndex = 44;
             // 
-            // txtN4
+            // TxtN4
             // 
-            this.txtN4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtN4.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN4.Location = new System.Drawing.Point(556, 202);
-            this.txtN4.Name = "txtN4";
-            this.txtN4.Size = new System.Drawing.Size(67, 33);
-            this.txtN4.TabIndex = 4;
-            this.txtN4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtN4.TextChanged += new System.EventHandler(this.txtN_TextChanged);
-            this.txtN4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
+            this.TxtN4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtN4.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtN4.Location = new System.Drawing.Point(556, 202);
+            this.TxtN4.Name = "TxtN4";
+            this.TxtN4.Size = new System.Drawing.Size(67, 33);
+            this.TxtN4.TabIndex = 4;
+            this.TxtN4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtN4.TextChanged += new System.EventHandler(this.TxtN_TextChanged);
+            this.TxtN4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
-            // txtMedia
+            // TxtAverage
             // 
-            this.txtMedia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMedia.Enabled = false;
-            this.txtMedia.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMedia.Location = new System.Drawing.Point(557, 275);
-            this.txtMedia.Name = "txtMedia";
-            this.txtMedia.ReadOnly = true;
-            this.txtMedia.Size = new System.Drawing.Size(67, 33);
-            this.txtMedia.TabIndex = 5;
-            this.txtMedia.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtAverage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtAverage.Enabled = false;
+            this.TxtAverage.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtAverage.Location = new System.Drawing.Point(557, 275);
+            this.TxtAverage.Name = "TxtAverage";
+            this.TxtAverage.ReadOnly = true;
+            this.TxtAverage.Size = new System.Drawing.Size(67, 33);
+            this.TxtAverage.TabIndex = 5;
+            this.TxtAverage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtN3
+            // TxtN3
             // 
-            this.txtN3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtN3.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN3.Location = new System.Drawing.Point(556, 153);
-            this.txtN3.Name = "txtN3";
-            this.txtN3.Size = new System.Drawing.Size(67, 33);
-            this.txtN3.TabIndex = 3;
-            this.txtN3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtN3.TextChanged += new System.EventHandler(this.txtN_TextChanged);
-            this.txtN3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
+            this.TxtN3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtN3.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtN3.Location = new System.Drawing.Point(556, 153);
+            this.TxtN3.Name = "TxtN3";
+            this.TxtN3.Size = new System.Drawing.Size(67, 33);
+            this.TxtN3.TabIndex = 3;
+            this.TxtN3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtN3.TextChanged += new System.EventHandler(this.TxtN_TextChanged);
+            this.TxtN3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // label5
             // 
@@ -338,17 +352,17 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Media :";
             // 
-            // txtN2
+            // TxtN2
             // 
-            this.txtN2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtN2.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN2.Location = new System.Drawing.Point(557, 107);
-            this.txtN2.Name = "txtN2";
-            this.txtN2.Size = new System.Drawing.Size(67, 33);
-            this.txtN2.TabIndex = 2;
-            this.txtN2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtN2.TextChanged += new System.EventHandler(this.txtN_TextChanged);
-            this.txtN2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
+            this.TxtN2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtN2.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtN2.Location = new System.Drawing.Point(557, 107);
+            this.TxtN2.Name = "TxtN2";
+            this.TxtN2.Size = new System.Drawing.Size(67, 33);
+            this.TxtN2.TabIndex = 2;
+            this.TxtN2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtN2.TextChanged += new System.EventHandler(this.TxtN_TextChanged);
+            this.TxtN2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // label1
             // 
@@ -363,17 +377,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nota 1 :";
             // 
-            // txtN1
+            // TxtN1
             // 
-            this.txtN1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtN1.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN1.Location = new System.Drawing.Point(556, 57);
-            this.txtN1.Name = "txtN1";
-            this.txtN1.Size = new System.Drawing.Size(67, 33);
-            this.txtN1.TabIndex = 1;
-            this.txtN1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtN1.TextChanged += new System.EventHandler(this.txtN_TextChanged);
-            this.txtN1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
+            this.TxtN1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtN1.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtN1.Location = new System.Drawing.Point(556, 57);
+            this.TxtN1.Name = "TxtN1";
+            this.TxtN1.Size = new System.Drawing.Size(67, 33);
+            this.TxtN1.TabIndex = 1;
+            this.TxtN1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtN1.TextChanged += new System.EventHandler(this.TxtN_TextChanged);
+            this.TxtN1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // label2
             // 
@@ -421,11 +435,12 @@
             this.ClientSize = new System.Drawing.Size(1039, 669);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "CadastrarNotas";
+            this.Name = "RegisterGrades";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CadastrarNotas";
-            this.Load += new System.EventHandler(this.CadastrarNotas_Load);
+            this.Text = "RegisterGrades";
+            this.Load += new System.EventHandler(this.RegisterGrades_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -436,29 +451,30 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtN4;
-        private System.Windows.Forms.TextBox txtN3;
-        private System.Windows.Forms.TextBox txtN2;
-        private System.Windows.Forms.TextBox txtN1;
+        private System.Windows.Forms.TextBox TxtN4;
+        private System.Windows.Forms.TextBox TxtN3;
+        private System.Windows.Forms.TextBox TxtN2;
+        private System.Windows.Forms.TextBox TxtN1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtMedia;
+        private System.Windows.Forms.TextBox TxtAverage;
         private System.Windows.Forms.Label label5;
-        private FontAwesome.Sharp.IconButton btnAdicionar;
-        private System.Windows.Forms.ComboBox cbMateria;
-        private System.Windows.Forms.ComboBox cbProfessor;
-        private System.Windows.Forms.ComboBox cbCurso;
-        private System.Windows.Forms.ComboBox cbAluno;
+        private FontAwesome.Sharp.IconButton BtnAdd;
+        private System.Windows.Forms.ComboBox CbSubject;
+        private System.Windows.Forms.ComboBox CbProfessor;
+        private System.Windows.Forms.ComboBox CbCourse;
+        private System.Windows.Forms.ComboBox CbStudent;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel3;
         private FontAwesome.Sharp.IconButton BtnPreviousMenu;
-        private FontAwesome.Sharp.IconButton BtnClose;
         private FontAwesome.Sharp.IconButton BtnMinimize;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -14,7 +14,7 @@ namespace ProjetoSistemaEe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MenuPrincipal());
+            Application.Run(new View.MainMenu());
         }
     }
 }

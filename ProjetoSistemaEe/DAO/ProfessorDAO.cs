@@ -19,9 +19,9 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.OpenConnection();
-                sql = new MySqlCommand(@" select p.*,s.name, ps.subjectId  from professors p
-                                           left join professor_subjects ps on p.id = ps.professorId
-                                           inner join subjects s on ps.subjectId = s.id
+                sql = new MySqlCommand(@" select p.*,s.name, ps.subject_id  from professors p
+                                           left join professor_subjects ps on p.id = ps.professor_id
+                                           inner join subjects s on ps.subject_id = s.id
                                            GROUP BY p.id;
                                     ", con.con);
                 MySqlDataReader dr = sql.ExecuteReader();
@@ -31,19 +31,19 @@ namespace ProjetoSistemaEe.DAO
                     string name = dr["name"].ToString();
                     List<Subjects> subjects = GetDisciplineByTeacher(id);
                     string salary = dr["salary"].ToString();
-                    string martialStatus = dr["martialStatus"].ToString();
+                    string maritalStatus = dr["marital_status"].ToString();
                     string gender = dr["gender"].ToString();
-                    DateTime birchDate = Convert.ToDateTime(dr["birchDate"]);
+                    DateTime birthDate = Convert.ToDateTime(dr["birth_date"]);
                     string email = dr["email"].ToString();
                     string phone = dr["phone"].ToString();
-                    string zipCode = dr["zipCode"].ToString();
+                    string zipCode = dr["zip_code"].ToString();
                     string city = dr["city"].ToString();
                     string state = dr["state"].ToString();
                     string district = dr["district"].ToString();
                     string street = dr["street"].ToString();
-                    string streetnumber = dr["streetnumber"].ToString();
+                    string streetnumber = dr["street_number"].ToString();
 
-                    Professor professor = new Professor();
+                    Professor professor = new Professor(id, name, subjects, salary, maritalStatus, gender, birthDate, email, phone, zipCode, city, state, district, street, streetnumber);
                     professors.Add(professor);
                 }
                 return professors;
@@ -64,10 +64,10 @@ namespace ProjetoSistemaEe.DAO
             {
                 con.OpenConnection();
                 sql = new MySqlCommand(@"INSERT INTO professors()
-                                         VALUES(DEFAULT,@name, @salary, @martialstatus, @gender, @birchdate, @email, @phone, @zipCode, @city, @state, @district, @street, @streetnumber); ", con.con);
+                                         VALUES(DEFAULT,@name, @salary, @marital_status, @gender, @birchdate, @email, @phone, @zipCode, @city, @state, @district, @street, @streetnumber); ", con.con);
                 sql.Parameters.AddWithValue("@name", professor.Name);
                 sql.Parameters.AddWithValue("@salary", professor.Salary);
-                sql.Parameters.AddWithValue("@martialStatus", professor.MartialStatus);
+                sql.Parameters.AddWithValue("@marital_status", professor.MaritalStatus);
                 sql.Parameters.AddWithValue("@gender", professor.Gender);
                 sql.Parameters.AddWithValue("@birchDate", professor.BirthDate.ToString("yyyy-MM-dd"));
                 sql.Parameters.AddWithValue("@email", professor.Email);
@@ -109,16 +109,16 @@ namespace ProjetoSistemaEe.DAO
             {
                 con.OpenConnection();
                 sql = new MySqlCommand(@"UPDATE professors SET id = @id, name = @name, salary = @salary
-                                       , martial_status = @martial_status, gender = @gender, birch_date = @birch_date
+                                       , marital_status = @marital_status, gender = @gender, birth_date = @birth_date
                                        , email = @email, phone = @phone, zip_code = @zip_code, city = @city, state = @state
                                        , district = @district, street = @street, street_number = @street_number where id = @id;
                                        DELETE FROM professor_subjects WHERE professor_id = @id;", con.con);
                 sql.Parameters.AddWithValue("@id", professor.Id);
                 sql.Parameters.AddWithValue("@name", professor.Name);
                 sql.Parameters.AddWithValue("@salary", professor.Salary);
-                sql.Parameters.AddWithValue("@martial_status", professor.MartialStatus);
+                sql.Parameters.AddWithValue("@marital_status", professor.MaritalStatus);
                 sql.Parameters.AddWithValue("@gender", professor.Gender);
-                sql.Parameters.AddWithValue("@birch_date", professor.BirthDate.ToString("yyyy-MM-dd"));
+                sql.Parameters.AddWithValue("@birth_date", professor.BirthDate.ToString("yyyy-MM-dd"));
                 sql.Parameters.AddWithValue("@email", professor.Email);
                 sql.Parameters.AddWithValue("@phone", professor.Phone);
                 sql.Parameters.AddWithValue("@zip_code", professor.ZipCode);
@@ -134,8 +134,8 @@ namespace ProjetoSistemaEe.DAO
                 {
                     con.OpenConnection();
                     sql = new MySqlCommand("INSERT INTO professor_subjects() VALUES(@professor_id, @subject_id); ", con.con);
-                    sql.Parameters.AddWithValue("@professorId", professor.Id);
-                    sql.Parameters.AddWithValue("@Subjectid", item.SubjectId);
+                    sql.Parameters.AddWithValue("@professor_id", professor.Id);
+                    sql.Parameters.AddWithValue("@subject_id", item.SubjectId);
                     sql.ExecuteNonQuery();
                     sql.Dispose();
                     con.CloseConnection();
@@ -159,7 +159,7 @@ namespace ProjetoSistemaEe.DAO
                 sql = new MySqlCommand(@"
                 DELETE FROM professor_subjects WHERE professor_id = @id;
                 DELETE FROM reportcards WHERE professor_id = @id;
-                DELETE FROM professor WHERE id = @id;
+                DELETE FROM professors WHERE id = @id;
                ", con.con);
                 sql.Parameters.AddWithValue("@id", professor.Id);
                 sql.ExecuteNonQuery();

@@ -13,89 +13,89 @@ namespace ProjetoSistemaEe.View
         private Validations validate = new Validations();
         private Student student;
 
-        public EditStudent(Student aluno)
+        public EditStudent(Student student)
         {
-            this.student = aluno;
+            this.student = student;
             InitializeComponent();
             PopulateComboBox();
         }
 
-        private void EditarAluno_Load(object sender, EventArgs e)
+        private void EditStudent_Load(object sender, EventArgs e)
         {
-            PopularCampos();
+            PopulateFields();
         }
 
-        private void PopularCampos()
+        private void PopulateFields()
         {
             txtRA.Text = student.RA.ToString();
-            txtNome.Text = student.Name;
-            cbCurso.SelectedValue = student.Course.CourseId;
-            cbPeriodo.Text = student.Period;
-            cbEstadoCivil.Text = student.MartialStatus;
-            cbGenero.Text = student.Gender;
-            dtAluno.Text = student.BirthDate.ToString();
-            txtEmail.Text = student.Email;
-            cbTurno.Text = student.Shift;
-            txtTelefone.Text = student.Phone;
-            txtCEP.Text = student.ZipCode;
-            txtCidade.Text = student.City;
-            txtEstado.Text = student.State;
-            txtBairro.Text = student.District;
-            txtRua.Text = student.Street;
-            txtNum.Text = student.StreetNumber;
+            TxtName.Text = student.Name;
+            CbCourse.SelectedValue = student.Course.CourseId;
+            CbPeriod.Text = student.Period;
+            CbMartialStatus.Text = student.MaritalStatus;
+            CbGender.Text = student.Gender;
+            DtStudent.Text = student.BirthDate.ToString();
+            TxtEmail.Text = student.Email;
+            CbShift.Text = student.Shift;
+            TxtPhone.Text = student.Phone;
+            TxtZipCode.Text = student.ZipCode;
+            TxtCity.Text = student.City;
+            TxtState.Text = student.State;
+            TxtDistrict.Text = student.District;
+            TxtStreet.Text = student.Street;
+            TxtNum.Text = student.StreetNumber;
         }
 
         private void PopulateComboBox()
         {
-            cbCurso.DataSource = courseModel.GetCourses();
-            cbCurso.DisplayMember = "Nome";
-            cbCurso.ValueMember = "id";
-            cbCurso.DropDownHeight = cbCurso.ItemHeight * 5;
-            cbCurso.SelectedIndex = -1;
+            CbCourse.DataSource = courseModel.GetCourses();
+            CbCourse.DisplayMember = "CourseName";
+            CbCourse.ValueMember = "CourseId";
+            CbCourse.DropDownHeight = CbCourse.ItemHeight * 5;
+            CbCourse.SelectedIndex = -1;
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void BtnEdit_Click(object sender, EventArgs e)
         {
             if (validate.ValidateControls(this))
             {
                 try
                 {
-                    DialogResult result = MessageBox.Show("Deseja editar o student?", "EditStudent", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult result = MessageBox.Show("Deseja editar o estudante?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
-                        EditStudent();
-                        MessageBox.Show("Aluno editado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        EditStudents();
+                        MessageBox.Show("Aluno editado com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Close();
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao editar student!" + ex, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erro ao editar estudante!" + ex, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        private void EditStudent()
+        private void EditStudents()
         {
             try
             {
                 int ra = Convert.ToInt32(txtRA.Text);
-                string name = txtNome.Text;
-                Course course = new Course(Convert.ToInt32(cbCurso.SelectedValue));
-                string period = cbPeriodo.Text;
-                string martialStatus = cbEstadoCivil.Text;
-                string gender = cbGenero.Text;
-                DateTime birchDate = Convert.ToDateTime(dtAluno.Text);
-                string email = txtEmail.Text;
-                string shift = cbTurno.Text;
-                string phone = txtTelefone.Text;
-                string zipCode = txtCEP.Text;
-                string city = txtCidade.Text;
-                string state = txtEstado.Text;
-                string district = txtBairro.Text;
-                string street = txtRua.Text;
-                string streetNumber = txtNum.Text;
-                Student student = new Student(ra, name, course, period, martialStatus, gender, birchDate, email, shift, phone, zipCode, city, state, district, street, streetNumber);
+                string name = TxtName.Text;
+                Course course = new Course(Convert.ToInt32(CbCourse.SelectedValue));
+                string period = CbPeriod.Text;
+                string martialStatus = CbMartialStatus.Text;
+                string gender = CbGender.Text;
+                DateTime birthDate = Convert.ToDateTime(DtStudent.Text);
+                string email = TxtEmail.Text;
+                string shift = CbShift.Text;
+                string phone = TxtPhone.Text;
+                string zipCode = TxtZipCode.Text;
+                string city = TxtCity.Text;
+                string state = TxtState.Text;
+                string district = TxtDistrict.Text;
+                string street = TxtStreet.Text;
+                string streetNumber = TxtNum.Text;
+                Student student = new Student(ra, name, course, period, martialStatus, gender, birthDate, email, shift, phone, zipCode, city, state, district, street, streetNumber);
                 studentModel.Edit(student);
             }
             catch (Exception)
@@ -104,21 +104,21 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        private void btnDeletar_Click(object sender, EventArgs e)
+        private void BtnDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                DialogResult result = MessageBox.Show("Deseja excluir o student?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Deseja excluir o estudante?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     DeleteStudent();
-                    MessageBox.Show("Aluno excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Aluno excluido com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao excluir student!" + ex, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao excluir estudante!" + ex, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -135,31 +135,31 @@ namespace ProjetoSistemaEe.View
             }
         }
 
-        #region Validações
+        #region Validations
 
-        private void txtCEP_TextChanged(object sender, EventArgs e)
+        private void TxtZipCode_TextChanged(object sender, EventArgs e)
         {
-            validate.ValidateCEP(txtCEP, txtEstado, txtCidade, txtBairro, txtRua, txtNum);
+            validate.ValidateCEP(TxtZipCode, TxtState, TxtCity, TxtDistrict, TxtStreet, TxtNum);
         }
 
-        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtName_KeyPress(object sender, KeyPressEventArgs e)
         {
             validate.PermitLetter(e);
         }
 
-        private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtNum_KeyPress(object sender, KeyPressEventArgs e)
         {
             validate.PermitNumber(e);
         }
 
-        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
             validate.BlockSpaceBar(e);
         }
 
-        #endregion Validações
+        #endregion Validations
 
-        #region Botões
+        #region Buttons
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
@@ -171,14 +171,6 @@ namespace ProjetoSistemaEe.View
             WindowState = FormWindowState.Minimized;
         }
 
-        private void BtnPreviousMenu_Click(object sender, EventArgs e)
-        {
-            Close();
-            MenuPrincipal main_Menu = new MenuPrincipal();
-            main_Menu.TopLevel = true;
-            main_Menu.Show();
-        }
-
-        #endregion Botões
+        #endregion Buttons
     }
 }

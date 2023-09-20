@@ -1,18 +1,19 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Configuration;
 
 namespace ProjetoSistemaEe.DAO
 {
     internal class Connection
     {
-        private static string connection = "SERVER=localhost; DATABASE=xd_university; UID=root; PWD=root;";
+        private string connectionString = ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
         public MySqlConnection con = null;
 
         public void OpenConnection()
         {
             try
             {
-                con = new MySqlConnection(connection);
+                con = new MySqlConnection(connectionString);
                 con.Open();
             }
             catch (Exception)
@@ -25,7 +26,7 @@ namespace ProjetoSistemaEe.DAO
         {
             try
             {
-                con = new MySqlConnection(connection);
+                con = new MySqlConnection(connectionString);
                 con.Close();
             }
             catch (Exception)

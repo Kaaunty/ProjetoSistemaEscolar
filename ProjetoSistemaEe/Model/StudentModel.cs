@@ -23,11 +23,11 @@ namespace ProjetoSistemaEe.Model
             }
         }
 
-        public void Register(Student aluno)
+        public void Register(Student student)
         {
             try
             {
-                dao.RegisterStudent(aluno);
+                dao.RegisterStudent(student);
             }
             catch (Exception)
             {
@@ -35,11 +35,11 @@ namespace ProjetoSistemaEe.Model
             }
         }
 
-        public void Edit(Student aluno)
+        public void Edit(Student student)
         {
             try
             {
-                dao.EditStudent(aluno);
+                dao.EditStudent(student);
             }
             catch (Exception)
             {
@@ -47,11 +47,11 @@ namespace ProjetoSistemaEe.Model
             }
         }
 
-        public void Delete(Student aluno)
+        public void Delete(Student student)
         {
             try
             {
-                dao.DeleteStudent(aluno);
+                dao.DeleteStudent(student);
             }
             catch (Exception)
             {

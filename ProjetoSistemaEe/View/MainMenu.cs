@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
 {
-    public partial class MenuPrincipal : Form
+    public partial class MainMenu : Form
     {
-        public MenuPrincipal()
+        public MainMenu()
         {
             InitializeComponent();
         }
@@ -46,7 +46,7 @@ namespace ProjetoSistemaEe.View
 
         private void BtnStudentView_Click(object sender, EventArgs e)
         {
-            VisualizarAluno visualizarAluno = new VisualizarAluno();
+            StudentView visualizarAluno = new StudentView();
             Hide();
             visualizarAluno.TopLevel = true;
             visualizarAluno.Show();
@@ -54,7 +54,7 @@ namespace ProjetoSistemaEe.View
 
         private void BtnTeacherView_Click(object sender, EventArgs e)
         {
-            VisualizarProfessor visualizarProfessor = new VisualizarProfessor();
+            ProfessorView visualizarProfessor = new ProfessorView();
             Hide();
             visualizarProfessor.TopLevel = true;
             visualizarProfessor.Show();
@@ -62,7 +62,7 @@ namespace ProjetoSistemaEe.View
 
         private void BtntranscriptView_Click(object sender, EventArgs e)
         {
-            VisualizarBoletim visualizarBoletim = new VisualizarBoletim();
+            ReportCardView visualizarBoletim = new ReportCardView();
             Hide();
             visualizarBoletim.TopLevel = true;
             visualizarBoletim.Show();
