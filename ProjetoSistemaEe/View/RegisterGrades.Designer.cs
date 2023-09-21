@@ -308,6 +308,7 @@
             this.TxtN4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TxtN4.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtN4.Location = new System.Drawing.Point(556, 202);
+            this.TxtN4.MaxLength = 4;
             this.TxtN4.Name = "TxtN4";
             this.TxtN4.Size = new System.Drawing.Size(67, 33);
             this.TxtN4.TabIndex = 4;
@@ -332,6 +333,7 @@
             this.TxtN3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TxtN3.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtN3.Location = new System.Drawing.Point(556, 153);
+            this.TxtN3.MaxLength = 4;
             this.TxtN3.Name = "TxtN3";
             this.TxtN3.Size = new System.Drawing.Size(67, 33);
             this.TxtN3.TabIndex = 3;
@@ -357,6 +359,7 @@
             this.TxtN2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TxtN2.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtN2.Location = new System.Drawing.Point(557, 107);
+            this.TxtN2.MaxLength = 4;
             this.TxtN2.Name = "TxtN2";
             this.TxtN2.Size = new System.Drawing.Size(67, 33);
             this.TxtN2.TabIndex = 2;
@@ -382,6 +385,7 @@
             this.TxtN1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TxtN1.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtN1.Location = new System.Drawing.Point(556, 57);
+            this.TxtN1.MaxLength = 4;
             this.TxtN1.Name = "TxtN1";
             this.TxtN1.Size = new System.Drawing.Size(67, 33);
             this.TxtN1.TabIndex = 1;
@@ -428,7 +432,7 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Nota 3 :";
             // 
-            // CadastrarNotas
+            // RegisterGrades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

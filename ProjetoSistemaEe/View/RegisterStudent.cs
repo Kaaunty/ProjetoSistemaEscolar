@@ -32,17 +32,17 @@ namespace ProjetoSistemaEe
             {
                 try
                 {
-                    DialogResult resultado = MessageBox.Show("Deseja cadastrar o estudante?", "Register", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult resultado = MessageBox.Show("Deseja cadastrar o estudante?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (resultado == DialogResult.Yes)
                     {
                         RegisterStudents();
-                        MessageBox.Show("Aluno cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Aluno cadastrado com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         validate.ClearControls(this);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao cadastrar o student:" + ex.Message);
+                    MessageBox.Show("Erro ao cadastrar o estudante:" + ex.Message);
                 }
             }
         }

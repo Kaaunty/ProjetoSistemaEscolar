@@ -51,12 +51,12 @@ namespace ProjetoSistemaEe.Model
             }
         }
 
-        public List<Subjects> GetSubjectsByProfessorAndCourse(int professorId, int courseId)
+        public List<Subjects> GetSubjectsByProfessorAndCourse(int professorId, int courseId, int studentRa)
         {
             try
             {
                 List<Subjects> subjects = new List<Subjects>();
-                subjects = dao.GetSubjectsByProfessorAndCourse(professorId, courseId);
+                subjects = dao.GetSubjectsByProfessorAndCourseAndSubject(professorId, courseId, studentRa);
                 return subjects;
             }
             catch (Exception)

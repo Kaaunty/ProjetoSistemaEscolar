@@ -23,15 +23,15 @@ namespace ProjetoSistemaEe.View
         private void PopulateFields()
         {
             txtRA.Text = reportCard.Student.Ra.ToString();
-            txtNome.Text = reportCard.Student.Name;
+            TxtName.Text = reportCard.Student.Name;
             txtID.Text = reportCard.Id.ToString();
-            txtN1.Text = reportCard.Grade1.ToString();
-            txtN2.Text = reportCard.Grade2.ToString();
-            txtN3.Text = reportCard.Grade3.ToString();
-            txtN4.Text = reportCard.Grade4.ToString();
-            txtMedia.Text = reportCard.Average.ToString();
-            txtMateria.Text = reportCard.Subject.SubjectName;
-            txtCurso.Text = reportCard.Course.CourseName;
+            TxtN1.Text = reportCard.Grade1.ToString();
+            TxtN2.Text = reportCard.Grade2.ToString();
+            TxtN3.Text = reportCard.Grade3.ToString();
+            TxtN4.Text = reportCard.Grade4.ToString();
+            TxtAverage.Text = reportCard.Average.ToString();
+            TxtSubject.Text = reportCard.Subject.SubjectName;
+            TxtCourse.Text = reportCard.Course.CourseName;
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
@@ -42,13 +42,13 @@ namespace ProjetoSistemaEe.View
                 if (result == DialogResult.Yes)
                 {
                     EditGrades();
-                    MessageBox.Show("Boletim editado com sucesso!");
+                    MessageBox.Show("Media editado com sucesso!");
                     Close();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao adicionar: " + ex.Message);
+                MessageBox.Show("Erro ao editar: " + ex.Message);
             }
         }
 
@@ -57,11 +57,11 @@ namespace ProjetoSistemaEe.View
             try
             {
                 int id = Convert.ToInt32(txtID.Text);
-                double grade1 = Convert.ToDouble(txtN1.Text);
-                double grade2 = Convert.ToDouble(txtN2.Text);
-                double grade3 = Convert.ToDouble(txtN3.Text);
-                double grade4 = Convert.ToDouble(txtN4.Text);
-                double average = Convert.ToDouble(txtMedia.Text);
+                double grade1 = Convert.ToDouble(TxtN1.Text);
+                double grade2 = Convert.ToDouble(TxtN2.Text);
+                double grade3 = Convert.ToDouble(TxtN3.Text);
+                double grade4 = Convert.ToDouble(TxtN4.Text);
+                double average = Convert.ToDouble(TxtAverage.Text);
                 string situation = calculate.CheckSituation(average);
                 ReportCard reportCard = new ReportCard(id, grade1, grade2, grade3, grade4, average, situation);
                 reportCardModel.Edit(reportCard);
@@ -69,6 +69,40 @@ namespace ProjetoSistemaEe.View
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Deseja deletar a media do estudante?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    DeleteGrade();
+                    MessageBox.Show("Media deletada com sucesso!");
+                    Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao deletar: " + ex.Message);
+            }
+        }
+
+        private void DeleteGrade()
+        {
+            if (validate.ValidateControls(this))
+            {
+                try
+                {
+                    reportCard.Id = Convert.ToInt32(txtID.Text);
+                    reportCardModel.Delete(reportCard);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
         }
 
@@ -89,15 +123,15 @@ namespace ProjetoSistemaEe.View
                 }
             }
 
-            if (txtN1.Text != "" && txtN2.Text != "" && txtN3.Text != "" && txtN4.Text != "")
+            if (TxtN1.Text != "" && TxtN2.Text != "" && TxtN3.Text != "" && TxtN4.Text != "")
             {
-                calculate.CalculateAverage(txtN1, txtN2, txtN3, txtN4, txtMedia);
-                btnEditar.Enabled = true;
+                calculate.CalculateAverage(TxtN1, TxtN2, TxtN3, TxtN4, TxtAverage);
+                BtnEdit.Enabled = true;
             }
             else
             {
-                txtMedia.Clear();
-                btnEditar.Enabled = false;
+                TxtAverage.Clear();
+                BtnEdit.Enabled = false;
             }
         }
 

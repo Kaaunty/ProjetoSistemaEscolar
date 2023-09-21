@@ -22,5 +22,19 @@ namespace ProjetoSistemaEe.Model
                 throw;
             }
         }
+
+        public List<Subjects> GetSubjectsByCourse(int courseId)
+        {
+            try
+            {
+                List<Subjects> subjects = new List<Subjects>();
+                subjects = dao.GetSubjectsByCourse(courseId);
+                return subjects;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

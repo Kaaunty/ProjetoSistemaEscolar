@@ -157,7 +157,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.SubjectsGrid.DefaultCellStyle = dataGridViewCellStyle3;
-            this.SubjectsGrid.Location = new System.Drawing.Point(247, 251);
+            this.SubjectsGrid.Location = new System.Drawing.Point(104, 251);
             this.SubjectsGrid.Name = "SubjectsGrid";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
@@ -170,7 +170,7 @@
             this.SubjectsGrid.RowHeadersVisible = false;
             this.SubjectsGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.SubjectsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.SubjectsGrid.Size = new System.Drawing.Size(276, 157);
+            this.SubjectsGrid.Size = new System.Drawing.Size(419, 157);
             this.SubjectsGrid.TabIndex = 2;
             // 
             // CursoCheckbox
@@ -260,9 +260,9 @@
             // ListaMaterias
             // 
             this.ListaMaterias.FormattingEnabled = true;
-            this.ListaMaterias.Location = new System.Drawing.Point(81, 257);
+            this.ListaMaterias.Location = new System.Drawing.Point(523, 530);
             this.ListaMaterias.Name = "ListaMaterias";
-            this.ListaMaterias.Size = new System.Drawing.Size(150, 108);
+            this.ListaMaterias.Size = new System.Drawing.Size(30, 17);
             this.ListaMaterias.TabIndex = 81;
             this.ListaMaterias.Visible = false;
             // 

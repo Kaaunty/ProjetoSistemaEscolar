@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.Utils
 {
-    internal class Validations
+    public class Validations
     {
         public void FormatDate(DateTimePicker dateTimePicker, DateTime maxDate, DateTime minDate)
         {

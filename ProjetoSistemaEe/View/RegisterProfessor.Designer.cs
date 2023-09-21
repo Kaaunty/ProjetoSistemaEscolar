@@ -216,7 +216,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.SubjectsGrid.DefaultCellStyle = dataGridViewCellStyle3;
-            this.SubjectsGrid.Location = new System.Drawing.Point(231, 253);
+            this.SubjectsGrid.Location = new System.Drawing.Point(88, 253);
             this.SubjectsGrid.Name = "SubjectsGrid";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
@@ -229,7 +229,7 @@
             this.SubjectsGrid.RowHeadersVisible = false;
             this.SubjectsGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.SubjectsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.SubjectsGrid.Size = new System.Drawing.Size(276, 157);
+            this.SubjectsGrid.Size = new System.Drawing.Size(419, 157);
             this.SubjectsGrid.TabIndex = 1;
             // 
             // CursoCheckbox

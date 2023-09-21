@@ -64,9 +64,9 @@ namespace ProjetoSistemaEe.View
                 ReportCard boletim = new ReportCard(ra, professorId, subjectId, courseId, grade1, grade2, grade3, grade4, average, situation);
                 reportCardModel.Register(boletim);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Erro ao adicionar: " + ex.Message);
+                throw;
             }
         }
 
@@ -128,6 +128,8 @@ namespace ProjetoSistemaEe.View
 
         #endregion Menu
 
+        #region ComboBox
+
         private void PopulateComboBox()
         {   //
             CbCourse.ValueMember = "courseId";
@@ -149,7 +151,7 @@ namespace ProjetoSistemaEe.View
             CbSubject.ValueMember = "SubjectId";
             CbSubject.DisplayMember = "SubjectName";
             CbSubject.DropDownHeight = CbSubject.Height * 5;
-            CbSubject.DataSource = courseModel.GetSubjectsByProfessorAndCourse(Convert.ToInt32(CbProfessor.SelectedValue), Convert.ToInt32(CbCourse.SelectedValue));
+            CbSubject.DataSource = courseModel.GetSubjectsByProfessorAndCourse(Convert.ToInt32(CbProfessor.SelectedValue), Convert.ToInt32(CbCourse.SelectedValue), Convert.ToInt32(CbStudent.SelectedValue));
         }
 
         private void cbCurso_TextChanged(object sender, EventArgs e)
@@ -164,7 +166,7 @@ namespace ProjetoSistemaEe.View
             CbSubject.ValueMember = "SubjectId";
             CbSubject.DisplayMember = "SubjectName";
             CbSubject.DropDownHeight = CbSubject.Height * 5;
-            CbSubject.DataSource = courseModel.GetSubjectsByProfessorAndCourse(Convert.ToInt32(professorId), Convert.ToInt32(courseId));
+            CbSubject.DataSource = courseModel.GetSubjectsByProfessorAndCourse(Convert.ToInt32(professorId), Convert.ToInt32(courseId), Convert.ToInt32(CbStudent.SelectedValue));
         }
 
         private void cbProfessor_SelectedIndexChanged(object sender, EventArgs e)
@@ -172,7 +174,9 @@ namespace ProjetoSistemaEe.View
             CbSubject.ValueMember = "SubjectId";
             CbSubject.DisplayMember = "SubjectName";
             CbSubject.DropDownHeight = CbSubject.Height * 5;
-            CbSubject.DataSource = courseModel.GetSubjectsByProfessorAndCourse(Convert.ToInt32(CbProfessor.SelectedValue), Convert.ToInt32(CbCourse.SelectedValue));
+            CbSubject.DataSource = courseModel.GetSubjectsByProfessorAndCourse(Convert.ToInt32(CbProfessor.SelectedValue), Convert.ToInt32(CbCourse.SelectedValue), Convert.ToInt32(CbStudent.SelectedValue));
         }
     }
+
+    #endregion ComboBox
 }

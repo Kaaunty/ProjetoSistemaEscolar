@@ -12,20 +12,21 @@ namespace ProjetoSistemaEe.DAO
 
         public List<Course> GetCourses()
         {
+            List<Course> courses = new List<Course>();
             try
             {
                 con.OpenConnection();
                 sql = new MySqlCommand("SELECT * FROM courses order by name;", con.con);
                 MySqlDataReader dr = sql.ExecuteReader();
-                List<Course> Courses = new List<Course>();
+
                 while (dr.Read())
                 {
-                    Course courses = new Course();
-                    courses.CourseId = Convert.ToInt32(dr["id"]);
-                    courses.CourseName = dr["name"].ToString();
-                    Courses.Add(courses);
+                    Course course = new Course();
+                    course.CourseId = Convert.ToInt32(dr["id"]);
+                    course.CourseName = dr["name"].ToString();
+                    courses.Add(course);
                 }
-                return Courses;
+                return courses;
             }
             catch (Exception)
             {
@@ -35,7 +36,7 @@ namespace ProjetoSistemaEe.DAO
 
         public List<Course> GetCoursesByStudents()
         {
-            List<Course> Courses = new List<Course>();
+            List<Course> courses = new List<Course>();
             try
             {
                 con.OpenConnection();
@@ -43,12 +44,12 @@ namespace ProjetoSistemaEe.DAO
                 MySqlDataReader dr = sql.ExecuteReader();
                 while (dr.Read())
                 {
-                    Course courses = new Course();
-                    courses.CourseId = Convert.ToInt32(dr["id"]);
-                    courses.CourseName = dr["name"].ToString();
-                    Courses.Add(courses);
+                    Course course = new Course();
+                    course.CourseId = Convert.ToInt32(dr["id"]);
+                    course.CourseName = dr["name"].ToString();
+                    courses.Add(course);
                 }
-                return Courses;
+                return courses;
             }
             catch (Exception)
             {
@@ -63,7 +64,7 @@ namespace ProjetoSistemaEe.DAO
         public List<Student> GetStudentsByCourse(int courseId)
 
         {
-            List<Student> Students = new List<Student>();
+            List<Student> students = new List<Student>();
             try
             {
                 con.OpenConnection();
@@ -71,8 +72,8 @@ namespace ProjetoSistemaEe.DAO
                                          FROM students s
                                          LEFT JOIN reportcards rc ON s.ra = rc.student_id
                                          AND s.course = rc.course_id
-                                         WHERE rc.id IS NULL
-                                         AND s.course = @course_id;", con.con);
+                                         WHERE s.course = @course_id
+                                         GROUP BY s.ra;", con.con);
                 sql.Parameters.AddWithValue("@course_id", courseId);
                 MySqlDataReader dr = sql.ExecuteReader();
                 while (dr.Read())
@@ -80,9 +81,9 @@ namespace ProjetoSistemaEe.DAO
                     Student student = new Student();
                     student.RA = Convert.ToInt32(dr["ra"]);
                     student.Name = dr["name"].ToString();
-                    Students.Add(student);
+                    students.Add(student);
                 }
-                return Students;
+                return students;
             }
             catch (Exception)
             {
@@ -94,21 +95,29 @@ namespace ProjetoSistemaEe.DAO
             }
         }
 
-        public List<Subjects> GetSubjectsByProfessorAndCourse(int professorId, int courseId)
+        public List<Subjects> GetSubjectsByProfessorAndCourseAndSubject(int professorId, int courseId, int studentRa)
+
         {
             try
             {
                 List<Subjects> subjects = new List<Subjects>();
                 con.OpenConnection();
-                sql = new MySqlCommand(@"select ps.professor_id, cs.subject_id,s.name as subject_name,c.id as course_id from professor_subjects ps
-                                         Inner join subjects s ON s.id = ps.subject_id
-                                         Inner join professors p ON p.id = ps.professor_id
-                                         Inner join courses_subjects cs ON cs.subject_id = ps.subject_id
-                                         Inner join courses c ON c.id = cs.course_id
-                                         Where p.id = @professor_id
-                                         And c.id = @course_id;", con.con);
+                sql = new MySqlCommand(@"SELECT ps.professor_id, cs.subject_id, s.name AS subject_name, c.id AS course_id
+                                         FROM professor_subjects ps
+                                         INNER JOIN subjects s ON s.id = ps.subject_id
+                                         INNER JOIN professors p ON p.id = ps.professor_id
+                                         INNER JOIN courses_subjects cs ON cs.subject_id = ps.subject_id
+                                         INNER JOIN courses c ON c.id = cs.course_id
+                                         WHERE p.id = @professor_id
+                                         AND c.id = @course_id
+                                         AND cs.subject_id NOT IN (
+                                             SELECT subject_id
+                                             FROM reportcards
+                                             WHERE student_id = @student_id
+                                             AND  p.id = @professor_id);", con.con);
                 sql.Parameters.AddWithValue("@professor_id", professorId);
                 sql.Parameters.AddWithValue("@course_id", courseId);
+                sql.Parameters.AddWithValue("@student_id", studentRa);
                 MySqlDataReader dr = sql.ExecuteReader();
 
                 while (dr.Read())

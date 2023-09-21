@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditGrade));
-            this.txtMedia = new System.Windows.Forms.TextBox();
-            this.txtN3 = new System.Windows.Forms.TextBox();
+            this.TxtAverage = new System.Windows.Forms.TextBox();
+            this.TxtN3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtN2 = new System.Windows.Forms.TextBox();
-            this.txtCurso = new System.Windows.Forms.TextBox();
+            this.TxtN2 = new System.Windows.Forms.TextBox();
+            this.TxtCourse = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtMateria = new System.Windows.Forms.TextBox();
-            this.txtNome = new System.Windows.Forms.TextBox();
+            this.TxtSubject = new System.Windows.Forms.TextBox();
+            this.TxtName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtRA = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtN1 = new System.Windows.Forms.TextBox();
+            this.TxtN1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnEditar = new FontAwesome.Sharp.IconButton();
+            this.BtnEdit = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtN4 = new System.Windows.Forms.TextBox();
+            this.TxtN4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -55,35 +55,37 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.BtnClose = new FontAwesome.Sharp.IconButton();
             this.BtnMinimize = new FontAwesome.Sharp.IconButton();
+            this.BtnDelete = new FontAwesome.Sharp.IconButton();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtMedia
+            // TxtAverage
             // 
-            this.txtMedia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMedia.Enabled = false;
-            this.txtMedia.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMedia.Location = new System.Drawing.Point(125, 262);
-            this.txtMedia.Name = "txtMedia";
-            this.txtMedia.ReadOnly = true;
-            this.txtMedia.Size = new System.Drawing.Size(67, 33);
-            this.txtMedia.TabIndex = 5;
-            this.txtMedia.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtAverage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtAverage.Enabled = false;
+            this.TxtAverage.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtAverage.Location = new System.Drawing.Point(125, 262);
+            this.TxtAverage.Name = "TxtAverage";
+            this.TxtAverage.ReadOnly = true;
+            this.TxtAverage.Size = new System.Drawing.Size(67, 33);
+            this.TxtAverage.TabIndex = 5;
+            this.TxtAverage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtN3
+            // TxtN3
             // 
-            this.txtN3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtN3.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN3.Location = new System.Drawing.Point(124, 134);
-            this.txtN3.Name = "txtN3";
-            this.txtN3.Size = new System.Drawing.Size(67, 33);
-            this.txtN3.TabIndex = 3;
-            this.txtN3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtN3.TextChanged += new System.EventHandler(this.TxtN_TextChanged);
-            this.txtN3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNum_KeyPress);
+            this.TxtN3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtN3.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtN3.Location = new System.Drawing.Point(124, 134);
+            this.TxtN3.MaxLength = 4;
+            this.TxtN3.Name = "TxtN3";
+            this.TxtN3.Size = new System.Drawing.Size(67, 33);
+            this.TxtN3.TabIndex = 3;
+            this.TxtN3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtN3.TextChanged += new System.EventHandler(this.TxtN_TextChanged);
+            this.TxtN3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNum_KeyPress);
             // 
             // label5
             // 
@@ -98,30 +100,31 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Media :";
             // 
-            // txtN2
+            // TxtN2
             // 
-            this.txtN2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtN2.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN2.Location = new System.Drawing.Point(124, 85);
-            this.txtN2.Name = "txtN2";
-            this.txtN2.Size = new System.Drawing.Size(67, 33);
-            this.txtN2.TabIndex = 2;
-            this.txtN2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtN2.TextChanged += new System.EventHandler(this.TxtN_TextChanged);
-            this.txtN2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNum_KeyPress);
+            this.TxtN2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtN2.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtN2.Location = new System.Drawing.Point(124, 85);
+            this.TxtN2.MaxLength = 4;
+            this.TxtN2.Name = "TxtN2";
+            this.TxtN2.Size = new System.Drawing.Size(67, 33);
+            this.TxtN2.TabIndex = 2;
+            this.TxtN2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtN2.TextChanged += new System.EventHandler(this.TxtN_TextChanged);
+            this.TxtN2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNum_KeyPress);
             // 
-            // txtCurso
+            // TxtCourse
             // 
-            this.txtCurso.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCurso.Enabled = false;
-            this.txtCurso.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCurso.Location = new System.Drawing.Point(166, 139);
-            this.txtCurso.Name = "txtCurso";
-            this.txtCurso.ReadOnly = true;
-            this.txtCurso.Size = new System.Drawing.Size(413, 29);
-            this.txtCurso.TabIndex = 9;
-            this.txtCurso.TabStop = false;
-            this.txtCurso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtCourse.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtCourse.Enabled = false;
+            this.TxtCourse.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCourse.Location = new System.Drawing.Point(166, 139);
+            this.TxtCourse.Name = "TxtCourse";
+            this.TxtCourse.ReadOnly = true;
+            this.TxtCourse.Size = new System.Drawing.Size(413, 29);
+            this.TxtCourse.TabIndex = 9;
+            this.TxtCourse.TabStop = false;
+            this.TxtCourse.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -136,31 +139,31 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "Curso:";
             // 
-            // txtMateria
+            // TxtSubject
             // 
-            this.txtMateria.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMateria.Enabled = false;
-            this.txtMateria.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMateria.Location = new System.Drawing.Point(166, 186);
-            this.txtMateria.Name = "txtMateria";
-            this.txtMateria.ReadOnly = true;
-            this.txtMateria.Size = new System.Drawing.Size(413, 29);
-            this.txtMateria.TabIndex = 6;
-            this.txtMateria.TabStop = false;
-            this.txtMateria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtSubject.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtSubject.Enabled = false;
+            this.TxtSubject.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSubject.Location = new System.Drawing.Point(166, 186);
+            this.TxtSubject.Name = "TxtSubject";
+            this.TxtSubject.ReadOnly = true;
+            this.TxtSubject.Size = new System.Drawing.Size(413, 29);
+            this.TxtSubject.TabIndex = 6;
+            this.TxtSubject.TabStop = false;
+            this.TxtSubject.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtNome
+            // TxtName
             // 
-            this.txtNome.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNome.Enabled = false;
-            this.txtNome.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(166, 92);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.ReadOnly = true;
-            this.txtNome.Size = new System.Drawing.Size(413, 29);
-            this.txtNome.TabIndex = 5;
-            this.txtNome.TabStop = false;
-            this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtName.Enabled = false;
+            this.TxtName.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtName.Location = new System.Drawing.Point(166, 92);
+            this.TxtName.Name = "TxtName";
+            this.TxtName.ReadOnly = true;
+            this.TxtName.Size = new System.Drawing.Size(413, 29);
+            this.TxtName.TabIndex = 5;
+            this.TxtName.TabStop = false;
+            this.TxtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
             // 
@@ -214,17 +217,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nota 1 :";
             // 
-            // txtN1
+            // TxtN1
             // 
-            this.txtN1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtN1.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN1.Location = new System.Drawing.Point(124, 36);
-            this.txtN1.Name = "txtN1";
-            this.txtN1.Size = new System.Drawing.Size(67, 33);
-            this.txtN1.TabIndex = 1;
-            this.txtN1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtN1.TextChanged += new System.EventHandler(this.TxtN_TextChanged);
-            this.txtN1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNum_KeyPress);
+            this.TxtN1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtN1.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtN1.Location = new System.Drawing.Point(124, 36);
+            this.TxtN1.MaxLength = 4;
+            this.TxtN1.Name = "TxtN1";
+            this.TxtN1.Size = new System.Drawing.Size(67, 33);
+            this.TxtN1.TabIndex = 1;
+            this.TxtN1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtN1.TextChanged += new System.EventHandler(this.TxtN_TextChanged);
+            this.TxtN1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNum_KeyPress);
             // 
             // label2
             // 
@@ -265,41 +269,41 @@
             this.label10.TabIndex = 2;
             this.label10.Text = "Matéria:";
             // 
-            // btnEditar
+            // BtnEdit
             // 
-            this.btnEditar.BackColor = System.Drawing.Color.Transparent;
-            this.btnEditar.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
-            this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEditar.Enabled = false;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnEditar.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.btnEditar.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEditar.IconSize = 30;
-            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(454, 584);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(130, 35);
-            this.btnEditar.TabIndex = 6;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = false;
-            this.btnEditar.Click += new System.EventHandler(this.BtnEdit_Click);
+            this.BtnEdit.BackColor = System.Drawing.Color.Transparent;
+            this.BtnEdit.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
+            this.BtnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnEdit.Enabled = false;
+            this.BtnEdit.FlatAppearance.BorderSize = 0;
+            this.BtnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEdit.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEdit.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnEdit.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.BtnEdit.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnEdit.IconSize = 30;
+            this.BtnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEdit.Location = new System.Drawing.Point(386, 584);
+            this.BtnEdit.Name = "BtnEdit";
+            this.BtnEdit.Size = new System.Drawing.Size(130, 35);
+            this.BtnEdit.TabIndex = 6;
+            this.BtnEdit.Text = "Editar";
+            this.BtnEdit.UseVisualStyleBackColor = false;
+            this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
-            this.panel2.Controls.Add(this.txtN4);
-            this.panel2.Controls.Add(this.txtMedia);
-            this.panel2.Controls.Add(this.txtN3);
+            this.panel2.Controls.Add(this.TxtN4);
+            this.panel2.Controls.Add(this.TxtAverage);
+            this.panel2.Controls.Add(this.TxtN3);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.txtN2);
+            this.panel2.Controls.Add(this.TxtN2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.txtN1);
+            this.panel2.Controls.Add(this.TxtN1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
@@ -308,17 +312,18 @@
             this.panel2.Size = new System.Drawing.Size(230, 364);
             this.panel2.TabIndex = 8;
             // 
-            // txtN4
+            // TxtN4
             // 
-            this.txtN4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtN4.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtN4.Location = new System.Drawing.Point(124, 183);
-            this.txtN4.Name = "txtN4";
-            this.txtN4.Size = new System.Drawing.Size(67, 33);
-            this.txtN4.TabIndex = 4;
-            this.txtN4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtN4.TextChanged += new System.EventHandler(this.TxtN_TextChanged);
-            this.txtN4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNum_KeyPress);
+            this.TxtN4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtN4.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtN4.Location = new System.Drawing.Point(124, 183);
+            this.TxtN4.MaxLength = 4;
+            this.TxtN4.Name = "TxtN4";
+            this.TxtN4.Size = new System.Drawing.Size(67, 33);
+            this.TxtN4.TabIndex = 4;
+            this.TxtN4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtN4.TextChanged += new System.EventHandler(this.TxtN_TextChanged);
+            this.TxtN4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNum_KeyPress);
             // 
             // label4
             // 
@@ -337,10 +342,10 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(32)))), ((int)(((byte)(94)))));
             this.panel3.Controls.Add(this.txtID);
-            this.panel3.Controls.Add(this.txtCurso);
+            this.panel3.Controls.Add(this.TxtCourse);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.txtMateria);
-            this.panel3.Controls.Add(this.txtNome);
+            this.panel3.Controls.Add(this.TxtSubject);
+            this.panel3.Controls.Add(this.TxtName);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.txtRA);
             this.panel3.Controls.Add(this.label9);
@@ -366,9 +371,10 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.BtnDelete);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.btnEditar);
+            this.panel1.Controls.Add(this.BtnEdit);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -416,6 +422,28 @@
             this.BtnMinimize.UseVisualStyleBackColor = true;
             this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
             // 
+            // BtnDelete
+            // 
+            this.BtnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.BtnDelete.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
+            this.BtnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnDelete.FlatAppearance.BorderSize = 0;
+            this.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnDelete.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDelete.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.BtnDelete.IconColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnDelete.IconSize = 35;
+            this.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnDelete.Location = new System.Drawing.Point(522, 584);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(130, 35);
+            this.BtnDelete.TabIndex = 14;
+            this.BtnDelete.Text = "     Deletar";
+            this.BtnDelete.UseVisualStyleBackColor = false;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
             // EditGrade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -438,25 +466,25 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtMedia;
-        private System.Windows.Forms.TextBox txtN3;
+        private System.Windows.Forms.TextBox TxtAverage;
+        private System.Windows.Forms.TextBox TxtN3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtN2;
-        private System.Windows.Forms.TextBox txtCurso;
+        private System.Windows.Forms.TextBox TxtN2;
+        private System.Windows.Forms.TextBox TxtCourse;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtMateria;
-        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox TxtSubject;
+        private System.Windows.Forms.TextBox TxtName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtRA;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtN1;
+        private System.Windows.Forms.TextBox TxtN1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label10;
-        private FontAwesome.Sharp.IconButton btnEditar;
+        private FontAwesome.Sharp.IconButton BtnEdit;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtN4;
+        private System.Windows.Forms.TextBox TxtN4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
@@ -464,5 +492,6 @@
         private FontAwesome.Sharp.IconButton BtnClose;
         private FontAwesome.Sharp.IconButton BtnMinimize;
         private System.Windows.Forms.TextBox txtID;
+        private FontAwesome.Sharp.IconButton BtnDelete;
     }
 }

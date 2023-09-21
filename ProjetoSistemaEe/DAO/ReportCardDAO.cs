@@ -74,7 +74,7 @@ namespace ProjetoSistemaEe.DAO
             {
                 con.OpenConnection();
                 sql = new MySqlCommand(@"INSERT INTO reportcards ()
-                                         VALUES(DEFAULT, @student_id, @course_id, @subject_id, @grade1, @grade2, @grade3, @grade4, @average, @situation);", con.con);
+                                         VALUES(DEFAULT, @student_id, @course_id, @subject_id, @grade1, @grade2, @grade3, @grade4, @average, @situation, @professor_id);", con.con);
                 sql.Parameters.AddWithValue("@student_id", reportCard.Student.Ra);
                 sql.Parameters.AddWithValue("@course_id", reportCard.Course.CourseId);
                 sql.Parameters.AddWithValue("@subject_id", reportCard.Subject.SubjectId);
@@ -84,6 +84,7 @@ namespace ProjetoSistemaEe.DAO
                 sql.Parameters.AddWithValue("@grade4", reportCard.Grade4);
                 sql.Parameters.AddWithValue("@average", reportCard.Average);
                 sql.Parameters.AddWithValue("@situation", reportCard.Situation);
+                sql.Parameters.AddWithValue("@professor_id", reportCard.Professor.Id);
                 sql.ExecuteNonQuery();
             }
             catch (Exception)
@@ -124,7 +125,22 @@ namespace ProjetoSistemaEe.DAO
 
         public void DeleteReportCard(ReportCard reportCard)
         {
-            throw new NotImplementedException();
+            try
+            {
+                con.OpenConnection();
+                sql = new MySqlCommand("DELETE FROM reportcards WHERE id = @id", con.con);
+                sql.Parameters.AddWithValue("@id", reportCard.Id);
+                sql.ExecuteNonQuery();
+                sql.Dispose();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.CloseConnection();
+            }
         }
     }
 }

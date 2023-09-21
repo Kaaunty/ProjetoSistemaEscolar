@@ -34,6 +34,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TxtSearchName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.CbSubject = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.CbCourse = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BtnPreviousMenu = new FontAwesome.Sharp.IconButton();
             this.BtnMinimize = new FontAwesome.Sharp.IconButton();
@@ -49,6 +56,7 @@
             this.media = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ReportCardGrid)).BeginInit();
             this.SuspendLayout();
@@ -56,12 +64,109 @@
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.TxtSearchName);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.CbSubject);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.CbCourse);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.ReportCardGrid);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 1;
+            // 
+            // TxtSearchName
+            // 
+            this.TxtSearchName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtSearchName.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSearchName.Location = new System.Drawing.Point(115, 247);
+            this.TxtSearchName.Name = "TxtSearchName";
+            this.TxtSearchName.Size = new System.Drawing.Size(292, 33);
+            this.TxtSearchName.TabIndex = 55;
+            this.TxtSearchName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtSearchName.TextChanged += new System.EventHandler(this.TxtSearchName_TextChanged);
+            this.TxtSearchName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSearchName_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
+            this.label1.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Location = new System.Drawing.Point(37, 247);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 28);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "Aluno:";
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
+            this.label14.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label14.Location = new System.Drawing.Point(16, 210);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(93, 28);
+            this.label14.TabIndex = 53;
+            this.label14.Text = "Materia:";
+            // 
+            // CbSubject
+            // 
+            this.CbSubject.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbSubject.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbSubject.FormattingEnabled = true;
+            this.CbSubject.Items.AddRange(new object[] {
+            "Matematica",
+            "Literatura"});
+            this.CbSubject.Location = new System.Drawing.Point(115, 209);
+            this.CbSubject.Name = "CbSubject";
+            this.CbSubject.Size = new System.Drawing.Size(292, 30);
+            this.CbSubject.TabIndex = 52;
+            this.CbSubject.SelectedValueChanged += new System.EventHandler(this.CbSubject_SelectedValueChanged);
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
+            this.label12.Font = new System.Drawing.Font("Manrope", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label12.Location = new System.Drawing.Point(33, 166);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(76, 28);
+            this.label12.TabIndex = 51;
+            this.label12.Text = "Curso:";
+            // 
+            // CbCourse
+            // 
+            this.CbCourse.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CbCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbCourse.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbCourse.FormattingEnabled = true;
+            this.CbCourse.Items.AddRange(new object[] {
+            "Matematica",
+            "Literatura"});
+            this.CbCourse.Location = new System.Drawing.Point(115, 166);
+            this.CbCourse.Name = "CbCourse";
+            this.CbCourse.Size = new System.Drawing.Size(292, 30);
+            this.CbCourse.TabIndex = 50;
+            this.CbCourse.SelectedValueChanged += new System.EventHandler(this.CbCourse_SelectedValueChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(7)))), ((int)(((byte)(94)))));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 151);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1036, 161);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -144,14 +249,14 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.ReportCardGrid.DefaultCellStyle = dataGridViewCellStyle4;
             this.ReportCardGrid.EnableHeadersVisualStyles = false;
-            this.ReportCardGrid.Location = new System.Drawing.Point(11, 246);
+            this.ReportCardGrid.Location = new System.Drawing.Point(11, 318);
             this.ReportCardGrid.MultiSelect = false;
             this.ReportCardGrid.Name = "ReportCardGrid";
             this.ReportCardGrid.ReadOnly = true;
             this.ReportCardGrid.RowHeadersVisible = false;
             this.ReportCardGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.ReportCardGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ReportCardGrid.Size = new System.Drawing.Size(1016, 411);
+            this.ReportCardGrid.Size = new System.Drawing.Size(1016, 339);
             this.ReportCardGrid.TabIndex = 1;
             this.ReportCardGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.ReportCardGrid_CellFormatting);
             this.ReportCardGrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.ReportCardGrid_CellMouseDoubleClick);
@@ -251,6 +356,8 @@
             this.Text = "VisualizarBoletim";
             this.Load += new System.EventHandler(this.ReportCardView_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ReportCardGrid)).EndInit();
             this.ResumeLayout(false);
@@ -273,5 +380,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn media;
         private System.Windows.Forms.DataGridViewTextBoxColumn situacao;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox CbCourse;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox CbSubject;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TxtSearchName;
     }
 }
