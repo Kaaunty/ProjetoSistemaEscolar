@@ -23,12 +23,12 @@ namespace ProjetoSistemaEe.Model
             }
         }
 
-        public List<Course> GetCoursesByStudents()
+        public List<Course> GetCoursesContainStudent()
         {
             try
             {
                 List<Course> courses = new List<Course>();
-                courses = dao.GetCoursesByStudents();
+                courses = dao.GetCoursesContainStudent();
                 return courses;
             }
             catch (Exception)
@@ -44,20 +44,6 @@ namespace ProjetoSistemaEe.Model
                 List<Student> students = new List<Student>();
                 students = dao.GetStudentsByCourse(courseId);
                 return students;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public List<Subjects> GetSubjectsByProfessorAndCourse(int professorId, int courseId, int studentRa)
-        {
-            try
-            {
-                List<Subjects> subjects = new List<Subjects>();
-                subjects = dao.GetSubjectsByProfessorAndCourseAndSubject(professorId, courseId, studentRa);
-                return subjects;
             }
             catch (Exception)
             {

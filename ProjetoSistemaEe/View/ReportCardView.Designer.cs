@@ -370,6 +370,13 @@
         private System.Windows.Forms.Panel panel2;
         private FontAwesome.Sharp.IconButton BtnPreviousMenu;
         private FontAwesome.Sharp.IconButton BtnMinimize;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox CbCourse;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox CbSubject;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TxtSearchName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ra_aluno;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome_aluno;
         private System.Windows.Forms.DataGridViewTextBoxColumn curso;
@@ -380,12 +387,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn media;
         private System.Windows.Forms.DataGridViewTextBoxColumn situacao;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox CbCourse;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox CbSubject;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox TxtSearchName;
     }
 }

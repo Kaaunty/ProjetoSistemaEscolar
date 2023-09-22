@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Documents;
-using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.Entidades
 {
@@ -56,10 +54,5 @@ namespace ProjetoSistemaEe.Entidades
         public string Salary { get => salary; set => salary = value; }
         public int Id { get => id; set => id = value; }
         public List<Subjects> Subjects { get => subjects; set => subjects = value; }
-
-        public override string ToString()
-        {
-            return Name;
-        }
     }
 }

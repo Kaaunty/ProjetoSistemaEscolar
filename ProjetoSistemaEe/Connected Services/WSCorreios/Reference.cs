@@ -3302,7 +3302,7 @@ namespace ProjetoSistemaEe.WSCorreios {
             }
             set {
                 this.tipoField = value;
-                this.RaisePropertyChanged("tipo");
+                this.RaisePropertyChanged("type");
             }
         }
         
@@ -5165,7 +5165,7 @@ namespace ProjetoSistemaEe.WSCorreios {
             }
             set {
                 this.tipoField = value;
-                this.RaisePropertyChanged("tipo");
+                this.RaisePropertyChanged("type");
             }
         }
         
@@ -6521,7 +6521,7 @@ namespace ProjetoSistemaEe.WSCorreios {
             }
             set {
                 this.tipoField = value;
-                this.RaisePropertyChanged("tipo");
+                this.RaisePropertyChanged("type");
             }
         }
         
@@ -6593,7 +6593,7 @@ namespace ProjetoSistemaEe.WSCorreios {
             }
             set {
                 this.tipoField = value;
-                this.RaisePropertyChanged("tipo");
+                this.RaisePropertyChanged("type");
             }
         }
         
@@ -7235,7 +7235,7 @@ namespace ProjetoSistemaEe.WSCorreios {
             }
             set {
                 this.tipoField = value;
-                this.RaisePropertyChanged("tipo");
+                this.RaisePropertyChanged("type");
             }
         }
         
@@ -8134,7 +8134,7 @@ namespace ProjetoSistemaEe.WSCorreios {
             }
             set {
                 this.tipoField = value;
-                this.RaisePropertyChanged("tipo");
+                this.RaisePropertyChanged("type");
             }
         }
         

@@ -13,6 +13,7 @@ namespace ProjetoSistemaEe.DAO
         public List<Subjects> GetSubjects()
         {
             List<Subjects> subjects = new List<Subjects>();
+
             try
             {
                 con.OpenConnection();
@@ -62,6 +63,50 @@ namespace ProjetoSistemaEe.DAO
                     string subjectName = dr["subject_name"].ToString();
                     string courseName = dr["course_name"].ToString();
                     Subjects subject = new Subjects(courseId, subjectId, subjectName, courseName);
+                    subjects.Add(subject);
+                }
+                return subjects;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.CloseConnection();
+            }
+        }
+
+        public List<Subjects> GetSubjectsNotTakenByStudentFromProfessorAndCourse(int professorId, int courseId, int studentRa)
+        {
+            try
+            {
+                List<Subjects> subjects = new List<Subjects>();
+                con.OpenConnection();
+                sql = new MySqlCommand(@"SELECT ps.professor_id, cs.subject_id, s.name AS subject_name, c.id AS course_id
+                                         FROM professor_subjects ps
+                                         INNER JOIN subjects s ON s.id = ps.subject_id
+                                         INNER JOIN professors p ON p.id = ps.professor_id
+                                         INNER JOIN courses_subjects cs ON cs.subject_id = ps.subject_id
+                                         INNER JOIN courses c ON c.id = cs.course_id
+                                         WHERE p.id = @professor_id
+                                         AND c.id = @course_id
+                                         AND cs.subject_id NOT IN (
+                                             SELECT subject_id
+                                             FROM reportcards
+                                             WHERE student_id = @student_id
+                                             AND  p.id = @professor_id);", con.con);
+                sql.Parameters.AddWithValue("@professor_id", professorId);
+                sql.Parameters.AddWithValue("@course_id", courseId);
+                sql.Parameters.AddWithValue("@student_id", studentRa);
+                MySqlDataReader dr = sql.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    Subjects subject = new Subjects();
+                    subject.SubjectId = Convert.ToInt32(dr["subject_id"]);
+                    subject.SubjectName = dr["subject_name"].ToString();
+
                     subjects.Add(subject);
                 }
                 return subjects;

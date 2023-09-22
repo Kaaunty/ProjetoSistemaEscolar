@@ -1,11 +1,8 @@
-﻿using MySqlX.XDevAPI.Relational;
-using ProjetoSistemaEe.Entidades;
+﻿using ProjetoSistemaEe.Entidades;
 using ProjetoSistemaEe.Model;
 using ProjetoSistemaEe.Utils;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View
@@ -27,7 +24,6 @@ namespace ProjetoSistemaEe.View
 
         private void EditProfessor_Load(object sender, EventArgs e)
         {
-            validate.FormatDate(DtProfessor, new DateTime(2004, 12, 31), new DateTime(1953, 01, 01));
             PopulateFields();
             SelectSubjects();
         }

@@ -27,7 +27,7 @@ namespace ProjetoSistemaEe.View
 
         private void PopulateFields()
         {
-            txtRA.Text = student.RA.ToString();
+            txtRA.Text = student.Ra.ToString();
             TxtName.Text = student.Name;
             CbCourse.SelectedValue = student.Course.CourseId;
             CbPeriod.Text = student.Period;
@@ -126,7 +126,7 @@ namespace ProjetoSistemaEe.View
         {
             try
             {
-                student.RA = Convert.ToInt32(txtRA.Text);
+                student.Ra = Convert.ToInt32(txtRA.Text);
                 studentModel.Delete(student);
             }
             catch (Exception)

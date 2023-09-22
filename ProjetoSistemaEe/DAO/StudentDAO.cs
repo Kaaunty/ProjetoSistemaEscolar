@@ -62,7 +62,7 @@ namespace ProjetoSistemaEe.DAO
                 con.OpenConnection();
                 sql = new MySqlCommand("INSERT INTO students() VALUES (@ra, @name, @course, @period, @marital_status, " +
                     "@gender, @birch_date, @email, @shift, @phone, @zip_code, @city, @state, @district, @street, @street_number)", con.con);
-                sql.Parameters.AddWithValue("@ra", student.RA);
+                sql.Parameters.AddWithValue("@ra", student.Ra);
                 sql.Parameters.AddWithValue("@name", student.Name);
                 sql.Parameters.AddWithValue("@course", student.Course.CourseId);
                 sql.Parameters.AddWithValue("@period", student.Period);
@@ -131,7 +131,7 @@ namespace ProjetoSistemaEe.DAO
                                          marital_status = @marital_status, gender = @gender, birth_date = @birth_date,
                                          email = @email, shift = @shift, phone = @phone, zip_code = @zip_code, city = @city, state = @state,
                                          district = @district, street = @street, street_number = @street_number where ra = @ra;", con.con);
-                sql.Parameters.AddWithValue("@ra", student.RA);
+                sql.Parameters.AddWithValue("@ra", student.Ra);
                 sql.Parameters.AddWithValue("@name", student.Name);
                 sql.Parameters.AddWithValue("@course", student.Course.CourseId);
                 sql.Parameters.AddWithValue("@period", student.Period);
@@ -168,7 +168,7 @@ namespace ProjetoSistemaEe.DAO
                 sql = new MySqlCommand(@"
                 DELETE FROM reportcards WHERE student_id = @ra;
                 DELETE FROM students WHERE ra = @ra", con.con);
-                sql.Parameters.AddWithValue("@ra", student.RA);
+                sql.Parameters.AddWithValue("@ra", student.Ra);
                 sql.ExecuteNonQuery();
                 sql.Dispose();
             }

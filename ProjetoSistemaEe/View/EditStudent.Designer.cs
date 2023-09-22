@@ -288,11 +288,14 @@
             this.DtStudent.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtStudent.CustomFormat = "dd-MM-yyyy";
             this.DtStudent.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtStudent.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DtStudent.Location = new System.Drawing.Point(300, 443);
+            this.DtStudent.MaxDate = new System.DateTime(2004, 12, 31, 0, 0, 0, 0);
+            this.DtStudent.MinDate = new System.DateTime(1953, 1, 1, 0, 0, 0, 0);
             this.DtStudent.Name = "DtStudent";
             this.DtStudent.Size = new System.Drawing.Size(206, 29);
             this.DtStudent.TabIndex = 23;
-            this.DtStudent.Value = new System.DateTime(2023, 8, 25, 0, 0, 0, 0);
+            this.DtStudent.Value = new System.DateTime(2004, 12, 31, 0, 0, 0, 0);
             // 
             // TxtPhone
             // 

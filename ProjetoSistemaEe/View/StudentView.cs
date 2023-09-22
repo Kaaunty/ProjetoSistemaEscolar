@@ -1,8 +1,6 @@
 ﻿using ProjetoSistemaEe.Entidades;
 using ProjetoSistemaEe.Model;
 using System;
-using System.Collections.Generic;
-using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.View

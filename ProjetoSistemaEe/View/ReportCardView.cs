@@ -4,10 +4,7 @@ using ProjetoSistemaEe.Utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Windows.Controls;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace ProjetoSistemaEe.View
 {
@@ -45,40 +42,33 @@ namespace ProjetoSistemaEe.View
 
         private void ReportCardGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (ReportCardGrid.Rows.Count > 0)
+            ReportCard reportCard = (ReportCard)ReportCardGrid.Rows[e.RowIndex].DataBoundItem;
+
+            if (reportCard.Situation == "Reprovado")
             {
-                ReportCard reportCard = (ReportCard)ReportCardGrid.Rows[e.RowIndex].DataBoundItem;
-
-                if (reportCard.Situation == "Reprovado")
-                {
-                    ReportCardGrid.Rows[e.RowIndex].Cells[9].Style.ForeColor = Color.DarkRed;
-                }
-                else if (reportCard.Situation == "Aprovado")
-                {
-                    ReportCardGrid.Rows[e.RowIndex].Cells[9].Style.ForeColor = Color.DarkGreen;
-                }
-                else if (reportCard.Situation == "Recuperação")
-                {
-                    ReportCardGrid.Rows[e.RowIndex].Cells[9].Style.ForeColor = Color.DarkOrange;
-                }
-                else
-                {
-                    ReportCardGrid.Rows[e.RowIndex].Cells[9].Style.ForeColor = Color.Black;
-                }
-
-                ReportCardGrid.Rows[e.RowIndex].Cells[0].Value = reportCard.Student.Ra;
+                ReportCardGrid.Rows[e.RowIndex].Cells[9].Style.ForeColor = Color.DarkRed;
+            }
+            else if (reportCard.Situation == "Aprovado")
+            {
+                ReportCardGrid.Rows[e.RowIndex].Cells[9].Style.ForeColor = Color.DarkGreen;
+            }
+            else if (reportCard.Situation == "Recuperação")
+            {
+                ReportCardGrid.Rows[e.RowIndex].Cells[9].Style.ForeColor = Color.DarkOrange;
             }
             else
             {
-                ReportCardGrid.Rows[e.RowIndex].Cells[0].Value = "";
+                ReportCardGrid.Rows[e.RowIndex].Cells[9].Style.ForeColor = Color.Black;
             }
+
+            ReportCardGrid.Rows[e.RowIndex].Cells[0].Value = reportCard.Student.Ra;
         }
 
         private void PopulateFields()
         {
             CbCourse.ValueMember = "courseId";
             CbCourse.DisplayMember = "courseName";
-            List<Course> courses = courseModel.GetCoursesByStudents();
+            List<Course> courses = courseModel.GetCoursesContainStudent();
             courses.Insert(0, new Course { CourseId = 0, CourseName = "Todos" });
             CbCourse.DataSource = courses;
 

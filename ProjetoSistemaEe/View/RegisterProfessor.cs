@@ -21,7 +21,7 @@ namespace ProjetoSistemaEe.View
         private void CadastroProfessor_Load(object sender, EventArgs e)
         {
             validate.ClearControls(this);
-            validate.FormatDate(DtProfessor, new DateTime(2000, 12, 31), new DateTime(1953, 01, 01));
+
             PopulateGrid();
         }
 
@@ -126,6 +126,11 @@ namespace ProjetoSistemaEe.View
             validate.PermitLetter(e);
         }
 
+        private void TxtSalary_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validate.PermitNumberAndComma(sender, e);
+        }
+
         private void TxtNum_KeyPress(object sender, KeyPressEventArgs e)
         {
             validate.PermitNumber(e);
@@ -172,18 +177,5 @@ namespace ProjetoSistemaEe.View
         }
 
         #endregion Buttons
-
-        private void BtnTest_Click(object sender, EventArgs e)
-        {
-            TxtName.Text = "Teste";
-            txtEmail.Text = "Teste@teste.com";
-            TxtZipCode.Text = "13254685";
-            TxtSalary.Text = "R$ 9.999,00";
-            TxtNum.Text = "123";
-            TxtPhone.Text = "11971258656";
-            CbMartialStatus.Text = "Solteiro";
-            CbGender.Text = "Masculino";
-            DtProfessor.Value = new DateTime(1999, 12, 31);
-        }
     }
 }

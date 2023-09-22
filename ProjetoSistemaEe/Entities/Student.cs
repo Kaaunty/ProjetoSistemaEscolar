@@ -33,7 +33,6 @@ namespace ProjetoSistemaEe.Entidades
             StreetNumber = streetNumber;
         }
 
-        public int RA { get => Ra; set => Ra = value; }
         public int Ra { get => ra; set => ra = value; }
         public string Period { get => period; set => period = value; }
         public string Shift { get => shift; set => shift = value; }

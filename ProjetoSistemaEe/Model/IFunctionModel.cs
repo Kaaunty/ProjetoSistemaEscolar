@@ -2,14 +2,14 @@
 
 namespace ProjetoSistemaEe.Model
 {
-    public interface IFunctionModel<tipo>
+    public interface IFunctionModel<type>
     {
-        List<tipo> GetEntities();
+        List<type> GetEntities();
 
-        void Register(tipo entitiy);
+        void Register(type entitiy);
 
-        void Edit(tipo entitiy);
+        void Edit(type entitiy);
 
-        void Delete(tipo entitiy);
+        void Delete(type entitiy);
     }
 }

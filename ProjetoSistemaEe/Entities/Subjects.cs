@@ -1,6 +1,4 @@
-﻿using System.Data;
-
-namespace ProjetoSistemaEe.Entidades
+﻿namespace ProjetoSistemaEe.Entidades
 {
     public class Subjects
     {

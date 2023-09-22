@@ -34,7 +34,7 @@ namespace ProjetoSistemaEe.DAO
             }
         }
 
-        public List<Course> GetCoursesByStudents()
+        public List<Course> GetCoursesContainStudent()
         {
             List<Course> courses = new List<Course>();
             try
@@ -68,67 +68,21 @@ namespace ProjetoSistemaEe.DAO
             try
             {
                 con.OpenConnection();
-                sql = new MySqlCommand(@"SELECT s.ra, s.name
+                sql = new MySqlCommand(@"SELECT DISTINCT s.ra, s.name
                                          FROM students s
                                          LEFT JOIN reportcards rc ON s.ra = rc.student_id
                                          AND s.course = rc.course_id
-                                         WHERE s.course = @course_id
-                                         GROUP BY s.ra;", con.con);
+                                         WHERE s.course = @course_id;", con.con);
                 sql.Parameters.AddWithValue("@course_id", courseId);
                 MySqlDataReader dr = sql.ExecuteReader();
                 while (dr.Read())
                 {
                     Student student = new Student();
-                    student.RA = Convert.ToInt32(dr["ra"]);
+                    student.Ra = Convert.ToInt32(dr["ra"]);
                     student.Name = dr["name"].ToString();
                     students.Add(student);
                 }
                 return students;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                con.CloseConnection();
-            }
-        }
-
-        public List<Subjects> GetSubjectsByProfessorAndCourseAndSubject(int professorId, int courseId, int studentRa)
-
-        {
-            try
-            {
-                List<Subjects> subjects = new List<Subjects>();
-                con.OpenConnection();
-                sql = new MySqlCommand(@"SELECT ps.professor_id, cs.subject_id, s.name AS subject_name, c.id AS course_id
-                                         FROM professor_subjects ps
-                                         INNER JOIN subjects s ON s.id = ps.subject_id
-                                         INNER JOIN professors p ON p.id = ps.professor_id
-                                         INNER JOIN courses_subjects cs ON cs.subject_id = ps.subject_id
-                                         INNER JOIN courses c ON c.id = cs.course_id
-                                         WHERE p.id = @professor_id
-                                         AND c.id = @course_id
-                                         AND cs.subject_id NOT IN (
-                                             SELECT subject_id
-                                             FROM reportcards
-                                             WHERE student_id = @student_id
-                                             AND  p.id = @professor_id);", con.con);
-                sql.Parameters.AddWithValue("@professor_id", professorId);
-                sql.Parameters.AddWithValue("@course_id", courseId);
-                sql.Parameters.AddWithValue("@student_id", studentRa);
-                MySqlDataReader dr = sql.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    Subjects subject = new Subjects();
-                    subject.SubjectId = Convert.ToInt32(dr["subject_id"]);
-                    subject.SubjectName = dr["subject_name"].ToString();
-
-                    subjects.Add(subject);
-                }
-                return subjects;
             }
             catch (Exception)
             {

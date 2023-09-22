@@ -287,7 +287,7 @@
             this.CbCourse.Name = "CbCourse";
             this.CbCourse.Size = new System.Drawing.Size(292, 30);
             this.CbCourse.TabIndex = 45;
-            this.CbCourse.TextChanged += new System.EventHandler(this.cbCurso_TextChanged);
+            this.CbCourse.SelectedIndexChanged += new System.EventHandler(this.CbCourse_SelectedIndexChanged);
             // 
             // CbStudent
             // 

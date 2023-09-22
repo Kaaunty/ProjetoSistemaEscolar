@@ -36,5 +36,19 @@ namespace ProjetoSistemaEe.Model
                 throw;
             }
         }
+
+        public List<Subjects> GetSubjectsNotTakenByStudentFromProfessorAndCourse(int professorId, int courseId, int studentRa)
+        {
+            try
+            {
+                List<Subjects> subjects = new List<Subjects>();
+                subjects = dao.GetSubjectsNotTakenByStudentFromProfessorAndCourse(professorId, courseId, studentRa);
+                return subjects;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

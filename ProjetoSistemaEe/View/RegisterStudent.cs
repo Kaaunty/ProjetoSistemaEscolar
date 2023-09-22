@@ -22,7 +22,6 @@ namespace ProjetoSistemaEe
         private void RegisterStudent_Load(object sender, EventArgs e)
         {
             validate.ClearControls(this);
-            validate.FormatDate(DtStudent, new DateTime(2004, 12, 31), new DateTime(1953, 01, 01));
             PopulateComboBox();
         }
 
@@ -32,8 +31,8 @@ namespace ProjetoSistemaEe
             {
                 try
                 {
-                    DialogResult resultado = MessageBox.Show("Deseja cadastrar o estudante?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (resultado == DialogResult.Yes)
+                    DialogResult result = MessageBox.Show("Deseja cadastrar o estudante?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
                     {
                         RegisterStudents();
                         MessageBox.Show("Aluno cadastrado com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -126,20 +125,5 @@ namespace ProjetoSistemaEe
         }
 
         #endregion Buttons
-
-        private void BtnTest_Click(object sender, EventArgs e)
-        {
-            TxtName.Text = "Teste";
-            TxtEmail.Text = "Teste@teste.com";
-            TxtZipCode.Text = "13254685";
-            CbShift.Text = "Diurno";
-            CbCourse.Text = "Arqueologia";
-            CbPeriod.SelectedValue = "1°";
-            TxtNum.Text = "123";
-            TxtPhone.Text = "11971258656";
-            CbMartialStatus.Text = "Solteiro";
-            CbGender.Text = "Masculino";
-            DtStudent.Value = new DateTime(1999, 12, 31);
-        }
     }
 }

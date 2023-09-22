@@ -1,9 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Utilities.Collections;
 using ProjetoSistemaEe.Entidades;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ProjetoSistemaEe.DAO
 {
@@ -158,7 +156,7 @@ namespace ProjetoSistemaEe.DAO
                 con.OpenConnection();
                 sql = new MySqlCommand(@"
                 DELETE FROM professor_subjects WHERE professor_id = @id;
-                DELETE FROM reportcards WHERE professor_id = @id;
+                UPDATE reportcards SET professor_id = 0 WHERE (id = @id);
                 DELETE FROM professors WHERE id = @id;
                ", con.con);
                 sql.Parameters.AddWithValue("@id", professor.Id);
@@ -194,15 +192,15 @@ namespace ProjetoSistemaEe.DAO
                                          WHERE p.id = @professor_id;", con.con);
                 sql.Parameters.AddWithValue("@professor_id", professorId);
                 MySqlDataReader dr = sql.ExecuteReader();
-                List<Subjects> materias = new List<Subjects>();
+                List<Subjects> subject = new List<Subjects>();
                 while (dr.Read())
                 {
                     int subjectId = Convert.ToInt32(dr["subjectid"]);
                     string subjectName = dr["name"].ToString();
                     Subjects materia = new Subjects(subjectId, subjectName);
-                    materias.Add(materia);
+                    subject.Add(materia);
                 }
-                return materias;
+                return subject;
             }
             catch (Exception)
             {

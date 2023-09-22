@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterStudent));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnTest = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BtnPreviousMenu = new FontAwesome.Sharp.IconButton();
             this.BtnMinimize = new FontAwesome.Sharp.IconButton();
@@ -76,7 +75,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.background_aluno;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel1.Controls.Add(this.BtnTest);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.TxtZipCode);
             this.panel1.Controls.Add(this.CbPeriod);
@@ -113,28 +111,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1039, 669);
             this.panel1.TabIndex = 0;
-            // 
-            // BtnTest
-            // 
-            this.BtnTest.BackColor = System.Drawing.Color.Transparent;
-            this.BtnTest.BackgroundImage = global::ProjetoSistemaEe.RecursosVisuais.botaoroxo;
-            this.BtnTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnTest.FlatAppearance.BorderSize = 0;
-            this.BtnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTest.Font = new System.Drawing.Font("Manrope", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTest.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnTest.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.BtnTest.IconColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnTest.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnTest.IconSize = 35;
-            this.BtnTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnTest.Location = new System.Drawing.Point(629, 609);
-            this.BtnTest.Name = "BtnTest";
-            this.BtnTest.Size = new System.Drawing.Size(130, 35);
-            this.BtnTest.TabIndex = 42;
-            this.BtnTest.Text = "Teste";
-            this.BtnTest.UseVisualStyleBackColor = false;
-            this.BtnTest.Click += new System.EventHandler(this.BtnTest_Click);
             // 
             // panel2
             // 
@@ -407,10 +383,14 @@
             this.DtStudent.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtStudent.CustomFormat = "dd/MM/yyyy";
             this.DtStudent.Font = new System.Drawing.Font("Manrope", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtStudent.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DtStudent.Location = new System.Drawing.Point(315, 431);
+            this.DtStudent.MaxDate = new System.DateTime(2004, 12, 31, 0, 0, 0, 0);
+            this.DtStudent.MinDate = new System.DateTime(1953, 1, 1, 0, 0, 0, 0);
             this.DtStudent.Name = "DtStudent";
             this.DtStudent.Size = new System.Drawing.Size(206, 29);
             this.DtStudent.TabIndex = 5;
+            this.DtStudent.Value = new System.DateTime(2004, 12, 31, 0, 0, 0, 0);
             // 
             // TxtPhone
             // 
@@ -609,7 +589,6 @@
         private System.Windows.Forms.Panel panel2;
         private FontAwesome.Sharp.IconButton BtnMinimize;
         private FontAwesome.Sharp.IconButton BtnPreviousMenu;
-        private FontAwesome.Sharp.IconButton BtnTest;
     }
 }
 

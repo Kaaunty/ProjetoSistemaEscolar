@@ -5,14 +5,6 @@ namespace ProjetoSistemaEe.Utils
 {
     public class Validations
     {
-        public void FormatDate(DateTimePicker dateTimePicker, DateTime maxDate, DateTime minDate)
-        {
-            dateTimePicker.Format = DateTimePickerFormat.Custom;
-            dateTimePicker.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker.MaxDate = maxDate;
-            dateTimePicker.MinDate = minDate;
-        }
-
         public bool ValidateControls(Control parentControl)
         {
             foreach (Control control in parentControl.Controls)
@@ -81,7 +73,7 @@ namespace ProjetoSistemaEe.Utils
             }
         }
 
-        public void ValidateCEP(MaskedTextBox textBox, TextBox estado, TextBox cidade, TextBox bairro, TextBox rua, TextBox numrua)
+        public void ValidateCEP(MaskedTextBox textBox, TextBox state, TextBox city, TextBox district, TextBox street, TextBox streetNumber)
         {
             if (!string.IsNullOrEmpty(textBox.Text) && textBox.MaskCompleted)
             {
@@ -89,11 +81,11 @@ namespace ProjetoSistemaEe.Utils
                 {
                     try
                     {
-                        var endereco = ws.consultaCEP(textBox.Text.Trim());
-                        estado.Text = endereco.uf;
-                        cidade.Text = endereco.cidade;
-                        bairro.Text = endereco.bairro;
-                        rua.Text = endereco.end;
+                        var address = ws.consultaCEP(textBox.Text.Trim());
+                        state.Text = address.uf;
+                        city.Text = address.cidade;
+                        district.Text = address.bairro;
+                        street.Text = address.end;
                     }
                     catch (Exception)
                     {
@@ -103,7 +95,7 @@ namespace ProjetoSistemaEe.Utils
                     }
                 }
             }
-            numrua.Clear();
+            streetNumber.Clear();
         }
 
         public void ClearControls(Control control)
