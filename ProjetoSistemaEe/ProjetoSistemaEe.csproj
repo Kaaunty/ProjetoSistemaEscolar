@@ -111,7 +111,7 @@
     <Compile Include="Entities\Course.cs" />
     <Compile Include="Entities\Subjects.cs" />
     <Compile Include="Model\SubjectsModel.cs" />
-    <Compile Include="Services\Calculations.cs" />
+    <Compile Include="Utils\Calculations.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="Connected Services\WSCorreios\Reference.cs">
       <AutoGen>True</AutoGen>

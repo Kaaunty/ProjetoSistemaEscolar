@@ -13,11 +13,9 @@ namespace ProjetoSistemaEe.DAO
         public List<ReportCard> GetReportCards()
         {
             List<ReportCard> reportCards = new List<ReportCard>();
-            try
-            {
-                con.OpenConnection();
-                sql = new MySqlCommand(
-                @"SELECT rc.student_id,
+            con.OpenConnection();
+            sql = new MySqlCommand(
+            @"SELECT rc.student_id,
                   s.name AS student_name,
                   c.name AS course_name,
                   sb.name AS subject_name,
@@ -34,111 +32,73 @@ namespace ProjetoSistemaEe.DAO
                   JOIN students s on s.ra = rc.student_id
                   JOIN courses c on c.id = rc.course_id
                   JOIN subjects sb on sb.id = rc.subject_id;", con.con);
-                MySqlDataReader dr = sql.ExecuteReader();
+            MySqlDataReader dr = sql.ExecuteReader();
 
-                while (dr.Read())
-                {
-                    int id = Convert.ToInt32(dr["reportcard_id"]);
-                    int ra = Convert.ToInt32(dr["student_id"]);
-                    string studentName = dr["student_name"].ToString();
-                    int courseId = Convert.ToInt32(dr["course_id"]);
-                    string courseName = dr["course_name"].ToString();
-                    int subjectId = Convert.ToInt32(dr["subject_id"]);
-                    string subjectName = dr["subject_name"].ToString();
-                    double grade1 = Convert.ToDouble(dr["grade1"]);
-                    double grade2 = Convert.ToDouble(dr["grade2"]);
-                    double grade3 = Convert.ToDouble(dr["grade3"]);
-                    double grade4 = Convert.ToDouble(dr["grade4"]);
-                    double average = Convert.ToDouble(dr["average"]);
-                    string situation = dr["situation"].ToString();
-                    ReportCard reportCard = new ReportCard(id, ra, studentName, courseId, courseName, subjectId, subjectName, grade1, grade2, grade3, grade4, average, situation);
-                    reportCards.Add(reportCard);
-                }
-                return reportCards;
-            }
-            catch (Exception)
+            while (dr.Read())
             {
-                throw;
+                int id = Convert.ToInt32(dr["reportcard_id"]);
+                int ra = Convert.ToInt32(dr["student_id"]);
+                string studentName = dr["student_name"].ToString();
+                int courseId = Convert.ToInt32(dr["course_id"]);
+                string courseName = dr["course_name"].ToString();
+                int subjectId = Convert.ToInt32(dr["subject_id"]);
+                string subjectName = dr["subject_name"].ToString();
+                double grade1 = Convert.ToDouble(dr["grade1"]);
+                double grade2 = Convert.ToDouble(dr["grade2"]);
+                double grade3 = Convert.ToDouble(dr["grade3"]);
+                double grade4 = Convert.ToDouble(dr["grade4"]);
+                double average = Convert.ToDouble(dr["average"]);
+                string situation = dr["situation"].ToString();
+                ReportCard reportCard = new ReportCard(id, ra, studentName, courseId, courseName, subjectId, subjectName, grade1, grade2, grade3, grade4, average, situation);
+                reportCards.Add(reportCard);
             }
-            finally
-            {
-                con.CloseConnection();
-            }
+            con.CloseConnection();
+            return reportCards;
         }
 
         public void RegisterReportCard(ReportCard reportCard)
         {
-            try
-            {
-                con.OpenConnection();
-                sql = new MySqlCommand(@"INSERT INTO reportcards ()
+            con.OpenConnection();
+            sql = new MySqlCommand(@"INSERT INTO reportcards ()
                                          VALUES(DEFAULT, @student_id, @course_id, @subject_id, @grade1, @grade2, @grade3, @grade4, @average, @situation, @professor_id);", con.con);
-                sql.Parameters.AddWithValue("@student_id", reportCard.Student.Ra);
-                sql.Parameters.AddWithValue("@course_id", reportCard.Course.CourseId);
-                sql.Parameters.AddWithValue("@subject_id", reportCard.Subject.SubjectId);
-                sql.Parameters.AddWithValue("@grade1", reportCard.Grade1);
-                sql.Parameters.AddWithValue("@grade2", reportCard.Grade2);
-                sql.Parameters.AddWithValue("@grade3", reportCard.Grade3);
-                sql.Parameters.AddWithValue("@grade4", reportCard.Grade4);
-                sql.Parameters.AddWithValue("@average", reportCard.Average);
-                sql.Parameters.AddWithValue("@situation", reportCard.Situation);
-                sql.Parameters.AddWithValue("@professor_id", reportCard.Professor.Id);
-                sql.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                con.CloseConnection();
-            }
+            sql.Parameters.AddWithValue("@student_id", reportCard.Student.Ra);
+            sql.Parameters.AddWithValue("@course_id", reportCard.Course.CourseId);
+            sql.Parameters.AddWithValue("@subject_id", reportCard.Subject.SubjectId);
+            sql.Parameters.AddWithValue("@grade1", reportCard.Grade1);
+            sql.Parameters.AddWithValue("@grade2", reportCard.Grade2);
+            sql.Parameters.AddWithValue("@grade3", reportCard.Grade3);
+            sql.Parameters.AddWithValue("@grade4", reportCard.Grade4);
+            sql.Parameters.AddWithValue("@average", reportCard.Average);
+            sql.Parameters.AddWithValue("@situation", reportCard.Situation);
+            sql.Parameters.AddWithValue("@professor_id", reportCard.Professor.Id);
+            sql.ExecuteNonQuery();
+            con.CloseConnection();
         }
 
         public void EditReportCard(ReportCard reportCard)
         {
-            try
-            {
-                con.OpenConnection();
-                sql = new MySqlCommand("UPDATE reportcards SET grade1 = @grade1, grade2 = @grade2, grade3 = @grade3, grade4 = @grade4, average = @average, situation = @situation WHERE id = @id;", con.con);
-                sql.Parameters.AddWithValue("@id", reportCard.Id);
-                sql.Parameters.AddWithValue("@grade1", reportCard.Grade1);
-                sql.Parameters.AddWithValue("@grade2", reportCard.Grade2);
-                sql.Parameters.AddWithValue("@grade3", reportCard.Grade3);
-                sql.Parameters.AddWithValue("@grade4", reportCard.Grade4);
-                sql.Parameters.AddWithValue("@average", reportCard.Average);
-                sql.Parameters.AddWithValue("@situation", reportCard.Situation);
-                sql.ExecuteNonQuery();
-                sql.Dispose();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                con.CloseConnection();
-            }
+            con.OpenConnection();
+            sql = new MySqlCommand("UPDATE reportcards SET grade1 = @grade1, grade2 = @grade2, grade3 = @grade3, grade4 = @grade4, average = @average, situation = @situation WHERE id = @id;", con.con);
+            sql.Parameters.AddWithValue("@id", reportCard.Id);
+            sql.Parameters.AddWithValue("@grade1", reportCard.Grade1);
+            sql.Parameters.AddWithValue("@grade2", reportCard.Grade2);
+            sql.Parameters.AddWithValue("@grade3", reportCard.Grade3);
+            sql.Parameters.AddWithValue("@grade4", reportCard.Grade4);
+            sql.Parameters.AddWithValue("@average", reportCard.Average);
+            sql.Parameters.AddWithValue("@situation", reportCard.Situation);
+            sql.ExecuteNonQuery();
+            sql.Dispose();
+            con.CloseConnection();
         }
 
         public void DeleteReportCard(ReportCard reportCard)
         {
-            try
-            {
-                con.OpenConnection();
-                sql = new MySqlCommand("DELETE FROM reportcards WHERE id = @id", con.con);
-                sql.Parameters.AddWithValue("@id", reportCard.Id);
-                sql.ExecuteNonQuery();
-                sql.Dispose();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                con.CloseConnection();
-            }
+            con.OpenConnection();
+            sql = new MySqlCommand("DELETE FROM reportcards WHERE id = @id", con.con);
+            sql.Parameters.AddWithValue("@id", reportCard.Id);
+            sql.ExecuteNonQuery();
+            sql.Dispose();
+            con.CloseConnection();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoSistemaEe.Entidades;
+using System;
 using System.Windows.Forms;
 
 namespace ProjetoSistemaEe.Utils
@@ -145,6 +146,26 @@ namespace ProjetoSistemaEe.Utils
             {
                 MessageBox.Show("Digite um valor numérico válido.");
                 text.Text = "";
+            }
+        }
+
+        public string CheckSituation(double average)
+        {
+            int averageFailed = 5;
+
+            int averageRecovery = 7;
+
+            if (average < averageFailed)
+            {
+                return "Reprovado";
+            }
+            else if (average >= averageFailed && average <= averageRecovery)
+            {
+                return "Recuperação";
+            }
+            else
+            {
+                return "Aprovado";
             }
         }
     }

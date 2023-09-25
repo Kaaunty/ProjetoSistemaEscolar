@@ -13,85 +13,62 @@ namespace ProjetoSistemaEe.DAO
         public List<Course> GetCourses()
         {
             List<Course> courses = new List<Course>();
-            try
-            {
-                con.OpenConnection();
-                sql = new MySqlCommand("SELECT * FROM courses order by name;", con.con);
-                MySqlDataReader dr = sql.ExecuteReader();
 
-                while (dr.Read())
-                {
-                    Course course = new Course();
-                    course.CourseId = Convert.ToInt32(dr["id"]);
-                    course.CourseName = dr["name"].ToString();
-                    courses.Add(course);
-                }
-                return courses;
-            }
-            catch (Exception)
+            con.OpenConnection();
+            sql = new MySqlCommand("SELECT * FROM courses order by name;", con.con);
+            MySqlDataReader dr = sql.ExecuteReader();
+
+            while (dr.Read())
             {
-                throw;
+                Course course = new Course();
+                course.CourseId = Convert.ToInt32(dr["id"]);
+                course.CourseName = dr["name"].ToString();
+                courses.Add(course);
             }
+            con.CloseConnection();
+            return courses;
         }
 
         public List<Course> GetCoursesContainStudent()
         {
             List<Course> courses = new List<Course>();
-            try
+
+            con.OpenConnection();
+            sql = new MySqlCommand("SELECT * FROM courses c inner join students s on c.id = s.course group by c.id;", con.con);
+            MySqlDataReader dr = sql.ExecuteReader();
+            while (dr.Read())
             {
-                con.OpenConnection();
-                sql = new MySqlCommand("SELECT * FROM courses c inner join students s on c.id = s.course group by c.id;", con.con);
-                MySqlDataReader dr = sql.ExecuteReader();
-                while (dr.Read())
-                {
-                    Course course = new Course();
-                    course.CourseId = Convert.ToInt32(dr["id"]);
-                    course.CourseName = dr["name"].ToString();
-                    courses.Add(course);
-                }
-                return courses;
+                Course course = new Course();
+                course.CourseId = Convert.ToInt32(dr["id"]);
+                course.CourseName = dr["name"].ToString();
+                courses.Add(course);
             }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                con.CloseConnection();
-            }
+            con.CloseConnection();
+            return courses;
         }
 
         public List<Student> GetStudentsByCourse(int courseId)
 
         {
             List<Student> students = new List<Student>();
-            try
-            {
-                con.OpenConnection();
-                sql = new MySqlCommand(@"SELECT DISTINCT s.ra, s.name
+
+            con.OpenConnection();
+            sql = new MySqlCommand(@"SELECT DISTINCT s.ra, s.name
                                          FROM students s
                                          LEFT JOIN reportcards rc ON s.ra = rc.student_id
                                          AND s.course = rc.course_id
                                          WHERE s.course = @course_id;", con.con);
-                sql.Parameters.AddWithValue("@course_id", courseId);
-                MySqlDataReader dr = sql.ExecuteReader();
-                while (dr.Read())
-                {
-                    Student student = new Student();
-                    student.Ra = Convert.ToInt32(dr["ra"]);
-                    student.Name = dr["name"].ToString();
-                    students.Add(student);
-                }
-                return students;
-            }
-            catch (Exception)
+            sql.Parameters.AddWithValue("@course_id", courseId);
+            MySqlDataReader dr = sql.ExecuteReader();
+            while (dr.Read())
             {
-                throw;
+                Student student = new Student();
+                student.Ra = Convert.ToInt32(dr["ra"]);
+                student.Name = dr["name"].ToString();
+                students.Add(student);
             }
-            finally
-            {
-                con.CloseConnection();
-            }
+            con.CloseConnection();
+            return students;
         }
     }
 }

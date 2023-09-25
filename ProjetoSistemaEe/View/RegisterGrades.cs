@@ -60,7 +60,7 @@ namespace ProjetoSistemaEe.View
                 double grade3 = Convert.ToDouble(TxtN3.Text);
                 double grade4 = Convert.ToDouble(TxtN4.Text);
                 double average = Convert.ToDouble(TxtAverage.Text);
-                string situation = calculate.CheckSituation(average);
+                string situation = validate.CheckSituation(average);
 
                 ReportCard boletim = new ReportCard(ra, professorId, subjectId, courseId, grade1, grade2, grade3, grade4, average, situation);
                 reportCardModel.Register(boletim);
@@ -90,8 +90,12 @@ namespace ProjetoSistemaEe.View
 
             if (TxtN1.Text != "" && TxtN2.Text != "" && TxtN3.Text != "" && TxtN4.Text != "")
             {
-                calculate.CalculateAverage(TxtN1, TxtN2, TxtN3, TxtN4, TxtAverage);
+                TxtAverage.Text = calculate.CalculateAverage(TxtN1.Text, TxtN2.Text, TxtN3.Text, TxtN4.Text, out string ErrorMessage);
                 BtnAdd.Enabled = true;
+                if (ErrorMessage != "")
+                {
+                    MessageBox.Show(ErrorMessage, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {

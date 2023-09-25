@@ -62,7 +62,7 @@ namespace ProjetoSistemaEe.View
                 double grade3 = Convert.ToDouble(TxtN3.Text);
                 double grade4 = Convert.ToDouble(TxtN4.Text);
                 double average = Convert.ToDouble(TxtAverage.Text);
-                string situation = calculate.CheckSituation(average);
+                string situation = validate.CheckSituation(average);
                 ReportCard reportCard = new ReportCard(id, grade1, grade2, grade3, grade4, average, situation);
                 reportCardModel.Edit(reportCard);
             }
@@ -123,15 +123,26 @@ namespace ProjetoSistemaEe.View
                 }
             }
 
-            if (TxtN1.Text != "" && TxtN2.Text != "" && TxtN3.Text != "" && TxtN4.Text != "")
+            try
             {
-                calculate.CalculateAverage(TxtN1, TxtN2, TxtN3, TxtN4, TxtAverage);
-                BtnEdit.Enabled = true;
+                if (TxtN1.Text != "" && TxtN2.Text != "" && TxtN3.Text != "" && TxtN4.Text != "")
+                {
+                    TxtAverage.Text = calculate.CalculateAverage(TxtN1.Text, TxtN2.Text, TxtN3.Text, TxtN4.Text, out string ErrorMessage);
+                    BtnEdit.Enabled = true;
+                    if (ErrorMessage != "")
+                    {
+                        MessageBox.Show(ErrorMessage, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    TxtAverage.Clear();
+                    BtnEdit.Enabled = false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                TxtAverage.Clear();
-                BtnEdit.Enabled = false;
+                MessageBox.Show(ex.Message);
             }
         }
 
